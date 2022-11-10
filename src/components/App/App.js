@@ -1,12 +1,19 @@
+import { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import SharedLayout from 'components/SharedLayout';
-import s from './App.module.css';
+
+const Home = lazy(() => import('pages/Home'));
 
 function App() {
   return (
     <>
-      <h1 className={s.title}>App component</h1>
-      <p>Hello</p>
-      <SharedLayout />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<Home />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </>
   );
 }
