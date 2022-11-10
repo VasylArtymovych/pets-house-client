@@ -11,4 +11,5 @@ Added modules:
 - react-router-dom
 - @reduxjs/toolkit
 - react-icons
-- axios
+- axio
+- sass
