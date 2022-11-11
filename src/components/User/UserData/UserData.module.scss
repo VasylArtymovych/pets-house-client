@@ -1,0 +1,40 @@
+.data_container {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  @media screen and (min-width: 1280px) {
+  }
+}
+.avatar_container {
+  @media screen and (min-width: 768px) {
+    order: 2;
+  }
+  @media screen and (min-width: 1280px) {
+  }
+}
+
+.data_img {
+  margin: 0 auto;
+}
+.data_box {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 34px;
+  @media screen and (min-width: 768px) {
+    margin: 0;
+  }
+  @media screen and (min-width: 1280px) {
+  }
+}
+
+.data_text {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22px;
+  letter-spacing: 0.04em;
+  color: #111111;
+}
