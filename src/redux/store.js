@@ -16,7 +16,7 @@ import {
 export const store= configureStore({
     reducer:{
         persistSliceAuth,
-    [userApi.reducerPath]: userApi.reducer,
+        [userApi.reducerPath]: userApi.reducer,
 },
 middleware: getDefaultMiddleware=>
 getDefaultMiddleware({

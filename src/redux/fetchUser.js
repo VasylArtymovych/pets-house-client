@@ -3,7 +3,7 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 export const userApi=createApi({
     reducerPath: 'userApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://connections-api.herokuapp.com/users',
+        baseUrl: 'https://api.herokuapp.com/users',
         prepareHeaders:(headers, {getState})=>{
             const token= getState().users.token
             if(token){ headers.set('Athorization', `Bearer ${token}`)}
