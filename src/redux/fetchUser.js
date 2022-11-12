@@ -1,19 +1,19 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 
 export const userApi=createApi({
-    reducerPath: 'userApi',
+    reducerPath:'userApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://api.herokuapp.com/users',
-        prepareHeaders:(headers, {getState})=>{
-            const token= getState().users.token
-            if(token){ headers.set('Athorization', `Bearer ${token}`)}
-            return headers
-        }
+        baseUrl: 'http://localhost:8888/api/auth',
+        // prepareHeaders:(headers, {getState})=>{
+        //     const token= getState().users.token
+        //     if(token){ headers.set('Athorization', `Bearer ${token}`)}
+        //     return headers
+        // }
     }),
     endpoints: builder=>({
         registrationUser: builder.mutation({
             query:(payload)=>({
-                url: '/signup',
+                url: '/register',
                 method: 'POST',
                 body: payload,
             }),

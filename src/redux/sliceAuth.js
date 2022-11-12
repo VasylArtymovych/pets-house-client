@@ -9,7 +9,7 @@ const initialState={
         email:null,
         password:null,
         name:null,
-        location:null,
+        city:null,
         phone:null,
     },
     token:null,
@@ -29,7 +29,7 @@ export const authSlice=createSlice({
                 const{user, token}= payload;
                 state.user.email= user.email;
                 state.user.name= user.name;
-                state.user.location= user.location;
+                state.user.city= user.city;
                 state.user.phone= user.phone;
                 state.token= token;
                 state.isLogged= true;
@@ -54,12 +54,12 @@ export const authSlice=createSlice({
         builder.addMatcher(
             userApi.endpoints.registrationUser.matchFulfilled,
             (state,{payload})=>{
-                const {user,token}=payload;
+                const {user}=payload;
                 state.user.email= user.email;
                 state.user.name= user.name;
-                state.user.location= user.location;
+                state.user.city= user.city;
                 state.user.phone= user.phone;
-                state.token= token;
+                // state.token= token;
                 state.isLogged= true;
                 state.loadUser= false;
             }
@@ -81,10 +81,10 @@ export const authSlice=createSlice({
         builder.addMatcher(
             userApi.endpoints.getCurrentUser.matchFulfilled,
             (state,{payload})=>{
-                const{email,name,location,phone}= payload.user;
+                const{email,name,city,phone}= payload.user;
                 state.user.email= email;
                 state.user.name= name;
-                state.user.location=location;
+                state.user.city=city;
                 state.user.phone= phone;
                 state.isLogged= true;
                 state.loadUser= false;
@@ -129,14 +129,20 @@ export const persistSliceAuth= persistReducer(persistConfig, authSlice.reducer) 
 
 //Selectors
 
+// export const authSelectors={
+//     getUserEmail: state=> state.users.user.email,
+//     getUserName: state=> state.users.user.name,
+//     getUserCity: state=> state.users.user.city,
+//     getUserPhone: state=> state.users.user.phone,
+//     getToken: state=> state.users.token,
+//     isLogged: state=> state.users.isLogged,
+//     isLoadUser: state=> state.users.loadUser,
+//     isErrorServer: state=> state.users.errorServer,
+//     isErrorRegistration: state=> state.users.errorRegistration,
+// }
+
+const getUserName= state=> state.users.user.name
+
 export const authSelectors={
-    getUserEmail: state=> state.users.user.email,
-    getUserName: state=> state.users.user.name,
-    getUserlocation: state=> state.users.user.location,
-    getUserPhone: state=> state.users.user.phone,
-    getToken: state=> state.users.token,
-    isLogged: state=> state.users.isLogged,
-    isLoadUser: state=> state.users.loadUser,
-    isErrorServer: state=> state.users.errorServer,
-    isErrorRegistration: state=> state.users.errorRegistration,
+    getUserName
 }
