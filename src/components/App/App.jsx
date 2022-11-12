@@ -6,6 +6,13 @@ import SharedLayout from 'components/SharedLayout';
 // import News from 'pages/News';
 // import OurFriend from 'pages/OurFriend';
 
+// const linkPage = [
+//   { to: '/news', page: <News /> },
+//   { to: '/notices', page: <FindPet /> },
+//   { to: '/friends', page: <OurFriend /> },
+//   { to: '/login', page: <Login /> },
+//   { to: '/register', page: <Register /> }
+// ];
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
 const UserPage = lazy(() => import('pages/UserPage'));
@@ -14,13 +21,6 @@ const Login = lazy(() => import('pages/Login'));
 const News = lazy(() => import('pages/News'));
 const OurFriend = lazy(() => import('pages/OurFriend'));
 
-// const linkPage = [
-//   { to: '/news', page: <News /> },
-//   { to: '/notices', page: <FindPet /> },
-//   { to: '/friends', page: <OurFriend /> },
-//   { to: '/login', page: <Login /> },
-//   { to: '/register', page: <Register /> }
-// ];
 
 function App() {
   return (
@@ -29,16 +29,15 @@ function App() {
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />
-
-            {/* {linkPage.map((el) => (
-              <Route key={Math.random()} path={el.to} element={el.page} />
-            ))} */}
             <Route path="/news" element={<News />} />
             <Route path="/notices" element={<FindPet />} />
             <Route path="/friends" element={<OurFriend />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/user" element={<UserPage />} />
+            {/* {linkPage.map((el) => (
+              <Route key={Math.random()} path={el.to} element={el.page} />
+            ))} */}
           </Route>
         </Routes>
       </Suspense>
