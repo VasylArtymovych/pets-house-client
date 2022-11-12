@@ -2,50 +2,46 @@ import { AuthFormFirstPage, AuthFormSecondPage } from 'components/AuthForm';
 import React, { useState } from 'react';
 
 const Register = () => {
+  const [data, setData] = useState({
+    email: '',
+    password: '',
+    confirmPassword: '',
+    name: '',
+    city: '',
+    phone: ''
+  });
+  const [page, setPage] = useState(0);
 
-  	const [data, setData] = useState({
-		email: '',
-		password: '',
-		confirmPassword: '',
-		name: '',
-		city: '',
-		phone: '',
-	});
-	const [page, setPage] = useState(0);
-
-	const formTitles = ['Registration', 'Personal Info'];
+  const formTitles = ['Registration', 'Personal Info'];
 
   const makeRequest = (formData) => {
-    console.log("Submiting", formData)
-  }
+    console.log('Submiting', formData);
+  };
 
-	const handleNextStep = (newData, final = false) => {
-		setData(prev => ({ ...prev, ...newData }));
-    setPage(prev => prev + 1);
-    
-    if(final){
-      makeRequest(newData)
-      return
+  const handleNextStep = (newData, final = false) => {
+    setData((prev) => ({ ...prev, ...newData }));
+    setPage((prev) => prev + 1);
+
+    if (final) {
+      makeRequest(newData);
+      return;
     }
-	};
+  };
 
-	const handlePrevStep = newData => {
-		setData(prev => ({ ...prev, ...newData }));
-		setPage(prev => prev - 1);
-	};
+  const handlePrevStep = (newData) => {
+    setData((prev) => ({ ...prev, ...newData }));
+    setPage((prev) => prev - 1);
+  };
 
-	const steps = [
-		<AuthFormFirstPage next={handleNextStep} data={data} title={formTitles[page]} />,
-		<AuthFormSecondPage prev={handlePrevStep} next={handleNextStep} data={data} title={formTitles[page]} />,
-	];
+  const steps = [
+    <AuthFormFirstPage next={handleNextStep} data={data} title={formTitles[page]} />,
+    <AuthFormSecondPage prev={handlePrevStep} next={handleNextStep} data={data} title={formTitles[page]} />
+  ];
 
-	console.log('data', data);
+  console.log('data', data);
 
-	return <>{steps[page]}</>;
+  return <>{steps[page]}</>;
 };
-
-
-
 
 export default Register;
 
