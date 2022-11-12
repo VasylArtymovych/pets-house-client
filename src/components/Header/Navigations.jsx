@@ -37,6 +37,7 @@ const Navigations = () => {
       <div className={styleNavigation.navigationLinkWrapper}>
         {link.map((el) => (
           <NavLink
+            key={Math.random()}
             to={el.to}
             className={location.pathname === el.to ? `${styleNavigation.navigationLink} ${styleNavigation.active}` : styleNavigation.navigationLink}
           >
@@ -47,7 +48,7 @@ const Navigations = () => {
       {/* navigation for registration */}
       <div className={styleNavigation.buttonLinkWrapp}>
         {linkAuth.map((el) => (
-          <NavLink to={el.to} className={styleNavigation.buttonlink}>
+          <NavLink key={Math.random()} to={el.to} className={styleNavigation.buttonlink}>
             <span>{el.text}</span>
           </NavLink>
         ))}
