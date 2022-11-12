@@ -6,6 +6,7 @@ body {
   font-family: 'Manrope';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #fdf7f2;
 }
 
 * {
@@ -32,4 +33,9 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
