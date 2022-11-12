@@ -1,10 +1,13 @@
 import scss from './Logout.module.scss';
+import sprite from '../../../images/symbol-defs.svg';
 
 const Logout = () => {
   return (
     <div className={scss.logout}>
-      {/* <img src={logout} alt="logout" width="18" /> */}
-      <button className={scss.logout_btn} type="submit">
+      <button className={scss.logout__btn} type="submit">
+        <svg className={scss.logaut__svg} width="18" height="18">
+          <use href={sprite + '#icon-LogOut'} />
+        </svg>
         Log Out
       </button>
     </div>

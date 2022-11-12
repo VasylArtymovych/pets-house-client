@@ -5,18 +5,17 @@
   @media screen and (min-width: 768px) {
     width: 379px;
     order: 1;
+    font-size: 18px;
+    line-height: 25px;
   }
   @media screen and (min-width: 1280px) {
+    order: 2;
   }
 }
 
 .items {
   width: 100%;
-  // display: flex;
-  // justify-content: space-between;
   column-count: 3;
-  font-family: 'Manrope';
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
@@ -25,22 +24,86 @@
   &:not(:last-child) {
     margin-bottom: 8px;
   }
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 25px;
+  }
+  @media screen and (min-width: 1280px) {
+  }
 }
 .items_info {
-  align-items: stretch;
+  font-weight: 400;
 }
 
 .changebtn {
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  // margin: auto;
   width: 20px;
   height: 20px;
   border-radius: 50%;
+  border-color: transparent;
   background-color: #fdf7f2;
   backdrop-filter: blur(2px);
-  break-inside: avoid;
+  margin-left: auto;
+
+  @media screen and (min-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+  }
+}
+.icon__profilePencil {
+  width: 13px;
+  fill: rgba(17, 17, 17, 0.6);
+  @media screen and (min-width: 768px) {
+    width: 15px;
+  }
+  @media screen and (min-width: 1280px) {
+  }
+}
+
+.input__change {
+  width: 159px;
+  height: 24px;
+  margin-left: -25px;
+  @media screen and (min-width: 768px) {
+    width: 216px;
+    height: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+  }
+}
+.check__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: #fdf7f2;
+  backdrop-filter: blur(2px);
+  margin-left: auto;
+
+  @media screen and (min-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+  }
+}
+.icon__profileCheckMark {
+  width: 11px;
+  height: 8px;
+  fill: #f59256;
+  @media screen and (min-width: 768px) {
+    width: 17px;
+    height: 13px;
+  }
+  @media screen and (min-width: 1280px) {
+  }
 }
