@@ -3,31 +3,43 @@ import { ErrorMessage, Form, Formik } from 'formik';
 import scss from './AuthForm.module.scss';
 import * as Yup from 'yup';
 import Button from 'components/Button';
+import{useLogInMutation} from "redux/fetchUser"
+///////////////////////////////////////////////////
+import { useEffect } from 'react';
+///////////////////////////////////////////////////
 
 const stepOneValidationSchema = Yup.object({
   email: Yup.string().email('Invalid email').required('Required'),
-  password: Yup.string().required('Password is required'),
-  confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match')
+  password: Yup.string().required('Password is required')
 });
 
-export const AuthFormFirstPage = (props) => {
+export const LoginForm = (props) => {
+  const [logIn]=useLogInMutation()
+  ////////////////////////////////////////// Данный код, только для теста логина/////////////////////////////////////////
+  const email="pupik@gm.com"
+  const password="12345678"
+  useEffect(() => {
+    logIn({email,password})
+  }, []);
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   const handleSubmit = (values) => {
     props.next(values, true);
+// logIn({values})
   };
   return (
     <div className={scss.container}>
       <Formik validationSchema={stepOneValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
         {() => (
           <Form className={scss.form + ' ' + props.customStyle}>
+            {/* <h2 className={scss.title}>{nameUser}</h2> */}
             <h2 className={scss.title}>{props.title}</h2>
             <InputForm customStyle={scss.input__auth} name="email" type="email" placeholder="Email" />
             <ErrorMessage name="email" />
-            <InputForm customStyle={scss.input__auth} name="password" type="password" placeholder="Password" />
+            <InputForm customStyle={scss.input__auth_last} name="password" type="password" placeholder="Password" />
             <ErrorMessage name="password" />
-            <InputForm customStyle={scss.input__auth_last} name="confirmPassword" type="confirmPassword" placeholder="Confirm Password" />
-            <ErrorMessage name="confirmPassword" />
+
             <div>
-              <Button type="submit" className={scss.button__auth} buttonName="Next"></Button>
+              <Button type="submit" className={scss.button__auth} buttonName="Login"></Button>
             </div>
             <p className={scss.redirect__auth}>
               Don't have an account?
@@ -41,5 +53,3 @@ export const AuthFormFirstPage = (props) => {
     </div>
   );
 };
-
-// export default AuthFormFirstPage;

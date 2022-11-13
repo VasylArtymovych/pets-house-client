@@ -1,12 +1,25 @@
 @import-normalize;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Manrope:wght@400;500;600;700&family=Montserrat:wght@400;500&family=Poppins:wght@400;700&display=swap');
 
+:root {
+  --bg__color: #fdf7f2;
+  --accent__color: rgb(245, 146, 86);
+  --input__color: rgba(245, 146, 86, 0.5);
+  --backdrop__color: rgba(17, 17, 17, 0.6);
+  --btn__color: #ffffff; // і фоновий для спливаючих вікон і для карточок звірят
+  --in-good-hands: rgba(255, 255, 255, 0.6);
+  --btn__shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
+  --btn__shadow__focus: 0px 0px 2px 4px rgba(245, 146, 86, 0.7), 0px 0px 2px 4px rgba(245, 146, 86, 0.7), 0px 0px 4px 2px rgba(245, 146, 86, 0.7);
+  // --transition__duration: 800ms;
+}
+
 body {
   margin: 0;
   font-family: 'Manrope';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fdf7f2;
+  // background-color: #fdf7f2;
+  background-color: var(--bg__color);
 }
 
 * {

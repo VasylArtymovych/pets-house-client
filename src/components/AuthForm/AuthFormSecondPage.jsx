@@ -2,6 +2,7 @@ import { InputForm } from 'components/Input';
 import { ErrorMessage, Form, Formik } from 'formik';
 import scss from './AuthForm.module.scss';
 import * as Yup from 'yup';
+import Button from 'components/Button';
 
 const stepTwoValidationSchema = Yup.object({
   name: Yup.string().min(2, 'Too Short!').max(70, 'Too Long!').required('Required').label('Name'),
@@ -26,12 +27,8 @@ export const AuthFormSecondPage = (props) => {
             <InputForm customStyle={scss.input__auth_last} name="phone" type="phone" placeholder="Mobile phone" />
             <ErrorMessage name="phone" />
             <div>
-              <button onClick={() => props.prev(values)} className={scss.button__auth}>
-                Back
-              </button>
-              <button type="submit" className={scss.button__auth}>
-                Submit
-              </button>
+              <Button onClick={() => props.prev(values)} className={scss.button__auth} buttonName="Back"></Button>
+              <Button type="submit" className={scss.button__auth} buttonName="Submit"></Button>
             </div>
             <p className={scss.redirect__auth}>
               Don't have an account?
