@@ -1,6 +1,9 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import SharedLayout from 'components/SharedLayout';
+import {useGetCurrentUserQuery} from 'redux/fetchUser'
+import { selectors } from 'redux/selectors';
 
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
@@ -10,7 +13,12 @@ const Login = lazy(() => import('pages/Login'));
 const News = lazy(() => import('pages/News'));
 const OurFriend = lazy(() => import('pages/OurFriend'));
 
+
 function App() {
+  const { getToken }=selectors;
+  const token =useSelector(getToken);
+  console.log(token)
+  useGetCurrentUserQuery(undefined,{skip:!token});
   return (
     <>
       <Suspense fallback={<div>Loading...</div>}>

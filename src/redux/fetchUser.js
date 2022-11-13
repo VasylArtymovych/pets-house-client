@@ -4,11 +4,11 @@ export const userApi=createApi({
     reducerPath:'userApi',
     baseQuery: fetchBaseQuery({
         baseUrl: 'http://localhost:8888/api',
-        // prepareHeaders:(headers, {getState})=>{
-        //     const token= getState().users.token
-        //     if(token){ headers.set('Athorization', `Bearer ${token}`)}
-        //     return headers
-        // }
+        prepareHeaders:(headers, {getState})=>{
+            const token= getState().users.token
+            if(token){ headers.set('Athorization', `Bearer ${token}`)}
+            return headers
+        }
     }),
     endpoints: builder=>({
         registrationUser: builder.mutation({
