@@ -1,1 +1,1 @@
-export { OurFriendPage } from './ourFriend.js';
+export { default } from './ourFriend';
