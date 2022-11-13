@@ -1,9 +1,7 @@
-import React from 'react'
+import FriendInfo from '../../data/sponsors.json';
+import { OurFriend } from 'components/OurFriendsPage/OurFriend';
 
-const OurFriend = () => {
-  return (
-    <div>OurFriend</div>
-  )
+function OurFriendPage() {
+  return <OurFriend info={FriendInfo} />;
 }
-
-export default OurFriend
+export default OurFriendPage;
