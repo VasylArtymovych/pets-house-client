@@ -16,12 +16,9 @@ const FindPet = ({ data }, isUserLoggedIn) => {
       <h1 className={styles.title__findpet}>Find your favorite pet</h1>
 
       <Input name="findpet" type="text" placeholder="Search" customStyle={styles.input__findpet} onChange={onChange}></Input>
+
       <div>
         <NoticesCategoriesNav />
-        <button type="button">
-          + <br />
-          <span>Add pet</span>
-        </button>
       </div>
       <Outlet />
       <div>
