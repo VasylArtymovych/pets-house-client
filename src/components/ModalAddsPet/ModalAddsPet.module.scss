@@ -1,0 +1,200 @@
+.container {
+    background-color: #fff;
+    padding: 20px;
+    width: 280px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+@media screen and (min-width: 767px) {
+    .container {
+        width: 608px;
+    }
+}
+
+// First page----------------
+
+.wrapForm {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    width: 100%;
+}
+
+.labelFirst {
+    margin-bottom: 16px;
+}
+
+.input {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    width: 240px;
+    height: 40px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+@media screen and (min-width: 767px) {
+    .input {
+        width: 448px;
+        height: 48px;
+    }
+}
+
+.input_last {
+    margin-top: 8px;
+    margin-bottom: 40px;
+    height: 48px;
+}
+
+
+// Second page----------------
+
+.btnClose {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FDF7F2;
+    border: none;
+}
+
+@media screen and (min-width: 767px) {
+    .btnClose {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+.btnClose:hover {
+    transform: scale(1.02);
+}
+
+.title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+@media screen and (min-width: 767px) {
+    .title {
+        font-size: 36px;
+        line-height: 49px;
+    }
+}
+
+.titleFirst{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+@media screen and (min-width: 767px) {
+    .titleFirst {
+        font-size: 36px;
+        line-height: 49px;
+    }
+}
+
+.text {
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 20px;
+}
+
+@media screen and (min-width: 767px) {
+    .text {
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
+
+.btnAddPhoto {
+    width: 208px;
+    height: 208px;
+    background: #FDF7F2;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 20px;
+    border: none;
+}
+
+@media screen and (min-width: 767px) {
+    .btnAddPhoto {
+        width: 182px;
+        height: 182px;
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+@media screen and (min-width: 767px) {
+    .form {
+        margin-top: 80px;
+        margin-bottom: 40px;
+    }
+}
+
+.formFirst {
+    margin-top: 28px;
+    margin-bottom: 40px;
+}
+
+.label{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+@media screen and (min-width: 767px) {
+    .label {
+        font-size: 24px;
+        line-height: 26px;
+    }
+}
+.wrapTextarea{
+    display: flex;
+    flex-direction: column;
+}
+
+.textarea {
+    padding: 12px;
+    width: 240px;
+    height: 100px;
+    background: #FDF7F2;
+    border: 1px solid rgba(245, 146, 86, 0.5);
+    border-radius: 20px;
+    margin-top: 8px;
+}
+
+@media screen and (min-width: 767px) {
+    .textarea {
+        width: 394px;
+        height: 116px;
+        margin-top: 12px;
+    }
+}
+
