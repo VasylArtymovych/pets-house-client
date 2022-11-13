@@ -3,6 +3,10 @@ import { ErrorMessage, Form, Formik } from 'formik';
 import scss from './AuthForm.module.scss';
 import * as Yup from 'yup';
 import Button from 'components/Button';
+import{useLogInMutation} from "redux/fetchUser"
+///////////////////////////////////////////////////
+import { useEffect } from 'react';
+///////////////////////////////////////////////////
 
 const stepOneValidationSchema = Yup.object({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -10,14 +14,24 @@ const stepOneValidationSchema = Yup.object({
 });
 
 export const LoginForm = (props) => {
+  const [logIn]=useLogInMutation()
+  ////////////////////////////////////////// Данный код, только для теста логина/////////////////////////////////////////
+  const email="pupik@gm.com"
+  const password="12345678"
+  useEffect(() => {
+    logIn({email,password})
+  }, []);
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   const handleSubmit = (values) => {
     props.next(values, true);
+// logIn({values})
   };
   return (
     <div className={scss.container}>
       <Formik validationSchema={stepOneValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
         {() => (
           <Form className={scss.form + ' ' + props.customStyle}>
+            {/* <h2 className={scss.title}>{nameUser}</h2> */}
             <h2 className={scss.title}>{props.title}</h2>
             <InputForm customStyle={scss.input__auth} name="email" type="email" placeholder="Email" />
             <ErrorMessage name="email" />
