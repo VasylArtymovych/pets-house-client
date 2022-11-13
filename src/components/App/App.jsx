@@ -21,7 +21,6 @@ const Login = lazy(() => import('pages/Login'));
 const News = lazy(() => import('pages/News'));
 const OurFriend = lazy(() => import('pages/OurFriend'));
 
-
 function App() {
   return (
     <>
