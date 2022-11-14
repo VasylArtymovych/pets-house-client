@@ -41,12 +41,12 @@
 }
 .camera {
   margin-right: 5px;
-  fill: #f59256;
+  fill: var(--bg__color);
 }
 
 .data__btn {
   font-size: 12px;
-  line-height: 22px;
+  line-height: 1.83;
   letter-spacing: 0.04em;
   color: #111111;
   display: flex;
@@ -54,4 +54,9 @@
   background-color: transparent;
   border-color: transparent;
   cursor: pointer;
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 32px;
+  }
 }

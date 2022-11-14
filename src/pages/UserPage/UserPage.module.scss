@@ -3,7 +3,7 @@
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #fdf7f2;
+  background-color: var(--bg__color);
 }
 
 // .container {
@@ -35,11 +35,9 @@
 }
 
 .user__title {
-  font-family: 'Manrope';
-  font-style: normal;
   font-weight: 500;
   font-size: 20px;
-  line-height: 27px;
+  line-height: 1.35;
   display: flex;
   align-items: center;
   letter-spacing: 0.04em;
@@ -47,11 +45,7 @@
   margin-bottom: 18px;
   @media screen and (min-width: 768px) {
     font-size: 28px;
-    line-height: 38px;
-  }
-  @media screen and (min-width: 1280px) {
-    font-size: 28px;
-    line-height: 38px;
+    line-height: 1.35;
   }
 }
 
@@ -59,7 +53,7 @@
   max-width: 280px;
   margin: 0 auto;
   display: block;
-  background: #ffffff;
+  background: var(--btn__color);
   box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
   border-radius: 20px;
   padding: 20px 12px 20px 16px;
@@ -84,7 +78,7 @@
 .user__pets {
   font-weight: 500;
   font-size: 20px;
-  line-height: 27px;
+  line-height: 1.35;
   display: flex;
   align-items: center;
   letter-spacing: 0.04em;
@@ -93,7 +87,7 @@
 
   @media screen and (min-width: 768px) {
     font-size: 28px;
-    line-height: 38px;
+    line-height: 1.35;
   }
 }
 
@@ -116,7 +110,7 @@
 .addpats__title {
   font-weight: 500;
   font-size: 20px;
-  line-height: 27px;
+  line-height: 1.35;
   color: #111111;
   margin-right: 12px;
 }
@@ -125,7 +119,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f59256;
+  background-color: var(--accent__color);
   outline: none;
   cursor: pointer;
   border-radius: 50%;
@@ -137,5 +131,5 @@
 .addpats__svg {
   width: 16px;
   height: 16px;
-  fill: #ffffff;
+  fill: var(--btn__color);
 }
