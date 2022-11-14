@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 export const ModalAddsPet = (props) => {
   //  console.log("propsModalAddPet:", props)
-   const [data, setData] = useState({
+  const [data, setData] = useState({
     namePet: '',
     birthDate: '',
     breed: '',
@@ -18,8 +18,8 @@ export const ModalAddsPet = (props) => {
   const makeRequest = (formData) => {
     console.log('Submiting', formData);
   };
-  
-    const handleNextStep = (newData, final = false) => {
+
+  const handleNextStep = (newData, final = false) => {
     setData((prev) => ({ ...prev, ...newData }));
     setPage((prev) => prev + 1);
 
@@ -33,7 +33,7 @@ export const ModalAddsPet = (props) => {
     setData((prev) => ({ ...prev, ...newData }));
     setPage((prev) => prev - 1);
   };
- 
+
   const steps = [
     <ModalAddsPetFirstPage closeModal={props.onCloseModal} next={handleNextStep} data={data} title={formTitles[page]} />,
     <ModalAddsPetSecondPage prev={handlePrevStep} closeModal={props.onCloseModal} next={handleNextStep} data={data} title={formTitles[page]} />
@@ -41,8 +41,6 @@ export const ModalAddsPet = (props) => {
   // console.log('data', data);
   return <>{steps[page]}</>;
 };
-
-
 
 // import { useModal } from 'hooks';
 // import Modal from 'components/Modal';
