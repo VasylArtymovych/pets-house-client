@@ -1,6 +1,8 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SharedLayout from 'components/SharedLayout';
+import Loader from 'components/Loader';
+import { useState, useEffect } from 'react';
 
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
@@ -11,9 +13,20 @@ const News = lazy(() => import('pages/News'));
 const OurFriend = lazy(() => import('pages/OurFriend'));
 
 function App() {
+  const [isBigLoader, setIsBigLoader] = useState(false);
+
+  useEffect(() => {
+    const witdthScren = document.querySelector('body').scrollWidth;
+    if (witdthScren > 880) {
+      setIsBigLoader(true);
+    }
+  }, [setIsBigLoader]);
+
+  console.log(isBigLoader);
+
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={isBigLoader ? <Loader /> : <div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />
