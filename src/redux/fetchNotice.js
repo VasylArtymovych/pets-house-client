@@ -9,7 +9,7 @@ export const noticeApi=createApi({
     endpoints:builder=>({
         getNotice:builder.query({
             query:({category})=>({
-                url:`/${category}`,
+                url:`/category/${category}`,
                 method:'GET',
                 body:{category},
             }),
