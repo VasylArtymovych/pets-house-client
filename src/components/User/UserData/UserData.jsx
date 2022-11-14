@@ -12,10 +12,10 @@ const UserData = () => {
   return (
     <div className={scss.data__container}>
       <div className={scss.avatar__container}>
-        <img className={scss.data__img} src={DefaultAvatar} alt="avatar" width="233" height="233" />
+        <img className={scss.avatar__img} src={DefaultAvatar} alt="avatar" width="233" height="233" />
         <div className={scss.data__box}>
           <button className={scss.data__btn} type="submit" onClick={toggleModal}>
-            <svg className={scss.camera} width="18" height="18">
+            <svg className={scss.data__camera} width="18" height="18">
               <use href={sprite + '#icon-profilePhotoCamera'} />
             </svg>
             Edit photo
@@ -24,7 +24,7 @@ const UserData = () => {
       </div>
       <UserDataItem />
       {isModalOpen && (
-        <Modal onCloseModal={closeModal}>
+        <Modal onCloseModal={closeModal} mode="dark">
           <UserAvatarModal onCloseModal={closeModal} />
         </Modal>
       )}

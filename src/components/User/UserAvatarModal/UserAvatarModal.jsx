@@ -20,6 +20,7 @@ const UserAvatarModal = ({ onCloseModal }) => {
                 <use href={sprite + '#icon-save'} />
               </svg>
             </span>
+
             <span className={scss.input__buttonText}>Select a file</span>
           </label>
           <button className={scss.input__fileIconDelete} type="button">
