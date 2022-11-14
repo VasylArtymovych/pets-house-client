@@ -1,8 +1,8 @@
 import { InputForm } from 'components/Input';
 import { ErrorMessage, Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import { useModal } from 'hooks';
 import scss from './ModalAddsPet.module.scss';
+// import Button from 'components/Button';
 
 const stepOneValidationSchema = Yup.object({
   namePet: Yup.string().required('Required'),
@@ -11,19 +11,19 @@ const stepOneValidationSchema = Yup.object({
 });
 
 export const ModalAddsPetFirstPage = (props) => {
-  const { closeModal } = useModal();
+  console.log('propsFistPage:', props);
   const handleSubmit = (values) => {
     props.next(values, true);
   };
   return (
     <div className={scss.container}>
-      <button type="button" onClick={closeModal} className={scss.btnClose}>
+      <button type="button" onClick={props.closeModal} className={scss.btnClose}>
         +
       </button>
       <h3 className={scss.titleFirst}>Add pet</h3>
       <div className={scss.wrapForm}>
         <Formik validationSchema={stepOneValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
-          {({ values }) => (
+          {() => (
             <Form className={scss.formFirst + ' ' + props.customStyle}>
               <label htmlFor="namePet" className={scss.label}>
                 Name pet
@@ -40,11 +40,11 @@ export const ModalAddsPetFirstPage = (props) => {
               </label>
               <InputForm customStyle={scss.input_last} name="breed" type="text" placeholder="Type breed" />
               <ErrorMessage name="breed" />
-              <div>
-                <button onClick={() => props.prev(values)}  type="submit" className={scss.button}>
+              <div className={scss.btnWrap}>
+                <button type="submit" className={scss.buttonFill}>
                   Next
                 </button>
-                <button type="submit" className={scss.button}>
+                <button type="button" className={scss.buttonEmpty} onClick={props.closeModal}>
                   Cancel
                 </button>
               </div>
@@ -55,3 +55,6 @@ export const ModalAddsPetFirstPage = (props) => {
     </div>
   );
 };
+
+// {/* <Button type="submit" className={scss.buttonFill + ' ' + props.customStyle} buttonName="Next"></Button>
+//  <Button type="button" className={scss.buttonEmpty} buttonName="Cancel"></Button> */}
