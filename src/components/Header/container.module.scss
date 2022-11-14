@@ -12,7 +12,8 @@ $breakpoint768: 767.98 + px;
 $breakpoint480: 479.98 + px;
 
 .container {
-  max-width: ($containerWidth + $containerPadding) + px;
+  // max-width: ($containerWidth + $containerPadding) + px;
+  width: 100vw; // I added for better vewing)))
   width: 100%;
   margin: 0 auto;
   padding: 0 $containerSidePadding + px;
