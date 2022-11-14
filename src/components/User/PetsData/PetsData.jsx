@@ -10,7 +10,7 @@ const PetsData = () => {
         <div className={scss.pats__btns}>
           <button className={scss.pats__btn} type="button">
             <svg className={scss.pets__svg}>
-              <use href={sprite + '#icon-loop'} />
+              <use href={sprite + '#icon-profilePencil'} />
             </svg>
           </button>
           <button className={scss.pats__btn} type="button">
@@ -22,7 +22,7 @@ const PetsData = () => {
         <ul className={scss.pets__list}>
           <li className={scss.pets__items}>
             <p>
-              name: <span className={scss.pets__info}>Jack</span>
+              Name: <span className={scss.pets__info}>Jack</span>
             </p>
           </li>
           <li className={scss.pets__items}>
@@ -52,7 +52,7 @@ const PetsData = () => {
         <div className={scss.pats__btns}>
           <button className={scss.pats__btn} type="button">
             <svg className={scss.pets__svg}>
-              <use href={sprite + '#icon-loop'} />
+              <use href={sprite + '#icon-profilePencil'} />
             </svg>
           </button>
           <button className={scss.pats__btn} type="button">
@@ -64,7 +64,7 @@ const PetsData = () => {
         <ul>
           <li className={scss.pets__items}>
             <p>
-              name: <span className={scss.pets__info}>Jack</span>
+              Name: <span className={scss.pets__info}>Jack</span>
             </p>
           </li>
           <li className={scss.pets__items}>

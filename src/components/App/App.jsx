@@ -1,6 +1,10 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import SharedLayout from 'components/SharedLayout';
+import { useGetCurrentUserQuery } from 'redux/fetchUser';
+import { selectors } from 'redux/selectors';
+import Loader from 'components/Loader';
 
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
@@ -11,9 +15,25 @@ const News = lazy(() => import('pages/News'));
 const OurFriend = lazy(() => import('pages/OurFriend'));
 
 function App() {
+  const { getToken } = selectors;
+  const token = useSelector(getToken);
+  console.log(token);
+  useGetCurrentUserQuery(undefined, { skip: !token });
+
+  const [isBigLoader, setIsBigLoader] = useState(false);
+
+  useEffect(() => {
+    const witdthScren = document.querySelector('body').scrollWidth;
+    if (witdthScren > 880) {
+      setIsBigLoader(true);
+    }
+  }, [setIsBigLoader]);
+
+  console.log(isBigLoader);
+
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={isBigLoader ? <Loader /> : <div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />

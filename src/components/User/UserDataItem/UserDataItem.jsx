@@ -14,7 +14,7 @@ const UserDataItem = () => {
     <>
       <ul className={scss.list}>
         <li className={scss.items}>
-          <p>name:</p>
+          <p>Name:</p>
           {isUpdate ? (
             <>
               <Input customStyle={scss.input__change} />

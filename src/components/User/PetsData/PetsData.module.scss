@@ -1,11 +1,19 @@
 .pets__container {
   list-style: none;
+  max-width: 280px;
+  margin: 0 auto;
+  @media screen and (min-width: 768px) {
+    max-width: 740px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 820px;
+  }
 }
 
 .pets__items {
   font-weight: 500;
   font-size: 14px;
-  line-height: 19px;
+  line-height: 1.35;
   display: flex;
   letter-spacing: 0.04em;
   color: #000000;
@@ -20,7 +28,7 @@
   }
   @media screen and (min-width: 768px) {
     font-size: 16px;
-    line-height: 22px;
+    line-height: 1.37;
   }
   @media screen and (min-width: 1280px) {
   }
@@ -28,7 +36,7 @@
 .pets__item {
   position: relative;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: var(--btn__color);
   border-radius: 20px;
   box-shadow: 7px 4px 14px #0000001c;
   padding: 16px 20px 40px 20px;
@@ -94,7 +102,7 @@
     margin-right: 10px;
   }
   @media screen and (min-width: 768px) {
-    background-color: #fdf7f2;
+    background-color: var(--bg__color);
     top: 20px;
     right: 20px;
   }
@@ -103,9 +111,9 @@
 .pets__svg {
   width: 16.5px;
   height: 16.5px;
-  fill: rgba(17, 17, 17, 0.6);
+  fill: var(--backdrop__color);
   @media screen and (min-width: 768px) {
-    background-color: #fdf7f2;
+    background-color: var(--bg__color);
 
     width: 19.5px;
     height: 19.5px;
