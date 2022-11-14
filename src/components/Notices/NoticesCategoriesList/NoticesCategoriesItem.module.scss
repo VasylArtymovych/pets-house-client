@@ -61,6 +61,23 @@
   border: none;
 }
 
+.NoticesCategoriesItem__deletebutton {
+  position: relative;
+  bottom: 56px;
+  margin-bottom: -44px;
+  left: 224px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+}
+
 .NoticesCategoriesItem__svg {
   width: 28px;
   height: 28px;

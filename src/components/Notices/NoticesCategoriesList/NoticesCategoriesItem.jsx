@@ -14,6 +14,11 @@ const NoticesCategoriesItem = ({ data }) => {
                 <use href={sprite + '#icon-heartEmpty'} />
               </svg>
             </button>
+            <button className={styles.NoticesCategoriesItem__deletebutton} type="button">
+              <svg className={styles.NoticesCategoriesItem__svg}>
+                <use href={sprite + '#icon-remov-pets'} />
+              </svg>
+            </button>
             <div className={styles.NoticesCategoriesItem__infoContainer}>
               <h3 className={styles.NoticesCategoriesItem__title}>{title}</h3>
               <div className={styles.NoticesCategoriesItem__textContainer}>
