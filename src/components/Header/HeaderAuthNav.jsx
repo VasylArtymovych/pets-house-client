@@ -3,7 +3,7 @@ import Logo from './Logo';
 import Navigations from './Navigations';
 import styleLogo from './Logo.module.scss';
 
-const HeaderComponent = () => {
+const HeaderAuthNav = () => {
   return (
     <>
       <Header>
@@ -14,4 +14,4 @@ const HeaderComponent = () => {
   );
 };
 
-export default HeaderComponent;
+export default HeaderAuthNav;
