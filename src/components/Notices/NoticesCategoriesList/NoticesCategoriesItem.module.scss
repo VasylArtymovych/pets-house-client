@@ -44,6 +44,28 @@
   color: #111111;
 }
 
+.NoticesCategoriesItem__heartbutton {
+  position: relative;
+  bottom: 276px;
+  margin-bottom: -44px;
+  left: 224px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+}
+
+.NoticesCategoriesItem__svg {
+  width: 28px;
+  height: 28px;
+}
+
 .NoticesCategoriesItem__infoContainer {
   display: flex;
   flex-direction: column;
