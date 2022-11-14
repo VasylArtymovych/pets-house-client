@@ -17,13 +17,11 @@ const FindPet = ({ data }, isUserLoggedIn) => {
 
       <Input name="findpet" type="text" placeholder="Search" customStyle={styles.input__findpet} onChange={onChange}></Input>
 
-      <div>
-        <NoticesCategoriesNav />
-      </div>
+      <NoticesCategoriesNav />
+
       <Outlet />
-      <div>
-        <NoticesCategoriesList data={findpet} />
-      </div>
+
+      <NoticesCategoriesList data={findpet} />
     </>
   );
 };

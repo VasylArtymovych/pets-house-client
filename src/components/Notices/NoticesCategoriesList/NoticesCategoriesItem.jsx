@@ -1,4 +1,5 @@
 import styles from './NoticesCategoriesItem.module.scss';
+import sprite from '../../../images/symbol-defs.svg';
 
 const NoticesCategoriesItem = ({ data }) => {
   return (
@@ -7,6 +8,12 @@ const NoticesCategoriesItem = ({ data }) => {
         return (
           <li key={id} className={styles.NoticesCategoriesItem}>
             <img src={img} alt="" className={styles.NoticesCategoriesItem__img} />
+            <p className={styles.NoticesCategoriesItem__category}>{category}</p>
+            <button className={styles.NoticesCategoriesItem__heartbutton} type="button">
+              <svg className={styles.NoticesCategoriesItem__svg}>
+                <use href={sprite + '#icon-heartEmpty'} />
+              </svg>
+            </button>
             <div className={styles.NoticesCategoriesItem__infoContainer}>
               <h3 className={styles.NoticesCategoriesItem__title}>{title}</h3>
               <div className={styles.NoticesCategoriesItem__textContainer}>

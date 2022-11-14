@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "category": "sell",
+    "category": "Sell",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -12,8 +12,8 @@
   },
   {
     "id": "2",
-    "category": "sell",
-    "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
+    "category": "Sell",
+    "img": "https://static01.nyt.com/images/2022/08/25/science/25DogDementia-08/merlin_211901058_cc472b29-c338-47ad-8ef3-4431bd8b8fe5-superJumbo.jpg?quality=75&auto=webp",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
     "Place": "Lviv",
@@ -23,7 +23,7 @@
   },
   {
     "id": "3",
-    "category": "sell",
+    "category": "Sell",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -34,7 +34,7 @@
   },
   {
     "id": "4",
-    "category": "sell",
+    "category": "Sell",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -45,7 +45,7 @@
   },
   {
     "id": "5",
-    "category": "sell",
+    "category": "Sell",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -56,7 +56,7 @@
   },
   {
     "id": "6",
-    "category": "sell",
+    "category": "Sell",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -67,7 +67,7 @@
   },
   {
     "id": "7",
-    "category": "sell",
+    "category": "Sell",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -78,7 +78,7 @@
   },
   {
     "id": "8",
-    "category": "sell",
+    "category": "Sell",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -89,7 +89,7 @@
   },
   {
     "id": "9",
-    "category": "in good hands",
+    "category": "In good hands",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -100,7 +100,7 @@
   },
   {
     "id": "10",
-    "category": "in good hands",
+    "category": "In good hands",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -111,7 +111,7 @@
   },
   {
     "id": "11",
-    "category": "in good hands",
+    "category": "In good hands",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -122,7 +122,7 @@
   },
   {
     "id": "12",
-    "category": "in good hands",
+    "category": "In good hands",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -133,7 +133,7 @@
   },
   {
     "id": "13",
-    "category": "in good hands",
+    "category": "In good hands",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -144,7 +144,7 @@
   },
   {
     "id": "14",
-    "category": "in good hands",
+    "category": "In good hands",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -155,7 +155,7 @@
   },
   {
     "id": "15",
-    "category": "in good hands",
+    "category": "In good hands",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -166,7 +166,7 @@
   },
   {
     "id": "16",
-    "category": "in good hands",
+    "category": "In good hands",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -177,7 +177,7 @@
   },
   {
     "id": "17",
-    "category": "lost",
+    "category": "Lost",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -188,7 +188,7 @@
   },
   {
     "id": "18",
-    "category": "lost",
+    "category": "Lost",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -199,7 +199,7 @@
   },
   {
     "id": "19",
-    "category": "lost",
+    "category": "Lost",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -210,7 +210,7 @@
   },
   {
     "id": "20",
-    "category": "lost",
+    "category": "Lost",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -221,7 +221,7 @@
   },
   {
     "id": "21",
-    "category": "lost",
+    "category": "Lost",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -232,7 +232,7 @@
   },
   {
     "id": "22",
-    "category": "lost",
+    "category": "Lost",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -243,7 +243,7 @@
   },
   {
     "id": "23",
-    "category": "lost",
+    "category": "Lost",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -254,7 +254,7 @@
   },
   {
     "id": "24",
-    "category": "lost",
+    "category": "Lost",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -265,7 +265,7 @@
   },
   {
     "id": "25",
-    "category": "found",
+    "category": "Found",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -276,7 +276,7 @@
   },
   {
     "id": "26",
-    "category": "found",
+    "category": "Found",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -287,7 +287,7 @@
   },
   {
     "id": "27",
-    "category": "found",
+    "category": "Found",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -298,7 +298,7 @@
   },
   {
     "id": "28",
-    "category": "found",
+    "category": "Found",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -309,7 +309,7 @@
   },
   {
     "id": "29",
-    "category": "found",
+    "category": "Found",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -320,7 +320,7 @@
   },
   {
     "id": "30",
-    "category": "found",
+    "category": "Found",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -331,7 +331,7 @@
   },
   {
     "id": "31",
-    "category": "found",
+    "category": "Found",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",
@@ -342,7 +342,7 @@
   },
   {
     "id": "32",
-    "category": "found",
+    "category": "Found",
     "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=980:*",
     "title": "Cute dog looking for a home",
     "breed": "Pomeranian",

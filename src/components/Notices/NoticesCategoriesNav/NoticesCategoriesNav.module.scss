@@ -7,3 +7,16 @@
 .NoticesCategoriesNav__Item {
   list-style: none;
 }
+
+.name {
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.name1 {
+  margin-left: auto;
+  &::before {
+    content: ' Add pet';
+  }
+}

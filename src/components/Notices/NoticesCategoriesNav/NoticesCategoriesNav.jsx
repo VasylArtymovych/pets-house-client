@@ -3,7 +3,7 @@ import styles from './NoticesCategoriesNav.module.scss';
 
 const NoticesCategoriesNav = () => {
   return (
-    <>
+    <div className={styles.name}>
       <ul className={styles.NoticesCategoriesNav__List}>
         <li className={styles.NoticesCategoriesNav__Item}>
           <NavLink to="/notices/lost-found">
@@ -31,11 +31,10 @@ const NoticesCategoriesNav = () => {
           </NavLink>
         </li>
       </ul>
-      <button type="button">
-        + <br />
-        <span>Add pet</span>
-      </button>
-    </>
+      <div className={styles.name1}>
+        <button type="button">+</button>
+      </div>
+    </div>
   );
 };
 
