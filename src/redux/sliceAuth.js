@@ -98,6 +98,7 @@ const persistConfig = {
   whitelist: ['token']
 };
 
+
 export const persistSliceAuth = persistReducer(persistConfig, authSlice.reducer);
 
 //Selectors
@@ -119,3 +120,4 @@ const getUserName = (state) => state.users.user.name;
 export const authSelectors = {
   getUserName
 };
+
