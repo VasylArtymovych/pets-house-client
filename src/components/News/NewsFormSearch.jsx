@@ -1,6 +1,6 @@
 // import { useState } from "react";
 
-export const Hero = () => {
+const FormSearchNews = () => {
   return (
     <div>
       <h2>News</h2>
@@ -11,5 +11,7 @@ export const Hero = () => {
         </svg>
       </form>
     </div>
-  );
-};
+  )
+}
+
+export default FormSearchNews;
