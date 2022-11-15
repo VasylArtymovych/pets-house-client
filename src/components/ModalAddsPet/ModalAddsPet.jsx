@@ -3,7 +3,7 @@ import { ModalAddsPetSecondPage } from './ModalAddsPetSecondPage';
 import React, { useState } from 'react';
 
 export const ModalAddsPet = (props) => {
-  //  console.log("propsModalAddPet:", props)
+  
   const [data, setData] = useState({
     namePet: '',
     birthDate: '',
@@ -52,8 +52,8 @@ export const ModalAddsPet = (props) => {
 //   return (
 //     <div>
 //       {isModalOpen && (
-//         <Modal closeModal={closeModal} mode="dark">
-//           <ModalAddsPet />
+//         <Modal onCloseModal={closeModal} mode="dark">
+//           <ModalAddsPet onCloseModal={closeModal } />
 //         </Modal>
 //       )}
 //       Home pages

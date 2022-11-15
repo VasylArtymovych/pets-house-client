@@ -1,17 +1,17 @@
 import { InputForm } from 'components/Input';
 import { ErrorMessage, Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import scss from './ModalAddsPet.module.scss';
-
+import scss from './ModalAddsPetSell.module.scss';
 
 const stepOneValidationSchema = Yup.object({
+  tittleOfAd: Yup.string().required('Required'),
   namePet: Yup.string().required('Required'),
   birthDate: Yup.date().nullable().min(new Date(1900, 0, 1)),
   breed: Yup.string()
 });
 
-export const ModalAddsPetFirstPage = (props) => {
-    const handleSubmit = (values) => {
+export const ModalAddsPetSellFirstPage = (props) => {
+  const handleSubmit = (values) => {
     props.next(values, true);
   };
   return (
@@ -19,11 +19,22 @@ export const ModalAddsPetFirstPage = (props) => {
       <button type="button" onClick={props.closeModal} className={scss.btnClose}>
         +
       </button>
-      <h3 className={scss.titleFirst}>Add pet</h3>
+          <h3 className={scss.titleFirst}>Add pet</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur</p>
+            <div className={scss.btnContainer}>
+              <button type="button">lost/found</button>
+              <button type="button" >In good hands</button>
+              <button type="button" >sell</button>
+            </div>
       <div className={scss.wrapForm}>
         <Formik validationSchema={stepOneValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
           {() => (
             <Form className={scss.formFirst + ' ' + props.customStyle}>
+              <label htmlFor="tittleOfAd" className={scss.label}>
+                Tittle of ad
+              </label>
+              <InputForm customStyle={scss.input} name="tittleOfAd" type="text" placeholder="Tittle of ad" />
+              <ErrorMessage name="tittleOfAd" />
               <label htmlFor="namePet" className={scss.label}>
                 Name pet
               </label>
@@ -54,6 +65,3 @@ export const ModalAddsPetFirstPage = (props) => {
     </div>
   );
 };
-
-// {/* <Button type="submit" className={scss.buttonFill + ' ' + props.customStyle} buttonName="Next"></Button>
-//  <Button type="button" className={scss.buttonEmpty} buttonName="Cancel"></Button> */}
