@@ -1,16 +1,21 @@
-// import { InputForm } from 'components/Input';
-import { Form, Formik, Field } from 'formik';
+import { Form, Formik, Field  } from 'formik';
 import * as Yup from 'yup';
-import scss from './ModalAddsPet.module.scss';
+import scss from './ModalAddsPetSell.module.scss';
+
+ const InputTextArea = ({type= "text", name, customStyle, placeholder}) => {
+	return (
+		<Field as="textarea" className={scss.input + " " + customStyle} name={name} type={type} placeholder={placeholder}/>
+	)
+}
 
 const stepTwoValidationSchema = Yup.object({
   comment: Yup.string()
 });
 
-export const ModalAddsPetSecondPage = (props) => {
-  const handleSubmit = (values) => {
-    props.next(values, true);
-    props.closeModal();
+export const ModalAddsPetSellSecondPage = (props) => {
+    const handleSubmit = (values) => {
+      props.next(values, true);
+      props.closeModal();
   };
   return (
     <div className={scss.container}>
@@ -28,13 +33,14 @@ export const ModalAddsPetSecondPage = (props) => {
               </button>
               <div className={scss.wrapTextarea}>
                 <label className={scss.label}> Comments</label>
-                <Field as="textarea" className={scss.textarea} name="comments" type="text" placeholder="Type comments" />
+                <textarea className={scss.textarea} placeholder="Type comments"></textarea>
+                <InputTextArea type="text" name="comments" placeholder="write a comment"/>
               </div>
               <div className={scss.btnWrap}>
                 <button type="submit" className={scss.buttonFill}>
                   Done
                 </button>
-                <button type="button" onClick={props.prev} className={scss.buttonEmpty}>
+                <button type="button"  onClick={props.prev} className={scss.buttonEmpty}>
                   Back
                 </button>
               </div>
@@ -45,4 +51,3 @@ export const ModalAddsPetSecondPage = (props) => {
     </div>
   );
 };
-

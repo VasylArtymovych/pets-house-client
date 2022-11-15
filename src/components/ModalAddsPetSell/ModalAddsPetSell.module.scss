@@ -1,0 +1,17 @@
+.container {
+    background-color: #fff;
+    padding: 20px;
+    width: 280px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+@media screen and (min-width: 767px) {
+    .container {
+        width: 608px;
+    }
+}
+
+//----------------- First page----------------
