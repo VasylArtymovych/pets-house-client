@@ -19,7 +19,7 @@
   }
 }
 
-.avatar__img {
+.data__img {
   margin: 0 auto;
   border-radius: 100px;
 }
@@ -39,14 +39,14 @@
     justify-content: flex-end;
   }
 }
-.data__camera {
+.camera {
   margin-right: 5px;
-  fill: var(--bg__color);
+  fill: #f59256;
 }
 
 .data__btn {
   font-size: 12px;
-  line-height: 1.83;
+  line-height: 22px;
   letter-spacing: 0.04em;
   color: #111111;
   display: flex;
@@ -54,14 +54,4 @@
   background-color: transparent;
   border-color: transparent;
   cursor: pointer;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  @media screen and (min-width: 768px) {
-  }
-  @media screen and (min-width: 1280px) {
-    margin-bottom: 32px;
-  }
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
-  }
 }

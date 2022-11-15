@@ -3,9 +3,24 @@
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: var(--bg__color);
+  background-color: #fdf7f2;
 }
 
+// .container {
+//   padding: 0px 20px;
+//   margin: 0 auto;
+//   width: 100%;
+//   // outline: 2px solid red;
+//   @media screen and (min-width: 320px) {
+//     width: 320px;
+//   }
+//   @media screen and (min-width: 768px) {
+//     width: 768px;
+//   }
+//   @media screen and (min-width: 1280px) {
+//     width: 1280px;
+//   }
+// }
 .user__box {
   position: relative;
   padding: 61px 0 80px 0;
@@ -20,9 +35,11 @@
 }
 
 .user__title {
+  font-family: 'Manrope';
+  font-style: normal;
   font-weight: 500;
   font-size: 20px;
-  line-height: 1.35;
+  line-height: 27px;
   display: flex;
   align-items: center;
   letter-spacing: 0.04em;
@@ -30,7 +47,11 @@
   margin-bottom: 18px;
   @media screen and (min-width: 768px) {
     font-size: 28px;
-    line-height: 1.35;
+    line-height: 38px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 28px;
+    line-height: 38px;
   }
 }
 
@@ -38,7 +59,7 @@
   max-width: 280px;
   margin: 0 auto;
   display: block;
-  background: var(--btn__color);
+  background: #ffffff;
   box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
   border-radius: 20px;
   padding: 20px 12px 20px 16px;
@@ -63,7 +84,7 @@
 .user__pets {
   font-weight: 500;
   font-size: 20px;
-  line-height: 1.35;
+  line-height: 27px;
   display: flex;
   align-items: center;
   letter-spacing: 0.04em;
@@ -72,18 +93,16 @@
 
   @media screen and (min-width: 768px) {
     font-size: 28px;
-    line-height: 1.35;
+    line-height: 38px;
   }
 }
 
-.addpats {
+.pats__add {
   position: absolute;
   top: 647px;
   right: 0px;
   display: flex;
   align-items: center;
-  animation: link 2s ease-in-out infinite;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   @media screen and (min-width: 768px) {
     top: 87px;
     right: 20px;
@@ -92,21 +111,12 @@
     top: 60px;
     right: 20px;
   }
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
-  }
-  @keyframes link {
-    50% {
-      transform: scale(1.1);
-    }
-  }
 }
 
 .addpats__title {
   font-weight: 500;
   font-size: 20px;
-  line-height: 1.35;
+  line-height: 27px;
   color: #111111;
   margin-right: 12px;
 }
@@ -115,7 +125,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--accent__color);
+  background-color: #f59256;
   outline: none;
   cursor: pointer;
   border-radius: 50%;
@@ -127,5 +137,5 @@
 .addpats__svg {
   width: 16px;
   height: 16px;
-  fill: var(--btn__color);
+  fill: #ffffff;
 }

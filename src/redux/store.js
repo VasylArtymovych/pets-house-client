@@ -2,8 +2,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import {setupListeners} from "@reduxjs/toolkit/query";
 import { persistSliceAuth } from "./sliceAuth";
 import { userApi } from "./fetchUser";
-import { noticeApi } from "./fetchNotice";
-import { noticeReducer } from "./sliceNotice";
 
 import {
     persistStore,
@@ -17,10 +15,8 @@ import {
 
 export const store= configureStore({
     reducer:{
-        users:persistSliceAuth,
+        persistSliceAuth,
         [userApi.reducerPath]: userApi.reducer,
-        [noticeApi.reducerPath]:noticeApi.reducer,
-        notice:noticeReducer,
 },
 middleware: getDefaultMiddleware=>
 getDefaultMiddleware({

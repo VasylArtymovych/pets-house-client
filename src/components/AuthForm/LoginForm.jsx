@@ -3,6 +3,10 @@ import { ErrorMessage, Form, Formik } from 'formik';
 import scss from './AuthForm.module.scss';
 import * as Yup from 'yup';
 import Button from 'components/Button';
+import{useLogInMutation} from "redux/fetchUser"
+///////////////////////////////////////////////////
+import { useEffect } from 'react';
+///////////////////////////////////////////////////
 
 const stepOneValidationSchema = Yup.object({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -10,9 +14,17 @@ const stepOneValidationSchema = Yup.object({
 });
 
 export const LoginForm = (props) => {
+  const [logIn]=useLogInMutation()
+  ////////////////////////////////////////// Данный код, только для теста логина/////////////////////////////////////////
+  const email="pupik@gm.com"
+  const password="12345678"
+  useEffect(() => {
+    logIn({email,password})
+  }, []);
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   const handleSubmit = (values) => {
     props.next(values, true);
-    // logIn({values})
+// logIn({values})
   };
   return (
     <div className={scss.container}>

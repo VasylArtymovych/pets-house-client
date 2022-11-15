@@ -1,2 +1,2 @@
-export { default } from './HeaderAuthNav';
+export { default } from './HeaderComponent';
 

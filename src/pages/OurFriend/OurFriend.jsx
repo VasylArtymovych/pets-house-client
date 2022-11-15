@@ -1,7 +1,7 @@
 import FriendInfo from '../../data/sponsors.json';
-import OurFriendList from 'components/OurFriends/OurFriendsList';
+import { OurFriend } from 'components/OurFriendsPage/OurFriend';
 
 function OurFriendPage() {
-  return <OurFriendList info={FriendInfo} />;
+  return <OurFriend info={FriendInfo} />;
 }
 export default OurFriendPage;

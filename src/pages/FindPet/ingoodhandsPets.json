@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Pomeranian.JPG",
+    "title": "Cute dog is looking for a new best friend",
+    "breed": "Pomeranian",
+    "place": "Lviv",
+    "Age": "one year"
+  },
+  {
+    "id": 2,
+    "imageUrl": "https://www.purina.co.uk/sites/default/files/styles/square_medium_440x440/public/2022-07/Miniature-Pinscher.jpg?itok=PKIDPe_X",
+    "title": "Cute dog is looking for a new best friend",
+    "breed": "Miniature pincher",
+    "place": "Lviv",
+    "Age": "one year"
+  },
+  {
+    "id": 3,
+    "imageUrl": "https://www.petbarn.com.au/petspot/app/uploads/2016/08/96-Silky-Terrier.jpg",
+    "title": "Cute dog is looking for a new best friend",
+    "breed": "Silky terrier",
+    "place": "Lviv",
+    "Age": "one year"
+  },
+  {
+    "id": 4,
+    "imageUrl": "https://geniusvets.s3.amazonaws.com/gv-dog-breeds/alaskan-malamute-1.jpg",
+    "title": "Cute dog is looking for a new best friend",
+    "breed": "Alaskan malamute",
+    "place": "Lviv",
+    "Age": "one year"
+  },
+  {
+    "id": 5,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Pomeranian.JPG",
+    "title": "Cute dog is looking for a new best friend",
+    "breed": "Pomeranian",
+    "place": "Lviv",
+    "Age": "one year"
+  },
+  {
+    "id": 6,
+    "imageUrl": "https://www.purina.co.uk/sites/default/files/styles/square_medium_440x440/public/2022-07/Miniature-Pinscher.jpg?itok=PKIDPe_X",
+    "title": "Cute dog is looking for a new best friend",
+    "breed": "Miniature pincher",
+    "place": "Lviv",
+    "Age": "one year"
+  },
+  {
+    "id": 7,
+    "imageUrl": "https://www.petbarn.com.au/petspot/app/uploads/2016/08/96-Silky-Terrier.jpg",
+    "title": "Cute dog is looking for a new best friend",
+    "breed": "Silky terrier",
+    "place": "Lviv",
+    "Age": "one year"
+  },
+  {
+    "id": 8,
+    "imageUrl": "https://geniusvets.s3.amazonaws.com/gv-dog-breeds/alaskan-malamute-1.jpg",
+    "title": "Cute dog is looking for a new best friend",
+    "breed": "Alaskan malamute",
+    "place": "Lviv",
+    "Age": "one year"
+  }
+]
