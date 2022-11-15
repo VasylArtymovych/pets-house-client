@@ -13,6 +13,7 @@ const FindPet = lazy(() => import('pages/FindPet'));
 const Login = lazy(() => import('pages/Login'));
 const News = lazy(() => import('pages/News'));
 const OurFriend = lazy(() => import('pages/OurFriend'));
+const NoticesCategoriesList = lazy(() => import('components/Notices/NoticesCategoriesList'));
 
 function App() {
   const { getToken } = selectors;
@@ -38,7 +39,14 @@ function App() {
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />
             <Route path="/news" element={<News />} />
-            <Route path="/notices" element={<FindPet />} />
+            <Route path="/notices" element={<FindPet />}>
+              <Route path="sell" element={<NoticesCategoriesList />} />
+              <Route path="lostFound" element={<NoticesCategoriesList />} />
+              <Route path="inGoodHands" element={<NoticesCategoriesList />} />
+              <Route path="favorite" element={<NoticesCategoriesList />} />
+              <Route path="own" element={<NoticesCategoriesList />} />
+            </Route>
+
             <Route path="/friends" element={<OurFriend />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
