@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState={
-    onFilterNews:[],
+    onFilterNews:'',
 }
 export const sliceNews=createSlice({
     name:'news',
