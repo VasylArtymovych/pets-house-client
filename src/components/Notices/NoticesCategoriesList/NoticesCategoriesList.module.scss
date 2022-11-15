@@ -3,6 +3,17 @@
   flex-direction: column;
   justify-content: center;
   list-style: none;
+
+  @media screen and (min-width: 768px) {
+    flex-wrap: wrap;
+    flex-direction: initial;
+    margin-right: -32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    flex-wrap: wrap;
+    flex-direction: initial;
+  }
 }
 
 .NoticesCategoriesList__Container {

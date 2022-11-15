@@ -2,6 +2,10 @@ import styles from './NoticesCategoriesItem.module.scss';
 import sprite from '../../../images/symbol-defs.svg';
 
 const NoticesCategoriesItem = ({ data }) => {
+  const handleFavoriteChange = (event) => {
+    console.log(event);
+  };
+
   return (
     <>
       {data.map(({ id, category, img, title, breed, Place, Age, favorite, myads }) => {
@@ -9,16 +13,26 @@ const NoticesCategoriesItem = ({ data }) => {
           <li key={id} className={styles.NoticesCategoriesItem}>
             <img src={img} alt="" className={styles.NoticesCategoriesItem__img} />
             <p className={styles.NoticesCategoriesItem__category}>{category}</p>
-            <button className={styles.NoticesCategoriesItem__heartbutton} type="button">
-              <svg className={styles.NoticesCategoriesItem__svg}>
-                <use href={sprite + '#icon-heartEmpty'} />
-              </svg>
-            </button>
-            <button className={styles.NoticesCategoriesItem__deletebutton} type="button">
-              <svg className={styles.NoticesCategoriesItem__svg}>
-                <use href={sprite + '#icon-remov-pets'} />
-              </svg>
-            </button>
+            {favorite ? (
+              <button className={styles.NoticesCategoriesItem__heartbutton} type="button" onClick={handleFavoriteChange}>
+                <svg className={styles.NoticesCategoriesItem__svg}>
+                  <use href={sprite + '#icon-heartFull'} />
+                </svg>
+              </button>
+            ) : (
+              <button className={styles.NoticesCategoriesItem__heartbutton} type="button" onClick={handleFavoriteChange}>
+                <svg className={styles.NoticesCategoriesItem__svg}>
+                  <use href={sprite + '#icon-heartEmpty'} />
+                </svg>
+              </button>
+            )}
+            {myads && (
+              <button className={styles.NoticesCategoriesItem__deletebutton} type="button">
+                <svg className={styles.NoticesCategoriesItem__svg}>
+                  <use href={sprite + '#icon-remov-pets'} />
+                </svg>
+              </button>
+            )}
             <div className={styles.NoticesCategoriesItem__infoContainer}>
               <h3 className={styles.NoticesCategoriesItem__title}>{title}</h3>
               <div className={styles.NoticesCategoriesItem__textContainer}>

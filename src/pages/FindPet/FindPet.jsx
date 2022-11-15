@@ -21,7 +21,7 @@ const FindPet = ({ data }, isUserLoggedIn) => {
 
       <Outlet />
 
-      <NoticesCategoriesList data={findpet} />
+      {/* <NoticesCategoriesList data={findpet} /> */}
     </>
   );
 };

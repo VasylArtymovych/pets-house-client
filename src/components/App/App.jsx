@@ -5,6 +5,8 @@ import SharedLayout from 'components/SharedLayout';
 import { useGetCurrentUserQuery } from 'redux/fetchUser';
 import { selectors } from 'redux/selectors';
 import Loader from 'components/Loader';
+import NoticesCategoriesList from 'components/Notices/NoticesCategoriesList';
+import findpet from '../../data/findpet.json';
 
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
@@ -38,7 +40,14 @@ function App() {
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />
             <Route path="/news" element={<News />} />
-            <Route path="/notices" element={<FindPet />} />
+            <Route path="/notices" element={<FindPet />}>
+              <Route index element={<NoticesCategoriesList />} />
+              <Route path="lost-found" element={<NoticesCategoriesList />} />
+              <Route path="for-free" element={<NoticesCategoriesList />} />
+              <Route path="sell" element={<NoticesCategoriesList />} />
+              <Route path="favorite" element={<NoticesCategoriesList />} />
+              <Route path="own" element={<NoticesCategoriesList />} />
+            </Route>
             <Route path="/friends" element={<OurFriend />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
