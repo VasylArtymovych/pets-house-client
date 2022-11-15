@@ -1,19 +1,50 @@
 import { Field } from 'formik';
 import scss from './Input.module.scss';
 
- const InputForm = ({type= "text", name, customStyle, placeholder}) => {
+const InputForm = ({
+	type = 'text',
+	name,
+	customStyle,
+	placeholder,
+	autofocus,
+}) => {
 	return (
-		<Field className={scss.input + " " + customStyle} name={name} type={type} placeholder={placeholder}/>
-	)
-}
+		<Field
+			className={`${scss.input} ${customStyle}`}
+			name={name}
+			type={type}
+			placeholder={placeholder}
+			autoFocus={autofocus}
+		/>
+	);
+};
 
-const Input = ({type= "text", name, id, label, customStyle, placeholder, value, onChange, onBlur }) => {
+const Input = ({
+	type = 'text',
+	name,
+	id,
+	label,
+	customStyle,
+	placeholder,
+	value,
+	onChange,
+	onBlur,
+}) => {
 	return (
 		<label>
 			{label}
-		<input className={scss.input + " " + customStyle} type={type} id={id} name={name} placeholder={placeholder} onChange={onChange} onBlur={onBlur} value={value}/>
-	</label>
-	)
-}
+			<input
+				className={`${scss.input} ${customStyle}`}
+				type={type}
+				id={id}
+				name={name}
+				placeholder={placeholder}
+				onChange={onChange}
+				onBlur={onBlur}
+				value={value}
+			/>
+		</label>
+	);
+};
 
-export {Input, InputForm};
+export { Input, InputForm };

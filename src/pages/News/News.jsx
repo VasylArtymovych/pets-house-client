@@ -1,11 +1,12 @@
 import NewsInfo from '../../data/news.json';
-import { NewsList } from 'components/News/NewsData/NewsList';
-import{Hero} from 'components/News/NewsHero/NewsHero'
+import NewsList  from 'components/News/NewsList';
+import FormSearchNews from "components/News/NewsFormSearch";
+
 
 function NewsPage ()  {
     return (
         <div>
-            <Hero/>
+            <FormSearchNews/>
             <NewsList info={NewsInfo}/>
         </div>
     )

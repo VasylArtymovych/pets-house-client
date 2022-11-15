@@ -1,11 +1,10 @@
 .container {
   width: 100%;
-  min-height: 100%;
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  // background-color: #fdf7f2;
   background-size: 100%;
 }
 
@@ -38,21 +37,6 @@
   }
 }
 
-// #root{
-// 	width: 100%;
-// 	margin: 0;
-// 	padding: 0;
-// }
-
-// .form{
-// 	margin-top: 100px;
-
-// 	/* padding-top: 60px;
-// 	padding-bottom: 40px; */
-// width: 100%;
-// background-color: inherit;
-// }
-
 .title {
   margin: 0 0 40px 0;
   font-weight: 500;
@@ -61,17 +45,10 @@
   text-align: center;
   letter-spacing: 0.04em;
 
-  /* Черный */
-
   color: #111111;
 }
 
-.input__auth {
-  margin-bottom: 16px;
-}
-.input__auth_last {
-  margin-bottom: 40px;
-}
+
 
 .button__auth {
   margin-bottom: 40px;
@@ -83,11 +60,35 @@
   line-height: 16px;
   text-align: center;
   letter-spacing: 0.04em;
-
-  /* Cерый */
-
   color: rgba(17, 17, 17, 0.6);
 }
 .redirect_link__auth {
   color: #3091eb;
+}
+
+.input__wrapper{
+  position: relative;
+  margin-bottom: 16px;
+}
+.input__wrapper_last{
+  position: relative;
+  margin-bottom: 40px;
+}
+
+
+
+.error{
+  position: absolute;
+  top: 25%;
+  right: 6%;
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.04em;
+  color: red;
+  // transition: box-shadow 250ms ease-out;
+
 }

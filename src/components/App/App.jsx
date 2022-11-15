@@ -19,7 +19,7 @@ const OurFriend = lazy(() => import('pages/OurFriend'));
 function App() {
   const { getToken } = selectors;
   const token = useSelector(getToken);
-  console.log(token);
+  // console.log(token);
   useGetCurrentUserQuery(undefined, { skip: !token });
 
   const [isBigLoader, setIsBigLoader] = useState(false);
@@ -31,7 +31,7 @@ function App() {
     }
   }, [setIsBigLoader]);
 
-  console.log(isBigLoader);
+  // console.log(isBigLoader);
 
   return (
     <>

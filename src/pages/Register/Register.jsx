@@ -1,152 +1,103 @@
-import { AuthFormFirstPage, AuthFormSecondPage } from 'components/AuthForm';
+import {
+	AuthError,
+	AuthFormFirstPage,
+	AuthFormSecondPage,
+} from 'components/AuthForm';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useRegistrationUserMutation } from 'redux/fetchUser';
+import { selectors } from 'redux/selectors';
 
 const Register = () => {
-  const [data, setData] = useState({
-    email: '',
-    password: '',
-    confirmPassword: '',
-    name: '',
-    city: '',
-    phone: ''
-  });
-  const [page, setPage] = useState(0);
+	const [register, { isLoading, error }] = useRegistrationUserMutation();
+	console.log(error);
 
-  const formTitles = ['Registration', 'Personal Info'];
+	const { IsLogged } = selectors;
+	console.log(IsLogged);
 
-  const makeRequest = (formData) => {
-    console.log('Submiting', formData);
-  };
+	const navigate = useNavigate();
 
-  const handleNextStep = (newData, final = false) => {
-    setData((prev) => ({ ...prev, ...newData }));
-    setPage((prev) => prev + 1);
+	const [data, setData] = useState({
+		email: '',
+		password: '',
+		confirmPassword: '',
+		name: '',
+		city: '',
+		phone: '',
+	});
 
-    if (final) {
-      makeRequest(newData);
-      return;
-    }
-  };
+	const [page, setPage] = useState(0);
 
-  const handlePrevStep = (newData) => {
-    setData((prev) => ({ ...prev, ...newData }));
-    setPage((prev) => prev - 1);
-  };
+	const formTitles = ['Registration', 'Personal Info'];
 
-  const steps = [
-    <AuthFormFirstPage next={handleNextStep} data={data} title={formTitles[page]} />,
-    <AuthFormSecondPage prev={handlePrevStep} next={handleNextStep} data={data} title={formTitles[page]} />
-  ];
+	const makeRequest = async formData => {
+		const { error } = await register(formData);
+		console.log(error);
+		if (!error) {
+			navigate('/user');
+		}
+	};
 
-  console.log('data', data);
+	const handleNextStep = (newData, final = false) => {
+		setData(prev => ({ ...prev, ...newData }));
+		setPage(prev => prev + 1);
+		const { email, password, name, city, phone } = newData;
 
-  return <>{steps[page]}</>;
+		if (final & (page === 1)) {
+			makeRequest({ email, password, name, city, phone });
+			return;
+		}
+	};
+
+	const handlePrevStep = newData => {
+		setData(prev => ({ ...prev, ...newData }));
+		setPage(prev => prev - 1);
+	};
+
+	const steps = [
+		<AuthFormFirstPage
+			next={handleNextStep}
+			data={data}
+			title={formTitles[page]}
+		/>,
+		<AuthFormSecondPage
+			prev={handlePrevStep}
+			next={handleNextStep}
+			data={data}
+			title={formTitles[page]}
+			isLoading={isLoading}
+		/>,
+	];
+
+	return (
+		<>
+			{steps[page]}
+			{error && (
+				<AuthError
+					error={error.data.message}
+					additionalInfo={error.data.additionalInfo}
+				/>
+			)}
+		</>
+	);
 };
 
 export default Register;
 
-// import * as React from 'react';
-// import Avatar from '@mui/material/Avatar';
-// import Button from '@mui/material/Button';
-// import CssBaseline from '@mui/material/CssBaseline';
-// import TextField from '@mui/material/TextField';
-// import Grid from '@mui/material/Grid';
-// import Box from '@mui/material/Box';
-// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-// import Typography from '@mui/material/Typography';
-// import Container from '@mui/material/Container';
-// import { createTheme, ThemeProvider } from '@mui/material/styles';
-// import { useDispatch } from 'react-redux';
-// import { register } from 'redux/auth/authOperation';
+// const { AuthError } = require("components/AuthForm")
+// import scss from "./Register.module.scss"
+// import { Input } from "components/Input";
 
-// const theme = createTheme();
-
-// const SignUp = () => {
-// 	const dispatch = useDispatch();
-
-// 	const handleSubmit = event => {
-// 		event.preventDefault();
-// 		const data = new FormData(event.currentTarget);
-// 		dispatch(
-// 			register({
-// 				name: data.get('name'),
-// 				email: data.get('email'),
-// 				password: data.get('password'),
-// 			})
-// 		);
-// 	};
-
-// 	return (
-// 		<ThemeProvider theme={theme}>
-// 			<Container component="main" maxWidth="xs">
-// 				<CssBaseline />
-// 				<Box
-// 					sx={{
-// 						marginTop: 8,
-// 						display: 'flex',
-// 						flexDirection: 'column',
-// 						alignItems: 'center',
-// 					}}
-// 				>
-// 					<Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-// 						<LockOutlinedIcon />
-// 					</Avatar>
-// 					<Typography component="h1" variant="h5">
-// 						Sign up
-// 					</Typography>
-// 					<Box
-// 						component="form"
-// 						noValidate
-// 						onSubmit={handleSubmit}
-// 						sx={{ mt: 3 }}
-// 					>
-// 						<Grid container spacing={2}>
-// 							<Grid item xs={12}>
-// 								<TextField
-// 									autoComplete="name"
-// 									name="name"
-// 									required
-// 									fullWidth
-// 									id="name"
-// 									label="Name"
-// 									autoFocus
-// 								/>
-// 							</Grid>
-// 							<Grid item xs={12}>
-// 								<TextField
-// 									required
-// 									fullWidth
-// 									id="email"
-// 									label="Email Address"
-// 									name="email"
-// 									autoComplete="email"
-// 								/>
-// 							</Grid>
-// 							<Grid item xs={12}>
-// 								<TextField
-// 									required
-// 									fullWidth
-// 									name="password"
-// 									label="Password"
-// 									type="password"
-// 									id="password"
-// 									autoComplete="new-password"
-// 								/>
-// 							</Grid>
-// 						</Grid>
-// 						<Button
-// 							type="submit"
-// 							fullWidth
-// 							variant="contained"
-// 							sx={{ mt: 3, mb: 2 }}
-// 						>
-// 							Sign Up
-// 						</Button>
-// 					</Box>
-// 				</Box>
-// 			</Container>
-// 		</ThemeProvider>
-// 	);
+// const Register = () => {
+// 	return(
+// 		<>
+/* <AuthError
+					error='email is already exist'
+					additionalInfo='Please, login'
+				/> */
+// 				<Input customStyle={scss.input_custom}/>
+// 		</>
+// 	)
 // }
 
-// export default SignUp;
+// export default Register;
