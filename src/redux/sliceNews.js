@@ -1,30 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { newsApi } from "./fetchNews";
 
 const initialState={
-    news:[],
-    newsIsLoad:false,
-    errorServerNews:false
+    onFilterNews:[],
 }
 export const sliceNews=createSlice({
     name:'news',
     initialState,
-    extraReducers:(builder)=>{
-        builder.addMatcher(newsApi.endpoints.getNewsList.matchFulfilled, (state,{payload})=>{
-            state.news= payload.data;
-            state.newsIsLoad= false;
-            state.errorServerNews= false;
-        });
-        builder.addMatcher(newsApi.endpoints.getNewsList.matchPending, (state)=>{
-            state.newsIsLoad=true
-        });
-        builder.addMatcher(newsApi.endpoints.getNewsList.matchRejected, (state,{payload})=>{
-            if(payload?.status===400){
-                state.errorServerNews=true
-                state.newsIsLoad=false
-            }
-        })
+    reducers:{
+        setFilterNews(state,action){
+            return{...state,filter:action.payload}
+        }
     }
 })
+
+export const {setFilterNews}=sliceNews.actions
 
 export const newsReducer=sliceNews.reducer
