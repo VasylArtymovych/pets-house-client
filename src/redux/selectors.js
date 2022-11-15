@@ -10,4 +10,7 @@ export const selectors={
     isErrorServer: state=> state.users.errorServer,
     isErrorRegistration: state=> state.users.errorRegistration,
     getNotices: state=> state.notices.onFilterNotice,
+    getNews:state=>state.news.news,
+    getNewsStatusLoad:state=>state.news.newsIsLoad,
+    isNewsErrorSever:state=>state.news.newsIsLoad,
 }
