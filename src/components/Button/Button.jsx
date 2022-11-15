@@ -1,10 +1,11 @@
 import scss from './Button.module.scss';
 
-const Button = (props) => {
+const Button = ({ customStyle, buttonName, type = 'button', onClick }) => {
   return (
     <>
-      <button className={scss.button + ' ' + props.customStyle} type="submit" disabled={props.disabled} onClick={props.onClick}>
-        {props.buttonName}
+
+      <button className={scss.button + ' ' + customStyle} type={type} onClick={onClick}>
+        {buttonName}
       </button>
     </>
   );
