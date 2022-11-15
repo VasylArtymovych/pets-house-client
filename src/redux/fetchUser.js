@@ -6,7 +6,7 @@ export const userApi=createApi({
         baseUrl: 'http://localhost:8888/api',
         prepareHeaders:(headers, {getState})=>{
             const token= getState().users.token
-            if(token){ headers.set('Athorization', `Bearer ${token}`)}
+            if(token){ headers.set('Authorization', `Bearer ${token}`)}
             return headers
         }
     }),
