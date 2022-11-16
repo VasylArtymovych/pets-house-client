@@ -32,7 +32,7 @@ const NoticesCategoriesNav = () => {
           </button>
         </li>
       </ul>
-
+      {/* 
       <div className={styles.NoticesCategoriesNav__AddButtonContainer}>
         <span className={styles.NoticesCategoriesNav__AddButtonSpan}>Add</span>
         <span className={styles.NoticesCategoriesNav__AddButtonSpan}>&nbsp;pet</span>
@@ -41,7 +41,7 @@ const NoticesCategoriesNav = () => {
             <use href={sprite + '#icon-plus'} />
           </svg>
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
