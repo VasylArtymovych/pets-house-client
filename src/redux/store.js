@@ -4,6 +4,7 @@ import { persistSliceAuth } from "./sliceAuth";
 import { userApi } from "./fetchUser";
 import { noticeApi } from "./fetchNotice";
 import { newsApi } from "./fetchNews";
+import { sponsorsApi } from "./fetchSponsors";
 import { noticeReducer } from "./sliceNotice";
 import { newsReducer } from "./sliceNews";
 
@@ -23,6 +24,7 @@ export const store= configureStore({
         [userApi.reducerPath]: userApi.reducer,
         [noticeApi.reducerPath]:noticeApi.reducer,
         [newsApi.reducerPath]:newsApi.reducer,
+        [sponsorsApi.reducerPath]:sponsorsApi.reducer,
         notice:noticeReducer,
         news:newsReducer,
 },
@@ -32,7 +34,7 @@ getDefaultMiddleware({
     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
     
-}).concat(userApi.middleware,noticeApi.middleware,newsApi.middleware),
+}).concat(userApi.middleware,noticeApi.middleware,newsApi.middleware,sponsorsApi.middleware),
 })
 
 export const persistor = persistStore(store)
