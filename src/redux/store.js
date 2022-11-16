@@ -32,7 +32,7 @@ getDefaultMiddleware({
     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
     
-}).concat(userApi.middleware),
+}).concat(userApi.middleware,noticeApi.middleware,newsApi.middleware),
 })
 
 export const persistor = persistStore(store)
