@@ -67,6 +67,10 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.6);
   border: none;
+
+  @media screen and (min-width: 768px) {
+    left: 280px;
+  }
 }
 
 .NoticesCategoriesItem__deletebutton {
@@ -86,6 +90,10 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.6);
   border: none;
+
+  @media screen and (min-width: 768px) {
+    left: 280px;
+  }
 }
 
 .NoticesCategoriesItem__svg {
