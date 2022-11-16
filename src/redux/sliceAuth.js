@@ -11,6 +11,8 @@ const initialState = {
     city: null,
     phone: null,
     id: null,
+    avatar:null,
+    birthday:null,
     pets: [],
     notices: [],
     favorites: []
@@ -33,6 +35,8 @@ export const authSlice = createSlice({
       state.user.city = user.city;
       state.user.phone = user.phone;
       state.user.id = user._id;
+      state.user.avatar= user.avatar;
+      state.user.birthday= user.birthday
       state.user.pets = user.pets;
       state.user.notices = user.notices;
       state.user.favorites = user.favorites;
@@ -69,11 +73,16 @@ export const authSlice = createSlice({
       }
     });
     builder.addMatcher(userApi.endpoints.getCurrentUser.matchFulfilled, (state, { payload }) => {
-      const { email, name, city, phone } = payload.user;
+      const { email, name, city, phone,avatar,birthday, pets, notices, favorites } = payload.user;
       state.user.email = email;
       state.user.name = name;
       state.user.city = city;
       state.user.phone = phone;
+      state.user.avatar = avatar;
+      state.user.birthday = birthday;
+      state.user.pets = pets;
+      state.user.notices = notices;
+      state.user.favorites = favorites;
       state.isLogged = true;
       state.loadUser = false;
     });
@@ -128,9 +137,4 @@ const persistConfig = {
 
 export const persistSliceAuth = persistReducer(persistConfig, authSlice.reducer);
 
-const getUserName = (state) => state.users.user.name;
-
-export const authSelectors = {
-  getUserName
-};
 
