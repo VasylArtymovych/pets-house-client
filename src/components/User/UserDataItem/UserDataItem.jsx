@@ -23,7 +23,7 @@ const UserDataItem = () => {
 
   useEffect(() => {
     logIn({ email, password });
-  }, []);
+  }, [logIn]);
 
   return (
     <>
