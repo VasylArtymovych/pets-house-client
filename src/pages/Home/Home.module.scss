@@ -38,7 +38,6 @@
   margin-top: 58px;
   width: 280px;
   height: 88px;
-  margin-left: 16px;
   margin-top: 33px;
   opacity: 0%;
 
@@ -58,9 +57,7 @@
     width: 588px;
     font-size: 68px;
     line-height: 1.37;
-    // margin-left: 16px;
     margin-top: 73px;
-    margin-left: 16px;
   }
 }
 @keyframes title {
@@ -69,8 +66,6 @@
     opacity: 0%;
   }
   100% {
-    margin-left: 16px;
-    left: 500;
     opacity: 100%;
   }
 }
