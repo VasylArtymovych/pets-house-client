@@ -14,7 +14,7 @@ const UserAvatarModal = ({ onCloseModal }) => {
         <img className={scss.avatar__img} src={DefaultAvatar} alt="avatar" />
         <div className={scss.input__container}>
           <input className={scss.input__file} type="file" id="input__file" accept="image/*" multiple />
-          <label className={scss.input__fileButton} for="input__file">
+          <label className={scss.input__fileButton} htmlFor="input__file">
             <span className={scss.input__fileIcon}>
               <svg className={scss.input__iconSave} width="40" height="40">
                 <use href={sprite + '#icon-save'} />
