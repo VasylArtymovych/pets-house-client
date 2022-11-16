@@ -11,7 +11,7 @@ export const FieldBirthday = ({ text, value }) => {
       <p>{text}:</p>
       {isUpdate ? (
         <>
-          <Calendar customStyle={scss.input__birthday} />
+          <Calendar customStyleMobile={scss.input__birthday} customStyleDesktop={scss.input__birthdayDesk} />
           <button className={scss.input__btn} type="button" onClick={() => setIsUpdate(false)}>
             <svg className={scss.icon__profileCheckMark}>
               <use href={sprite + '#icon-profileCheckMark'} />

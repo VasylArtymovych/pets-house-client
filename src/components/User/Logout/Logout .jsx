@@ -2,8 +2,9 @@ import scss from './Logout.module.scss';
 import sprite from '../../../images/symbol-defs.svg';
 import { useModal } from 'hooks';
 import Modal from 'components/Modal';
+import { LogOutModal } from './LogOutModal';
 
-const Logout = () => {
+export const Logout = () => {
   const { isModalOpen, closeModal, toggleModal } = useModal();
   return (
     <div className={scss.logout}>
@@ -13,9 +14,11 @@ const Logout = () => {
         </svg>
         Log Out
       </button>
-      {isModalOpen && <Modal onCloseModal={closeModal} mode="dark"></Modal>}
+      {isModalOpen && (
+        <Modal onCloseModal={closeModal} mode="dark">
+          <LogOutModal onCloseModal={closeModal} />
+        </Modal>
+      )}
     </div>
   );
 };
-
-export default Logout;

@@ -1,8 +1,20 @@
 import scss from './UserAvatarModal.module.scss';
 import sprite from '../../../images/symbol-defs.svg';
 import DefaultAvatar from '../../../images/desctop/DefaultAvatar.png';
+import { useState } from 'react';
 
-const UserAvatarModal = ({ onCloseModal }) => {
+const UserAvatarModal = ({ onCloseModal, onImageSaveHandle }) => {
+  const [img, setImg] = useState(null);
+
+  const imageHandler = (e) => {
+    const file = e.target.files[0];
+    setImg(URL.createObjectURL(file));
+  };
+
+  const ImageSaveClick = () => {
+    onImageSaveHandle(img);
+    onCloseModal();
+  };
   return (
     <div className={scss.avatar__modal}>
       <div className={scss.input__wrapper}>
@@ -11,9 +23,14 @@ const UserAvatarModal = ({ onCloseModal }) => {
             <use href={sprite + '#icon-exit'} />
           </svg>
         </button>
-        <img className={scss.avatar__img} src={DefaultAvatar} alt="avatar" />
+        {img === null ? (
+          <img className={scss.avatar__img} src={DefaultAvatar} alt="avatar" id="image" />
+        ) : (
+          <img className={scss.avatar__img} src={img} alt="avatar" />
+        )}
+
         <div className={scss.input__container}>
-          <input className={scss.input__file} type="file" id="input__file" accept="image/*" multiple />
+          <input className={scss.input__file} type="file" id="input__file" onChange={(e) => imageHandler(e)} accept="image/*" multiple />
           <label className={scss.input__fileButton} htmlFor="input__file">
             <span className={scss.input__fileIcon}>
               <svg className={scss.input__iconSave} width="40" height="40">
@@ -29,7 +46,7 @@ const UserAvatarModal = ({ onCloseModal }) => {
             </svg>
           </button>
         </div>
-        <button className={scss.save__avatar} type="submit">
+        <button className={scss.save__avatar} type="submit" onClick={ImageSaveClick}>
           Save
         </button>
       </div>
