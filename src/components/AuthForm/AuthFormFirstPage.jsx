@@ -1,16 +1,8 @@
 import { InputForm } from 'components/Input';
 import { ErrorMessage, Form, Formik } from 'formik';
 import scss from './AuthForm.module.scss';
-import * as Yup from 'yup';
 import Button from 'components/Button';
-
-const stepOneValidationSchema = Yup.object({
-	email: Yup.string().email('Invalid email').required('Email is required'),
-	password: Yup.string().required('Password is required').min(7),
-	confirmPassword: Yup.string()
-		.oneOf([Yup.ref('password'), null], 'Passwords must match')
-		.required('Confirm password is required'),
-});
+import { stepOneValidationSchema } from 'services';
 
 export const AuthFormFirstPage = props => {
 	const handleSubmit = values => {
@@ -63,7 +55,7 @@ export const AuthFormFirstPage = props => {
 								className={scss.error}
 							/>
 						</div>
-						<div>
+						<div className={scss.button__container}>
 							<Button
 								type="submit"
 								className={scss.button__auth}
@@ -86,4 +78,3 @@ export const AuthFormFirstPage = props => {
 	);
 };
 
-// export default AuthFormFirstPage;

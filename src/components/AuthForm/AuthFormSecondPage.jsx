@@ -1,19 +1,9 @@
 import { InputForm } from 'components/Input';
 import { ErrorMessage, Form, Formik } from 'formik';
 import scss from './AuthForm.module.scss';
-import * as Yup from 'yup';
 import Button from 'components/Button';
-
-const stepTwoValidationSchema = Yup.object({
-	name: Yup.string()
-		.min(2, 'Too Short!')
-		.max(70, 'Too Long!')
-		.required('Required')
-		.label('Name')
-    .matches(/^[a-zA-Z]+$/ , 'Is not in correct format'),
-	city: Yup.string().label('City').required('Required'),
-	phone: Yup.string().required('Required').label('Mobile phone').matches(/^\+380\d{9}$/ , 'Correct format: +380 98 111 11 11'),
-});
+import scssButton from '../Button/Button.module.scss'
+import { stepTwoValidationSchema } from 'services';
 
 export const AuthFormSecondPage = props => {
 	const handleSubmit = values => {
@@ -68,18 +58,19 @@ export const AuthFormSecondPage = props => {
 								className={scss.error}
 							/>
 						</div>
-						<div >
+						<div className={scss.button__container} >
 							<Button
 								type="submit"
-								className={scss.button__auth}
+								customStyle={scssButton.button__auth_first}
 								buttonName="Register"
 								disabled={props.isLoading}
-							></Button>
+							/>
 							<Button
 								onClick={() => props.prev(values)}
-								className={scss.button__auth}
+								customStyle={scssButton.button__auth_last}
 								buttonName="Back"
-							></Button>
+								
+							/>
 						</div>
 						<p className={scss.redirect__auth}>
 						Already have an account?

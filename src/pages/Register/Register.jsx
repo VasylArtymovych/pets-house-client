@@ -56,16 +56,16 @@ const Register = () => {
 
 	const steps = [
 		<AuthFormFirstPage
-			next={handleNextStep}
-			data={data}
-			title={formTitles[page]}
+		next={handleNextStep}
+		data={data}
+		title={formTitles[page]}
 		/>,
 		<AuthFormSecondPage
-			prev={handlePrevStep}
-			next={handleNextStep}
-			data={data}
-			title={formTitles[page]}
-			isLoading={isLoading}
+		prev={handlePrevStep}
+		next={handleNextStep}
+		data={data}
+		title={formTitles[page]}
+		isLoading={isLoading}
 		/>,
 	];
 

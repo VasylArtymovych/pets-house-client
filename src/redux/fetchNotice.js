@@ -3,15 +3,19 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 export const noticeApi=createApi({
     reducerPath:"noticeApi",
     baseQuery: fetchBaseQuery({
-        baseUrl:'http://localhost:8888/api/notice'
+        baseUrl:'http://localhost:8888/api/notice',
+        prepareHeaders:(headers, {getState})=>{
+            const token= getState().users.token
+            if(token){ headers.set('Authorization', `Bearer ${token}`)}
+            return headers
+        }
     }),
     tagTypes:['Notice'],
     endpoints:builder=>({
         getNotice:builder.query({
-            query:({category})=>({
+            query:(category)=>({
                 url:`/category/${category}`,
-                method:'GET',
-                body:{category},
+                method:'GET'
             }),
             providesTags:['Notice']
         }),

@@ -1,16 +1,17 @@
-import { Input } from 'components/Input';
 import { useState } from 'react';
 import sprite from '../../../images/symbol-defs.svg';
+import Calendar from '../Calendar';
 import scss from './Field.module.scss';
 
 export const FieldBirthday = ({ text, value }) => {
   const [isUpdate, setIsUpdate] = useState(false);
+
   return (
     <li className={scss.user__items}>
       <p>{text}:</p>
       {isUpdate ? (
         <>
-          <Input customStyle={scss.input__change} type="text" value={value} />
+          <Calendar customStyleMobile={scss.input__birthday} customStyleDesktop={scss.input__birthdayDesk} />
           <button className={scss.input__btn} type="button" onClick={() => setIsUpdate(false)}>
             <svg className={scss.icon__profileCheckMark}>
               <use href={sprite + '#icon-profileCheckMark'} />

@@ -3,7 +3,10 @@ import {setupListeners} from "@reduxjs/toolkit/query";
 import { persistSliceAuth } from "./sliceAuth";
 import { userApi } from "./fetchUser";
 import { noticeApi } from "./fetchNotice";
+import { newsApi } from "./fetchNews";
+import { sponsorsApi } from "./fetchSponsors";
 import { noticeReducer } from "./sliceNotice";
+import { newsReducer } from "./sliceNews";
 
 import {
     persistStore,
@@ -20,7 +23,10 @@ export const store= configureStore({
         users:persistSliceAuth,
         [userApi.reducerPath]: userApi.reducer,
         [noticeApi.reducerPath]:noticeApi.reducer,
+        [newsApi.reducerPath]:newsApi.reducer,
+        [sponsorsApi.reducerPath]:sponsorsApi.reducer,
         notice:noticeReducer,
+        news:newsReducer,
 },
 middleware: getDefaultMiddleware=>
 getDefaultMiddleware({
@@ -28,7 +34,7 @@ getDefaultMiddleware({
     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
     
-}).concat(userApi.middleware),
+}).concat(userApi.middleware,noticeApi.middleware,newsApi.middleware,sponsorsApi.middleware),
 })
 
 export const persistor = persistStore(store)

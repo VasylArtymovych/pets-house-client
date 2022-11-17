@@ -11,6 +11,8 @@ const initialState = {
     city: null,
     phone: null,
     id: null,
+    avatar:null,
+    birthday:null,
     pets: [],
     notices: [],
     favorites: []
@@ -33,6 +35,8 @@ export const authSlice = createSlice({
       state.user.city = user.city;
       state.user.phone = user.phone;
       state.user.id = user._id;
+      state.user.avatar= user.avatar;
+      state.user.birthday= user.birthday
       state.user.pets = user.pets;
       state.user.notices = user.notices;
       state.user.favorites = user.favorites;
@@ -46,6 +50,7 @@ export const authSlice = createSlice({
     });
     builder.addMatcher(userApi.endpoints.logIn.matchRejected, (state, { payload }) => {
       if (payload?.status === 400) {
+        state.loadUser= false;
         state.errorServer = true;
       }
     });
@@ -55,6 +60,7 @@ export const authSlice = createSlice({
       state.user.name = user.name;
       state.user.city = user.city;
       state.user.phone = user.phone;
+      state.user.birthday = user.birthday;
       state.isLogged = true;
       state.loadUser = false;
     });
@@ -63,15 +69,21 @@ export const authSlice = createSlice({
     });
     builder.addMatcher(userApi.endpoints.registrationUser.matchRejected, (state, { payload }) => {
       if (payload?.status === 400) {
+        state.loadUser= false;
         state.errorRegistration = true;
       }
     });
     builder.addMatcher(userApi.endpoints.getCurrentUser.matchFulfilled, (state, { payload }) => {
-      const { email, name, city, phone } = payload.user;
+      const { email, name, city, phone,avatar,birthday, pets, notices, favorites } = payload.user;
       state.user.email = email;
       state.user.name = name;
       state.user.city = city;
       state.user.phone = phone;
+      state.user.avatar = avatar;
+      state.user.birthday = birthday;
+      state.user.pets = pets;
+      state.user.notices = notices;
+      state.user.favorites = favorites;
       state.isLogged = true;
       state.loadUser = false;
     });
@@ -81,6 +93,7 @@ export const authSlice = createSlice({
     builder.addMatcher(userApi.endpoints.getCurrentUser.matchRejected, (state, { payload }) => {
       if (payload?.status === 401) {
         state.token = ``;
+        state.loadUser= false;
       }
     });
     builder.addMatcher(userApi.endpoints.logOut.matchPending, (state) => {
@@ -88,6 +101,30 @@ export const authSlice = createSlice({
     });
     builder.addMatcher(userApi.endpoints.logOut.matchFulfilled, () => {
       return { ...initialState };
+    });
+    builder.addMatcher(userApi.endpoints.updateUser.matchFulfilled, (state, { payload }) => {
+      const { user } = payload;
+      state.user.email = user.email;
+      state.user.name = user.name;
+      state.user.city = user.city;
+      state.user.phone = user.phone;
+      state.user.id = user._id;
+      state.user.pets = user.pets;
+      state.user.notices = user.notices;
+      state.user.favorites = user.favorites;
+      state.token = user.token;
+      state.isLogged = true;
+      state.loadUser = false;
+      state.errorServer = false;
+    });
+    builder.addMatcher(userApi.endpoints.updateUser.matchPending, (state) => {
+      state.loadUser = true;
+    });
+    builder.addMatcher(userApi.endpoints.updateUser.matchRejected, (state, { payload }) => {
+      if (payload?.status === 400) {
+        state.errorServer = true;
+        state.loadUser= false;
+      }
     });
   }
 });
@@ -101,23 +138,4 @@ const persistConfig = {
 
 export const persistSliceAuth = persistReducer(persistConfig, authSlice.reducer);
 
-//Selectors
-
-// export const authSelectors={
-//     getUserEmail: state=> state.users.user.email,
-//     getUserName: state=> state.users.user.name,
-//     getUserCity: state=> state.users.user.city,
-//     getUserPhone: state=> state.users.user.phone,
-//     getToken: state=> state.users.token,
-//     isLogged: state=> state.users.isLogged,
-//     isLoadUser: state=> state.users.loadUser,
-//     isErrorServer: state=> state.users.errorServer,
-//     isErrorRegistration: state=> state.users.errorRegistration,
-// }
-
-const getUserName = (state) => state.users.user.name;
-
-export const authSelectors = {
-  getUserName
-};
 
