@@ -7,6 +7,7 @@ const InputForm = ({
 	customStyle,
 	placeholder,
 	autofocus,
+	autoComplete
 }) => {
 	return (
 		<Field
@@ -15,6 +16,7 @@ const InputForm = ({
 			type={type}
 			placeholder={placeholder}
 			autoFocus={autofocus}
+			autoComplete={autoComplete}
 		/>
 	);
 };

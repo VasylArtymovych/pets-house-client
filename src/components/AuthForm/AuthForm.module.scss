@@ -1,6 +1,6 @@
 .container {
 	width: 100%;
-	min-height: 91.7vh;
+	height: calc(100vh - 68px);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -82,6 +82,13 @@
 	margin-bottom: 40px;
 }
 
+.IconPassword {
+	position: absolute;
+	right: 4%;
+	top: 22%;
+	color: #f59256;
+}
+
 .error {
 	position: absolute;
 	top: 25%;
@@ -92,6 +99,31 @@
 	line-height: 19px;
 	display: flex;
 	align-items: center;
+	letter-spacing: 0.04em;
+	color: red;
+}
+
+.error__password {
+	position: absolute;
+	top: 25%;
+	right: 12%;
+	font-family: 'Manrope';
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 19px;
+	display: flex;
+	align-items: center;
+	letter-spacing: 0.04em;
+	color: red;
+}
+
+.error__login {
+	margin-bottom: 16px;
+	font-family: 'Manrope';
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 19px;
+	text-align: center;
 	letter-spacing: 0.04em;
 	color: red;
 }
