@@ -13,10 +13,9 @@ export const noticeApi=createApi({
     tagTypes:['Notice'],
     endpoints:builder=>({
         getNotice:builder.query({
-            query:({category})=>({
+            query:(category)=>({
                 url:`/category/${category}`,
-                method:'GET',
-                body:{category},
+                method:'GET'
             }),
             providesTags:['Notice']
         }),
