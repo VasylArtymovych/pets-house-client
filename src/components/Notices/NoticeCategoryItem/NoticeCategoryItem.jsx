@@ -4,9 +4,9 @@ import sprite from '../../../images/symbol-defs.svg';
 const NoticeCategoryItem = ({ data }) => {
   return (
     <>
-      {data.map(({ id, category, imageUrl, title, breed, place, Age, favorite, myads }) => {
+      {data.map(({ _id, category, imageUrl, title, breed, place, Age, favorite, myads }) => {
         return (
-          <li key={id} className={styles.NoticeCategoryItem}>
+          <li key={_id} className={styles.NoticeCategoryItem}>
             <img src={imageUrl} alt="" className={styles.NoticeCategoryItem__img} />
             <p className={styles.NoticeCategoryItem__category}>{category}</p>
             <button className={styles.NoticeCategoryItem__heartbutton} type="button">

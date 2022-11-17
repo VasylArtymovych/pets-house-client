@@ -1,10 +1,8 @@
-import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import axios from 'axios';
-import petsInfo from '../../../pages/FindPet/sellPets.json';
 import React from 'react';
 import NoticeCategoryItem from 'components/Notices/NoticeCategoryItem';
 import styles from './NoticesCategoriesList.module.scss';
+import { useGetNoticeQuery } from 'redux/fetchNotice';
 
 const NoticesCategoriesList = () => {
   const { pathname } = useLocation();
@@ -28,32 +26,12 @@ const NoticesCategoriesList = () => {
 
   const category = renderCategory();
 
-  const getCategoryData = async (category) => {
-    const response = await axios.get(`${category}`);
-
-    return response.data.results;
-  };
-
-  const [pets, setPets] = useState(null);
-
-  useEffect(() => {
-    async function fetchPets() {
-      try {
-        const results = await getCategoryData(category);
-        setPets(results);
-      } catch (error) {
-        console.log('error', error);
-      }
-    }
-    fetchPets();
-  }, [category]);
+  const { data: pets } = useGetNoticeQuery(category);
   console.log(pets);
 
   return (
     <div className={styles.NoticesCategoriesList__Container}>
-      <ul className={styles.NoticesCategoriesList}>
-        <NoticeCategoryItem data={petsInfo} />
-      </ul>
+      <ul className={styles.NoticesCategoriesList}>{pets.data ? <NoticeCategoryItem data={pets.data} /> : 'There is no pets of this ctegory'}</ul>
     </div>
   );
 };
