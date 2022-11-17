@@ -2,14 +2,18 @@
   &:not(:last-child) {
     margin-bottom: 32px;
   }
-
+  // margin-right: 32px;
   border-radius: 0px 0px 20px 20px;
 
   max-width: 280px;
   max-height: 606px;
 
   @media screen and (min-width: 768px) {
-    flex-basis: calc((100% - 40px) / 2);
+    flex-basis: calc((100% - 64px) / 2);
+    width: 288px;
+    height: 606px;
+    margin-right: 32px;
+    max-width: 336px;
   }
 }
 
@@ -18,9 +22,13 @@
   object-fit: cover;
   width: 280px;
   height: 288px;
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
 }
 
-// .NoticeCategoryItem__categoryContainer {
+// .NoticesCategoriesItem__categoryContainer {
 // }
 
 .NoticeCategoryItem__category {
@@ -44,6 +52,57 @@
   color: #111111;
 }
 
+.NoticeCategoryItem__heartbutton {
+  position: relative;
+  bottom: 276px;
+  margin-bottom: -44px;
+  left: 224px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+
+  @media screen and (min-width: 768px) {
+    left: 280px;
+  }
+}
+
+.NoticeCategoryItem__deletebutton {
+  position: relative;
+  bottom: 56px;
+  margin-bottom: -44px;
+  left: 224px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+
+  @media screen and (min-width: 768px) {
+    left: 280px;
+  }
+}
+
+.NoticeCategoryItem__svg {
+  width: 28px;
+  height: 28px;
+}
+
 .NoticeCategoryItem__infoContainer {
   display: flex;
   flex-direction: column;
@@ -51,6 +110,8 @@
   padding: 20px 16px 32px;
 
   background-color: #fff;
+
+  border-radius: 0px 0px 20px 20px;
 }
 
 .NoticeCategoryItem__title {
@@ -87,7 +148,7 @@
   margin-bottom: 50px;
 }
 
-// .NoticeCategoryItem__textItemspan {
+// .NoticesCategoriesItem__textItemspan {
 //   // margin-left: auto;
 // }
 
@@ -97,6 +158,8 @@
   border: 2px solid #f59256;
   border-radius: 40px;
   color: #f59256;
+
+  cursor: pointer;
 
   &:hover,
   :focus {
