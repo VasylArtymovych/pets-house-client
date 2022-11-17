@@ -60,6 +60,7 @@ export const authSlice = createSlice({
       state.user.name = user.name;
       state.user.city = user.city;
       state.user.phone = user.phone;
+      state.user.birthday = user.birthday;
       state.isLogged = true;
       state.loadUser = false;
     });
