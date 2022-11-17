@@ -31,7 +31,15 @@ const NoticesCategoriesList = () => {
 
   return (
     <div className={styles.NoticesCategoriesList__Container}>
-      <ul className={styles.NoticesCategoriesList}>{pets.data ? <NoticeCategoryItem data={pets.data} /> : 'There is no pets of this ctegory'}</ul>
+      {pets?.data ? (
+        <ul className={styles.NoticesCategoriesList}>
+          {pets.data.map(({ title }) => (
+            <li key={title}>{title}</li>
+          ))}
+        </ul>
+      ) : (
+        <div>Hello</div>
+      )}
     </div>
   );
 };
