@@ -11,7 +11,10 @@
         padding-left: 32px;
     }
 
-    @media screen and (min-width: 1280px) {}
+    @media screen and (min-width: 1280px) {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
 }
 
 .title{
@@ -24,7 +27,6 @@
         font-size: 48px;
         line-height: 66px;
     }
-    @media screen and (min-width: 1280px) {}
 }
 
 .InputNews{
@@ -37,6 +39,7 @@
 }
 
 .newsList{
+    margin-bottom: 100px;
     @media screen and (min-width: 768px) {
         display: flex;
         flex-wrap: wrap;
@@ -74,23 +77,26 @@
     line-height: 33px;
     letter-spacing: -0.01em;
     margin-bottom: 16px;
-    height: 66px;
-    overflow: hidden
+    position: relative;
+    padding-top: 12px;
+    height: 78px;
+    overflow: hidden;
 }
 
 .titleList::before {
     display: block;
     content: '';
     position: absolute;
-    width: 200px;
+    width: 280px;
     background: linear-gradient(90deg, #FF634E 0%, #FFDF48 105.44%);
     border-radius: 40px;
-    height: 4px;
+    height: 8px;
+    top: 0px;
     @media screen and (min-width: 768px) {
-            width: 280px;
+            width: 335px;
     }
     @media screen and (min-width: 1280px) {
-            width: 340px;
+            width: 395px;
     }
 }
 
