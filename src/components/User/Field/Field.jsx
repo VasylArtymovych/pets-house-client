@@ -3,7 +3,7 @@ import { useState } from 'react';
 import sprite from '../../../images/symbol-defs.svg';
 import scss from './Field.module.scss';
 
-export const Field = ({ text, name }) => {
+export const Field = ({ text, name, onInfoHandle }) => {
   const [isUpdate, setIsUpdate] = useState(false);
   const [userName, setUserName] = useState(name);
 
@@ -11,8 +11,9 @@ export const Field = ({ text, name }) => {
   //   if (userName.length === 0) {
   //     return;
   //   } else {
-  //     patchContact({ id, name: userName });
+  //     // patchContact({ id, name: userName });
   //     setIsUpdate(false);
+  //     onInfoHandle(userName);
   //   }
   // };
 

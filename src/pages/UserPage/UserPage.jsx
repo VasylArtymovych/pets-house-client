@@ -1,7 +1,7 @@
 import Container from 'components/Container';
 import Modal from 'components/Modal';
 import { ModalAddsPet } from 'components/ModalAddsPet';
-import Logout from 'components/User/Logout';
+import { Logout } from 'components/User/Logout';
 import PetsData from 'components/User/PetsData';
 import UserData from 'components/User/UserData';
 import { useModal } from 'hooks';
@@ -14,7 +14,6 @@ const UserPage = () => {
   const { isModalOpen, closeModal, toggleModal } = useModal();
   return (
     <Container>
-      {/* <section className={scss.user__contsiner}> */}
       <div className={scss.user__box}>
         <div>
           <h1 className={scss.user__title}>My information:</h1>
@@ -41,7 +40,6 @@ const UserPage = () => {
           )}
         </div>
       </div>
-      {/* </section> */}
     </Container>
   );
 };
