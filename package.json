@@ -27,6 +27,8 @@
     "redux-persist": "^6.0.0",
     "sass": "^1.56.1",
     "web-vitals": "^2.1.4",
+    "i18next-browser-languagedetector": "^6.1.4",
+    "i18next-http-backend": "^1.4.0",
     "yup": "^0.32.11"
   },
   "scripts": {
