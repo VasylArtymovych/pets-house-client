@@ -5,6 +5,7 @@ import SharedLayout from 'components/SharedLayout';
 import { useGetCurrentUserQuery } from 'redux/fetchUser';
 import { selectors } from 'redux/selectors';
 import Loader from 'components/Loader';
+import TeamBord from 'components/TeamBord';
 
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
@@ -38,6 +39,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />
+            {/* <Route index element={<TeamBord />} /> */}
             <Route path="/news" element={<News />} />
             <Route path="/notices" element={<FindPet />}>
               <Route path="sell" element={<NoticesCategoriesList />} />
