@@ -9,7 +9,7 @@ const FormSearchNews = () => {
       <h2 className={scss.title}>News</h2>
       <Input customStyle={Scss.InputNews} placeholder={'Search'}>
         <button>
-          <svg class="search_icon" width="16px" height="12px">
+          <svg className="search_icon" width="16px" height="12px">
             <use href="../../images/img_our_friend/sprite.svg#icon-search"></use>
           </svg>
         </button>
