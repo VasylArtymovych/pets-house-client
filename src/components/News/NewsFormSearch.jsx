@@ -1,15 +1,19 @@
 // import { useState } from "react";
 import scss from './News.module.scss';
-import { Input, InputForm } from 'components/Input';
-// import { ErrorMessage, Form, Formik } from 'formik';
+import { Input } from 'components/Input';
+import Scss from 'components/Input/Input.module.scss'
 
 const FormSearchNews = () => {
   return (
     <div className={scss.container}>
       <h2 className={scss.title}>News</h2>
-      {/* <InputForm> */}
-      <Input customStyle={scss.InputNews} placeholder={'Search'} />
-      {/* </InputForm> */}
+      <Input customStyle={Scss.InputNews} placeholder={'Search'}>
+        <button>
+          <svg class="search_icon" width="16px" height="12px">
+            <use href="../../images/img_our_friend/sprite.svg#icon-search"></use>
+          </svg>
+        </button>
+      </Input>
     </div>
   );
 };
