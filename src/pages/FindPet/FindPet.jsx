@@ -1,27 +1,24 @@
 import React from 'react';
-import { Input } from '../../components/Input';
-import NoticesCategoriesNav from '../../components/Notices/NoticesCategoriesNav';
-import NoticesCategoriesList from '../../components/Notices/NoticesCategoriesList';
+import NoticesSearch from 'components/Notices/NoticesSearch';
+import NoticesCategoriesNav from 'components/Notices/NoticesCategoriesNav';
+import AddNoticeButton from 'components/Notices/AddNoticeButton';
+import NoticesCategoriesList from 'components/Notices/NoticesCategoriesList';
 import styles from './FindPet.module.scss';
-import findpet from '../../data/findpet.json';
-import { Outlet } from 'react-router-dom';
-
-const FindPet = ({ data }, isUserLoggedIn) => {
-  const onChange = (event) => {
-    event.preventDefault();
-  };
-
+import Container from 'components/Container';
+import { Outlet } from 'react-router-dom/dist';
+const FindPet = () => {
   return (
     <>
-      <h1 className={styles.title__findpet}>Find your favorite pet</h1>
+      <Container>
+        <h1 className={styles.title__findpet}>Find your favorite pet</h1>
+        <NoticesSearch />
 
-      <Input name="findpet" type="text" placeholder="Search" customStyle={styles.input__findpet} onChange={onChange}></Input>
+        <NoticesCategoriesNav />
 
-      <NoticesCategoriesNav />
+        <Outlet />
 
-      <Outlet />
-
-      {/* <NoticesCategoriesList data={findpet} /> */}
+        {/* <NoticesCategoriesList data={findpet} /> */}
+      </Container>
     </>
   );
 };

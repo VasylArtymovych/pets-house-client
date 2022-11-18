@@ -1,6 +1,6 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './NoticesCategoriesNav.module.scss';
-import sprite from '../../../images/symbol-defs.svg';
 
 const NoticesCategoriesNav = () => {
   return (

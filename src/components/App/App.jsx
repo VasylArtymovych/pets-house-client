@@ -5,7 +5,6 @@ import SharedLayout from 'components/SharedLayout';
 import { useGetCurrentUserQuery } from 'redux/fetchUser';
 import { selectors } from 'redux/selectors';
 import Loader from 'components/Loader';
-import NoticesCategoriesList from 'components/Notices/NoticesCategoriesList';
 
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
@@ -14,6 +13,7 @@ const FindPet = lazy(() => import('pages/FindPet'));
 const Login = lazy(() => import('pages/Login'));
 const News = lazy(() => import('pages/News'));
 const OurFriend = lazy(() => import('pages/OurFriend'));
+const NoticesCategoriesList = lazy(() => import('components/Notices/NoticesCategoriesList'));
 
 function App() {
   const { getToken } = selectors;

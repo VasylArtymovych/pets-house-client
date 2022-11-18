@@ -8,12 +8,12 @@ export const sliceNotice= createSlice({
 name:'notices',
 initialState,
 reducers:{
-        setFilter(state,action){
+        setFilterNotice(state,action){
             return {...state, filter:action.payload}
         },
     },
 });
 
-export const {setFilter}= sliceNotice.actions
+export const {setFilterNotice}= sliceNotice.actions
 
 export const noticeReducer= sliceNotice.reducer

@@ -1,1 +1,1 @@
-export { default } from './NoticesCaterogiesList';
+export { default } from './NoticesCategoriesList';
