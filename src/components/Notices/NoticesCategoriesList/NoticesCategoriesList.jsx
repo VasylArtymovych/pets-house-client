@@ -33,8 +33,18 @@ const NoticesCategoriesList = () => {
     <div className={styles.NoticesCategoriesList__Container}>
       {pets?.data ? (
         <ul className={styles.NoticesCategoriesList}>
-          {pets.data.map(({ title }) => (
-            <li key={title}>{title}</li>
+          {pets.data.map(({ _id, category, imageUrl, title, breed, place, Age, favorite, myads }) => (
+            <NoticeCategoryItem
+              key={_id}
+              category={category}
+              imageUrl={imageUrl}
+              title={title}
+              breed={breed}
+              place={place}
+              age={Age}
+              favorite={favorite}
+              myads={myads}
+            />
           ))}
         </ul>
       ) : (
