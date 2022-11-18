@@ -2,14 +2,14 @@ import Button from 'components/Button';
 import CatInShrek from '../../../images/desctop/CatInShrek.png';
 import scss from './LogOutModal.module.scss';
 
-// import { useLogOutMutation } from '../../../redux/fetchUser.js';
+import { useLogOutMutation } from '../../../redux/fetchUser.js';
 
 export const LogOutModal = ({ onCloseModal }) => {
-  // const [LogOut] = useLogOutMutation();
-  // const handleLogoutClick = () => {
-  //   LogOut();};
-
-  // onClick={handleLogoutClick}
+  const [LogOut] = useLogOutMutation();
+  const handleLogoutClick = () => {
+    LogOut();
+    onCloseModal();
+  };
 
   return (
     <div className={scss.modalOut__container}>
@@ -17,7 +17,7 @@ export const LogOutModal = ({ onCloseModal }) => {
       <p className={scss.modalOut__text}>Do you really want to Log Out of your account?</p>
 
       <div className={scss.modalOut__btns}>
-        <Button type="submit" customStyle={scss.modalOut__btn} buttonName="LogOut" />
+        <Button type="submit" customStyle={scss.modalOut__btn} buttonName="LogOut" onClick={handleLogoutClick} />
         <Button type="button" customStyle={scss.modalOut__btn} buttonName="Сancel" onClick={onCloseModal} />
       </div>
     </div>

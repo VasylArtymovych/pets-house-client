@@ -45,9 +45,13 @@
   }
 }
 
-.pets__animal {
-  width: 240px;
-  height: 240px;
+.pets__animalImg {
+  // width: 240px;
+  // height: 240px;
+  min-width: 161px;
+  min-height: 161px;
+  max-width: 161px;
+  max-height: 161px;
   margin: 0 auto 20px auto;
   border-radius: 40px;
   @media screen and (min-width: 768px) {
@@ -114,4 +118,18 @@
 .pats__btn:hover .pets__svg {
   fill: var(--btn__color);
   background-color: var(--accent__color);
+}
+.pets__notFound {
+  width: 100%;
+  text-align: center;
+}
+.pets__NFtext {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 21.35;
+  color: #111111;
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+    line-height: 1.35;
+  }
 }

@@ -7,8 +7,8 @@ import Box from '@mui/material/Box';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
-const Calendar = ({ customStyleMobile, customStyleDesktop, onHandleData }) => {
-  const [value, setValue] = useState(dayjs('2022-04-07'));
+const Calendar = ({ customStyleMobile, customStyleDesktop, onHandleDate, onBirthday }) => {
+  const [value, setValue] = useState(dayjs(onBirthday, 'DD.MM.YYYY'));
   const [isWidthCalendar, setIsWidthCalendar] = useState(false);
 
   useEffect(() => {
@@ -22,16 +22,15 @@ const Calendar = ({ customStyleMobile, customStyleDesktop, onHandleData }) => {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       {!isWidthCalendar ? (
         <MobileDatePicker
-          label="For mobile"
           value={value}
           inputFormat="DD.MM.YYYY"
           onChange={(newValue) => {
             setValue(newValue);
-            onHandleData(value);
+            onHandleDate(JSON.stringify(newValue.format('DD.MM.YYYY')));
           }}
           renderInput={({ inputRef, inputProps, InputProps, params }) => (
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <input {...params} type="data" className={customStyleMobile} ref={inputRef} {...inputProps} />
+              <input {...params} type="data" value={value} className={customStyleMobile} ref={inputRef} {...inputProps} />
               {InputProps?.endAdornment}
             </Box>
           )}
@@ -43,7 +42,7 @@ const Calendar = ({ customStyleMobile, customStyleDesktop, onHandleData }) => {
           inputFormat="DD.MM.YYYY"
           onChange={(newValue) => {
             setValue(newValue);
-            onHandleData(value);
+            onHandleDate(JSON.stringify(newValue.format('DD.MM.YYYY')));
           }}
           renderInput={({ inputRef, inputProps, InputProps, params }) => (
             <Box sx={{ display: 'flex', alignItems: 'center' }}>

@@ -6,25 +6,21 @@ import sprite from '../../../images/symbol-defs.svg';
 const UserAvatarModal = ({ onCloseModal, onAvatarImg }) => {
   const [img, setImg] = useState(onAvatarImg);
   const [file, setFile] = useState(null);
-  const [changeImg, setChangeImg] = useState(false);
 
   const [updateUserAvatar] = useUpdateUserAvatarMutation();
 
   const imageHandler = async (e) => {
     const fileUploaded = e.target.files[0];
     setImg(URL.createObjectURL(fileUploaded));
-    // console.log('fileUploaded:', fileUploaded);
     const file = new FormData();
     file.append('avatar', fileUploaded);
     setFile(file);
   };
 
   const ImageSaveClick = async () => {
-    // await
     updateUserAvatar(file);
     onCloseModal();
   };
-  // console.log('file:', file);
   return (
     <div className={scss.avatar__modal}>
       <div className={scss.input__wrapper}>
@@ -33,7 +29,7 @@ const UserAvatarModal = ({ onCloseModal, onAvatarImg }) => {
             <use href={sprite + '#icon-exit'} />
           </svg>
         </button>
-        {changeImg === false ? (
+        {img ? (
           <img className={scss.avatar__img} src={img} alt="avatar" />
         ) : (
           <img className={scss.avatar__img} src={`http://localhost:8888/${img}`} alt="avatar" />

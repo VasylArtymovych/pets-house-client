@@ -12,7 +12,7 @@ const UserData = () => {
   const { isModalOpen, closeModal, toggleModal } = useModal();
 
   const avatar = useSelector(selectors.getUserAvatar);
-  // console.log(avatar);
+
   const avatarImg = avatar ? `http://localhost:8888/${avatar}` : DefaultAvatar;
 
   return (
