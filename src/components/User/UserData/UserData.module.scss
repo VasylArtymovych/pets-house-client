@@ -20,6 +20,8 @@
 }
 
 .avatar__img {
+  width: 233px;
+  height: 233px;
   margin: 0 auto;
   border-radius: 50%;
 }
@@ -37,6 +39,7 @@
   @media screen and (min-width: 1280px) {
     position: static;
     justify-content: flex-end;
+    margin-bottom: 34px;
   }
 }
 .data__camera {
