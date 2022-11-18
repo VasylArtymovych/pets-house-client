@@ -3,7 +3,7 @@ import { ModalAddsPetSellSecondPage } from './ModalAddsPetSellSecondPage';
 import React, { useState } from 'react';
 
 export const ModalAddsPetSell = (props) => {
-   console.log("propsModalAddPet:", props)
+   
     const [data, setData] = useState({
     tittleOfAd: "", 
     namePet: '',
@@ -12,7 +12,9 @@ export const ModalAddsPetSell = (props) => {
     locations: "",
     price: "",
     photo: '',
-    comments: ''
+    comments: '',
+    category: "", //sell, inGoodHands, lostFound
+    gender: ""
   });
   const [page, setPage] = useState(0);
 

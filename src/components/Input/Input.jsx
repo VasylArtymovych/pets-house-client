@@ -1,9 +1,9 @@
 import { Field } from 'formik';
 import scss from './Input.module.scss';
 
- const InputForm = ({type= "text", name, customStyle, placeholder}) => {
+ const InputForm = ({type= "text", name, as, customStyle, placeholder}) => {
 	return (
-		<Field className={scss.input + " " + customStyle} name={name} type={type} placeholder={placeholder}/>
+		<Field className={scss.input + " " + customStyle} name={name} as={as} type={type} placeholder={placeholder}/>
 	)
 }
 

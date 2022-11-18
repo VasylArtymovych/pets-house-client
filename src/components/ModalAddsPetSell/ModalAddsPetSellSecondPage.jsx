@@ -1,46 +1,82 @@
-import { Form, Formik, Field  } from 'formik';
+import { Form, Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { InputForm } from 'components/Input';
+import sprite from '../../images/symbol-defs.svg';
 import scss from './ModalAddsPetSell.module.scss';
 
- const InputTextArea = ({type= "text", name, customStyle, placeholder}) => {
-	return (
-		<Field as="textarea" className={scss.input + " " + customStyle} name={name} type={type} placeholder={placeholder}/>
-	)
-}
-
 const stepTwoValidationSchema = Yup.object({
+  location: Yup.string(),
+  price: Yup.string(),
   comment: Yup.string()
 });
 
 export const ModalAddsPetSellSecondPage = (props) => {
-    const handleSubmit = (values) => {
-      props.next(values, true);
-      props.closeModal();
+  const handleSubmit = (values) => {
+    props.next(values, true);
+    props.closeModal();
   };
+
   return (
     <div className={scss.container}>
       <button type="button" onClick={props.closeModal} className={scss.btnClose}>
-        +
+        <svg className={scss.crossSmall}>
+          <use href={sprite + '#icon-blackCross'} />
+        </svg>
       </button>
-      <h3 className={scss.titleFirst}>Add pet</h3>
+      <h3 className={scss.title}>Add pet</h3>
       <div className={scss.wrapForm}>
         <Formik validationSchema={stepTwoValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
           {() => (
             <Form className={scss.formSecond + ' ' + props.customStyle}>
-              <p className={scss.text}>Add photo and some comments</p>
+              <div className={scss.wrapRadio}>
+                <p>
+                  The sex<span className={scss.mark}>*</span>:
+                </p>
+                <div className={scss.wrapIcon}>
+                  <Field className={scss.radioInput} name="gender" type="radio" id="male" value="male" />
+                  <label htmlFor="male" className={scss.labelGender + " " + scss.activGender}>
+                    <svg className={scss.icon} width="36px" height="36px">
+                      <use href={sprite + '#icon-male'} />
+                    </svg>
+                    Male
+                  </label>
+
+                  <Field className={scss.radioInput} name="gender" type="radio" id="female" value="female" />                
+                  <label htmlFor="female" className={scss.labelGender + " " + scss.activGender}>
+                    <svg className={scss.icon} width="36px" height="36px">
+                      <use href={sprite + '#icon-female'} />
+                    </svg>
+                    Female
+                  </label>
+                  
+                </div>
+              </div>
+
+              <label htmlFor="locations" className={scss.label}>
+                Location<span className={scss.mark}>*</span>:
+              </label>
+              <InputForm customStyle={scss.input} name="locations" placeholder="Type name pet" />
+              <ErrorMessage name="locations" />
+
+              <label htmlFor="price" className={scss.label}>
+                Price<span className={scss.mark}>*</span>:
+              </label>
+              <InputForm customStyle={scss.input} name="price" placeholder="Type date of birth" />
+              <ErrorMessage name="price" />
+
+              <p className={scss.text}>Load the pet’s image</p>
               <button type="button" className={scss.btnAddPhoto}>
-                +
+                <InputForm customStyle={scss.input_photo} name="photo" type="file" />
               </button>
               <div className={scss.wrapTextarea}>
                 <label className={scss.label}> Comments</label>
-                <textarea className={scss.textarea} placeholder="Type comments"></textarea>
-                <InputTextArea type="text" name="comments" placeholder="write a comment"/>
+                <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Type comments" />
               </div>
               <div className={scss.btnWrap}>
                 <button type="submit" className={scss.buttonFill}>
                   Done
                 </button>
-                <button type="button"  onClick={props.prev} className={scss.buttonEmpty}>
+                <button type="button" onClick={props.prev} className={scss.buttonEmpty}>
                   Back
                 </button>
               </div>

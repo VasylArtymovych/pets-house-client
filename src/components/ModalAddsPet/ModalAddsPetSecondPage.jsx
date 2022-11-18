@@ -1,6 +1,7 @@
-// import { InputForm } from 'components/Input';
-import { Form, Formik, Field } from 'formik';
+import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import { InputForm } from 'components/Input';
+import sprite from '../../images/symbol-defs.svg';
 import scss from './ModalAddsPet.module.scss';
 
 const stepTwoValidationSchema = Yup.object({
@@ -15,20 +16,23 @@ export const ModalAddsPetSecondPage = (props) => {
   return (
     <div className={scss.container}>
       <button type="button" onClick={props.closeModal} className={scss.btnClose}>
-        +
+        <svg className={scss.crossSmall}>
+          <use href={sprite + '#icon-blackCross'} />
+        </svg>
       </button>
-      <h3 className={scss.titleFirst}>Add pet</h3>
+      <h3 className={scss.title}>Add pet</h3>
       <div className={scss.wrapForm}>
         <Formik validationSchema={stepTwoValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
           {() => (
             <Form className={scss.formSecond + ' ' + props.customStyle}>
               <p className={scss.text}>Add photo and some comments</p>
               <button type="button" className={scss.btnAddPhoto}>
-                +
+               
+                <InputForm customStyle={scss.input_photo}  name="photo" type="file" />
               </button>
               <div className={scss.wrapTextarea}>
                 <label className={scss.label}> Comments</label>
-                <Field as="textarea" className={scss.textarea} name="comments" type="text" placeholder="Type comments" />
+                <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Type comments"/>
               </div>
               <div className={scss.btnWrap}>
                 <button type="submit" className={scss.buttonFill}>
