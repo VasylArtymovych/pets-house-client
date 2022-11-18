@@ -28,9 +28,12 @@
         line-height: 66px;
     }
 }
-
+.buttonSearch{
+    border: none;
+    background-color: var(--bg__color);
+}
 .search_icon{
-        fill: currentColor;
+    fill: #111111;
 }
 
 .newsList{
