@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import PetsIcon from '@mui/icons-material/Pets';
@@ -9,6 +9,7 @@ import BottomBlock from './MenuBurger/BottomBlock';
 import styleLogo from './Logo.module.scss';
 import styleNavigation from './Navigations.module.scss';
 import stylesMenuBurger from './MenuBurger/BurgerMenu.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const styleObjForHeaderMenuAndBurgerMenu = {
   styleNavigation,
@@ -17,19 +18,20 @@ const styleObjForHeaderMenuAndBurgerMenu = {
 };
 
 const link = [
-  { to: '/news', text: 'News' },
+  { to: '/news', text: 'news' },
   { to: '/notices', text: 'Find pet' },
-  { to: '/friends', text: 'Our friend' }
+  { to: '/friends', text: 'friends' }
 ];
 
 const linkAuth = [
-  { to: '/login', text: 'Login' },
-  { to: '/register', text: 'Registration' }
+  { to: '/login', text: 'login' },
+  { to: '/register', text: 'register' }
 ];
 
 const Navigations = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isUser, setIsUser] = useState(false);
+  const { t } = useTranslation();
 
   let location = useLocation();
 
@@ -43,7 +45,7 @@ const Navigations = () => {
             to={el.to}
             className={location.pathname === el.to ? `${styleNavigation.navigationLink} ${styleNavigation.active}` : styleNavigation.navigationLink}
           >
-            <span>{el.text}</span>
+            <span>{t(`${el.text}`)}</span>
           </NavLink>
         ))}
       </div>
@@ -52,7 +54,7 @@ const Navigations = () => {
         <div className={styleNavigation.buttonLinkWrapp}>
           {linkAuth.map((el) => (
             <NavLink key={Math.random()} to={el.to} className={styleNavigation.buttonlink}>
-              <span>{el.text}</span>
+              <span>{t(`${el.text}`)}</span>
             </NavLink>
           ))}
         </div>

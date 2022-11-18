@@ -1,11 +1,11 @@
 {
-    "news": "News",
-    "read": "Read more",
-    "friends": "Our friends",
-    "time": "Time:",
-    "adress": "Address:",
-    "email": "Email:",
-    "phone": "Phone:",
-    "login": "Login Text",
-    "register": "Register Text"
+  "news": "News",
+  "read": "Read more",
+  "friends": "Our friends",
+  "time": "Time:",
+  "adress": "Address:",
+  "email": "Email:",
+  "phone": "Phone:",
+  "login": "Login",
+  "register": "Register"
 }
