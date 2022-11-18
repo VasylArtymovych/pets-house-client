@@ -7,9 +7,8 @@ import Box from '@mui/material/Box';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
-const Calendar = ({ customStyleMobile, customStyleDesktop, data }) => {
+const Calendar = ({ customStyleMobile, customStyleDesktop, onHandleData }) => {
   const [value, setValue] = useState(dayjs('2022-04-07'));
-
   const [isWidthCalendar, setIsWidthCalendar] = useState(false);
 
   useEffect(() => {
@@ -28,6 +27,7 @@ const Calendar = ({ customStyleMobile, customStyleDesktop, data }) => {
           inputFormat="DD.MM.YYYY"
           onChange={(newValue) => {
             setValue(newValue);
+            onHandleData(value);
           }}
           renderInput={({ inputRef, inputProps, InputProps, params }) => (
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -39,10 +39,11 @@ const Calendar = ({ customStyleMobile, customStyleDesktop, data }) => {
       ) : (
         <DesktopDatePicker
           value={value}
-          minDate={dayjs('2017-01-01')}
+          minDate={dayjs('1922-01-01')}
           inputFormat="DD.MM.YYYY"
           onChange={(newValue) => {
             setValue(newValue);
+            onHandleData(value);
           }}
           renderInput={({ inputRef, inputProps, InputProps, params }) => (
             <Box sx={{ display: 'flex', alignItems: 'center' }}>

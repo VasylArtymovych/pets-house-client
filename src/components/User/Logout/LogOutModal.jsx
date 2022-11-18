@@ -2,7 +2,15 @@ import Button from 'components/Button';
 import CatInShrek from '../../../images/desctop/CatInShrek.png';
 import scss from './LogOutModal.module.scss';
 
+// import { useLogOutMutation } from '../../../redux/fetchUser.js';
+
 export const LogOutModal = ({ onCloseModal }) => {
+  // const [LogOut] = useLogOutMutation();
+  // const handleLogoutClick = () => {
+  //   LogOut();};
+
+  // onClick={handleLogoutClick}
+
   return (
     <div className={scss.modalOut__container}>
       <img src={CatInShrek} alt="Cat" className={scss.modalOut__img} />
