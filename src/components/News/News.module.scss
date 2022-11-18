@@ -28,14 +28,12 @@
         line-height: 66px;
     }
 }
-
-.InputNews{
-    background: var(--btn__color);
-    box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
-    border-radius: 20px;
-    max-width: 608px;
-    margin: auto;
-    margin-top: 40px;
+.buttonSearch{
+    border: none;
+    background-color: var(--bg__color);
+}
+.search_icon{
+    fill: #111111;
 }
 
 .newsList{
