@@ -41,8 +41,15 @@ export const userApi=createApi({
                 method: 'PATCH',
                 body: payload,
             }),
-        })
+        }),
+        updateUserAvatar: builder.mutation({
+            query:(payload)=>({
+                url: 'user/current/avatar',
+                method:'PATCH',
+                body:payload,
+            }),
+        }),
     })
 })
 
-export const {useRegistrationUserMutation, useLogInMutation, useLogOutMutation, useGetCurrentUserQuery, useUpdateUserMutation}= userApi;
+export const {useRegistrationUserMutation, useLogInMutation, useLogOutMutation, useGetCurrentUserQuery, useUpdateUserMutation, useUpdateUserAvatarMutation}= userApi;

@@ -1,29 +1,58 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import dayjs from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import Box from '@mui/material/Box';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
-const Calendar = ({ customStyle }) => {
-  const [values, setValue] = useState(dayjs('2022-04-07'));
+const Calendar = ({ customStyleMobile, customStyleDesktop, onHandleData }) => {
+  const [value, setValue] = useState(dayjs('2022-04-07'));
+  const [isWidthCalendar, setIsWidthCalendar] = useState(false);
+
+  useEffect(() => {
+    const widthCalendar = document.querySelector('body').scrollWidth;
+    if (widthCalendar > 767) {
+      setIsWidthCalendar(true);
+    }
+  }, [setIsWidthCalendar]);
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <MobileDatePicker
-        label="For mobile"
-        value={values}
-        inputFormat="DD.MM.YYYY"
-        onChange={(newValue) => {
-          setValue(newValue);
-        }}
-        renderInput={({ inputRef, inputProps, InputProps, params }) => (
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <input {...params} type="data" className={customStyle} ref={inputRef} {...inputProps} />
-            {InputProps?.endAdornment}
-          </Box>
-        )}
-      />
+      {!isWidthCalendar ? (
+        <MobileDatePicker
+          label="For mobile"
+          value={value}
+          inputFormat="DD.MM.YYYY"
+          onChange={(newValue) => {
+            setValue(newValue);
+            onHandleData(value);
+          }}
+          renderInput={({ inputRef, inputProps, InputProps, params }) => (
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <input {...params} type="data" className={customStyleMobile} ref={inputRef} {...inputProps} />
+              {InputProps?.endAdornment}
+            </Box>
+          )}
+        />
+      ) : (
+        <DesktopDatePicker
+          value={value}
+          minDate={dayjs('1922-01-01')}
+          inputFormat="DD.MM.YYYY"
+          onChange={(newValue) => {
+            setValue(newValue);
+            onHandleData(value);
+          }}
+          renderInput={({ inputRef, inputProps, InputProps, params }) => (
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <input {...params} type="data" className={customStyleDesktop} ref={inputRef} {...inputProps} />
+              {InputProps?.endAdornment}
+            </Box>
+          )}
+        />
+      )}
     </LocalizationProvider>
   );
 };

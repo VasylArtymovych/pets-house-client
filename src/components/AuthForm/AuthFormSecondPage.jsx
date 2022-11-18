@@ -4,6 +4,7 @@ import scss from './AuthForm.module.scss';
 import Button from 'components/Button';
 import scssButton from '../Button/Button.module.scss'
 import { stepTwoValidationSchema } from 'services';
+import { Link } from 'react-router-dom';
 
 export const AuthFormSecondPage = props => {
 	const handleSubmit = values => {
@@ -17,7 +18,7 @@ export const AuthFormSecondPage = props => {
 				onSubmit={handleSubmit}
 			>
 				{({ values }) => (
-					<Form className={scss.form + ' ' + props.customStyle}>
+					<Form className={scss.form}>
 						<h2 className={scss.title}>{props.title}</h2>
 						<div className={scss.input__wrapper}>
 							<InputForm
@@ -74,12 +75,8 @@ export const AuthFormSecondPage = props => {
 						</div>
 						<p className={scss.redirect__auth}>
 						Already have an account?
-							<a
-								className={scss.redirect_link__auth}
-								href="/login"
-							>
-								Login
-							</a>
+						<Link to='/login' className={scss.redirect_link__auth}>Login
+            </Link>
 						</p>
 					</Form>
 				)}

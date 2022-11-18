@@ -1,19 +1,14 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useRegistrationUserMutation } from 'redux/fetchUser';
 import {
 	AuthError,
 	AuthFormFirstPage,
 	AuthFormSecondPage,
 } from 'components/AuthForm';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useRegistrationUserMutation } from 'redux/fetchUser';
-import { selectors } from 'redux/selectors';
 
 const Register = () => {
 	const [register, { isLoading, error }] = useRegistrationUserMutation();
-	console.log(error);
-
-	const { IsLogged } = selectors;
-	console.log(IsLogged);
 
 	const navigate = useNavigate();
 
@@ -56,16 +51,16 @@ const Register = () => {
 
 	const steps = [
 		<AuthFormFirstPage
-		next={handleNextStep}
-		data={data}
-		title={formTitles[page]}
+			next={handleNextStep}
+			data={data}
+			title={formTitles[page]}
 		/>,
 		<AuthFormSecondPage
-		prev={handlePrevStep}
-		next={handleNextStep}
-		data={data}
-		title={formTitles[page]}
-		isLoading={isLoading}
+			prev={handlePrevStep}
+			next={handleNextStep}
+			data={data}
+			title={formTitles[page]}
+			isLoading={isLoading}
 		/>,
 	];
 
@@ -83,21 +78,3 @@ const Register = () => {
 };
 
 export default Register;
-
-// const { AuthError } = require("components/AuthForm")
-// import scss from "./Register.module.scss"
-// import { Input } from "components/Input";
-
-// const Register = () => {
-// 	return(
-// 		<>
-/* <AuthError
-					error='email is already exist'
-					additionalInfo='Please, login'
-				/> */
-// 				<Input customStyle={scss.input_custom}/>
-// 		</>
-// 	)
-// }
-
-// export default Register;

@@ -19,4 +19,9 @@ const stepTwoValidationSchema = Yup.object({
 	phone: Yup.string().required('Mobile phone is required').label('Mobile phone').matches(/^\+380\d{9}$/ , 'Correct format: +380 98 111 11 11'),
 });
 
-export {stepOneValidationSchema, stepTwoValidationSchema}
+const loginValidationSchema = Yup.object({
+	email: Yup.string().email('Invalid email').required('Required'),
+	password: Yup.string().required('Password is required'),
+});
+
+export {stepOneValidationSchema, stepTwoValidationSchema, loginValidationSchema}

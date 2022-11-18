@@ -3,11 +3,22 @@ import { ErrorMessage, Form, Formik } from 'formik';
 import scss from './AuthForm.module.scss';
 import Button from 'components/Button';
 import { stepOneValidationSchema } from 'services';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const AuthFormFirstPage = props => {
+
+	const [passwordShow, setPasswordShow] = useState(false);
+  const [passwordConfirm, setPasswordConfirm] = useState(false);
+
+  const togglePassword = () => setPasswordShow((prevState) => !prevState);
+  const togglePasswordConfirm = () => setPasswordConfirm((prevState) => !prevState);
 	const handleSubmit = values => {
 		props.next(values, true);
 	};
+
 	return (
 		<div className={scss.container}>
 			<Formik
@@ -16,7 +27,7 @@ export const AuthFormFirstPage = props => {
 				onSubmit={handleSubmit}
 			>
 				{() => (
-					<Form className={scss.form + ' ' + props.customStyle}>
+					<Form className={scss.form}>
 						<h2 className={scss.title}>{props.title}</h2>
 						<div className={scss.input__wrapper}>
 							<InputForm
@@ -34,25 +45,31 @@ export const AuthFormFirstPage = props => {
 						<div className={scss.input__wrapper}>
 							<InputForm
 								name="password"
-								type="password"
+								type={passwordShow ? 'text' : 'password'}
 								placeholder="Password"
 							/>
+							<span id="visibilityBtn" className={scss.IconPassword} onClick={togglePassword}>
+                {passwordShow ? <VisibilityIcon /> : <VisibilityOffIcon />}
+              </span>
 							<ErrorMessage
 								name="password"
 								component="p"
-								className={scss.error}
+								className={scss.error__password}
 							/>
 						</div>
 						<div className={scss.input__wrapper_last}>
 							<InputForm
 								name="confirmPassword"
-								type="password"
+								type={passwordConfirm ? 'text' : 'password'}
 								placeholder="Confirm Password"
 							/>
+							<span id="visibilityBtn" className={scss.IconPassword} onClick={togglePasswordConfirm}>
+                {passwordConfirm ? <VisibilityIcon /> : <VisibilityOffIcon />}
+              </span>
 							<ErrorMessage
 								name="confirmPassword"
 								component="p"
-								className={scss.error}
+								className={scss.error__password}
 							/>
 						</div>
 						<div className={scss.button__container}>
@@ -64,12 +81,8 @@ export const AuthFormFirstPage = props => {
 						</div>
 						<p className={scss.redirect__auth}>
 						Already have an account?
-							<a
-								className={scss.redirect_link__auth}
-								href="/login"
-							>
-								Login
-							</a>
+						<Link to='/login' className={scss.redirect_link__auth}>Login
+            </Link>
 						</p>
 					</Form>
 				)}
