@@ -7,8 +7,9 @@ const InputForm = ({
 	customStyle,
 	placeholder,
 	autofocus,
-	autoComplete
-}) => {
+	autoComplete,
+	as
+	}) => {
 	return (
 		<Field
 			className={`${scss.input} ${customStyle}`}
@@ -17,6 +18,7 @@ const InputForm = ({
 			placeholder={placeholder}
 			autoFocus={autofocus}
 			autoComplete={autoComplete}
+			as={as}
 		/>
 	);
 };
