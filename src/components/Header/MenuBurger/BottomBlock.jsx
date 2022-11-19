@@ -1,5 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+// import { useEffect, useState } from 'react';
 
 const link = [
   { to: '/news', text: 'News' },
@@ -40,6 +41,7 @@ const BottomBlock = ({ styleProp, isOpen }) => {
           custom={i}
           onClick={() => isOpen((prev) => !prev)}
         >
+          {}
           <NavLink to={el.to}>
             <span>{el.text}</span>
           </NavLink>
