@@ -5,7 +5,9 @@ import SharedLayout from 'components/SharedLayout';
 import { useGetCurrentUserQuery } from 'redux/fetchUser';
 import { selectors } from 'redux/selectors';
 import Loader from 'components/Loader';
-import TeamBord from 'components/TeamBord';
+// import TeamBord from 'components/TeamBord';
+import ForgotPassword from 'pages/ForgotPassword';
+import ChangePassword from 'pages/ChangePassword';
 
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
@@ -52,6 +54,8 @@ function App() {
             <Route path="/friends" element={<OurFriend />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/change-password" element={<ChangePassword />} />
             <Route path="/user" element={<UserPage />} />
           </Route>
         </Routes>
