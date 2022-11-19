@@ -31,7 +31,11 @@ const linkAuth = [
 const Navigations = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isUser, setIsUser] = useState(false);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    i18n.changeLanguage('en');
+  }, []);
 
   let location = useLocation();
 

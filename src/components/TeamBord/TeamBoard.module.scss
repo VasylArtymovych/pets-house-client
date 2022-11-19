@@ -44,8 +44,8 @@
   margin-right: 10px;
 
   //   white-space: nowrap;
-  animation: bannermove 60s linear infinite;
-  animation-delay: 1s;
+  animation: bannermove 80s linear infinite;
+  // animation-delay: 1s;
 
   @media screen and (max-width: 1000px) {
     & {
@@ -55,8 +55,10 @@
 }
 
 .mugshot {
-  width: 300px;
-  height: 325px;
+  // width: 300px;
+  // height: 325px;
+  width: 236px;
+  height: 236px;
   border: 2px solid #291200;
   padding: 10px;
   filter: sepia(60%);
@@ -80,6 +82,10 @@
       font-size: 20pt;
     }
   }
+}
+
+.sociale {
+  // padding: ;
 }
 
 @keyframes bannermove {
