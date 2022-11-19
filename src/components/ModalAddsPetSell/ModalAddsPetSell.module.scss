@@ -60,7 +60,8 @@
     font-size: 24px;
     line-height: 33px;
     text-align: center;
-    margin-top: 20px;
+    margin: 20px 0 20px 0;
+
 }
 
 @media screen and (min-width: 767px) {
@@ -107,7 +108,7 @@
     padding: 10px 28px;
     border-radius: 40px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     color: rgb(255, 255, 255);
     background-color: #f59256;
     box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
@@ -160,12 +161,14 @@
     }
 }
 
-.form {
+.wrapForm {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    margin: 20px 0 20px 2px;
+
+}
+
+.form {
+    width: 448px;
 }
 
 .mark {
@@ -175,6 +178,7 @@
 //----------------- First page----------------
 
 .text {
+    width: 240px;
     text-align: center;
     font-weight: 500;
     font-size: 16px;
@@ -187,27 +191,8 @@
     .text {
         font-size: 20px;
         font-weight: 500;
+        width: 442px;
     }
-}
-
-.wrapForm {
-    display: flex;
-    justify-content: center;
-
-}
-
-.form {
-    width: 100%;
-}
-
-.formFirst {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 28px;
-    margin-bottom: 40px;
-    width: 448px;
 }
 
 .labelFirst {
@@ -228,6 +213,8 @@
     .input {
         width: 448px;
         height: 48px;
+        margin-top: 12px;
+        margin-bottom: 28px;
     }
 }
 
@@ -251,6 +238,16 @@
     margin: 20px 0 32px 0;
 }
 
+@media screen and (min-width: 767px) {
+    .btnContainer {
+       position: relative;
+    //    border: 1px solid green;
+       width: 384px;
+       height: 120px;
+       margin: 20px 0 28px 0;
+    }
+}
+
 .radioInput {
     display: none;
 }
@@ -266,7 +263,7 @@
 
 .label_radio_medium {
     position: absolute;
-    top: 10%;
+    top: 7%;
     left: -2px;
     border: 1px solid tomato;
     border-radius: 40px;
@@ -286,6 +283,16 @@
         box-shadow: 0px 0px 1px 1px rgba(245, 146, 86, 0.7);
         -webkit-box-shadow: 0px 0px 1px 2px rgba(245, 146, 86, 0.7);
         -moz-box-shadow: 0px 0px 2px 1px rgba(245, 146, 86, 0.7);
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .label_radio_medium {
+        left: 2px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 27px;
+        letter-spacing: 0.04em;
     }
 }
 
@@ -314,6 +321,17 @@
     }
 }
 
+@media screen and (min-width: 767px) {
+    .label_radio_big {
+        bottom: 55%;
+        left: 180px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 27px;
+        letter-spacing: 0.04em;
+    }
+}
+
 .label_radio_small {
     position: absolute;
     bottom: 5%;
@@ -336,10 +354,37 @@
     }
 }
 
+@media screen and (min-width: 767px) {
+    .label_radio_small {
+        right: 288px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 27px;
+        letter-spacing: 0.04em;
+    }
+}
+
 //---------------- Second page----------------
 
+.titleSecond {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+    margin: 20px 0 20px 0;
+
+}
+
+@media screen and (min-width: 767px) {
+    .titleSecond {
+        font-size: 36px;
+        line-height: 49px;
+        margin: 20px 0 40px 0;
+    }
+}
+
 .wrapRadio {
-    margin: 20px 0 32px 0;
+    margin-bottom: 32px;
 }
 
 .wrapIcon {
@@ -347,14 +392,45 @@
     margin-top: 18px;
 }
 
+.textIcon {
+    font-size: 18px;
+    line-height: 26px;
+}
+
+@media screen and (min-width: 767px) {
+    .textIcon {
+       font-size: 24px;
+       line-height: 26px;
+    }
+}
+
 .icon {
     margin-bottom: 14px;
+    width: 34px;
+    height: 34px;
+}
+
+@media screen and (min-width: 767px) {
+    .icon {
+        width: 52px;
+        height: 52px;
+    }
 }
 
 .labelGender {
     display: flex;
     flex-direction: column;
     margin-right: 50px;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+@media screen and (min-width: 767px) {
+    .labelGender {
+        margin-right: 95px;
+        font-size: 20px;
+        line-height: 26px;
+    }
 }
 
 .radioInput:checked +.activGender{
@@ -387,6 +463,33 @@
     }
 }
 
+.label {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+@media screen and (min-width: 767px) {
+    .label {
+        font-size: 24px;
+        line-height: 26px;
+    }
+}
+
 .wrapTextarea {
     margin-top: 28px;
+}
+
+.textarea {
+   resize: none;
+}
+
+@media screen and (min-width: 767px) {
+    .textarea {
+        width: 448px;
+        height: 113px;
+        margin-top: 12px;
+        border-radius: 20px;
+        
+    }
 }

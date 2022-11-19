@@ -42,9 +42,13 @@ export const ModalAddsPet = (props) => {
   return <>{steps[page]}</>;
 };
 
+
+
+
 // import { useModal } from 'hooks';
 // import Modal from 'components/Modal';
 // import { ModalAddsPet } from 'components/ModalAddsPet';
+// import { ModalAddsPetSell } from 'components/ModalAddsPetSell';
 
 // function Home() {
 //   const { isModalOpen, closeModal, toggleModal } = useModal();
@@ -53,7 +57,8 @@ export const ModalAddsPet = (props) => {
 //     <div>
 //       {isModalOpen && (
 //         <Modal onCloseModal={closeModal} mode="dark">
-//           <ModalAddsPet onCloseModal={closeModal } />
+//           {/* <ModalAddsPet onCloseModal={closeModal} /> */}
+//           <ModalAddsPetSell onCloseModal={closeModal } />
 //         </Modal>
 //       )}
 //       Home pages

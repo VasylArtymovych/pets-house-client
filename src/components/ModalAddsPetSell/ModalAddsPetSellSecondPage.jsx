@@ -23,32 +23,31 @@ export const ModalAddsPetSellSecondPage = (props) => {
           <use href={sprite + '#icon-blackCross'} />
         </svg>
       </button>
-      <h3 className={scss.title}>Add pet</h3>
+      <h3 className={scss.titleSecond}>Add pet</h3>
       <div className={scss.wrapForm}>
         <Formik validationSchema={stepTwoValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
           {() => (
             <Form className={scss.formSecond + ' ' + props.customStyle}>
               <div className={scss.wrapRadio}>
-                <p>
+                <p className={scss.textIcon}>
                   The sex<span className={scss.mark}>*</span>:
                 </p>
                 <div className={scss.wrapIcon}>
                   <Field className={scss.radioInput} name="gender" type="radio" id="male" value="male" />
-                  <label htmlFor="male" className={scss.labelGender + " " + scss.activGender}>
-                    <svg className={scss.icon} width="36px" height="36px">
+                  <label htmlFor="male" className={scss.labelGender + ' ' + scss.activGender}>
+                    <svg className={scss.icon}>
                       <use href={sprite + '#icon-male'} />
                     </svg>
                     Male
                   </label>
 
-                  <Field className={scss.radioInput} name="gender" type="radio" id="female" value="female" />                
-                  <label htmlFor="female" className={scss.labelGender + " " + scss.activGender}>
-                    <svg className={scss.icon} width="36px" height="36px">
+                  <Field className={scss.radioInput} name="gender" type="radio" id="female" value="female" />
+                  <label htmlFor="female" className={scss.labelGender + ' ' + scss.activGender}>
+                    <svg className={scss.icon}>
                       <use href={sprite + '#icon-female'} />
                     </svg>
                     Female
                   </label>
-                  
                 </div>
               </div>
 
@@ -58,14 +57,21 @@ export const ModalAddsPetSellSecondPage = (props) => {
               <InputForm customStyle={scss.input} name="locations" placeholder="Type name pet" />
               <ErrorMessage name="locations" />
 
-              <label htmlFor="price" className={scss.label}>
-                Price<span className={scss.mark}>*</span>:
-              </label>
-              <InputForm customStyle={scss.input} name="price" placeholder="Type date of birth" />
-              <ErrorMessage name="price" />
+              {props.data.category === 'sell' && (
+                <div>
+                  <label htmlFor="price" className={scss.label}>
+                    Price<span className={scss.mark}>*</span>:
+                  </label>
+                  <InputForm customStyle={scss.input} name="price" placeholder="Type date of birth" />
+                  <ErrorMessage name="price" />
+                </div>
+              )}
 
-              <p className={scss.text}>Load the pet’s image</p>
+              <p className={scss.label}>Load the pet’s image:</p>
               <button type="button" className={scss.btnAddPhoto}>
+                {/* <svg className={scss.iconBigPlus}>
+                    <use href={sprite + '#icon-bigPlus'} />
+                </svg> */}
                 <InputForm customStyle={scss.input_photo} name="photo" type="file" />
               </button>
               <div className={scss.wrapTextarea}>
@@ -87,3 +93,5 @@ export const ModalAddsPetSellSecondPage = (props) => {
     </div>
   );
 };
+
+

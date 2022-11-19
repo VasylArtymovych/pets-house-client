@@ -165,7 +165,6 @@
 .wrapForm {
     display: flex;
     justify-content: center;
-    
 }
 
 .form {
@@ -297,8 +296,6 @@
     }
 }
 
-
-
 .label{
     font-weight: 500;
     font-size: 18px;
@@ -311,6 +308,7 @@
         line-height: 26px;
     }
 }
+
 .wrapTextarea{
     display: flex;
     flex-direction: column;
@@ -324,6 +322,7 @@
     border: 1px solid rgba(245, 146, 86, 0.5);
     border-radius: 20px;
     margin-top: 8px;
+    resize: none;
 }
 
 @media screen and (min-width: 767px) {
