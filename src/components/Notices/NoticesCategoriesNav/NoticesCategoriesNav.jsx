@@ -2,44 +2,76 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './NoticesCategoriesNav.module.scss';
+import { useLocation } from 'react-router-dom/dist';
+import sprite from '../../../images/symbol-defs.svg';
+
+const link = [
+  { to: '/notices/lost-found', text: 'Lost/Found' },
+  { to: '/notices/for-free', text: 'In good hands' },
+  { to: '/notices/sell', text: 'Sell' }
+];
+
+const linkAuth = [
+  { to: '/notices/favorite', text: 'Favorite ads' },
+  { to: '/notices/own', text: 'My ads' }
+];
 
 const NoticesCategoriesNav = () => {
   const isLogged = useSelector((state) => state.users.isLogged);
+  let location = useLocation();
 
   return (
-    <div className={styles.name}>
+    <div className={styles.NoticesCategoriesNav__Container}>
       <ul className={styles.NoticesCategoriesNav__List}>
-        <li className={styles.NoticesCategoriesNav__Item}>
-          <NavLink to="/notices/sell">
-            <button className={styles.button}>sell</button>
-          </NavLink>
-        </li>
-        <li className={styles.NoticesCategoriesNav__Item}>
-          <NavLink to="/notices/lostFound">
-            <button className={styles.button}>lost/found</button>
-          </NavLink>
-        </li>
-        <li className={styles.NoticesCategoriesNav__Item}>
-          <NavLink to="/notices/inGoodHands">
-            <button className={styles.button}>in good hands</button>
-          </NavLink>
-        </li>
-
+        {link.map((el) => {
+          return (
+            <li key={Math.random()} className={styles.NoticesCategoriesNav__Item}>
+              <NavLink
+                to={el.to}
+                className={
+                  location.pathname === el.to ? `${styles.NoticesCategoriesNav__Button} ${styles.active}` : styles.NoticesCategoriesNav__Button
+                }
+              >
+                <span>{el.text}</span>
+              </NavLink>
+            </li>
+          );
+        })}
         {isLogged ? (
           <>
-            <li className={styles.NoticesCategoriesNav__Item}>
-              <NavLink to="/notices/favorite">
-                <button className={styles.button}>favorite ads</button>
-              </NavLink>
-            </li>
-            <li className={styles.NoticesCategoriesNav__Item}>
-              <NavLink to="/notices/own">
-                <button className={styles.button}>my ads</button>
-              </NavLink>
-            </li>
+            {linkAuth.map((el) => {
+              return (
+                <li key={Math.random()} className={styles.NoticesCategoriesNav__Item}>
+                  <NavLink
+                    to={el.to}
+                    className={
+                      location.pathname === el.to ? `${styles.NoticesCategoriesNav__Button} ${styles.active}` : styles.NoticesCategoriesNav__Button
+                    }
+                  >
+                    <span>{el.text}</span>
+                  </NavLink>
+                </li>
+              );
+            })}
           </>
         ) : null}
       </ul>
+
+      <div className={styles.NoticesCategoriesNav__AddButtonContainer}>
+        <span className={styles.NoticesCategoriesNav__AddButtonSpan}>Add</span>
+        <span className={styles.NoticesCategoriesNav__AddButtonSpan}>&nbsp;pet</span>
+        <button
+          type="button"
+          className={styles.NoticesCategoriesNav__AddButton}
+          onClick={() => {
+            console.log('alert');
+          }}
+        >
+          <svg className={styles.NoticesCategoriesItem__svg}>
+            <use href={sprite + '#icon-plus'} />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 };

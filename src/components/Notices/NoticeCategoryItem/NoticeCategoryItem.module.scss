@@ -2,18 +2,19 @@
   &:not(:last-child) {
     margin-bottom: 32px;
   }
-  // margin-right: 32px;
-  border-radius: 0px 0px 20px 20px;
 
   max-width: 280px;
   max-height: 606px;
 
   @media screen and (min-width: 768px) {
     flex-basis: calc((100% - 64px) / 2);
-    width: 288px;
-    height: 606px;
     margin-right: 32px;
     max-width: 336px;
+  }
+  @media screen and (min-width: 1280px) {
+    flex-basis: calc((100% - 128px) / 4);
+    margin-right: 32px;
+    max-width: 288px;
   }
 }
 
@@ -25,11 +26,14 @@
 
   @media screen and (min-width: 768px) {
     width: 336px;
+    max-width: initial;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 288px;
+    max-width: initial;
   }
 }
-
-// .NoticesCategoriesItem__categoryContainer {
-// }
 
 .NoticeCategoryItem__category {
   display: flex;
@@ -73,6 +77,9 @@
   @media screen and (min-width: 768px) {
     left: 280px;
   }
+  @media screen and (min-width: 1280px) {
+    left: 232px;
+  }
 }
 
 .NoticeCategoryItem__deletebutton {
@@ -90,17 +97,31 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
+  background: #fdf7f2;
   border: none;
 
   @media screen and (min-width: 768px) {
     left: 280px;
   }
+
+  @media screen and (min-width: 1280px) {
+    left: 232px;
+  }
 }
 
 .NoticeCategoryItem__svg {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
+}
+
+.NoticeCategoryItem__svgdelete {
+  width: 24px;
+  height: 24px;
+  fill: rgba(17, 17, 17, 0.6);
+
+  &:hover {
+    fill: #f59256;
+  }
 }
 
 .NoticeCategoryItem__infoContainer {
@@ -146,11 +167,11 @@
 .NoticeCategoryItem__textContainer {
   display: flex;
   margin-bottom: 50px;
-}
 
-// .NoticesCategoriesItem__textItemspan {
-//   // margin-left: auto;
-// }
+  &.sell {
+    margin-bottom: 20px;
+  }
+}
 
 .NoticeCategoryItem__LearnMoreButton {
   padding: 8px 28px;

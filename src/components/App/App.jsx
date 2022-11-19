@@ -42,9 +42,10 @@ function App() {
             {/* <Route index element={<TeamBord />} /> */}
             <Route path="/news" element={<News />} />
             <Route path="/notices" element={<FindPet />}>
+              <Route index element={<NoticesCategoriesList />} />
+              <Route path="lost-found" element={<NoticesCategoriesList />} />
+              <Route path="for-free" element={<NoticesCategoriesList />} />
               <Route path="sell" element={<NoticesCategoriesList />} />
-              <Route path="lostFound" element={<NoticesCategoriesList />} />
-              <Route path="inGoodHands" element={<NoticesCategoriesList />} />
               <Route path="favorite" element={<NoticesCategoriesList />} />
               <Route path="own" element={<NoticesCategoriesList />} />
             </Route>

@@ -7,8 +7,8 @@
     "breed": "Pomeranian",
     "Place": "Lviv",
     "Age": "one year",
-    "favorite": false,
-    "myads": false
+    "favorite": true,
+    "myads": true
   },
   {
     "id": "2",

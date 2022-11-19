@@ -2,22 +2,23 @@ import React from 'react';
 import NoticesSearch from 'components/Notices/NoticesSearch';
 import NoticesCategoriesNav from 'components/Notices/NoticesCategoriesNav';
 import AddNoticeButton from 'components/Notices/AddNoticeButton';
-import NoticesCategoriesList from 'components/Notices/NoticesCategoriesList';
 import styles from './FindPet.module.scss';
 import Container from 'components/Container';
+import { Outlet } from 'react-router-dom/dist';
 const FindPet = () => {
   return (
-    <div>
+    <>
       <Container>
-        Find your favourite Pet
+        <h1 className={styles.title__findpet}>Find your favorite pet</h1>
         <NoticesSearch />
-        <div className={styles.FindPet__Container}>
+
         <NoticesCategoriesNav />
-        <AddNoticeButton />
-      </div>
-        <NoticesCategoriesList />
+
+        <Outlet />
+
+        {/* <NoticesCategoriesList data={findpet} /> */}
       </Container>
-    </div>
+    </>
   );
 };
 

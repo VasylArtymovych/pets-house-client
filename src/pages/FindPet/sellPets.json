@@ -8,8 +8,7 @@
     "Age": "one year",
     "category": "sell",
     "favourite": false,
-    "myads": false
-
+    "myads": true
   },
   {
     "id": 2,

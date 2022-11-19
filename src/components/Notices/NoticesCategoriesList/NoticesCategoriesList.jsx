@@ -11,9 +11,9 @@ const NoticesCategoriesList = () => {
     switch (pathname) {
       case '/notices/sell':
         return 'sell';
-      case '/notices/lostFound':
+      case '/notices/lost-found':
         return 'lostFound';
-      case '/notices/inGoodHands':
+      case '/notices/for-free':
         return 'inGoodHands';
       case '/notices/favorite':
         return 'favorite';
@@ -27,18 +27,30 @@ const NoticesCategoriesList = () => {
   const category = renderCategory();
 
   const { data: pets } = useGetNoticeQuery(category);
+  // console.log(pets.data);
   console.log(pets);
 
   return (
     <div className={styles.NoticesCategoriesList__Container}>
-      {pets?.data ? (
+      {pets && pets.data.length !== 0 ? (
         <ul className={styles.NoticesCategoriesList}>
-          {pets.data.map(({ title }) => (
-            <li key={title}>{title}</li>
+          {pets.data.map(({ _id, category, imageUrl, title, breed, location, dateOfBirth, price, favorite, myads }) => (
+            <NoticeCategoryItem
+              key={_id}
+              category={category}
+              imageUrl={imageUrl}
+              title={title}
+              breed={breed}
+              place={location}
+              price={price}
+              age={dateOfBirth}
+              favorite={favorite}
+              myads={myads}
+            />
           ))}
         </ul>
       ) : (
-        <div>Hello</div>
+        <p>There are no advertisements in this category</p>
       )}
     </div>
   );
