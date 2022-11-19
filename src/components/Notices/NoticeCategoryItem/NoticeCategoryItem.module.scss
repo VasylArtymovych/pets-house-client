@@ -7,14 +7,14 @@
   max-height: 606px;
 
   @media screen and (min-width: 768px) {
-    flex-basis: calc((100% - 32px) / 2);
+    flex-basis: calc((100% - 64px) / 2);
     margin-right: 32px;
     max-width: 336px;
   }
   @media screen and (min-width: 1280px) {
     flex-basis: calc((100% - 128px) / 4);
     margin-right: 32px;
-    max-width: 336px;
+    max-width: 288px;
   }
 }
 
@@ -26,6 +26,12 @@
 
   @media screen and (min-width: 768px) {
     width: 336px;
+    max-width: initial;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 288px;
+    max-width: initial;
   }
 }
 
@@ -71,6 +77,9 @@
   @media screen and (min-width: 768px) {
     left: 280px;
   }
+  @media screen and (min-width: 1280px) {
+    left: 232px;
+  }
 }
 
 .NoticeCategoryItem__deletebutton {
@@ -93,6 +102,10 @@
 
   @media screen and (min-width: 768px) {
     left: 280px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    left: 232px;
   }
 }
 
@@ -154,6 +167,10 @@
 .NoticeCategoryItem__textContainer {
   display: flex;
   margin-bottom: 50px;
+
+  &.sell {
+    margin-bottom: 20px;
+  }
 }
 
 .NoticeCategoryItem__LearnMoreButton {

@@ -47,3 +47,10 @@
   color: #000;
   border: 2px solid #f59256;
 }
+
+.botton__learn_more_mobile {
+  width: 160px;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 12px;
+  }
+}
