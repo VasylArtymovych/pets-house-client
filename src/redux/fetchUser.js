@@ -10,6 +10,7 @@ export const userApi=createApi({
             return headers
         }
     }),
+    tagTypes:['User'],
     endpoints: builder=>({
         registrationUser: builder.mutation({
             query:(payload)=>({
@@ -26,21 +27,22 @@ export const userApi=createApi({
             }),
         }),
         getCurrentUser: builder.query({
-            query: ()=> '/user/current'
+            query: ()=> '/user/current',
+            providesTags:['Notice']
             }),
-        logOut:builder.mutation({
+        logOut:builder.query({
             query:()=>({
                 url: '/auth/logout',
-                method: 'POST'
+                method: 'GET'
             }),
-            
-            }),
+        }),
         updateUser: builder.mutation({
             query:(payload)=>({
                 url: '/user/current',
                 method: 'PATCH',
                 body: payload,
             }),
+            invalidatesTags:['User'],
         }),
         updateUserAvatar: builder.mutation({
             query:(payload)=>({
@@ -48,6 +50,7 @@ export const userApi=createApi({
                 method:'PATCH',
                 body:payload,
             }),
+            invalidatesTags:['User'],
         }),
     })
 })
