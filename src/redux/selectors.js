@@ -1,4 +1,5 @@
 export const selectors={
+    getUserInfo:state=>state.users.user,
     getUserId: state=> state.users.user.id,
     getUserEmail: state=> state.users.user.email,
     getUserName: state=> state.users.user.name,
