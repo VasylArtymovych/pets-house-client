@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import React from 'react';
+import { useState, useEffect } from 'react';
 import NoticeCategoryItem from 'components/Notices/NoticeCategoryItem';
 import styles from './NoticesCategoriesList.module.scss';
 import { useGetNoticeQuery } from 'redux/fetchNotice';
@@ -26,15 +27,23 @@ const NoticesCategoriesList = () => {
 
   const category = renderCategory();
 
-  const { data: pets } = useGetNoticeQuery(category);
-  // console.log(pets.data);
-  console.log(pets);
+  const { data } = useGetNoticeQuery(category);
+
+  const [pets, setPets] = useState(null);
+
+  useEffect(() => {
+    if (data) {
+      setPets(data.data);
+    } else {
+      return;
+    }
+  }, [data]);
 
   return (
     <div className={styles.NoticesCategoriesList__Container}>
-      {pets && pets.data.length !== 0 ? (
+      {pets && pets.length !== 0 ? (
         <ul className={styles.NoticesCategoriesList}>
-          {pets.data.map(({ _id, category, imageUrl, title, breed, location, dateOfBirth, price, favorite, myads }) => (
+          {pets.map(({ _id, category, imageUrl, title, breed, location, dateOfBirth, price, favorite, myads }) => (
             <NoticeCategoryItem
               key={_id}
               category={category}

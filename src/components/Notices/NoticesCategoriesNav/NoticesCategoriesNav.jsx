@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './NoticesCategoriesNav.module.scss';
 import { useLocation } from 'react-router-dom/dist';
-import sprite from '../../../images/symbol-defs.svg';
 
 const link = [
   { to: '/notices/lost-found', text: 'Lost/Found' },
@@ -56,22 +55,6 @@ const NoticesCategoriesNav = () => {
           </>
         ) : null}
       </ul>
-
-      <div className={styles.NoticesCategoriesNav__AddButtonContainer}>
-        <span className={styles.NoticesCategoriesNav__AddButtonSpan}>Add</span>
-        <span className={styles.NoticesCategoriesNav__AddButtonSpan}>&nbsp;pet</span>
-        <button
-          type="button"
-          className={styles.NoticesCategoriesNav__AddButton}
-          onClick={() => {
-            console.log('alert');
-          }}
-        >
-          <svg className={styles.NoticesCategoriesItem__svg}>
-            <use href={sprite + '#icon-plus'} />
-          </svg>
-        </button>
-      </div>
     </div>
   );
 };

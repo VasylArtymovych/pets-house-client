@@ -11,8 +11,10 @@ const FindPet = () => {
       <Container>
         <h1 className={styles.title__findpet}>Find your favorite pet</h1>
         <NoticesSearch />
-
-        <NoticesCategoriesNav />
+        <div className={styles.navContainer__findpet}>
+          <NoticesCategoriesNav />
+          <AddNoticeButton />
+        </div>
 
         <Outlet />
 

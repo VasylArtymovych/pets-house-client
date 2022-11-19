@@ -5,7 +5,9 @@ import SharedLayout from 'components/SharedLayout';
 import { useGetCurrentUserQuery } from 'redux/fetchUser';
 import { selectors } from 'redux/selectors';
 import Loader from 'components/Loader';
-import TeamBord from 'components/TeamBord';
+// import TeamBord from 'components/TeamBord';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
@@ -35,6 +37,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer autoClose={3000} closeOnClick={true} />
       <Suspense fallback={isBigLoader ? <Loader /> : <div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
