@@ -1,8 +1,9 @@
 import { InputForm } from 'components/Input';
 import { ErrorMessage, Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import sprite from '../../images/symbol-defs.svg';
 import scss from './ModalAddsPet.module.scss';
-// import Button from 'components/Button';
+
 
 const stepOneValidationSchema = Yup.object({
   namePet: Yup.string().required('Required'),
@@ -11,16 +12,17 @@ const stepOneValidationSchema = Yup.object({
 });
 
 export const ModalAddsPetFirstPage = (props) => {
-  console.log('propsFistPage:', props);
-  const handleSubmit = (values) => {
+    const handleSubmit = (values) => {
     props.next(values, true);
   };
   return (
     <div className={scss.container}>
       <button type="button" onClick={props.closeModal} className={scss.btnClose}>
-        +
+        <svg className={scss.crossSmall}>
+          <use href={sprite + '#icon-blackCross'} />
+        </svg>
       </button>
-      <h3 className={scss.titleFirst}>Add pet</h3>
+      <h3 className={scss.title}>Add pet</h3>
       <div className={scss.wrapForm}>
         <Formik validationSchema={stepOneValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
           {() => (
@@ -28,17 +30,17 @@ export const ModalAddsPetFirstPage = (props) => {
               <label htmlFor="namePet" className={scss.label}>
                 Name pet
               </label>
-              <InputForm customStyle={scss.input} name="namePet" type="text" placeholder="Type name pet" />
+              <InputForm customStyle={scss.input} name="namePet" placeholder="Type name pet" />
               <ErrorMessage name="namePet" />
               <label htmlFor="birthDate" className={scss.label}>
                 Date of birth
               </label>
-              <InputForm customStyle={scss.input} name="birthDate" type="text" placeholder="Type date of birth" />
+              <InputForm customStyle={scss.input} name="birthDate" placeholder="Type date of birth" />
               <ErrorMessage name="birthDate" />
               <label htmlFor="breed" className={scss.label}>
                 Breed
               </label>
-              <InputForm customStyle={scss.input_last} name="breed" type="text" placeholder="Type breed" />
+              <InputForm customStyle={scss.input_last} name="breed" placeholder="Type breed" />
               <ErrorMessage name="breed" />
               <div className={scss.btnWrap}>
                 <button type="submit" className={scss.buttonFill}>

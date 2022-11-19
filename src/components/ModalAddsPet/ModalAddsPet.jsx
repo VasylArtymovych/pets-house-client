@@ -3,7 +3,7 @@ import { ModalAddsPetSecondPage } from './ModalAddsPetSecondPage';
 import React, { useState } from 'react';
 
 export const ModalAddsPet = (props) => {
-  //  console.log("propsModalAddPet:", props)
+  
   const [data, setData] = useState({
     namePet: '',
     birthDate: '',
@@ -42,9 +42,13 @@ export const ModalAddsPet = (props) => {
   return <>{steps[page]}</>;
 };
 
+
+
+
 // import { useModal } from 'hooks';
 // import Modal from 'components/Modal';
 // import { ModalAddsPet } from 'components/ModalAddsPet';
+// import { ModalAddsPetSell } from 'components/ModalAddsPetSell';
 
 // function Home() {
 //   const { isModalOpen, closeModal, toggleModal } = useModal();
@@ -52,8 +56,9 @@ export const ModalAddsPet = (props) => {
 //   return (
 //     <div>
 //       {isModalOpen && (
-//         <Modal closeModal={closeModal} mode="dark">
-//           <ModalAddsPet />
+//         <Modal onCloseModal={closeModal} mode="dark">
+//           {/* <ModalAddsPet onCloseModal={closeModal} /> */}
+//           <ModalAddsPetSell onCloseModal={closeModal } />
 //         </Modal>
 //       )}
 //       Home pages
