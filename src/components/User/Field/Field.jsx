@@ -21,7 +21,7 @@ export const Field = ({ text, value }) => {
 
   return (
     <li className={scss.user__items}>
-      <p>{text}:</p>
+      <p className={scss.user__title}>{text}:</p>
       {isUpdate ? (
         <>
           <Input customStyle={scss.input__change} type="text" name={text} onChange={(e) => setUserName(e.currentTarget.value)} value={userName} />

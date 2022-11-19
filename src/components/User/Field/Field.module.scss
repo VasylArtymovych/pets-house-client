@@ -121,22 +121,22 @@
 }
 
 .input__birthday {
-  background-color: #fdf7f2;
-  border: 1px solid rgba(245, 146, 86, 0.5);
-  border-radius: 40px;
-  border-color: none;
   max-width: 159px;
   max-height: 24px;
+  display: flex;
+  align-items: center;
   padding: 0 12px 5px 14px;
   margin-left: -8px;
   font-family: inherit;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.33;
-  display: flex;
-  align-items: center;
   letter-spacing: 0.04em;
+  background-color: #fdf7f2;
   color: #111111;
+  border: 1px solid rgba(245, 146, 86, 0.5);
+  border-radius: 40px;
+  border-color: none;
   @media screen and (min-width: 768px) {
     max-width: 216px;
     max-height: 32px;
@@ -159,16 +159,16 @@
   align-items: center;
   padding: 0 12px 5px 14px;
   margin-left: -8px;
-  background-color: #fdf7f2;
-  color: #111111;
-  border: 1px solid rgba(245, 146, 86, 0.5);
-  border-radius: 40px;
-  border-color: none;
   font-family: inherit;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.38;
   letter-spacing: 0.04em;
+  background-color: #fdf7f2;
+  color: #111111;
+  border: 1px solid rgba(245, 146, 86, 0.5);
+  border-radius: 40px;
+  border-color: none;
   @media screen and (min-width: 1280px) {
     margin-left: -15px;
   }
@@ -177,4 +177,7 @@
     border: 1px solid rgba(236, 94, 6, 0.815);
     outline: none;
   }
+}
+.user__title::first-letter {
+  text-transform: uppercase;
 }

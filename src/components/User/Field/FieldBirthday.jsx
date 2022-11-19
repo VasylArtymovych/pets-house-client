@@ -6,21 +6,22 @@ import { useUpdateUserMutation } from '../../../redux/fetchUser';
 
 export const FieldBirthday = ({ text, value }) => {
   const [isUpdate, setIsUpdate] = useState(false);
-  const [userName, setUserName] = useState(value);
-
-  console.log('userName:', userName);
+  const [userBirthday, setUserBirthday] = useState('');
 
   const [updateUser] = useUpdateUserMutation();
+
   const handleSend = () => {
-    if (userName.length === 0) {
+    if (userBirthday.length === 0) {
+      setIsUpdate(false);
       return;
     } else {
-      updateUser({ birthday: userName });
+      const date = JSON.parse(userBirthday);
+      updateUser({ birthday: date });
       setIsUpdate(false);
     }
   };
-  const handleData = (e) => {
-    setUserName(e);
+  const handleDate = (e) => {
+    setUserBirthday(e);
   };
 
   return (
@@ -28,7 +29,12 @@ export const FieldBirthday = ({ text, value }) => {
       <p>{text}:</p>
       {isUpdate ? (
         <>
-          <Calendar onHandleData={handleData} customStyleMobile={scss.input__birthday} customStyleDesktop={scss.input__birthdayDesk} />
+          <Calendar
+            onHandleDate={handleDate}
+            customStyleMobile={scss.input__birthday}
+            customStyleDesktop={scss.input__birthdayDesk}
+            onBirthday={value}
+          />
           <button className={scss.input__btn} type="button" onClick={handleSend}>
             <svg className={scss.icon__profileCheckMark}>
               <use href={sprite + '#icon-profileCheckMark'} />

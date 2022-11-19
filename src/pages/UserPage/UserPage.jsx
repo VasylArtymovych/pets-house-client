@@ -22,7 +22,7 @@ const UserPage = () => {
             <Logout />
           </div>
         </div>
-        <div>
+        <div className={scss.pets__container}>
           <h2 className={scss.user__pets}>My Pets:</h2>
           <PetsData />
         </div>
