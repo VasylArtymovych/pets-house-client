@@ -99,14 +99,6 @@
   }
 }
 
-li {
-  list-style: none;
-
-  &:not(:last-child) {
-    margin-bottom: 8px;
-  }
-}
-
 .wrap_info {
   margin-left: 20px;
 }
@@ -128,6 +120,10 @@ li {
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
 }
 
 .second_column {
@@ -136,6 +132,10 @@ li {
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
 }
 
 .comments {

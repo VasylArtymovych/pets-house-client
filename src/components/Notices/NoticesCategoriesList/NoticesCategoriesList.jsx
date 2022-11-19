@@ -12,7 +12,7 @@ const NoticesCategoriesList = () => {
       case '/notices/sell':
         return 'sell';
       case '/notices/lost-found':
-        return 'lostFound';
+        return 'lost-found';
       case '/notices/for-free':
         return 'inGoodHands';
       case '/notices/favorite':
