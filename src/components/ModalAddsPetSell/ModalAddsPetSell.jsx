@@ -1,34 +1,38 @@
 import { ModalAddsPetSellFirstPage } from './ModalAddsPetSellFirstPage';
 import { ModalAddsPetSellSecondPage } from './ModalAddsPetSellSecondPage';
 import React, { useState } from 'react';
+import { useAddNoticeMutation } from "../../redux/fetchNotice";
 
 export const ModalAddsPetSell = (props) => {
    
     const [data, setData] = useState({
-    tittleOfAd: "", 
-    namePet: '',
-    birthDate: '',
+    title: "", 
+    name: '',
+    dateOfBirth: '',
     breed: '',
-    locations: "",
+    location: "",
     price: "",
-    photo: '',
+    petImage: '',
     comments: '',
     category: "", //sell, inGoodHands, lostFound
-    gender: ""
+    sex: ""
   });
   const [page, setPage] = useState(0);
 
   const formTitles = ['First Page', 'Second Page'];
 
+  const [addNotice] = useAddNoticeMutation();
+
   const makeRequest = (formData) => {
     console.log('Submiting', formData);
+    addNotice(formData);
   };
 
   const handleNextStep = (newData, final = false) => {
     setData((prev) => ({ ...prev, ...newData }));
     setPage((prev) => prev + 1);
 
-    if (final) {
+    if (final && page === 1) {
       makeRequest(newData);
       return;
     }
