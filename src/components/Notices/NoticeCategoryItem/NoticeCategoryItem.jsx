@@ -7,6 +7,8 @@ import Modal from 'components/Modal';
 import { useAddToFavoritesMutation } from '../../../redux/fetchNotice';
 import { useSelector } from 'react-redux';
 import { selectors } from '../../../redux/selectors.js';
+import { useState } from 'react';
+import { useGetCurrentUserQuery } from '../../../redux/fetchUser';
 moment().format();
 
 const NoticeCategoryItem = ({
@@ -32,6 +34,13 @@ const NoticeCategoryItem = ({
   const userName = useSelector(selectors.getUserName);
   // console.log(userName);
 
+  const User = useGetCurrentUserQuery();
+  // console.log(User);
+
+  const [cardId, setCardId] = useState('');
+
+  useAddToFavoritesMutation(cardId);
+
   const normilizeCategory = (category) => {
     switch (category) {
       case 'sell':
@@ -51,12 +60,11 @@ const NoticeCategoryItem = ({
   };
 
   const AddToFavorites = (event) => {
-    console.log(event);
+    // console.log(event);
     console.log(event.target.parentElement.parentElement.parentElement.id);
     const cardId = event.target.parentElement.parentElement.parentElement.id;
-    useAddToFavoritesMutation(cardId);
+    setCardId(cardId);
   };
-  
 
   return (
     <>

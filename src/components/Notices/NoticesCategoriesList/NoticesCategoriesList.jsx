@@ -3,10 +3,10 @@ import React from 'react';
 import NoticeCategoryItem from 'components/Notices/NoticeCategoryItem';
 import styles from './NoticesCategoriesList.module.scss';
 import { useGetNoticeQuery, useGetNoticeFavoritesQuery, useGetUserNoticesQuery } from 'redux/fetchNotice';
+import { useState, useEffect } from 'react';
 
 const NoticesCategoriesList = () => {
   const { pathname } = useLocation();
-  let petsData;
 
   const renderCategory = () => {
     switch (pathname) {
@@ -27,33 +27,46 @@ const NoticesCategoriesList = () => {
 
   const category = renderCategory();
 
-  const { data: pets } = useGetNoticeQuery(category);
-  const { data: favorites } = useGetNoticeFavoritesQuery();
-  const { data: userNotices } = useGetUserNoticesQuery();
+  const { data } = useGetNoticeQuery(category);
+  // console.log(data);
+  const favorites = useGetNoticeFavoritesQuery();
+  // console.log(favorites);
+  const userNotices = useGetUserNoticesQuery();
+  // console.log(userNotices);
+  const [pets, setPets] = useState(null);
+
+  useEffect(() => {
+    if (data || favorites || userNotices) {
+      if (category === 'sell' || category === 'lost-found' || category === 'inGoodHands') {
+        setPets(data.data);
+      } else if (category === 'favorite') {
+        setPets(favorites.data.favorites);
+      } else {
+        setPets(userNotices.data.notices);
+      }
+    } else {
+      return;
+    }
+  }, [category, data, favorites, userNotices]);
   // console.log(pets.data);
   // console.log(pets);
   // console.log(favorites);
   // console.log(userNotices);
   // console.log(category);
 
-  let renderData;
+  // let renderData;
 
-  if (category === 'sell' || category === 'lost-found' || category === 'inGoodHands') {
-    renderData = pets;
-  } else if (category === 'favorite') {
-    renderData = favorites;
-  } else {
-    renderData = userNotices;
-  }
-  console.log(renderData);
+  // console.log(pets);
+
+  // console.log(renderData);
 
   //Костыль, утром буду думать
 
   return (
     <div className={styles.NoticesCategoriesList__Container}>
-      {pets && pets.data.length !== 0 ? (
+      {pets && pets.length !== 0 ? (
         <ul className={styles.NoticesCategoriesList}>
-          {pets.data.map(
+          {pets.map(
             ({
               _id,
               name,
