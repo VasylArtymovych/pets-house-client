@@ -34,6 +34,7 @@
   border-color: transparent;
   background-color: var(--bg__color);
   padding: 0;
+  outline: none;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   @media screen and (min-width: 768px) {
     width: 32px;
@@ -41,11 +42,15 @@
   }
   @media screen and (min-width: 1280px) {
   }
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: var(--accent__color);
   }
 }
 .change__btn:hover .icon__profilePencil {
+  fill: var(--btn__color);
+}
+.change__btn:focus .icon__profilePencil {
   fill: var(--btn__color);
 }
 .icon__profilePencil {

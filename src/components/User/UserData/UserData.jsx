@@ -19,9 +19,9 @@ const UserData = () => {
     <div className={scss.data__container}>
       <div className={scss.avatar__container}>
         <img className={scss.avatar__img} src={avatarImg} alt="avatar" />
-        <div className={scss.data__box}>
-          <button className={scss.data__btn} type="submit" onClick={toggleModal}>
-            <svg className={scss.data__camera} width="18" height="18">
+        <div className={scss.info__box}>
+          <button className={scss.info__btn} type="submit" onClick={toggleModal}>
+            <svg className={scss.info__camera} width="18" height="18">
               <use href={sprite + '#icon-profilePhotoCamera'} />
             </svg>
             Edit photo
