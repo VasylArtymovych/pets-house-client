@@ -1,9 +1,37 @@
+import { useModal } from 'hooks';
+import LearnMoreModal from '../LearnMoreModal';
 import styles from './NoticeCategoryItem.module.scss';
 import sprite from '../../../images/symbol-defs.svg';
 import moment from 'moment';
+import Modal from 'components/Modal';
+import { useAddToFavoritesMutation } from '../../../redux/fetchNotice';
+import { useSelector } from 'react-redux';
+import { selectors } from '../../../redux/selectors.js';
 moment().format();
 
-const NoticeCategoryItem = ({ _id, category, imageUrl, title, breed, place, age, price, favorite, myads }) => {
+const NoticeCategoryItem = ({
+  _id,
+  name,
+  owner,
+  comments = 'There is no comments',
+  sex,
+  category,
+  imageUrl,
+  title,
+  breed,
+  place,
+  age,
+  price,
+  favorite,
+  myads
+}) => {
+  const { isModalOpen, closeModal, toggleModal } = useModal();
+  // const token = useSelector(selectors.getToken);
+  const userId = useSelector(selectors.getUserId);
+  // console.log(userId);
+  const userName = useSelector(selectors.getUserName);
+  // console.log(userName);
+
   const normilizeCategory = (category) => {
     switch (category) {
       case 'sell':
@@ -22,19 +50,27 @@ const NoticeCategoryItem = ({ _id, category, imageUrl, title, breed, place, age,
     return dogAge;
   };
 
+  const AddToFavorites = (event) => {
+    console.log(event);
+    console.log(event.target.parentElement.parentElement.parentElement.id);
+    const cardId = event.target.parentElement.parentElement.parentElement.id;
+    useAddToFavoritesMutation(cardId);
+  };
+  
+
   return (
     <>
-      <li key={_id} className={styles.NoticeCategoryItem}>
+      <li key={_id} className={styles.NoticeCategoryItem} id={_id}>
         <img src={imageUrl} alt="" className={styles.NoticeCategoryItem__img} />
         <p className={styles.NoticeCategoryItem__category}>{normilizeCategory(category)}</p>
         {favorite ? (
-          <button className={styles.NoticeCategoryItem__heartbutton} type="button">
+          <button className={styles.NoticeCategoryItem__heartbutton} type="button" onClick={AddToFavorites}>
             <svg className={styles.NoticeCategoryItem__svg}>
               <use href={sprite + '#icon-heartFull'} />
             </svg>
           </button>
         ) : (
-          <button className={styles.NoticeCategoryItem__heartbutton} type="button">
+          <button className={styles.NoticeCategoryItem__heartbutton} type="button" onClick={AddToFavorites}>
             <svg className={styles.NoticeCategoryItem__svg}>
               <use href={sprite + '#icon-heartEmpty'} />
             </svg>
@@ -84,11 +120,32 @@ const NoticeCategoryItem = ({ _id, category, imageUrl, title, breed, place, age,
             </ul>
           </div>
 
-          <button type="button" className={styles.NoticeCategoryItem__LearnMoreButton}>
+          <button type="button" className={styles.NoticeCategoryItem__LearnMoreButton} onClick={toggleModal}>
             <span className={styles.NoticeCategoryItem__LearnMoreButtonText}>Learn more</span>
           </button>
         </div>
       </li>
+      {isModalOpen && (
+        <Modal onCloseModal={closeModal} mode="dark">
+          <LearnMoreModal
+            onCloseModal={closeModal}
+            _id={_id}
+            name={name}
+            owner={owner}
+            sex={sex}
+            comments={comments}
+            category={normilizeCategory(category)}
+            imageUrl={imageUrl}
+            title={title}
+            breed={breed}
+            place={place}
+            price={price}
+            age={age}
+            favorite={favorite}
+            myads={myads}
+          />
+        </Modal>
+      )}
     </>
   );
 };
