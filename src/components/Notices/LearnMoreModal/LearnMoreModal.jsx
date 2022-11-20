@@ -1,28 +1,39 @@
 import React from 'react';
 import scss from './LearnMoreModal.module.scss';
 import Button from 'components/Button';
-import style from '../../components/Button/Button.module.scss';
+import style from '../../Button/Button.module.scss';
 
-import sprite from '../../images/symbol-defs.svg';
+import sprite from '../../../images/symbol-defs.svg';
 
-const LearnMore = () => {
+const LearnMore = ({
+  _id,
+  name,
+  owner,
+  comments = 'There is no comments',
+  sex,
+  category,
+  imageUrl,
+  title,
+  breed,
+  place,
+  age,
+  price,
+  favorite,
+  myads
+}) => {
   return (
     <>
       <div className={scss.wrap_container}>
         <div className={scss.wrap_container_padding}>
           <div className={scss.image}>
-            <img
-              className={scss.photo}
-              src="https://ichef.bbci.co.uk/news/976/cpsprodpb/17638/production/_124800859_gettyimages-817514614.jpg"
-              alt="Cat error"
-            />
+            <img className={scss.photo} src={imageUrl} alt="Cat error" />
             <div className={scss.sale}>
-              <span className={scss.text}>In good hands</span>
+              <span className={scss.text}>{category}</span>
             </div>
           </div>
 
           <div className={scss.wrap_info}>
-            <h3 className={scss.title}>Сute dog looking for a home</h3>
+            <h3 className={scss.title}>{title}</h3>
             <div className={scss.wrap_info_ul}>
               <div className={scss.wrap_info_first_column}>
                 <ul>
@@ -33,25 +44,25 @@ const LearnMore = () => {
                   <li className={scss.first_column}>The sex:</li>
                   <li className={scss.first_column}>Email :</li>
                   <li className={scss.first_column}>Phone:</li>
+                  {category === 'Sell' && <li className={scss.first_column}>Sell:</li>}
                 </ul>
               </div>
               <div>
                 <ul>
-                  <li className={scss.second_column}>Rich</li>
-                  <li className={scss.second_column}>21.09.2020</li>
-                  <li className={scss.second_column}>Pomeranian</li>
-                  <li className={scss.second_column}>Lviv</li>
-                  <li className={scss.second_column}>male</li>
+                  <li className={scss.second_column}>{name}</li>
+                  <li className={scss.second_column}>{age}</li>
+                  <li className={scss.second_column}>{breed}</li>
+                  <li className={scss.second_column}>{place}</li>
+                  <li className={scss.second_column}>{sex}</li>
                   <li className={scss.second_column}>user@mail.com </li>
                   <li className={scss.second_column}>+380971234567</li>
+                  {category === 'Sell' && <li className={scss.first_column}>{price}$</li>}
                 </ul>
               </div>
             </div>
           </div>
           <div>
-            <p className={scss.comments}>
-              Comments: Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem
-            </p>
+            <p className={scss.comments}>Comments: {comments}</p>
           </div>
           <div className={scss.buttons}>
             <Button
