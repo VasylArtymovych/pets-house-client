@@ -30,7 +30,7 @@ export const userApi=createApi({
             query: ()=> '/user/current',
             providesTags:['Notice']
             }),
-        logOut:builder.query({
+        logOut:builder.mutation({
             query:()=>({
                 url: '/auth/logout',
                 method: 'GET'
