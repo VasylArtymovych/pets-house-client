@@ -28,9 +28,9 @@ export const userApi=createApi({
         }),
         getCurrentUser: builder.query({
             query: ()=> '/user/current',
-            providesTags:['Notice']
+            providesTags:['User']
             }),
-        logOut:builder.query({
+        logOut:builder.mutation({
             query:()=>({
                 url: '/auth/logout',
                 method: 'GET'

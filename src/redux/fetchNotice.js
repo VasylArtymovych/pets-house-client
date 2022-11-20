@@ -23,6 +23,10 @@ export const noticeApi=createApi({
             }),
             providesTags:['Notice']
         }),
+        getNoticeByWord:builder.query({
+            query:(name)=>`/notice/search/${name}`,
+            providesTags:['Notice','UserNotice']
+        }),
         addNotice:builder.mutation({
             query:(payload)=>({
                 url:'/notice/add',
@@ -61,4 +65,4 @@ export const noticeApi=createApi({
     })
 })
 
-export const { useGetNoticeQuery, useAddNoticeMutation, useGetUserNoticesQuery, useDeleteUserNoticeByIdMutation, useGetNoticeFavoritesQuery, useAddToFavoritesMutation, useDeleteFromFavoritesMutation }=noticeApi;
+export const { useGetNoticeQuery, useGetNoticeByWordQuery, useAddNoticeMutation, useGetUserNoticesQuery, useDeleteUserNoticeByIdMutation, useGetNoticeFavoritesQuery, useAddToFavoritesMutation, useDeleteFromFavoritesMutation }=noticeApi;
