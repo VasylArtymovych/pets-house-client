@@ -5,10 +5,12 @@ import SharedLayout from 'components/SharedLayout';
 import { useGetCurrentUserQuery } from 'redux/fetchUser';
 import { selectors } from 'redux/selectors';
 import Loader from 'components/Loader';
+import LoaderBear from 'components/LoaderBear';
 import ForgotPassword from 'pages/ForgotPassword';
 import ChangePassword from 'pages/ChangePassword';
 import TeamBord from 'components/TeamBord';
 import PrivateRoutes from 'components/PrivateRoutes';
+
 
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
@@ -38,11 +40,11 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={isBigLoader ? <Loader /> : <div>Loading...</div>}>
+      <Suspense fallback={isBigLoader ? <Loader /> : <LoaderBear />}>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />
-            {/* <Route index element={<TeamBord />} /> */}
+            {/* <Route index element={<LoaderBear />} /> */}
             <Route path="/news" element={<News />} />
             <Route path="/notices" element={<FindPet />}>
               <Route index element={<NoticesCategoriesList />} />

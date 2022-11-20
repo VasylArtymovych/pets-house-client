@@ -9,6 +9,8 @@ import BottomBlock from './MenuBurger/BottomBlock';
 import styleLogo from './Logo.module.scss';
 import styleNavigation from './Navigations.module.scss';
 import stylesMenuBurger from './MenuBurger/BurgerMenu.module.scss';
+import { useSelector } from 'react-redux';
+import { selectors } from '../../redux/selectors';
 // import { useTranslation } from 'react-i18next';
 
 const styleObjForHeaderMenuAndBurgerMenu = {
@@ -30,7 +32,10 @@ const linkAuth = [
 
 const Navigations = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isUser, setIsUser] = useState(false);
+  // const [isUser, setIsUser] = useState(false);
+
+  const isUser = useSelector(selectors.isLogged);
+
   // const { t, i18n } = useTranslation();
 
   // useEffect(() => {
@@ -79,7 +84,7 @@ const Navigations = () => {
         {!isUser ? (
           <CenterBlock styleProp={styleObjForHeaderMenuAndBurgerMenu} isOpen={setIsOpen} />
         ) : (
-          <NavLink to="/user" className={styleNavigation.buttonlinkMenuBurgerUser}>
+          <NavLink to="/user" className={styleNavigation.buttonlinkMenuBurgerUser} onClick={() => setIsOpen((prev) => !prev)}>
             <AccountCircleIcon sx={{ fontSize: 28, marginRight: '12px' }} />
             <span>Account</span>
           </NavLink>

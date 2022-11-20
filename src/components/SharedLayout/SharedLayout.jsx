@@ -18,7 +18,7 @@ function SharedLayout() {
         {/* <div className={styleAnimation.footerCar}></div> */}
         <div className={styleAnimation.wrapp}>
           <p>
-            &copy; <span className={styleAnimation.copyright}>2022 RapidTables.com</span>
+            &copy; <span className={styleAnimation.copyright}>2022 From Zero To Hero</span>
           </p>
           <div className={styleAnimation.icon} onClick={() => setIsOpen((prev) => !prev)}>
             <PetsIcon sx={{ fontSize: '15px', marginRight: '12px' }} />

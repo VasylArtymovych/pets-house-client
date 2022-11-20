@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const logo = ['p', 'a', 't', 'l', 'y'];
+const logo = ['p', 'e', 't', 'l', 'y'];
 
 const Logo = ({ styleProp }) => {
   const variant = {
