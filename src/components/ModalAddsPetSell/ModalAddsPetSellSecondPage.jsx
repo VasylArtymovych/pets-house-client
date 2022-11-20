@@ -69,7 +69,9 @@ export const ModalAddsPetSellSecondPage = (props) => {
 
               <p className={scss.label}>Load the pet’s image:</p>
               <button type="button" className={scss.btnAddPhoto}>
-                
+                <svg className={scss.crossBig}>
+                    <use href={sprite + '#icon-blackCross'} />
+                </svg>
                 <InputForm customStyle={scss.input_photo} name="petImage" type="file" />
               </button>
               <div className={scss.wrapTextarea}>
