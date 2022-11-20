@@ -55,6 +55,8 @@
     }
 }
 
+
+
 .title {
     font-weight: 500;
     font-size: 24px;
@@ -199,14 +201,36 @@
     margin-bottom: 16px;
 }
 
+.inputWrapper {
+    position: relative;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+@media screen and (min-width: 767px) {
+    .inputWrapper {
+        margin-top: 12px;
+        margin-bottom: 28px;
+    }
+}
+
+.inputWrapperLast {
+    position: relative;
+    margin-top: 8px;
+}
+
+@media screen and (min-width: 767px) {
+    .inputWrapperLast {
+        margin-top: 12px;
+    }
+}
+
 .input {
     font-weight: 500;
     font-size: 18px;
     line-height: 26px;
     width: 240px;
     height: 40px;
-    margin-top: 8px;
-    margin-bottom: 16px;
 }
 
 @media screen and (min-width: 767px) {
@@ -219,7 +243,6 @@
 }
 
 .input_last {
-    margin-top: 8px;
     height: 40px;
 }
 
@@ -228,6 +251,13 @@
         width: 448px;
         height: 48px;
     }
+}
+
+.error {
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    color: red;
 }
 
 .btnContainer {

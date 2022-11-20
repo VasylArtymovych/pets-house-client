@@ -113,6 +113,14 @@ export const LoginForm = props => {
 								Register
 							</Link>
 						</p>
+						<p className={scss.redirect__auth}>
+							<Link
+								to="/forgot-password"
+								className={scss.redirect_link__auth}
+							>
+								Forgot password?
+							</Link>
+						</p>
 					</Form>
 				)}
 			</Formik>

@@ -1,1 +1,1 @@
-export {stepOneValidationSchema, stepTwoValidationSchema, loginValidationSchema} from './userValidation';
+export {stepOneValidationSchema, stepTwoValidationSchema, loginValidationSchema, emailValidationSchema, passwordValidationSchema} from './userValidation';
