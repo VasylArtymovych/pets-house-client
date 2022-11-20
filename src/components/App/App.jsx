@@ -5,6 +5,8 @@ import SharedLayout from 'components/SharedLayout';
 import { useGetCurrentUserQuery } from 'redux/fetchUser';
 import { selectors } from 'redux/selectors';
 import Loader from 'components/Loader';
+import ForgotPassword from 'pages/ForgotPassword';
+import ChangePassword from 'pages/ChangePassword';
 import TeamBord from 'components/TeamBord';
 import PrivateRoutes from 'components/PrivateRoutes';
 
@@ -55,6 +57,8 @@ function App() {
             <Route path="/friends" element={<OurFriend />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/change-password" element={<ChangePassword />} />
             <Route path="/user" element={<UserPage />} />
           </Route>
         </Routes>
