@@ -1,4 +1,6 @@
-const CardMember = ({ styleProp, title, parg, alt, image, name, desc, price }) => {
+import GitHubIcon from '@mui/icons-material/GitHub';
+
+const CardMember = ({ styleProp, title, parg, alt, image, name, desc, price, git }) => {
   return (
     <div className={styleProp.poster}>
       <h1 className={styleProp.title}>{title}</h1>
@@ -8,6 +10,9 @@ const CardMember = ({ styleProp, title, parg, alt, image, name, desc, price }) =
       <p className="description">{desc}</p>
       <h2>Reward</h2>
       <div id="price">{price}</div>
+      <a className={styleProp.sociale} href={git} target={'_blanc'}>
+        <GitHubIcon />
+      </a>
     </div>
   );
 };

@@ -33,6 +33,7 @@ const TeamBoard = ({ isOpen }) => {
           name={el.name}
           desc={el.desccription}
           price={el.price}
+          git={el.git}
         />
       ))}
     </div>

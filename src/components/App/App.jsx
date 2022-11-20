@@ -5,9 +5,10 @@ import SharedLayout from 'components/SharedLayout';
 import { useGetCurrentUserQuery } from 'redux/fetchUser';
 import { selectors } from 'redux/selectors';
 import Loader from 'components/Loader';
-// import TeamBord from 'components/TeamBord';
 import ForgotPassword from 'pages/ForgotPassword';
 import ChangePassword from 'pages/ChangePassword';
+import TeamBord from 'components/TeamBord';
+import PrivateRoutes from 'components/PrivateRoutes';
 
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
@@ -48,8 +49,10 @@ function App() {
               <Route path="lost-found" element={<NoticesCategoriesList />} />
               <Route path="for-free" element={<NoticesCategoriesList />} />
               <Route path="sell" element={<NoticesCategoriesList />} />
-              <Route path="favorite" element={<NoticesCategoriesList />} />
-              <Route path="own" element={<NoticesCategoriesList />} />
+              <Route element={<PrivateRoutes />}>
+                <Route path="favorite" element={<NoticesCategoriesList />} />
+                <Route path="own" element={<NoticesCategoriesList />} />
+              </Route>
             </Route>
             <Route path="/friends" element={<OurFriend />} />
             <Route path="/login" element={<Login />} />

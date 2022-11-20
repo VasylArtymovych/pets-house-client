@@ -144,6 +144,7 @@
   color: #111111;
 
   margin-bottom: 20px;
+  flex-grow: 1;
 }
 
 .NoticeCategoryItem__textListKeys {
@@ -167,6 +168,7 @@
 .NoticeCategoryItem__textContainer {
   display: flex;
   margin-bottom: 50px;
+  height: 100%;
 
   &.sell {
     margin-bottom: 20px;

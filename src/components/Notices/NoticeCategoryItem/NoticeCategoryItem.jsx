@@ -1,16 +1,15 @@
 import styles from './NoticeCategoryItem.module.scss';
 import sprite from '../../../images/symbol-defs.svg';
-// import * as dayjs from 'dayjs';
+import moment from 'moment';
+moment().format();
 
 const NoticeCategoryItem = ({ _id, category, imageUrl, title, breed, place, age, price, favorite, myads }) => {
   const normilizeCategory = (category) => {
     switch (category) {
       case 'sell':
         return 'Sell';
-      case 'lost':
-        return 'Lost';
-      case 'found':
-        return 'Found';
+      case 'lost-found':
+        return 'Lost/Found';
       case 'inGoodHands':
         return 'In good hands';
       default:
@@ -18,11 +17,10 @@ const NoticeCategoryItem = ({ _id, category, imageUrl, title, breed, place, age,
     }
   };
 
-  // const dogAge = (age) => {
-  //   // const now = new Date();
-  //   const dog = dayjs(age);
-  //   console.log(dog);
-  // };
+  const calculatedogAge = (age) => {
+    const dogAge = moment(age, 'DD.MM.YYYY').fromNow().slice(0, -4);
+    return dogAge;
+  };
 
   return (
     <>
@@ -76,7 +74,7 @@ const NoticeCategoryItem = ({ _id, category, imageUrl, title, breed, place, age,
                 <span className={styles.NoticeCategoryItem__textItemspan}>{place}</span>
               </li>
               <li className={styles.NoticeCategoryItem__textItem}>
-                <span className={styles.NoticeCategoryItem__textItemspan}>{age}</span>
+                <span className={styles.NoticeCategoryItem__textItemspan}>{calculatedogAge(age)}</span>
               </li>
               {category === 'sell' && (
                 <li className={styles.NoticeCategoryItem__textItem}>

@@ -33,7 +33,7 @@ export const ModalAddsPetSellSecondPage = (props) => {
                   The sex<span className={scss.mark}>*</span>:
                 </p>
                 <div className={scss.wrapIcon}>
-                  <Field className={scss.radioInput} name="gender" type="radio" id="male" value="male" />
+                  <Field className={scss.radioInput} name="sex" type="radio" id="male" value="male" />
                   <label htmlFor="male" className={scss.labelGender + ' ' + scss.activGender}>
                     <svg className={scss.icon}>
                       <use href={sprite + '#icon-male'} />
@@ -41,7 +41,7 @@ export const ModalAddsPetSellSecondPage = (props) => {
                     Male
                   </label>
 
-                  <Field className={scss.radioInput} name="gender" type="radio" id="female" value="female" />
+                  <Field className={scss.radioInput} name="sex" type="radio" id="female" value="female" />
                   <label htmlFor="female" className={scss.labelGender + ' ' + scss.activGender}>
                     <svg className={scss.icon}>
                       <use href={sprite + '#icon-female'} />
@@ -51,31 +51,29 @@ export const ModalAddsPetSellSecondPage = (props) => {
                 </div>
               </div>
 
-              <label htmlFor="locations" className={scss.label}>
+              <label htmlFor="location" className={scss.label}>
                 Location<span className={scss.mark}>*</span>:
               </label>
-              <InputForm customStyle={scss.input} name="locations" placeholder="Type name pet" />
-              <ErrorMessage name="locations" />
+              <InputForm customStyle={scss.input} name="location" placeholder="Type location" />
+              <ErrorMessage name="location" />
 
               {props.data.category === 'sell' && (
                 <div>
                   <label htmlFor="price" className={scss.label}>
                     Price<span className={scss.mark}>*</span>:
                   </label>
-                  <InputForm customStyle={scss.input} name="price" placeholder="Type date of birth" />
+                  <InputForm customStyle={scss.input} name="price" placeholder="Type price" />
                   <ErrorMessage name="price" />
                 </div>
               )}
 
               <p className={scss.label}>Load the pet’s image:</p>
               <button type="button" className={scss.btnAddPhoto}>
-                {/* <svg className={scss.iconBigPlus}>
-                    <use href={sprite + '#icon-bigPlus'} />
-                </svg> */}
-                <InputForm customStyle={scss.input_photo} name="photo" type="file" />
+                
+                <InputForm customStyle={scss.input_photo} name="petImage" type="file" />
               </button>
               <div className={scss.wrapTextarea}>
-                <label className={scss.label}> Comments</label>
+                <label className={scss.label}>Comments</label>
                 <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Type comments" />
               </div>
               <div className={scss.btnWrap}>

@@ -28,7 +28,7 @@ export const ModalAddsPetSecondPage = (props) => {
               <p className={scss.text}>Add photo and some comments</p>
               <button type="button" className={scss.btnAddPhoto}>
                
-                <InputForm customStyle={scss.input_photo}  name="photo" type="file" />
+                <InputForm customStyle={scss.input_photo}  name="petImage" type="file" />
               </button>
               <div className={scss.wrapTextarea}>
                 <label className={scss.label}> Comments</label>
