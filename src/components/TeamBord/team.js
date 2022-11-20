@@ -52,12 +52,12 @@ export const arr = [
   {
     title: 'WANTED by IT companies',
     par: 'Dead or Alive',
-    img: 'https://i.imgur.com/p8eOzMe.png',
+    img: 'https://avatars.githubusercontent.com/u/93092310?v=4',
     alt: '',
-    name: 'Твоя Совесть',
+    name: 'Andrii Tsapkov',
     desccription: 'Armed & very dangerous',
     price: '$50.000',
-    git: ''
+    git: 'https://github.com/AndreyTsapkov'
   },
   {
     title: 'WANTED by IT companies',
