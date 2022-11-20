@@ -1,11 +1,11 @@
 export const arr = [
   {
     title: 'WANTED by IT companies',
-    par: 'Dead or Alive',
+    par: 'Fullstack Developer',
     img: 'https://i.imgur.com/p8eOzMe.png',
     alt: '',
     name: 'Roman',
-    desccription: 'Armed & very dangerous',
+    desccription: 'Armed JS,React and Node.js',
     price: '$50.000',
     git: ''
   },
