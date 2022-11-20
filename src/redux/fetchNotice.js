@@ -48,10 +48,10 @@ export const noticeApi=createApi({
             providesTags:['Favorites']
         }),
         addToFavorites:builder.mutation({
-            query:(payload)=>({
-                url:`/user/favorites/${payload.id}`,
+            query:({_id,...payload})=>({
+                url:`/user/favorites/${_id}`,
                 method:'POST',
-                body:payload
+                body:{...payload}
             }),
             invalidatesTags:['Favorites']
         }),
