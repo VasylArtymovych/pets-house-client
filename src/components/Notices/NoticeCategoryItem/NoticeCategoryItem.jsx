@@ -60,9 +60,10 @@ const NoticeCategoryItem = ({
   };
 
   const AddToFavorites = (event) => {
-    // console.log(event);
+    console.log(event);
     console.log(event.target.parentElement.parentElement.parentElement.id);
-    const cardId = event.target.parentElement.parentElement.parentElement.id;
+    console.log(event.target.parentElement.id);
+    const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
     setCardId(cardId);
   };
 

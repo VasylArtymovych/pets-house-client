@@ -24,25 +24,42 @@ const NoticesCategoriesList = () => {
         return 'sell';
     }
   };
-
   const category = renderCategory();
 
-  const { data } = useGetNoticeQuery(category);
-  console.log(data);
-  const favorites = useGetNoticeFavoritesQuery();
-  // console.log(favorites);
-  const userNotices = useGetUserNoticesQuery();
-  // console.log(userNotices);
+  let { data } = useGetNoticeQuery(category);
+
+  let { data: favorites } = useGetNoticeFavoritesQuery();
+
+  let { data: userNotices } = useGetUserNoticesQuery();
+
   const [pets, setPets] = useState(null);
 
   useEffect(() => {
     if (data || favorites || userNotices) {
       if (category === 'sell' || category === 'lost-found' || category === 'inGoodHands') {
+        if (!data) {
+          data = null;
+          setPets(data);
+          return;
+        }
         setPets(data.data);
+        return;
       } else if (category === 'favorite') {
-        setPets(favorites.data.favorites);
+        if (!favorites) {
+          favorites = null;
+          setPets(favorites);
+          return;
+        }
+        setPets(favorites.favorites);
+        return;
       } else {
-        setPets(userNotices.data.notices);
+        if (!userNotices) {
+          userNotices = null;
+          setPets(userNotices);
+          return;
+        }
+        setPets(userNotices.notices);
+        return;
       }
     } else {
       return;
