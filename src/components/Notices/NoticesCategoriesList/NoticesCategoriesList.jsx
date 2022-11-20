@@ -28,7 +28,7 @@ const NoticesCategoriesList = () => {
   const category = renderCategory();
 
   const { data } = useGetNoticeQuery(category);
-  // console.log(data);
+  console.log(data);
   const favorites = useGetNoticeFavoritesQuery();
   // console.log(favorites);
   const userNotices = useGetUserNoticesQuery();
@@ -91,7 +91,7 @@ const NoticesCategoriesList = () => {
                 sex={sex}
                 comments={comments}
                 category={category}
-                imageUrl={petImage}
+                imageUrl={`http://localhost:8888/${petImage}`}
                 title={title}
                 breed={breed}
                 place={location}
