@@ -17,7 +17,7 @@ const FriendItem = ({ url, title, img, address, addressUrl, email, phone, timeWo
   return (
     <li className={scss.friendItem}>
       <h3 className={scss.itemTitle}>
-        <a href={url}>{title}</a>
+        <a href={url} target="_blank" rel="noreferrer noopener">{title}</a>
       </h3>
       <div className={scss.ItemNetwork}>
         {!img ? (
@@ -60,7 +60,7 @@ const FriendItem = ({ url, title, img, address, addressUrl, email, phone, timeWo
                 <p>
                   Time:
                   <br />
-                  ------------
+                  No info
                 </p>
               )}
             </li>
@@ -69,11 +69,11 @@ const FriendItem = ({ url, title, img, address, addressUrl, email, phone, timeWo
                 <p>
                   Address:
                   <br />
-                  ------------
+                  No info
                 </p>
               ) : (
                 <address className={scss.infoItemAddress}>
-                  <a href={addressUrl}>
+                  <a href={addressUrl} target="_blank" rel="noreferrer noopener">
                     Address:
                     <br />
                     {address}
@@ -86,7 +86,7 @@ const FriendItem = ({ url, title, img, address, addressUrl, email, phone, timeWo
                 <p>
                   Email:
                   <br />
-                  ------------
+                  No info
                 </p>
               ) : (
                 <a href={`mailto:${email}`} className={scss.friendItemEmail}>
@@ -101,7 +101,7 @@ const FriendItem = ({ url, title, img, address, addressUrl, email, phone, timeWo
                 <p>
                   Phone:
                   <br />
-                  ------------
+                  No info
                 </p>
               ) : (
                 <a href={`tel:${phone}`} className={scss.friendItemPhone}>

@@ -1,13 +1,16 @@
-import NewsInfo from '../../data/news.json';
 import NewsList  from 'components/News/NewsList';
 import FormSearchNews from "components/News/NewsFormSearch";
+import { useState } from "react";
 
 
-function NewsPage ()  {
+function NewsPage() {
+const [filterNews, setFilterNews] = useState('');
+
+
     return (
         <div>
-            <FormSearchNews/>
-            <NewsList info={NewsInfo}/>
+            <FormSearchNews setFilter={setFilterNews}/>
+            <NewsList filter={filterNews}/>
         </div>
     )
 };

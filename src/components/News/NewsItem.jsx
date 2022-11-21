@@ -7,7 +7,7 @@ export const NewsItem = ({ url, title, description, date}) => {
             <p className={scss.dataNews}>{description}</p>
             <div className={scss.dateAndLink}>
             <p className={scss.dateNews}>{date}</p>
-            <a href={url} className={scss.linkNews}>Read more</a>
+            <a href={url} className={scss.linkNews} target="_blank" rel="noreferrer noopener">Read more</a>
             </div>
         </li>
     )

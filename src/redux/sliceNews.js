@@ -8,7 +8,7 @@ export const sliceNews=createSlice({
     initialState,
     reducers:{
         setFilterNews(state,action){
-            return{...state,filter:action.payload}
+            return{...state,onFilterNews:action.payload}
         }
     }
 })

@@ -6,7 +6,7 @@
     "imageUrl": "https://storage.googleapis.com/kidslikev2_bucket/pets-support/images/sponsors/frame_287.png",
     "address": "Fedorivka, Kyiv Oblast, Ukraine, 07372",
     "workDays": [
-      { "isOpen": false },
+      { "isOpen": true, "from": "11:00", "to": "16:00" },
       { "isOpen": false },
       { "isOpen": false },
       { "isOpen": false },

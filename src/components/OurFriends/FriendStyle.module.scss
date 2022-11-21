@@ -193,6 +193,7 @@ padding-right: 20px;
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
+    cursor: pointer;
     border: none;
     background: none;
     @media screen and (min-width: 768px) {
@@ -204,6 +205,10 @@ padding-right: 20px;
         font-size: 16px;
         line-height: 22px;
     }
+}
+
+.infoItemTime:hover{
+color: #F59256;
 }
 
 .popper{
