@@ -18,12 +18,27 @@
     order: 1;
   }
 }
-
-.avatar__img {
+.avatar__box {
+  position: relative;
+  overflow: hidden;
   width: 233px;
   height: 233px;
-  margin: 0 auto;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.avatar__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 80px;
+  }
 }
 .info__box {
   display: flex;

@@ -1,23 +1,25 @@
 import scss from './PetsList.module.scss';
 import sprite from '../../../images/symbol-defs.svg';
-import { useState } from 'react';
+import { useUpdatePetMutation } from 'redux/fetchPets';
 
-const FieldPetsImg = ({ petImage }) => {
-  const [imgRet, setImgPet] = useState(null);
+const FieldPetsImg = ({ petImage, _id }) => {
+  console.log(petImage);
 
-  const imageHandler = (e) => {
+  const [updatePet] = useUpdatePetMutation();
+
+  const imageHandler = async (e) => {
     const fileUploaded = e.target.files[0];
-    setImgPet(URL.createObjectURL(fileUploaded));
     const file = new FormData();
-    file.append('avatar', fileUploaded);
-    //залити в бд
+    file.append('petImage', fileUploaded);
+    console.log(file);
+    updatePet({ _id, petImage: file });
   };
   return (
     <div className={scss.pets__imgContainer}>
       <img className={scss.pets__animalImg} src={`http://localhost:8888/${petImage}`} alt="pet" />
       <div className={scss.pets__imgAdd}>
-        <input className={scss.input__file} type="file" name="avatar" id="input__file" accept="image/*" onChange={(e) => imageHandler(e)} />
-        <label className={scss.input__fileButton} htmlFor="input__file">
+        <input className={scss.input__file} type="file" name="petImage" id="input__animal" accept="image/*" onChange={(e) => imageHandler(e)} />
+        <label className={scss.input__fileButton} htmlFor="input__animal">
           <svg className={scss.info__camera} width="30" height="30">
             <use href={sprite + '#icon-profilePhotoCamera'} />
           </svg>

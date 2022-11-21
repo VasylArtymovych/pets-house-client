@@ -6,13 +6,15 @@ import sprite from '../../../images/symbol-defs.svg';
 const UserAvatarModal = ({ onCloseModal, onAvatarImg }) => {
   const [img, setImg] = useState(onAvatarImg);
   const [file, setFile] = useState(null);
-
+  // console.log(file);
   const [updateUserAvatar] = useUpdateUserAvatarMutation();
 
   const imageHandler = async (e) => {
+    // console.log('img', img);
     const fileUploaded = e.target.files[0];
     setImg(URL.createObjectURL(fileUploaded));
     const file = new FormData();
+    // console.log(file);
     file.append('avatar', fileUploaded);
     setFile(file);
   };
@@ -29,11 +31,13 @@ const UserAvatarModal = ({ onCloseModal, onAvatarImg }) => {
             <use href={sprite + '#icon-exit'} />
           </svg>
         </button>
-        {img ? (
-          <img className={scss.avatar__img} src={img} alt="avatar" />
-        ) : (
-          <img className={scss.avatar__img} src={`http://localhost:8888/${img}`} alt="avatar" />
-        )}
+        <div className={scss.avatar__box}>
+          {img ? (
+            <img className={scss.avatar__img} src={img} alt="avatar" />
+          ) : (
+            <img className={scss.avatar__img} src={`http://localhost:8888/${img}`} alt="avatar" />
+          )}
+        </div>
 
         <div className={scss.input__container}>
           <input className={scss.input__file} type="file" name="avatar" id="input__file" onChange={(e) => imageHandler(e)} accept="image/*" />

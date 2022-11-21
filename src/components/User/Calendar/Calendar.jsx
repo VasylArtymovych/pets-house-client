@@ -30,7 +30,7 @@ const Calendar = ({ customStyleMobile, customStyleDesktop, onHandleDate, onBirth
           }}
           renderInput={({ inputRef, inputProps, InputProps, params }) => (
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <input {...params} type="data" value={value} className={customStyleMobile} ref={inputRef} {...inputProps} />
+              <input {...params} type="data" className={customStyleMobile} ref={inputRef} {...inputProps} />
               {InputProps?.endAdornment}
             </Box>
           )}

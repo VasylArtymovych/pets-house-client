@@ -2,25 +2,26 @@ import { Input } from 'components/Input';
 import { useState } from 'react';
 import sprite from '../../../images/symbol-defs.svg';
 import scss from './PetsList.module.scss';
+import { useUpdatePetMutation } from 'redux/fetchPets';
 
-const FieldPetsName = ({ text, value, onIsUpdate }) => {
+const FieldPetsName = ({ text, value, onIsUpdate, _id }) => {
   const [isUpdate, setIsUpdate] = useState(onIsUpdate);
-  console.log(isUpdate);
   const [petsName, setPetsName] = useState(value);
-  console.log('petsName:', petsName);
 
-  // const handleSend = () => {
-  //   if (petsName.length === 0) {
-  //     return;
-  //   } else {
-  //     updatePet({ [name]: petsName });
-  //     setIsUpdate(false);
-  //   }
-  // };
+  const [updatePet] = useUpdatePetMutation();
+
+  const handleSend = () => {
+    if (petsName.length === 0) {
+      return;
+    } else {
+      updatePet({ _id, [text]: petsName });
+      setIsUpdate(false);
+    }
+  };
   return (
     <li className={scss.pets__items}>
       {isUpdate ? (
-        <button className={scss.pets__save} type="button" onClick={() => setIsUpdate(false)}>
+        <button className={scss.pets__save} type="button" onClick={handleSend}>
           <svg className={scss.icon__profileCheckMark}>
             <use href={sprite + '#icon-profileCheckMark'} />
           </svg>
