@@ -87,7 +87,7 @@ export const arr = [
     name: 'Максим',
     desccription: 'Armed & very dangerous',
     price: '$50.000',
-    git: ''
+    git: 'https://github.com/Maksimchik36'
   },
   {
     title: 'WANTED by IT companies',
