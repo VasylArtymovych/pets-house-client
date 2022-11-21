@@ -61,7 +61,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/change-password" element={<ChangePassword />} />
+            <Route path="/change-password/:id" element={<ChangePassword />} />
             <Route element={<PrivateRoutes />}>
               <Route path="/user" element={<UserPage />} />
             </Route>
