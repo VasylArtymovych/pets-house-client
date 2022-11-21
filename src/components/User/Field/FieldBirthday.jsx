@@ -43,7 +43,7 @@ export const FieldBirthday = ({ text, value }) => {
         </>
       ) : (
         <>
-          <span className={scss.items_info}>{value}</span>
+          {!value ? <span className={scss.items_info}>00.00.0000</span> : <span className={scss.items_info}>{value}</span>}
           <button className={scss.change__btn} onClick={() => setIsUpdate(true)}>
             <svg className={scss.icon__profilePencil}>
               <use href={sprite + '#icon-profilePencil'} />

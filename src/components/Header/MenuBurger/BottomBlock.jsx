@@ -1,13 +1,16 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Trans } from 'react-i18next';
+
 
 const link = [
-  { to: '/news', text: 'News' },
+  { to: '/news', text: 'news' },
   { to: '/notices', text: 'Find pet' },
-  { to: '/friends', text: 'Our friend' }
+  { to: '/friends', text: 'Friends' }
 ];
 
 const BottomBlock = ({ styleProp, isOpen }) => {
+
   const variant = {
     visible: (i) => ({
       opacity: 1,
@@ -40,8 +43,11 @@ const BottomBlock = ({ styleProp, isOpen }) => {
           custom={i}
           onClick={() => isOpen((prev) => !prev)}
         >
+          {}
           <NavLink to={el.to}>
-            <span>{el.text}</span>
+            <Trans i18nKey={`${el.text}`}>
+              <span>{el.text}</span>
+            </Trans>
           </NavLink>
         </motion.div>
       ))}

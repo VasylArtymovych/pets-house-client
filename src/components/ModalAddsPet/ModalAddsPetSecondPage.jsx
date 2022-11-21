@@ -26,14 +26,19 @@ export const ModalAddsPetSecondPage = (props) => {
           {() => (
             <Form className={scss.formSecond + ' ' + props.customStyle}>
               <p className={scss.text}>Add photo and some comments</p>
+
               <button type="button" className={scss.btnAddPhoto}>
-               
-                <InputForm customStyle={scss.input_photo}  name="photo" type="file" />
+                <svg className={scss.crossBig}>
+                    <use href={sprite + '#icon-blackCross'} />
+                </svg>
+                <InputForm customStyle={scss.input_photo}  name="petImage" type="file" />
               </button>
+
               <div className={scss.wrapTextarea}>
                 <label className={scss.label}> Comments</label>
                 <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Type comments"/>
               </div>
+
               <div className={scss.btnWrap}>
                 <button type="submit" className={scss.buttonFill}>
                   Done
@@ -42,6 +47,7 @@ export const ModalAddsPetSecondPage = (props) => {
                   Back
                 </button>
               </div>
+
             </Form>
           )}
         </Formik>

@@ -1,9 +1,9 @@
 .user__box {
   position: relative;
-  padding: 61px 60px 80px 0;
-  margin-bottom: 30px;
+  padding-top: 61px;
+  margin-bottom: 50px;
   @media screen and (min-width: 768px) {
-    padding: 88px 0 100px 0;
+    padding: 88px 0 0px 0;
   }
   @media screen and (min-width: 1280px) {
     display: flex;
@@ -29,8 +29,8 @@
 
 .user__info {
   max-width: 280px;
-  margin: 0 auto;
   display: block;
+  margin: 0 auto;
   background: var(--btn__color);
   box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
   border-radius: 20px;
@@ -38,12 +38,11 @@
   margin-bottom: 43px;
   position: relative;
   @media screen and (min-width: 768px) {
-    position: relative;
     border-radius: 0px 40px 40px 0px;
     max-width: 736px;
     padding: 40px 40px 40px 32px;
     margin-left: -40px;
-    margin-bottom: 0;
+    margin-bottom: 20px;
   }
   @media screen and (min-width: 1280px) {
     max-width: 411px;
@@ -116,6 +115,7 @@
   border-color: transparent;
   width: 40px;
   height: 40px;
+  outline: none;
   opacity: 1;
 }
 .addpats__svg {

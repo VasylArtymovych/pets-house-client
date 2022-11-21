@@ -4,17 +4,13 @@ import { useSelector } from 'react-redux';
 import { selectors } from '../../../redux/selectors.js';
 
 const UserDataItem = () => {
-  const name = useSelector(selectors.getUserName);
-  const mail = useSelector(selectors.getUserEmail);
-  const phone = useSelector(selectors.getUserPhone);
-  const city = useSelector(selectors.getUserCity);
-  const birthday = useSelector(selectors.getUserBirthday);
+  const { name, email, phone, city, birthday } = useSelector(selectors.getUserInfo);
 
   return (
     <>
       <ul className={scss.user__list}>
         <Field text="name" type="text" value={name} o />
-        <Field text="email" type="email" value={mail} />
+        <Field text="email" type="email" value={email} />
         <FieldBirthday text="Birthday" value={birthday} />
         <Field text="phone" value={phone} />
         <Field text="city" value={city} />

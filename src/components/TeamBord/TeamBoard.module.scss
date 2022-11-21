@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-evenly;
   height: 100vh;
+  z-index: 100;
 
   overflow-x: scroll;
 
@@ -44,19 +45,28 @@
   margin-right: 10px;
 
   //   white-space: nowrap;
-  animation: bannermove 60s linear infinite;
-  animation-delay: 1s;
+  animation: bannermove 80s linear infinite;
+  // animation-delay: 1s;
 
   @media screen and (max-width: 1000px) {
     & {
       height: 460px;
     }
   }
+  & {
+    transition: 0.5s;
+  }
+
+  &:hover {
+    transform: scale(1.8);
+  }
 }
 
 .mugshot {
-  width: 300px;
-  height: 325px;
+  // width: 300px;
+  // height: 325px;
+  width: 236px;
+  height: 236px;
   border: 2px solid #291200;
   padding: 10px;
   filter: sepia(60%);
@@ -79,6 +89,14 @@
     & {
       font-size: 20pt;
     }
+  }
+}
+
+.sociale {
+  transition: 0.5s;
+  &:hover {
+    transform: translateY(80%) scale(3);
+    color: #291200;
   }
 }
 

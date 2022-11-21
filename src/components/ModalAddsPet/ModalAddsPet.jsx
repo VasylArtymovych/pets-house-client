@@ -1,29 +1,33 @@
 import { ModalAddsPetFirstPage } from './ModalAddsPetFirstPage';
 import { ModalAddsPetSecondPage } from './ModalAddsPetSecondPage';
 import React, { useState } from 'react';
+import { usePostPetMutation } from "../../redux/fetchPets";
 
 export const ModalAddsPet = (props) => {
   
   const [data, setData] = useState({
-    namePet: '',
-    birthDate: '',
+    name: '',
+    dateOfBirth: '',
     breed: '',
-    photo: '',
+    petImage: '',
     comments: ''
   });
   const [page, setPage] = useState(0);
-
+  
   const formTitles = ['First Page', 'Second Page'];
+
+  const [addPets] = usePostPetMutation();
 
   const makeRequest = (formData) => {
     console.log('Submiting', formData);
+    addPets(formData);
   };
 
   const handleNextStep = (newData, final = false) => {
     setData((prev) => ({ ...prev, ...newData }));
     setPage((prev) => prev + 1);
 
-    if (final) {
+    if (final && page === 1) {
       makeRequest(newData);
       return;
     }

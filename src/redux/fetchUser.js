@@ -28,13 +28,27 @@ export const userApi=createApi({
         }),
         getCurrentUser: builder.query({
             query: ()=> '/user/current',
-            providesTags:['Notice']
+            providesTags:['User']
             }),
-        logOut:builder.query({
+        logOut:builder.mutation({
             query:()=>({
                 url: '/auth/logout',
                 method: 'GET'
             }),
+        }),
+        forgotPassword:builder.mutation({
+            query:({email})=>({
+                url:'/auth/forgotPassword',
+                method:'PATCH',
+                body:{email},
+            }),
+        }),
+        updatePassword:builder.mutation({
+            query:({id,password})=>({
+                url:'/auth/recoverPassword',
+                method:'PATCH',
+                body:{id,password}
+            })
         }),
         updateUser: builder.mutation({
             query:(payload)=>({
@@ -55,4 +69,4 @@ export const userApi=createApi({
     })
 })
 
-export const {useRegistrationUserMutation, useLogInMutation, useLogOutMutation, useGetCurrentUserQuery, useUpdateUserMutation, useUpdateUserAvatarMutation}= userApi;
+export const {useRegistrationUserMutation, useLogInMutation, useLogOutMutation, useForgotPasswordMutation, useUpdatePasswordMutation, useGetCurrentUserQuery, useUpdateUserMutation, useUpdateUserAvatarMutation}= userApi;

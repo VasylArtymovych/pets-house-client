@@ -1,5 +1,5 @@
 .container {
-    background-color: #fff;
+    background-color: var(--btn__color);
     padding: 18px;
     width: 280px;
     border-radius: 20px;
@@ -24,7 +24,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #FDF7F2;
+    background: var(--bg__color);
     border: none;
 
     &:hover,
@@ -107,7 +107,7 @@
     padding: 10px 28px;
     border-radius: 40px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     color: rgb(255, 255, 255);
     background-color: #f59256;
     box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
@@ -203,14 +203,36 @@
     margin-bottom: 16px;
 }
 
+.inputWrapper{
+    position: relative;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+@media screen and (min-width: 767px) {
+    .inputWrapper {
+        margin-top: 12px;
+        margin-bottom: 28px;
+    }
+}
+
+.inputWrapperLast {
+     position: relative;
+     margin-top: 8px;
+}
+
+@media screen and (min-width: 767px) {
+    .inputWrapperLast {
+        margin-top: 12px;
+    }
+}
+
 .input {
     font-weight: 500;
     font-size: 18px;
     line-height: 26px;
     width: 240px;
     height: 40px;
-    margin-top: 8px;
-    margin-bottom: 16px;
 }
 
 @media screen and (min-width: 767px) {
@@ -221,7 +243,6 @@
 }
 
 .input_last {
-    margin-top: 8px;
     height: 40px;
 }
 
@@ -232,10 +253,14 @@
     }
 }
 
+.error {
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    color: red;
+}
 
 //---------------- Second page----------------
-
-
 
 .input_photo{
     opacity: 0;
@@ -244,8 +269,6 @@
     // border-radius: 20px;
     // border: 1px solid green;
 }
-
-
 
 .text {
     text-align: center;
@@ -264,9 +287,10 @@
 }
 
 .btnAddPhoto {
+    position: relative;
     width: 208px;
     height: 208px;
-    background: #FDF7F2;
+    background: var(--bg__color);
     border-radius: 20px;
     margin: auto;
     margin-top: 20px;
@@ -277,6 +301,23 @@
     .btnAddPhoto {
         width: 182px;
         height: 182px;
+    }
+}
+
+.crossBig {
+    position: absolute;
+    top:80px;
+    right: 75px;
+    width: 45px;
+    height: 45px;
+    rotate: 45deg;
+    fill: lightgray;
+}
+
+@media screen and (min-width: 767px) {
+    .crossBig {
+        top: 65px;
+        right: 63px;
     }
 }
 
@@ -312,14 +353,21 @@
 .wrapTextarea{
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
+}
+
+@media screen and (min-width: 767px) {
+    .wrapTextarea {
+        margin-top: 40px;
+    }
 }
 
 .textarea {
     padding: 12px;
     width: 240px;
     height: 100px;
-    background: #FDF7F2;
-    border: 1px solid rgba(245, 146, 86, 0.5);
+    background: var(--bg__color);
+    border: 1px solid var(--input__color);
     border-radius: 20px;
     margin-top: 8px;
     resize: none;

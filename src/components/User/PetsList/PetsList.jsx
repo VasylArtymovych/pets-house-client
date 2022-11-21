@@ -1,60 +1,42 @@
 import sprite from '../../../images/symbol-defs.svg';
 import scss from './PetsList.module.scss';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import { useDeletePetMutation } from 'redux/fetchPets';
+import FieldPetsImg from './FieldPetsImg';
+import FieldPetsName from './FieldPetsName';
+import FieldPetsBirthday from './FieldPetsBirthday';
+import FieldPetsComments from './FieldPetsComments';
 
-const PetsList = () => {
-  const { pets } = useSelector((state) => state.users.user);
-
+const PetsList = ({ petImage, name, dateOfBirth, breed, comments, _id }) => {
+  const [isUpdate, setIsUpdate] = useState(false);
   const [deletePet] = useDeletePetMutation();
-
   return (
     <>
-      {pets.length === 0 ? (
-        <div className={scss.pets__notFound}>
-          <p className={scss.pets__NFtext}>You haven't added your pet yet</p>
+      {isUpdate ? (
+        <div>
+          <button className={scss.pets__save} type="button" onClick={() => setIsUpdate(false)}>
+            <svg className={scss.icon__profileCheckMark}>
+              <use href={sprite + '#icon-profileCheckMark'} />
+            </svg>
+          </button>
         </div>
       ) : (
-        pets.map(({ petImage, name, dateOfBirth, breed, comments, _id }) => (
-          <li className={scss.pets__item} key={_id}>
-            <img className={scss.pets__animalImg} src={`http://localhost:8888/${petImage}`} alt="pet" />
-            <div className={scss.pats__btns}>
-              <button className={scss.pats__btn} type="button">
-                <svg className={scss.pets__svg}>
-                  <use href={sprite + '#icon-profilePencil'} />
-                </svg>
-              </button>
-              <button className={scss.pats__btn} type="button" onClick={() => deletePet(_id)}>
-                <svg className={scss.pets__svg}>
-                  <use href={sprite + '#icon-remov-pets'} />
-                </svg>
-              </button>
-            </div>
-            <ul className={scss.pets__list}>
-              <li className={scss.pets__items}>
-                <p>
-                  Name: <span className={scss.pets__info}>{name}</span>
-                </p>
-              </li>
-              <li className={scss.pets__items}>
-                <p>
-                  Date of birth: <span className={scss.pets__info}>{dateOfBirth}</span>
-                </p>
-              </li>
-              <li className={scss.pets__items}>
-                <p>
-                  Breed: <span className={scss.pets__info}>{breed}</span>
-                </p>
-              </li>
-              <li className={scss.pets__items}>
-                <p>
-                  Comments:
-                  <span className={scss.pets__info}>{comments}</span>
-                </p>
-              </li>
-            </ul>
-          </li>
-        ))
+        <>
+          <div className={scss.pats__btns}>
+            <button className={scss.pats__delete} type="button" onClick={() => deletePet(_id)}>
+              <svg className={scss.pets__deleteSvg}>
+                <use href={sprite + '#icon-remov-pets'} />
+              </svg>
+            </button>
+          </div>
+          <FieldPetsImg petImage={petImage} _id={_id} />
+          <ul className={scss.pets__list}>
+            <FieldPetsName value={name} text="name" onIsUpdate={isUpdate} _id={_id} />
+            <FieldPetsBirthday value={dateOfBirth} _id={_id} />
+            <FieldPetsName value={breed} text="breed" _id={_id} />
+            <FieldPetsComments value={comments} _id={_id} />
+          </ul>
+        </>
       )}
     </>
   );

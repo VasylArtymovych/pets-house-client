@@ -5,7 +5,13 @@ import SharedLayout from 'components/SharedLayout';
 import { useGetCurrentUserQuery } from 'redux/fetchUser';
 import { selectors } from 'redux/selectors';
 import Loader from 'components/Loader';
-import TeamBord from 'components/TeamBord';
+import LoaderBear from 'components/LoaderBear';
+import ForgotPassword from 'pages/ForgotPassword';
+import ChangePassword from 'pages/ChangePassword';
+import PrivateRoutes from 'components/PrivateRoutes';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
@@ -35,24 +41,30 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={isBigLoader ? <Loader /> : <div>Loading...</div>}>
+      <ToastContainer autoClose={3000} closeOnClick={true} />
+      <Suspense fallback={isBigLoader ? <Loader /> : <LoaderBear />}>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />
-            {/* <Route index element={<TeamBord />} /> */}
             <Route path="/news" element={<News />} />
             <Route path="/notices" element={<FindPet />}>
               <Route index element={<NoticesCategoriesList />} />
               <Route path="lost-found" element={<NoticesCategoriesList />} />
               <Route path="for-free" element={<NoticesCategoriesList />} />
               <Route path="sell" element={<NoticesCategoriesList />} />
-              <Route path="favorite" element={<NoticesCategoriesList />} />
-              <Route path="own" element={<NoticesCategoriesList />} />
+              <Route element={<PrivateRoutes />}>
+                <Route path="favorite" element={<NoticesCategoriesList />} />
+                <Route path="own" element={<NoticesCategoriesList />} />
+              </Route>
             </Route>
             <Route path="/friends" element={<OurFriend />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/user" element={<UserPage />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/change-password/:id" element={<ChangePassword />} />
+            <Route element={<PrivateRoutes />}>
+              <Route path="/user" element={<UserPage />} />
+            </Route>
           </Route>
         </Routes>
       </Suspense>

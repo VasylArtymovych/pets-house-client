@@ -1,5 +1,5 @@
 .container {
-    background-color: #fff;
+    background-color: var(--btn__color);
     padding: 18px;
     width: 280px;
     border-radius: 20px;
@@ -24,7 +24,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #FDF7F2;
+    background: var(--bg__color);
     border: none;
 
     &:hover,
@@ -135,10 +135,8 @@
     max-width: 240px;
     height: 40px;
     border-radius: 40px;
-    background: #FFFFFF;
-    border: 2px solid #F59256;
-    font-family: 'Manrope';
-    font-style: normal;
+    background: var(--btn__color);
+    border: 2px solid var(--accent__color);
     font-weight: 500;
     font-size: 16px;
     line-height: 22px;
@@ -172,7 +170,7 @@
 }
 
 .mark {
-   color: #F59256;
+   color: var(--accent__color);
 }
 
 //----------------- First page----------------
@@ -199,14 +197,36 @@
     margin-bottom: 16px;
 }
 
+.inputWrapper {
+    position: relative;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+@media screen and (min-width: 767px) {
+    .inputWrapper {
+        margin-top: 12px;
+        margin-bottom: 28px;
+    }
+}
+
+.inputWrapperLast {
+    position: relative;
+    margin-top: 8px;
+}
+
+@media screen and (min-width: 767px) {
+    .inputWrapperLast {
+        margin-top: 12px;
+    }
+}
+
 .input {
     font-weight: 500;
     font-size: 18px;
     line-height: 26px;
     width: 240px;
     height: 40px;
-    margin-top: 8px;
-    margin-bottom: 16px;
 }
 
 @media screen and (min-width: 767px) {
@@ -219,7 +239,6 @@
 }
 
 .input_last {
-    margin-top: 8px;
     height: 40px;
 }
 
@@ -228,6 +247,13 @@
         width: 448px;
         height: 48px;
     }
+}
+
+.error {
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    color: red;
 }
 
 .btnContainer {
@@ -253,8 +279,8 @@
 }
 
 .radioInput:checked + .activ {
-    background-color: #f59256;
-    color: #fff;
+    background-color: var(--accent__color);
+    color: var(--bg__color);
 }
 
 // #sell:checked ~ .activ3 {
@@ -265,16 +291,13 @@
     position: absolute;
     top: 7%;
     left: -2px;
-    border: 1px solid tomato;
-    border-radius: 40px;
-    padding: 3px;
     font-weight: 500;
     font-size: 14px;
     line-height: 19px;
     display: flex;
     align-items: center;
     letter-spacing: 0.04em;
-    border: 2px solid #F59256;
+    border: 2px solid var(--accent__color);
     border-radius: 40px;
     padding: 7px 25px;
     &:hover,
@@ -300,16 +323,13 @@
     position: absolute;
     bottom: 5%;
     left: -2px;
-    border: 1px solid tomato;
-    border-radius: 40px;
-    padding: 3px;
     font-weight: 500;
     font-size: 14px;
     line-height: 19px;
     display: flex;
     align-items: center;
     letter-spacing: 0.04em;
-    border: 2px solid #F59256;
+    border: 2px solid var(--accent__color);
     border-radius: 40px;
     padding: 7px 25px;
     &:hover,
@@ -342,7 +362,7 @@
     display: flex;
     align-items: center;
     letter-spacing: 0.04em;
-    border: 2px solid #F59256;
+    border: 2px solid var(--accent__color);
     border-radius: 40px;
     padding: 7px 25px;
     &:hover,
@@ -434,7 +454,7 @@
 }
 
 .radioInput:checked +.activGender{
-    color: #f59256;
+    color: var(--accent__color);
 }
 
 .input_photo {
@@ -447,9 +467,10 @@
 
 
 .btnAddPhoto {
+    position: relative;
     width: 116px;
     height: 116px;
-    background: #FDF7F2;
+    background: var(--bg__color);
     border-radius: 20px;
     margin: auto;
     margin-top: 20px;
@@ -460,6 +481,23 @@
     .btnAddPhoto {
         width: 140px;
         height: 140px;
+    }
+}
+
+.crossBig {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    width: 45px;
+    height: 45px;
+    rotate: 45deg;
+    fill: lightgray;
+}
+
+@media screen and (min-width: 767px) {
+    .crossBig {
+        top: 45px;
+        right: 45px;
     }
 }
 

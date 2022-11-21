@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import PetsIcon from '@mui/icons-material/Pets';
@@ -9,7 +9,11 @@ import BottomBlock from './MenuBurger/BottomBlock';
 import styleLogo from './Logo.module.scss';
 import styleNavigation from './Navigations.module.scss';
 import stylesMenuBurger from './MenuBurger/BurgerMenu.module.scss';
+import { useSelector } from 'react-redux';
+import { selectors } from '../../redux/selectors';
+import { Trans, withTranslation } from 'react-i18next';
 import { useTranslation } from 'react-i18next';
+import ChangeLanguage from 'components/ChangeLanguage';
 
 const styleObjForHeaderMenuAndBurgerMenu = {
   styleNavigation,
@@ -17,20 +21,39 @@ const styleObjForHeaderMenuAndBurgerMenu = {
   styleLogo
 };
 
+// {
+//   "news": "News",
+//   "read": "Read more",
+//   "friends": "Our friends",
+//   "time": "Time:",
+//   "adress": "Address:",
+//   "email": "Email:",
+//   "phone": "Phone:",
+//   "login": "Login",
+//   "register": "Register",
+//   "Login": "Login",
+//   "Registration": "Registration",
+//   "News": "News",
+//   "Find pet": "Find pet",
+//   "Friends": "Friends",
+//   "Account": "Account"
 const link = [
   { to: '/news', text: 'news' },
   { to: '/notices', text: 'Find pet' },
-  { to: '/friends', text: 'friends' }
+  { to: '/friends', text: 'Friends' }
 ];
 
 const linkAuth = [
-  { to: '/login', text: 'login' },
+  { to: '/login', text: 'Login' },
   { to: '/register', text: 'register' }
 ];
 
 const Navigations = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isUser, setIsUser] = useState(false);
+  // const [isUser, setIsUser] = useState(false);
+
+  const isUser = useSelector(selectors.isLogged);
+
   const { t } = useTranslation();
 
   let location = useLocation();
@@ -45,23 +68,28 @@ const Navigations = () => {
             to={el.to}
             className={location.pathname === el.to ? `${styleNavigation.navigationLink} ${styleNavigation.active}` : styleNavigation.navigationLink}
           >
-            <span>{t(`${el.text}`)}</span>
+            <Trans i18nKey={`${el.text}`}>
+              <span>{el.text}</span>
+            </Trans>
           </NavLink>
         ))}
       </div>
+      <ChangeLanguage />
       {/* navigation for registration */}
       {!isUser ? (
         <div className={styleNavigation.buttonLinkWrapp}>
           {linkAuth.map((el) => (
             <NavLink key={Math.random()} to={el.to} className={styleNavigation.buttonlink}>
-              <span>{t(`${el.text}`)}</span>
+              <Trans i18nKey={`${el.text}`}>
+                <span>{el.text}</span>
+              </Trans>
             </NavLink>
           ))}
         </div>
       ) : (
         <NavLink to="/user" className={styleNavigation.buttonlinkUser}>
           <AccountCircleIcon sx={{ fontSize: 28, marginRight: '12px' }} />
-          <span>Account</span>
+          <span>{t('Account')}</span>
         </NavLink>
       )}
 
@@ -74,9 +102,9 @@ const Navigations = () => {
         {!isUser ? (
           <CenterBlock styleProp={styleObjForHeaderMenuAndBurgerMenu} isOpen={setIsOpen} />
         ) : (
-          <NavLink to="/user" className={styleNavigation.buttonlinkMenuBurgerUser}>
+          <NavLink to="/user" className={styleNavigation.buttonlinkMenuBurgerUser} onClick={() => setIsOpen((prev) => !prev)}>
             <AccountCircleIcon sx={{ fontSize: 28, marginRight: '12px' }} />
-            <span>Account</span>
+            <span>{t('Account')}</span>
           </NavLink>
         )}
 
@@ -86,4 +114,4 @@ const Navigations = () => {
   );
 };
 
-export default Navigations;
+export default withTranslation()(Navigations);

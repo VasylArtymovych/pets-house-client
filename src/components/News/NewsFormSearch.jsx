@@ -7,10 +7,13 @@ import { setFilterNews } from 'redux/sliceNews';
 // import { useSelector } from 'react-redux';
 // import { selectors } from 'redux/selectors';
 import { useState } from "react";
+import { useTranslation } from 'react-i18next';
 
 
 const FormSearchNews = () => {
   const [valueIn, setValueIn] = useState('');
+  
+    const { t } = useTranslation();
 
    const dispatch = useDispatch();
   // const onFilter = useSelector(selectors.getNews);
@@ -28,7 +31,7 @@ const onClickNews = (e) => {
 
   return (
     <div className={scss.container}>
-      <h2 className={scss.title}>News</h2>
+      <h2 className={scss.title}>{t('news')}</h2>
       <div className={scss.position}>
         <form onSubmit={onClickNews}>
           <Input
