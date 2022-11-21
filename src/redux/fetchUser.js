@@ -38,7 +38,7 @@ export const userApi=createApi({
         }),
         forgotPassword:builder.mutation({
             query:({email})=>({
-                url:'/auth/forgotPassword',
+                url:'/auth/foRgotPassword',
                 method:'PATCH',
                 body:{email},
             }),
