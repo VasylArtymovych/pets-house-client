@@ -18,7 +18,9 @@ const UserData = () => {
   return (
     <div className={scss.data__container}>
       <div className={scss.avatar__container}>
-        <img className={scss.avatar__img} src={avatarImg} alt="avatar" />
+        <div className={scss.avatar__box}>
+          <img className={scss.avatar__img} src={avatarImg} alt="avatar" />
+        </div>
         <div className={scss.info__box}>
           <button className={scss.info__btn} type="submit" onClick={toggleModal}>
             <svg className={scss.info__camera} width="18" height="18">
