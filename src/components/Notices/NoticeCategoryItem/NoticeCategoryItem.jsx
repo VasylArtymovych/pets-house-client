@@ -25,16 +25,20 @@ const NoticeCategoryItem = ({
   place,
   age,
   price,
-  favorite,
+  // favorite,
   myads
 }) => {
   const { isModalOpen, closeModal, toggleModal } = useModal();
   // const [favorite, setFavorite] = useState(false);
   // const token = useSelector(selectors.getToken);
   const userId = useSelector(selectors.getUserId);
+
   // console.log(userId);
   const userName = useSelector(selectors.getUserName);
-  // const userFavorites = useSelector(selectors.getFavorites);
+  const userFavorites = useSelector(selectors.getFavorites);
+
+  const favorite = userFavorites.includes(_id);
+
   // console.log(userFavorites);
 
   // useEffect(() => {
@@ -42,13 +46,14 @@ const NoticeCategoryItem = ({
   // }, [_id, userFavorites]);
   // console.log(userName);
 
-  const User = useGetCurrentUserQuery();
+  // const User = useGetCurrentUserQuery();
   // console.log(User);
 
-  const [cardId, setCardId] = useState('');
+  // const [cardId, setCardId] = useState('');
   const [addToFavorites] = useAddToFavoritesMutation();
   const [deleteFromFavorites] = useDeleteFromFavoritesMutation();
   const [deleteUserNoticeById] = useDeleteUserNoticeByIdMutation();
+  const [isFavorite, setIsFavorite] = useState(favorite);
 
   const normilizeCategory = (category) => {
     switch (category) {
@@ -75,12 +80,14 @@ const NoticeCategoryItem = ({
     const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
     // console.log(cardId);
     addToFavorites(cardId);
+    setIsFavorite(true);
   };
 
   const handleDeleteFromFavorites = (event) => {
     const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
 
     deleteFromFavorites(cardId);
+    setIsFavorite(false);
   };
 
   const handleDeleteUserNotice = (event) => {
@@ -94,7 +101,7 @@ const NoticeCategoryItem = ({
       <li key={_id} className={styles.NoticeCategoryItem} id={_id}>
         <img src={imageUrl} alt="" className={styles.NoticeCategoryItem__img} />
         <p className={styles.NoticeCategoryItem__category}>{normilizeCategory(category)}</p>
-        {favorite ? (
+        {isFavorite ? (
           <button className={styles.NoticeCategoryItem__heartbutton} type="button" onClick={handleDeleteFromFavorites}>
             <svg className={styles.NoticeCategoryItem__svg}>
               <use href={sprite + '#icon-heartFull'} />

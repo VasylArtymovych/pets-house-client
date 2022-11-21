@@ -7,11 +7,13 @@ import { useGetNoticeQuery, useGetNoticeFavoritesQuery, useGetUserNoticesQuery }
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { selectors } from '../../../redux/selectors.js';
+import { skipToken } from '@reduxjs/toolkit/query';
 
 const NoticesCategoriesList = () => {
   const { pathname } = useLocation();
   const userFavorites = useSelector(selectors.getFavorites);
   const userAds = useSelector(selectors.getUserNotices);
+  const isLogged = useSelector(selectors.isLogged);
 
   const renderCategory = () => {
     switch (pathname) {
@@ -33,9 +35,9 @@ const NoticesCategoriesList = () => {
 
   let { data } = useGetNoticeQuery(category);
 
-  let { data: favorites } = useGetNoticeFavoritesQuery();
+  let { data: favorites } = useGetNoticeFavoritesQuery(isLogged ? null : skipToken);
 
-  let { data: userNotices } = useGetUserNoticesQuery();
+  let { data: userNotices } = useGetUserNoticesQuery(isLogged ? null : skipToken);
 
   const [pets, setPets] = useState(null);
 
@@ -78,7 +80,7 @@ const NoticesCategoriesList = () => {
         <ul className={styles.NoticesCategoriesList}>
           {pets.map(
             ({ _id, name, owner, comments = 'There is no comments', sex, category, petImage, title, breed, location, dateOfBirth, price }) => {
-              const favorite = userFavorites.includes(_id);
+              // const favorite = userFavorites.includes(_id);
               const myads = userAds.includes(_id);
 
               return (
@@ -97,7 +99,7 @@ const NoticesCategoriesList = () => {
                   price={price}
                   age={dateOfBirth}
                   myads={myads}
-                  favorite={favorite}
+                  // favorite={favorite}
                 />
               );
             }
