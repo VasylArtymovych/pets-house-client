@@ -21,10 +21,10 @@ export const petsApi= createApi({
             providesTags:['Pets'],
         }),
         updatePet:builder.mutation({
-            query:(payload)=>({
-                url:`/pets/${payload.id}`,
+            query:({_id,...payload})=>({
+                url:`/pets/${_id}`,
                 method:'PATCH',
-                body:payload,
+                body:{...payload},
             }),
             invalidatesTags:['Pets'],
         }),
