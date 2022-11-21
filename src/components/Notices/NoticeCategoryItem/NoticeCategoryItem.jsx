@@ -73,7 +73,7 @@ const NoticeCategoryItem = ({
     // console.log(event.target.parentElement.parentElement.parentElement.id);
     // console.log(event.target.parentElement.id);
     const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
-    console.log(cardId);
+    // console.log(cardId);
     addToFavorites(cardId);
   };
 
