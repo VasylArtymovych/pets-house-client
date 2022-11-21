@@ -12,6 +12,7 @@ import scss from './UserPage.module.scss';
 
 const UserPage = () => {
   const { isModalOpen, closeModal, toggleModal } = useModal();
+
   return (
     <Container>
       <div className={scss.user__box}>

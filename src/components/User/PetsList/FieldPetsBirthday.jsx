@@ -1,18 +1,32 @@
 import { useState } from 'react';
-import scss from './PetsList.module.scss';
-import sprite from '../../../images/symbol-defs.svg';
+import { useUpdatePetMutation } from 'redux/fetchPets';
 import Calendar from '../Calendar';
+import sprite from '../../../images/symbol-defs.svg';
+import scss from './PetsList.module.scss';
 
-const FieldPetsBirthday = ({ value, onIsUpdate }) => {
+const FieldPetsBirthday = ({ value, onIsUpdate, _id }) => {
   const [isUpdate, setIsUpdate] = useState(onIsUpdate);
-  console.log(isUpdate);
-  const [petsName, setPetsName] = useState(value);
-  console.log('petsName:', petsName);
+  const [userPetshday, setPetsBirthday] = useState('');
 
+  const [updatePet] = useUpdatePetMutation();
+
+  const handleSend = () => {
+    if (userPetshday.length === 0) {
+      setIsUpdate(false);
+      return;
+    } else {
+      const date = JSON.parse(userPetshday);
+      updatePet({ _id, dateOfBirth: date });
+      setIsUpdate(false);
+    }
+  };
+  const handleDate = (e) => {
+    setPetsBirthday(e);
+  };
   return (
     <li className={scss.pets__items}>
       {isUpdate ? (
-        <button className={scss.pets__save} type="button" onClick={() => setIsUpdate(false)}>
+        <button className={scss.pets__save} type="button" onClick={handleSend}>
           <svg className={scss.icon__profileCheckMark}>
             <use href={sprite + '#icon-profileCheckMark'} />
           </svg>
@@ -26,7 +40,12 @@ const FieldPetsBirthday = ({ value, onIsUpdate }) => {
       )}
       <p className={scss.pets__subtitle}>Date of birth:</p>
       {isUpdate ? (
-        <Calendar customStyleMobile={scss.input__birthday} customStyleDesktop={scss.input__birthdayDesk} onBirthday={value} />
+        <Calendar
+          onHandleDate={handleDate}
+          customStyleMobile={scss.input__birthday}
+          customStyleDesktop={scss.input__birthdayDesk}
+          onBirthday={value}
+        />
       ) : (
         <span className={scss.pets__info}>{value}</span>
       )}
