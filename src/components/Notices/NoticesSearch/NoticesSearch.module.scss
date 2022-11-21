@@ -1,5 +1,20 @@
+@import '../../../components/Header/container.module.scss';
+
+.searchBar__input_wrap {
+  position: relative;
+  text-align: -webkit-center;
+}
+
 .searchBar__input {
   position: relative;
+  max-width: 608px;
+  background: #ffffff;
+  border: none;
+  box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
+
+  @media screen and (max-width: $breakpoint768) {
+    min-width: 280px;
+  }
 }
 
 .searchBar__input::-webkit-input-placeholder {
@@ -15,17 +30,21 @@
   color: #535353;
 }
 
-.searchBar__input_wrap {
-  position: relative;
-}
-
 .searchBar__input_button {
   background: transparent;
   border-style: none;
   position: absolute;
   top: 10px;
-  right: 13px;
-  z-index: 2;
+  right: 8%;
+  z-index: 1;
+
+  @media screen and (max-width: $breakpoint768) {
+    right: 14px;
+  }
+
+  @media screen and (min-width: $breakpoint992) {
+    right: 20%;
+  }
 }
 
 .searchBar__input_icon {

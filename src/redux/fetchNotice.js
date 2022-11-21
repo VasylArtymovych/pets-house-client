@@ -1,14 +1,22 @@
-import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const noticeApi=createApi({
-    reducerPath:"noticeApi",
-    baseQuery: fetchBaseQuery({
-        baseUrl:'http://localhost:8888/api',
-        prepareHeaders:(headers, {getState})=>{
-            const token= getState().users.token
-            if(token){ headers.set('Authorization', `Bearer ${token}`)}
-            return headers
-        }
+export const noticeApi = createApi({
+  reducerPath: 'noticeApi',
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'http://localhost:8888/api',
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().users.token;
+      if (token) {
+        headers.set('Authorization', `Bearer ${token}`);
+      }
+      return headers;
+    }
+  }),
+  tagTypes: ['UserNotice', 'Notice', 'Favorites'],
+  endpoints: (builder) => ({
+    getUserNotices: builder.query({
+      query: () => '/user/notices',
+      providesTags: ['UserNotice']
     }),
     tagTypes:['UserNotice','Notice','Favorites'],
     endpoints:builder=>({
@@ -62,6 +70,8 @@ export const noticeApi=createApi({
             invalidatesTags:['Favorites'],
         })
     })
-})
+  })
+});
 
 export const { useGetNoticeQuery, useGetNoticeByWordQuery, useAddNoticeMutation, useGetUserNoticesQuery, useDeleteUserNoticeByIdMutation, useGetNoticeFavoritesQuery, useAddToFavoritesMutation, useDeleteFromFavoritesMutation }=noticeApi;
+
