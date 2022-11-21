@@ -13,6 +13,7 @@ import { useSelector } from 'react-redux';
 import { selectors } from '../../redux/selectors';
 import { Trans, withTranslation } from 'react-i18next';
 import { useTranslation } from 'react-i18next';
+import ChangeLanguage from 'components/ChangeLanguage';
 
 const styleObjForHeaderMenuAndBurgerMenu = {
   styleNavigation,
@@ -20,15 +21,31 @@ const styleObjForHeaderMenuAndBurgerMenu = {
   styleLogo
 };
 
+// {
+//   "news": "News",
+//   "read": "Read more",
+//   "friends": "Our friends",
+//   "time": "Time:",
+//   "adress": "Address:",
+//   "email": "Email:",
+//   "phone": "Phone:",
+//   "login": "Login",
+//   "register": "Register",
+//   "Login": "Login",
+//   "Registration": "Registration",
+//   "News": "News",
+//   "Find pet": "Find pet",
+//   "Friends": "Friends",
+//   "Account": "Account"
 const link = [
-  { to: '/news', text: 'News' },
+  { to: '/news', text: 'news' },
   { to: '/notices', text: 'Find pet' },
   { to: '/friends', text: 'Friends' }
 ];
 
 const linkAuth = [
   { to: '/login', text: 'Login' },
-  { to: '/register', text: 'Register' }
+  { to: '/register', text: 'register' }
 ];
 
 const Navigations = () => {
@@ -38,10 +55,6 @@ const Navigations = () => {
   const isUser = useSelector(selectors.isLogged);
 
   const { t } = useTranslation();
-
-  // useEffect(() => {
-  //   i18n.changeLanguage('en');
-  // }, []);
 
   let location = useLocation();
 
@@ -61,6 +74,7 @@ const Navigations = () => {
           </NavLink>
         ))}
       </div>
+      <ChangeLanguage />
       {/* navigation for registration */}
       {!isUser ? (
         <div className={styleNavigation.buttonLinkWrapp}>

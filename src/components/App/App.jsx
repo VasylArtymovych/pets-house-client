@@ -8,7 +8,6 @@ import Loader from 'components/Loader';
 import LoaderBear from 'components/LoaderBear';
 import ForgotPassword from 'pages/ForgotPassword';
 import ChangePassword from 'pages/ChangePassword';
-import TeamBord from 'components/TeamBord';
 import PrivateRoutes from 'components/PrivateRoutes';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -47,7 +46,6 @@ function App() {
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />
-            {/* <Route index element={<LoaderBear />} /> */}
             <Route path="/news" element={<News />} />
             <Route path="/notices" element={<FindPet />}>
               <Route index element={<NoticesCategoriesList />} />
