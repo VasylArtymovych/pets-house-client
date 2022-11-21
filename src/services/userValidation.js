@@ -79,10 +79,12 @@ const emailValidationSchema = Yup.object({
 			'is-valid',
 			message => `${message.path} is invalid`,
 			(value, ctx) => {
-				if (value.substr(-2, 2) === 'ru') {
-					return ctx.createError({
-						message: 'rUSSIA IS A TERRORIST STATE',
-					});
+				if (value) {
+					if (value.substr(-2, 2) === 'ru') {
+						return ctx.createError({
+							message: 'rUSSIA IS A TERRORIST STATE',
+						});
+					}
 				}
 				return true;
 			}

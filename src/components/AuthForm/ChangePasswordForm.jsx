@@ -6,7 +6,9 @@ import { useState } from 'react';
 import { passwordValidationSchema } from 'services';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { Link } from 'react-router-dom';
+import { Link, 
+	// useParams 
+} from 'react-router-dom';
 
 const initialValues = {
 	email: '',
@@ -15,6 +17,7 @@ const initialValues = {
 export const ChangePasswordForm = props => {
 	// const [changePassword] = use...UpdateMutation(); виклик хуку мутаціі з rtk query
 	// const [isError, setIsError] = useState(null);
+	// const { id } = useParams();
 	const [isSuccess, setIsSuccess] = useState(false);
 
 	const [passwordShow, setPasswordShow] = useState(false);
@@ -25,8 +28,9 @@ export const ChangePasswordForm = props => {
 
 	const handleSubmit = async (formData, { resetForm }) => {
 		console.log(formData);
+
 		setIsSuccess(true);
-		// const { error } = await changePassword({password});
+		// const { error } = await changePassword({password, _id: id});
 		// if (error) {
 		// 	setIsError({
 		// 		message: error.data.message,
