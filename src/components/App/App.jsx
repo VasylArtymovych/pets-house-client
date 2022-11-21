@@ -13,6 +13,7 @@ import PrivateRoutes from 'components/PrivateRoutes';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
 const UserPage = lazy(() => import('pages/UserPage'));
@@ -63,7 +64,9 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/change-password" element={<ChangePassword />} />
-            <Route path="/user" element={<UserPage />} />
+            <Route element={<PrivateRoutes />}>
+              <Route path="/user" element={<UserPage />} />
+            </Route>
           </Route>
         </Routes>
       </Suspense>

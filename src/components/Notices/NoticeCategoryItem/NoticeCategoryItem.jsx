@@ -4,11 +4,12 @@ import styles from './NoticeCategoryItem.module.scss';
 import sprite from '../../../images/symbol-defs.svg';
 import moment from 'moment';
 import Modal from 'components/Modal';
-import { useAddToFavoritesMutation } from '../../../redux/fetchNotice';
+import { useAddToFavoritesMutation, useDeleteFromFavoritesMutation, useDeleteUserNoticeByIdMutation } from '../../../redux/fetchNotice';
 import { useSelector } from 'react-redux';
 import { selectors } from '../../../redux/selectors.js';
 import { useState } from 'react';
 import { useGetCurrentUserQuery } from '../../../redux/fetchUser';
+// import { useEffect } from 'react';
 moment().format();
 
 const NoticeCategoryItem = ({
@@ -28,18 +29,26 @@ const NoticeCategoryItem = ({
   myads
 }) => {
   const { isModalOpen, closeModal, toggleModal } = useModal();
+  // const [favorite, setFavorite] = useState(false);
   // const token = useSelector(selectors.getToken);
   const userId = useSelector(selectors.getUserId);
   // console.log(userId);
   const userName = useSelector(selectors.getUserName);
+  // const userFavorites = useSelector(selectors.getFavorites);
+  // console.log(userFavorites);
+
+  // useEffect(() => {
+  //   setFavorite(userFavorites.includes(_id));
+  // }, [_id, userFavorites]);
   // console.log(userName);
 
   const User = useGetCurrentUserQuery();
   // console.log(User);
 
   const [cardId, setCardId] = useState('');
-
-  useAddToFavoritesMutation(cardId);
+  const [addToFavorites] = useAddToFavoritesMutation();
+  const [deleteFromFavorites] = useDeleteFromFavoritesMutation();
+  const [deleteUserNoticeById] = useDeleteUserNoticeByIdMutation();
 
   const normilizeCategory = (category) => {
     switch (category) {
@@ -59,11 +68,25 @@ const NoticeCategoryItem = ({
     return dogAge;
   };
 
-  const AddToFavorites = (event) => {
+  const handleAddToFavorites = (event) => {
     // console.log(event);
-    console.log(event.target.parentElement.parentElement.parentElement.id);
-    const cardId = event.target.parentElement.parentElement.parentElement.id;
-    setCardId(cardId);
+    // console.log(event.target.parentElement.parentElement.parentElement.id);
+    // console.log(event.target.parentElement.id);
+    const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
+    // console.log(cardId);
+    addToFavorites(cardId);
+  };
+
+  const handleDeleteFromFavorites = (event) => {
+    const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
+
+    deleteFromFavorites(cardId);
+  };
+
+  const handleDeleteUserNotice = (event) => {
+    const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
+    // console.log(cardId);
+    deleteUserNoticeById(cardId);
   };
 
   return (
@@ -72,20 +95,20 @@ const NoticeCategoryItem = ({
         <img src={imageUrl} alt="" className={styles.NoticeCategoryItem__img} />
         <p className={styles.NoticeCategoryItem__category}>{normilizeCategory(category)}</p>
         {favorite ? (
-          <button className={styles.NoticeCategoryItem__heartbutton} type="button" onClick={AddToFavorites}>
+          <button className={styles.NoticeCategoryItem__heartbutton} type="button" onClick={handleDeleteFromFavorites}>
             <svg className={styles.NoticeCategoryItem__svg}>
               <use href={sprite + '#icon-heartFull'} />
             </svg>
           </button>
         ) : (
-          <button className={styles.NoticeCategoryItem__heartbutton} type="button" onClick={AddToFavorites}>
+          <button className={styles.NoticeCategoryItem__heartbutton} type="button" onClick={handleAddToFavorites}>
             <svg className={styles.NoticeCategoryItem__svg}>
               <use href={sprite + '#icon-heartEmpty'} />
             </svg>
           </button>
         )}
         {myads && (
-          <button className={styles.NoticeCategoryItem__deletebutton} type="button">
+          <button className={styles.NoticeCategoryItem__deletebutton} type="button" onClick={handleDeleteUserNotice}>
             <svg className={styles.NoticeCategoryItem__svgdelete}>
               <use href={sprite + '#icon-remov-pets'} />
             </svg>
