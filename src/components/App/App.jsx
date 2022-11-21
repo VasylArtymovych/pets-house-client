@@ -11,7 +11,6 @@ import ChangePassword from 'pages/ChangePassword';
 import TeamBord from 'components/TeamBord';
 import PrivateRoutes from 'components/PrivateRoutes';
 
-
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
 const UserPage = lazy(() => import('pages/UserPage'));
@@ -61,7 +60,9 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/change-password" element={<ChangePassword />} />
-            <Route path="/user" element={<UserPage />} />
+            <Route element={<PrivateRoutes />}>
+              <Route path="/user" element={<UserPage />} />
+            </Route>
           </Route>
         </Routes>
       </Suspense>

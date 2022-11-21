@@ -11,7 +11,8 @@ import styleNavigation from './Navigations.module.scss';
 import stylesMenuBurger from './MenuBurger/BurgerMenu.module.scss';
 import { useSelector } from 'react-redux';
 import { selectors } from '../../redux/selectors';
-// import { useTranslation } from 'react-i18next';
+import { Trans, withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 const styleObjForHeaderMenuAndBurgerMenu = {
   styleNavigation,
@@ -36,7 +37,7 @@ const Navigations = () => {
 
   const isUser = useSelector(selectors.isLogged);
 
-  // const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   // useEffect(() => {
   //   i18n.changeLanguage('en');
@@ -54,8 +55,9 @@ const Navigations = () => {
             to={el.to}
             className={location.pathname === el.to ? `${styleNavigation.navigationLink} ${styleNavigation.active}` : styleNavigation.navigationLink}
           >
-            {/* <span>{t(`${el.text}`)}</span> */}
-            <span>{el.text}</span>
+            <Trans i18nKey={`${el.text}`}>
+              <span>{el.text}</span>
+            </Trans>
           </NavLink>
         ))}
       </div>
@@ -64,14 +66,16 @@ const Navigations = () => {
         <div className={styleNavigation.buttonLinkWrapp}>
           {linkAuth.map((el) => (
             <NavLink key={Math.random()} to={el.to} className={styleNavigation.buttonlink}>
-              <span>{el.text}</span>
+              <Trans i18nKey={`${el.text}`}>
+                <span>{el.text}</span>
+              </Trans>
             </NavLink>
           ))}
         </div>
       ) : (
         <NavLink to="/user" className={styleNavigation.buttonlinkUser}>
           <AccountCircleIcon sx={{ fontSize: 28, marginRight: '12px' }} />
-          <span>Account</span>
+          <span>{t('Account')}</span>
         </NavLink>
       )}
 
@@ -86,7 +90,7 @@ const Navigations = () => {
         ) : (
           <NavLink to="/user" className={styleNavigation.buttonlinkMenuBurgerUser} onClick={() => setIsOpen((prev) => !prev)}>
             <AccountCircleIcon sx={{ fontSize: 28, marginRight: '12px' }} />
-            <span>Account</span>
+            <span>{t('Account')}</span>
           </NavLink>
         )}
 
@@ -96,4 +100,4 @@ const Navigations = () => {
   );
 };
 
-export default Navigations;
+export default withTranslation()(Navigations);

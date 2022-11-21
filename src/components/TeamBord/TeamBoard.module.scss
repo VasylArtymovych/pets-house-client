@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-evenly;
   height: 100vh;
+  z-index: 100;
 
   overflow-x: scroll;
 
@@ -52,6 +53,13 @@
       height: 460px;
     }
   }
+  & {
+    transition: 0.5s;
+  }
+
+  &:hover {
+    transform: scale(1.8);
+  }
 }
 
 .mugshot {
@@ -85,7 +93,11 @@
 }
 
 .sociale {
-  // padding: ;
+  transition: 0.5s;
+  &:hover {
+    transform: translateY(80%) scale(3);
+    color: #291200;
+  }
 }
 
 @keyframes bannermove {

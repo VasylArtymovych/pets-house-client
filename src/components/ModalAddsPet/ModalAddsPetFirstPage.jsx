@@ -6,7 +6,7 @@ import scss from './ModalAddsPet.module.scss';
 
 
 const stepOneValidationSchema = Yup.object({
-  name: Yup.string(),
+  name: Yup.string().required('Required'),
   dateOfBirth: Yup.date().nullable().min(new Date(1900, 0, 1)).required('Required'),
   breed: Yup.string()
 });

@@ -27,7 +27,7 @@ export const ModalAddsPet = (props) => {
     setData((prev) => ({ ...prev, ...newData }));
     setPage((prev) => prev + 1);
 
-    if (final) {
+    if (final && page === 1) {
       makeRequest(newData);
       return;
     }
