@@ -55,7 +55,6 @@ const NoticesCategoriesList = () => {
           setPets(favorites);
           return;
         }
-        console.log(favorites.favorites);
         setPets(favorites.favorites);
         return;
       } else {
@@ -64,7 +63,6 @@ const NoticesCategoriesList = () => {
           setPets(userNotices);
           return;
         }
-        console.log(userNotices.notices);
         setPets(userNotices.notices);
         return;
       }
@@ -72,20 +70,8 @@ const NoticesCategoriesList = () => {
       return;
     }
   }, [category, data, favorites, userNotices]);
-  // console.log(pets.data);
-  // console.log(pets);
-  // console.log(favorites);
-  // console.log(userNotices);
-  // console.log(category);
 
-  // let renderData;
-
-  // console.log(pets);
-
-  // console.log(renderData);
-
-  //Костыль, утром буду думать
-
+  console.log(pets);
   return (
     <div className={styles.NoticesCategoriesList__Container}>
       {pets && pets.length !== 0 ? (

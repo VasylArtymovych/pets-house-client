@@ -10,6 +10,9 @@ import ForgotPassword from 'pages/ForgotPassword';
 import ChangePassword from 'pages/ChangePassword';
 import TeamBord from 'components/TeamBord';
 import PrivateRoutes from 'components/PrivateRoutes';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
@@ -39,6 +42,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer autoClose={3000} closeOnClick={true} />
       <Suspense fallback={isBigLoader ? <Loader /> : <LoaderBear />}>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
