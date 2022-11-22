@@ -11,7 +11,7 @@ import ChangePassword from 'pages/ChangePassword';
 import PrivateRoutes from 'components/PrivateRoutes';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import PublicRoutes from 'components/PublicRoutes';
 
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
@@ -58,8 +58,10 @@ function App() {
               </Route>
             </Route>
             <Route path="/friends" element={<OurFriend />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            <Route element={<PublicRoutes restricted />}>
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            </Route>
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/change-password/:id" element={<ChangePassword />} />
             <Route element={<PrivateRoutes />}>
