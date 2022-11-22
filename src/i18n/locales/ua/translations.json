@@ -47,5 +47,12 @@
     "My Pets:": "Мої домашні тварини:",
     "Add pet": "Додати улюбленця",
     "Personal Info": "Особиста інформація",
-    "Back": "Назад"
+    "Back": "Назад",
+    "Your password change notification has been sent.": "Листа про зміну пароля надіслано.",
+    "Password change": "Зміна пароля",
+    "Write your email address, please": "Напишіть свою електронну адресу, будь ласка",
+    "Confirm": "Підтвердити",
+    "Your password has been changed.": "Ваш пароль був змінений.",
+    "Please,": "Будь ласка,",
+    "Please, try again": "Будь ласка спробуйте ще раз"
 }
