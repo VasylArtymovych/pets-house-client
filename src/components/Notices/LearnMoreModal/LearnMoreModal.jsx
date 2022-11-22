@@ -9,7 +9,7 @@ import sprite from '../../../images/symbol-defs.svg';
 const LearnMore = ({
   _id,
   name,
-  owner,
+  // owner,
   comments = 'There is no comments',
   sex,
   category,
@@ -20,7 +20,7 @@ const LearnMore = ({
   age,
   price,
   favorite,
-  myads,
+  // myads,
   onCloseModal,
   setIsFavorite
 }) => {
