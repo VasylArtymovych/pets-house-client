@@ -2,7 +2,7 @@ import React from 'react';
 import scss from './LearnMoreModal.module.scss';
 import Button from 'components/Button';
 import style from '../../Button/Button.module.scss';
-import { useAddToFavoritesMutation, useDeleteFromFavoritesMutation, useDeleteUserNoticeByIdMutation } from '../../../redux/fetchNotice';
+import { useAddToFavoritesMutation, useDeleteFromFavoritesMutation } from '../../../redux/fetchNotice';
 
 import sprite from '../../../images/symbol-defs.svg';
 
