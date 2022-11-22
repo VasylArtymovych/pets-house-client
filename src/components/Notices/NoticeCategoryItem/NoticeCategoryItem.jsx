@@ -65,7 +65,6 @@ const NoticeCategoryItem = ({
 
     addToFavorites(cardId);
     setIsFavorite(true);
-
   };
 
   const handleDeleteFromFavorites = (event) => {
@@ -73,7 +72,6 @@ const NoticeCategoryItem = ({
 
     deleteFromFavorites(cardId);
     setIsFavorite(false);
-
   };
 
   const handleDeleteUserNotice = (event) => {

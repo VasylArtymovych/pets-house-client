@@ -33,7 +33,7 @@ const NoticesCategoriesList = () => {
   };
   const category = renderCategory();
 
-  let { data: user, refetch } = useGetCurrentUserQuery();
+  let { data: user, refetch } = useGetCurrentUserQuery(isLogged ? null : skipToken);
 
   let { data } = useGetNoticeQuery(category);
 
@@ -75,7 +75,7 @@ const NoticesCategoriesList = () => {
     }
   }, [category, data, favorites, userNotices]);
 
-  console.log(pets);
+  // console.log(pets);
   return (
     <div className={styles.NoticesCategoriesList__Container}>
       {pets && pets.length !== 0 ? (
