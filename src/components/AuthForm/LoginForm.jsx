@@ -9,6 +9,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link } from 'react-router-dom';
 import { loginValidationSchema } from 'services';
+import { useTranslation } from 'react-i18next';
 import useSound from 'use-sound';
 
 import dogsound from 'sounds/00990.mp3';
@@ -24,6 +25,7 @@ export const LoginForm = (props) => {
   const [passwordShow, setPasswordShow] = useState(false);
   const navigate = useNavigate();
   const [play] = useSound(dogsound);
+  const { t } = useTranslation();
 
   const togglePassword = () => setPasswordShow((prevState) => !prevState);
 
@@ -60,20 +62,20 @@ export const LoginForm = (props) => {
             </div>
 
             <div className={scss.button__container}>
-              <Button type="submit" className={scss.button__auth} buttonName="Login" onClick={play}></Button>
+              <Button type="submit" className={scss.button__auth} buttonName={t('Login')} onClick={play}></Button>
             </div>
 
             {isError && <p className={scss.error__login}>{isError.message}</p>}
             {isError && <p className={scss.error__login}>{isError.additionalInfo}</p>}
             <p className={scss.redirect__auth}>
-              Don't have an account?
+              {t('no accaunt?')}
               <Link to="/register" className={scss.redirect_link__auth}>
-                Register
+                {t('Register')}
               </Link>
             </p>
             <p className={scss.redirect__auth}>
               <Link to="/forgot-password" className={scss.redirect_link__auth}>
-                Forgot password?
+                {t('Forgot password?')}
               </Link>
             </p>
           </Form>

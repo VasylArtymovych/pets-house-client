@@ -3,33 +3,33 @@ import { ErrorMessage, Form, Formik } from 'formik';
 import scss from './AuthForm.module.scss';
 import Button from 'components/Button';
 import { useState } from 'react';
-// import { useLogInMutation } from 'redux/fetchUser';
 import { Link } from 'react-router-dom';
 import { emailValidationSchema } from 'services';
+import { useForgotPasswordMutation } from 'redux/fetchUser';
 
 const initialValues = {
 	email: '',
 };
 
 export const ForgotPasswordForm = props => {
-	// const [forgotPassword] = use...Mutation(); виклик хуку мутаціі з rtk query
-	// const [isError, setIsError] = useState(null);
+	const [forgotPassword] = useForgotPasswordMutation();
+	const [isError, setIsError] = useState(null);
 	const [isSuccess, setIsSuccess] = useState(false);
 
 
 	const handleSubmit = async (formData, { resetForm }) => {
-		console.log(formData);
-		setIsSuccess(true);
-		// const { error } = await forgotPassword(formData);
-		// if (error) {
-		// 	setIsError({
-		// 		message: error.data.message,
-		// 		additionalInfo: error.data.additionalInfo,
-		// 	});
-		// 	resetForm();
-		// } else {
-		//	setIsSucces(true);
-		// }
+		const { error } = await forgotPassword(formData);
+		if (error) {
+			console.log('error send email', error)
+			setIsError({
+				message: error.data.message,
+				additionalInfo: error.data.additionalInfo,
+			});
+			resetForm();
+		} else {
+			console.log('success send email')
+			setIsSuccess(true);
+		}
 	};
 
 	return (
@@ -68,12 +68,12 @@ export const ForgotPasswordForm = props => {
 							></Button>
 						</div>
 
-						{/* {isError && (
+						{isError && (
 							<p className={scss.error__login}>
 								{isError.message}
 							</p>
 						)}
-						{isError && (
+						{/* {isError && (
 							<p className={scss.error__login}>
 								{isError.additionalInfo}
 							</p>
