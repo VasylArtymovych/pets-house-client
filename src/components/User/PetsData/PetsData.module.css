@@ -1,0 +1,71 @@
+.pets__container {
+  list-style: none;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .pets__container {
+    max-width: 740px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .pets__container {
+    max-width: 820px;
+  }
+}
+
+.pets__item {
+  position: relative;
+  margin: 0 auto;
+  background-color: var(--btn__color);
+  border-radius: 20px;
+  -webkit-box-shadow: 7px 4px 14px #0000001c;
+          box-shadow: 7px 4px 14px #0000001c;
+  padding: 16px 20px 40px 20px;
+}
+
+.pets__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .pets__item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: 40px;
+    width: 704px;
+    padding: 20px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .pets__item {
+    width: 821px;
+  }
+  .pets__item:not(:last-child) {
+    margin-bottom: 22px;
+  }
+}
+
+.pets__notFound {
+  width: 100%;
+  text-align: center;
+}
+
+.pets__NFtext {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 21.35;
+  color: #111111;
+}
+
+@media screen and (min-width: 768px) {
+  .pets__NFtext {
+    font-size: 28px;
+    line-height: 1.35;
+  }
+}
+/*# sourceMappingURL=PetsData.module.css.map */

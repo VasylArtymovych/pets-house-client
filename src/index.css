@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Manrope:wght@400;500;600;700&family=Montserrat:wght@400;500&family=Poppins:wght@400;700&display=swap");
+@import-normalize;
+:root {
+  --bg__color: #fdf7f2;
+  --accent__color: rgb(245, 146, 86);
+  --input__color: rgba(245, 146, 86, 0.5);
+  --backdrop__color: rgba(17, 17, 17, 0.6);
+  --btn__color: #ffffff;
+  --in-good-hands: rgba(255, 255, 255, 0.6);
+  --btn__shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
+  --btn__shadow__focus: 0px 0px 2px 4px rgba(245, 146, 86, 0.7), 0px 0px 2px 4px rgba(245, 146, 86, 0.7), 0px 0px 4px 2px rgba(245, 146, 86, 0.7);
+  --animation__duration__woman: 1000ms;
+}
+
+body {
+  margin: 0;
+  font-family: 'Manrope';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg__color);
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(grey));
+  background: linear-gradient(transparent, grey);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#ff6b08));
+  background: linear-gradient(transparent, #ff6b08);
+}
+
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge add Firefox */
+.hide-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  /* Firefox */
+}
+/*# sourceMappingURL=index.css.map */

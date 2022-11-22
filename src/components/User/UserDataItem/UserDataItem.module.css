@@ -1,0 +1,23 @@
+.user__list {
+  width: 252px;
+  list-style: none;
+  margin-bottom: 42px;
+}
+
+@media screen and (min-width: 768px) {
+  .user__list {
+    width: 379px;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .user__list {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+}
+/*# sourceMappingURL=UserDataItem.module.css.map */
