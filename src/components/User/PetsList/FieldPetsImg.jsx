@@ -11,9 +11,12 @@ const FieldPetsImg = ({ petImage, _id }) => {
     const fileUploaded = e.target.files[0];
     const file = new FormData();
     file.append('petImage', fileUploaded);
+    // file.append('_id', _id);
     console.log(file);
+    // updatePet({ _id, ...file });
     updatePet({ _id, petImage: file });
   };
+
   return (
     <div className={scss.pets__imgContainer}>
       <img className={scss.pets__animalImg} src={`http://localhost:8888/${petImage}`} alt="pet" />

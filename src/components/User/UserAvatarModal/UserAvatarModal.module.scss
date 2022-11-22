@@ -53,6 +53,8 @@
   margin-bottom: 50px;
 }
 .avatar__img {
+  min-width: 233px;
+  min-height: 233px;
   position: absolute;
   top: 0;
   left: 0;
@@ -83,33 +85,35 @@
 }
 .input__fileIcon {
   height: 50px;
-  width: 50px;
+  width: 35px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  margin-left: 10px;
+  border-right: 1px solid var(--btn__color);
+  margin-right: 10px;
   @media screen and (min-width: 768px) {
-    width: 60px;
+    width: 50px;
     height: 60px;
-    margin-left: 20px;
+    margin-left: 15px;
   }
 }
-.input__fileIconDelete {
-  height: 50px;
-  width: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  border: 2px solid var(--accent__color);
-  background-color: transparent;
-  cursor: pointer;
-  outline: none;
-  @media screen and (min-width: 768px) {
-    width: 60px;
-    height: 60px;
-  }
-}
+// .input__fileIconDelete {
+//   height: 50px;
+//   width: 50px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   border-top-right-radius: 8px;
+//   border-bottom-right-radius: 8px;
+//   border: 2px solid var(--accent__color);
+//   background-color: transparent;
+//   cursor: pointer;
+//   outline: none;
+//   @media screen and (min-width: 768px) {
+//     width: 60px;
+//     height: 60px;
+//   }
+// }
 .input__fileButton {
   position: relative;
   width: 170px;
@@ -121,8 +125,9 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
+  // border-top-left-radius: 8px;
+  // border-bottom-left-radius: 8px;
+  border-radius: 8px;
   cursor: pointer;
   max-width: 290px;
   transition: font-size 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -131,10 +136,10 @@
     height: 60px;
     font-size: 1.125rem;
   }
-  &:hover,
-  &:focus {
-    font-size: 1.2rem;
-  }
+  // &:hover,
+  // &:focus {
+  //   font-size: 1.2rem;
+  // }
 }
 
 .input__fileButton {
@@ -163,12 +168,12 @@
     height: 30px;
   }
 }
-.input__fileIconDelete {
-  &:hover .input__iconDelete,
-  &:focus .input__iconDelete {
-    transform: scale(1.2);
-  }
-}
+// .input__fileIconDelete {
+//   &:hover .input__iconDelete,
+//   &:focus .input__iconDelete {
+//     transform: scale(1.2);
+//   }
+// }
 .input__buttonText {
   line-height: 1;
   margin-top: 1px;
