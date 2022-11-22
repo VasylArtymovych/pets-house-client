@@ -1,10 +1,11 @@
 import { ModalAddsPetFirstPage } from './ModalAddsPetFirstPage';
 import { ModalAddsPetSecondPage } from './ModalAddsPetSecondPage';
 import React, { useState } from 'react';
-import { usePostPetMutation } from "../../redux/fetchPets";
+import { usePostPetMutation } from '../../redux/fetchPets';
+import { useTranslation } from 'react-i18next';
 
 export const ModalAddsPet = (props) => {
-  
+  const { t } = useTranslation();
   const [data, setData] = useState({
     name: '',
     dateOfBirth: '',
@@ -13,8 +14,8 @@ export const ModalAddsPet = (props) => {
     comments: ''
   });
   const [page, setPage] = useState(0);
-  
-  const formTitles = ['First Page', 'Second Page'];
+
+  // const formTitles = ['First Page', 'Second Page'];
 
   const [addPets] = usePostPetMutation();
 
@@ -39,15 +40,12 @@ export const ModalAddsPet = (props) => {
   };
 
   const steps = [
-    <ModalAddsPetFirstPage closeModal={props.onCloseModal} next={handleNextStep} data={data} title={formTitles[page]} />,
-    <ModalAddsPetSecondPage prev={handlePrevStep} closeModal={props.onCloseModal} next={handleNextStep} data={data} title={formTitles[page]} />
+    <ModalAddsPetFirstPage closeModal={props.onCloseModal} next={handleNextStep} data={data} title={t('First Page')} />,
+    <ModalAddsPetSecondPage prev={handlePrevStep} closeModal={props.onCloseModal} next={handleNextStep} data={data} title={t('Second Page')} />
   ];
   // console.log('data', data);
   return <>{steps[page]}</>;
 };
-
-
-
 
 // import { useModal } from 'hooks';
 // import Modal from 'components/Modal';

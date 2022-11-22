@@ -11,7 +11,7 @@
     "Login": "Вхід",
     "Registration": "Реєстрація",
     "News": "Новини",
-    "Find pet": "Знайти тваринку",
+    "Find pet": "Знайти улюбленця",
     "Friends": "Наші друзі",
     "Account": "Особистий кабінет",
     "Take good care of": "Подбайте про своїх",
@@ -54,5 +54,11 @@
     "Confirm": "Підтвердити",
     "Your password has been changed.": "Ваш пароль був змінений.",
     "Please,": "Будь ласка,",
-    "Please, try again": "Будь ласка спробуйте ще раз"
+    "Please, try again": "Будь ласка спробуйте ще раз",
+    "Name pet": "Назвіть тваринку",
+    "Date of birth": "Дата народження",
+    "Add photo and some comments": "Додайте фото та кілька коментарів",
+    "Done": "Готово",
+    "First Page": "Перша сторінка",
+    "Second Page": "Друга сторінка"
 }

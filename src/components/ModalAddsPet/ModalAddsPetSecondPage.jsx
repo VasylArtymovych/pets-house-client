@@ -4,12 +4,14 @@ import PetsIcon from '@mui/icons-material/Pets';
 import { InputForm } from 'components/Input';
 import sprite from '../../images/symbol-defs.svg';
 import scss from './ModalAddsPet.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const stepTwoValidationSchema = Yup.object({
   comment: Yup.string()
 });
 
 export const ModalAddsPetSecondPage = (props) => {
+  const { t } = useTranslation();
   const handleSubmit = (values) => {
     props.next(values, true);
     props.closeModal();
@@ -19,12 +21,12 @@ export const ModalAddsPetSecondPage = (props) => {
       <button type="button" onClick={props.closeModal} className={scss.btnClose}>
         <PetsIcon />
       </button>
-      <h3 className={scss.title}>Add pet</h3>
+      <h3 className={scss.title}>{t('Add pet')}</h3>
       <div className={scss.wrapForm}>
         <Formik validationSchema={stepTwoValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
           {() => (
             <Form className={scss.formSecond + ' ' + props.customStyle}>
-              <p className={scss.text}>Add photo and some comments</p>
+              <p className={scss.text}>{t('Add photo and some comments')}</p>
 
               <button type="button" className={scss.btnAddPhoto}>
                 <svg className={scss.crossBig}>
@@ -34,16 +36,16 @@ export const ModalAddsPetSecondPage = (props) => {
               </button>
 
               <div className={scss.wrapTextarea}>
-                <label className={scss.label}> Comments</label>
+                <label className={scss.label}>{t('Comments')}</label>
                 <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Type comments" />
               </div>
 
               <div className={scss.btnWrap}>
                 <button type="submit" className={scss.buttonFill}>
-                  Done
+                  {t('Done')}
                 </button>
                 <button type="button" onClick={props.prev} className={scss.buttonEmpty}>
-                  Back
+                  {t('Back')}
                 </button>
               </div>
             </Form>
