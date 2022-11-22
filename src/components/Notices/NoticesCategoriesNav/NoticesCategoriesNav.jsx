@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './NoticesCategoriesNav.module.scss';
 import { useLocation } from 'react-router-dom/dist';
-import sprite from '../../../images/symbol-defs.svg';
 import { Trans, withTranslation } from 'react-i18next';
 
 const link = [

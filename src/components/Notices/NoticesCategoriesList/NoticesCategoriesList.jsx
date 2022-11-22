@@ -35,7 +35,7 @@ const NoticesCategoriesList = () => {
   };
   const category = renderCategory();
 
-  let { data: user, refetch } = useGetCurrentUserQuery(isLogged ? null : skipToken);
+  let { refetch } = useGetCurrentUserQuery(isLogged ? null : skipToken);
 
   let { data } = useGetNoticeQuery(category);
 

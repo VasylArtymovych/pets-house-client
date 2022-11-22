@@ -6,9 +6,8 @@ import styles from './FindPet.module.scss';
 import Container from 'components/Container';
 import { Outlet } from 'react-router-dom/dist';
 import { useTranslation } from 'react-i18next';
-mport { useGetNoticeByWordQuery } from 'redux/fetchNotice';
+import { useGetNoticeByWordQuery } from 'redux/fetchNotice';
 // import NoticesCategoriesList from 'components/Notices/`NoticesCategoriesList`';
-
 
 const FindPet = () => {
   const [value, setValue] = useState('');
