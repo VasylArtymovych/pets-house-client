@@ -12,13 +12,17 @@ export const petsApi= createApi({
     }),
     tagTypes:['Pets'],
     endpoints:builder=>({
+        getUserPets:builder.query({
+            query:()=> '/pets',
+            providesTags:['Pets']
+        }),
         postPet:builder.mutation({
             query:(payload)=>({
                 url:'/pets',
                 method:'POST',
                 body:payload,
             }),
-            providesTags:['Pets'],
+            invalidatesTags:['Pets'],
         }),
         updatePet:builder.mutation({
             query:({_id,...payload})=>({
@@ -38,4 +42,4 @@ export const petsApi= createApi({
     })
 })
 
-export const { usePostPetMutation, useUpdatePetMutation, useDeletePetMutation }= petsApi;
+export const { useGetUserPetsQuery, usePostPetMutation, useUpdatePetMutation, useDeletePetMutation }= petsApi;

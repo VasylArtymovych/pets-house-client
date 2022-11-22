@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styles from './AddNoticeButton.module.scss';
-import { ModalAddsPet } from 'components/ModalAddsPet';
 import { useModal } from 'hooks';
 import Modal from 'components/Modal';
 import { toast } from 'react-toastify';
 import sprite from '../../../images/symbol-defs.svg';
+import { ModalAddsPetSell } from 'components/ModalAddsPetSell';
 
 const AddNoticeButton = () => {
   const isLogged = useSelector((state) => state.users.isLogged);
@@ -17,7 +17,6 @@ const AddNoticeButton = () => {
       toggleModal();
       return;
     } else {
-      console.log('not logged in');
       toast.warn(`You don't ask in respect or friendship. And you don't think to call me Godfather. To get started, you would do well to login. `);
     }
   };
@@ -26,7 +25,7 @@ const AddNoticeButton = () => {
     <>
       {isModalOpen && (
         <Modal onCloseModal={closeModal} mode="dark">
-          {<ModalAddsPet onCloseModal={closeModal} />}
+          {<ModalAddsPetSell onCloseModal={closeModal} />}
         </Modal>
       )}
       <div className={styles.AddNoticeButton__container}>

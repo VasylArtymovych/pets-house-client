@@ -9,8 +9,10 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { selectors } from '../../../redux/selectors.js';
 import { skipToken } from '@reduxjs/toolkit/query';
+import { useTranslation } from 'react-i18next';
 
 const NoticesCategoriesList = () => {
+  const { t } = useTranslation();
   const { pathname } = useLocation();
   const userAds = useSelector(selectors.getUserNotices);
   const isLogged = useSelector(selectors.isLogged);
@@ -79,7 +81,8 @@ const NoticesCategoriesList = () => {
   return (
     <div className={styles.NoticesCategoriesList__Container}>
       {pets && pets.length !== 0 ? (
-        <ul className={styles.NoticesCategoriesList}>
+        // <ul className={styles.NoticesCategoriesList}>
+        <ul className={styles.NoticesCategoriesList} style={{ marginTop: isLogged && '0px' }}>
           {pets.map(
             ({ _id, name, owner, comments = 'There is no comments', sex, category, petImage, title, breed, location, dateOfBirth, price }) => {
               const myads = userAds.includes(_id);
@@ -107,7 +110,7 @@ const NoticesCategoriesList = () => {
           )}
         </ul>
       ) : (
-        <p>There are no advertisements in this category</p>
+        <p>{t('There are no advertisements in this category')}</p>
       )}
     </div>
   );

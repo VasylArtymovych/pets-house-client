@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import styles from './NoticesCategoriesNav.module.scss';
 import { useLocation } from 'react-router-dom/dist';
 import sprite from '../../../images/symbol-defs.svg';
+import { Trans, withTranslation } from 'react-i18next';
 
 const link = [
   { to: '/notices/lost-found', text: 'Lost/Found' },
@@ -32,7 +33,9 @@ const NoticesCategoriesNav = () => {
                   location.pathname === el.to ? `${styles.NoticesCategoriesNav__Button} ${styles.active}` : styles.NoticesCategoriesNav__Button
                 }
               >
-                <span>{el.text}</span>
+                <Trans i18nKey={`${el.text}`}>
+                  <span>{el.text}</span>
+                </Trans>
               </NavLink>
             </li>
           );
@@ -48,7 +51,9 @@ const NoticesCategoriesNav = () => {
                       location.pathname === el.to ? `${styles.NoticesCategoriesNav__Button} ${styles.active}` : styles.NoticesCategoriesNav__Button
                     }
                   >
-                    <span>{el.text}</span>
+                    <Trans i18nKey={`${el.text}`}>
+                      <span>{el.text}</span>
+                    </Trans>
                   </NavLink>
                 </li>
               );
@@ -60,4 +65,4 @@ const NoticesCategoriesNav = () => {
   );
 };
 
-export default NoticesCategoriesNav;
+export default withTranslation()(NoticesCategoriesNav);

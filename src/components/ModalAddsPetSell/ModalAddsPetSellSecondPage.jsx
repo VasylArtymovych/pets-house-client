@@ -1,5 +1,6 @@
 import { Form, Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import PetsIcon from '@mui/icons-material/Pets';
 import { InputForm } from 'components/Input';
 import sprite from '../../images/symbol-defs.svg';
 import scss from './ModalAddsPetSell.module.scss';
@@ -19,9 +20,7 @@ export const ModalAddsPetSellSecondPage = (props) => {
   return (
     <div className={scss.container}>
       <button type="button" onClick={props.closeModal} className={scss.btnClose}>
-        <svg className={scss.crossSmall}>
-          <use href={sprite + '#icon-blackCross'} />
-        </svg>
+        <PetsIcon />
       </button>
       <h3 className={scss.titleSecond}>Add pet</h3>
       <div className={scss.wrapForm}>
@@ -70,7 +69,7 @@ export const ModalAddsPetSellSecondPage = (props) => {
               <p className={scss.label}>Load the pet’s image:</p>
               <button type="button" className={scss.btnAddPhoto}>
                 <svg className={scss.crossBig}>
-                    <use href={sprite + '#icon-blackCross'} />
+                  <use href={sprite + '#icon-blackCross'} />
                 </svg>
                 <InputForm customStyle={scss.input_photo} name="petImage" type="file" />
               </button>
@@ -93,5 +92,3 @@ export const ModalAddsPetSellSecondPage = (props) => {
     </div>
   );
 };
-
-

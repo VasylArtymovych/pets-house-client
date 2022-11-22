@@ -3,12 +3,17 @@ import CatInShrek from '../../../images/desctop/CatInShrek.png';
 import scss from './LogOutModal.module.scss';
 
 import { useLogOutMutation } from '../../../redux/fetchUser.js';
+import useSound from 'use-sound';
+
+import catsound from 'sounds/00985.mp3';
 
 export const LogOutModal = ({ onCloseModal }) => {
+  const [play] = useSound(catsound);
   const [LogOut] = useLogOutMutation();
   const handleLogoutClick = () => {
     LogOut();
     onCloseModal();
+    play();
   };
 
   return (

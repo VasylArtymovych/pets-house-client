@@ -14,8 +14,8 @@ const UserAvatarModal = ({ onCloseModal, onAvatarImg }) => {
     const fileUploaded = e.target.files[0];
     setImg(URL.createObjectURL(fileUploaded));
     const file = new FormData();
-    // console.log(file);
     file.append('avatar', fileUploaded);
+    console.log('avatar', file);
     setFile(file);
   };
 
@@ -50,11 +50,11 @@ const UserAvatarModal = ({ onCloseModal, onAvatarImg }) => {
 
             <span className={scss.input__buttonText}>Select a file</span>
           </label>
-          <button className={scss.input__fileIconDelete} type="button">
+          {/* <button className={scss.input__fileIconDelete} type="button">
             <svg className={scss.input__iconDelete}>
               <use href={sprite + '#icon-remov-pets'} />
             </svg>
-          </button>
+          </button> */}
         </div>
         <button className={scss.save__avatar} type="submit" onClick={ImageSaveClick}>
           Save

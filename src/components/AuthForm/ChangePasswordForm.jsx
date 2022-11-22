@@ -6,18 +6,18 @@ import { useState } from 'react';
 import { passwordValidationSchema } from 'services';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { Link, 
-	// useParams 
-} from 'react-router-dom';
+import { Link, useParams} from 'react-router-dom';
+import { useUpdatePasswordMutation } from 'redux/fetchUser';
 
 const initialValues = {
-	email: '',
+	password: '',
+	confirmPassword: '',
 };
 
 export const ChangePasswordForm = props => {
-	// const [changePassword] = use...UpdateMutation(); виклик хуку мутаціі з rtk query
-	// const [isError, setIsError] = useState(null);
-	// const { id } = useParams();
+	const [changePassword] = useUpdatePasswordMutation(); 
+	const [isError, setIsError] = useState(null);
+	const { id } = useParams();
 	const [isSuccess, setIsSuccess] = useState(false);
 
 	const [passwordShow, setPasswordShow] = useState(false);
@@ -26,20 +26,19 @@ export const ChangePasswordForm = props => {
   const togglePassword = () => setPasswordShow((prevState) => !prevState);
   const togglePasswordConfirm = () => setPasswordConfirm((prevState) => !prevState);
 
-	const handleSubmit = async (formData, { resetForm }) => {
-		console.log(formData);
-
+	const handleSubmit = async ({password}, { resetForm }) => {
 		setIsSuccess(true);
-		// const { error } = await changePassword({password, _id: id});
-		// if (error) {
-		// 	setIsError({
-		// 		message: error.data.message,
-		// 		additionalInfo: error.data.additionalInfo,
-		// 	});
-		// 	resetForm();
-		// } else {
-		//	setIsSucces(true);
-		// }
+		const { error } = await changePassword({password, id});
+		console.log(error, 'error')
+		if (error) {
+			console.log('is error', error)
+			setIsError({
+				message: error.data.error
+			});
+			resetForm();
+		} else {
+			setIsSuccess(true);
+		}
 	};
 
 	return (
@@ -94,16 +93,12 @@ export const ChangePasswordForm = props => {
 							></Button>
 						</div>
 
-						{/* {isError && (
-							<p className={scss.error__login}>
-								{isError.message}
-							</p>
-						)}
 						{isError && (
 							<p className={scss.error__login}>
-								{isError.additionalInfo}
+								Please, try again
 							</p>
-						)} */}
+						)}
+
 						</>) : (<><h2 className={scss.title}> Your password has been changed.</h2>
 						<p className={scss.redirect__auth}>
 						Please, 

@@ -3,17 +3,22 @@
 .searchBar__input_wrap {
   position: relative;
   text-align: -webkit-center;
+  max-width: 608px;
+  margin: 0 auto;
+  margin-bottom: 40px;
 }
 
 .searchBar__input {
   position: relative;
-  max-width: 608px;
+  width: 100%;
   background: #ffffff;
   border: none;
   box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
+  z-index: -1;
 
   @media screen and (max-width: $breakpoint768) {
     min-width: 280px;
+    margin: 0 auto 28px auto;
   }
 }
 
@@ -28,6 +33,8 @@
   letter-spacing: 0.04em;
 
   color: #535353;
+
+  vertical-align: middle;
 }
 
 .searchBar__input_button {
@@ -35,16 +42,7 @@
   border-style: none;
   position: absolute;
   top: 10px;
-  right: 8%;
-  z-index: 1;
-
-  @media screen and (max-width: $breakpoint768) {
-    right: 14px;
-  }
-
-  @media screen and (min-width: $breakpoint992) {
-    right: 20%;
-  }
+  right: 3%;
 }
 
 .searchBar__input_icon {

@@ -8,6 +8,7 @@ import { useAddToFavoritesMutation, useDeleteFromFavoritesMutation, useDeleteUse
 import { useSelector } from 'react-redux';
 import { selectors } from '../../../redux/selectors.js';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 moment().format();
 
@@ -27,6 +28,7 @@ const NoticeCategoryItem = ({
   myads,
   refetchUser
 }) => {
+  const { t } = useTranslation();
   const { isModalOpen, closeModal, toggleModal } = useModal();
 
   const userFavorites = useSelector(selectors.getFavorites);
@@ -110,17 +112,17 @@ const NoticeCategoryItem = ({
           <div className={`${styles.NoticeCategoryItem__textContainer} ${styles.sell}`}>
             <ul className={styles.NoticeCategoryItem__textListKeys}>
               <li className={styles.NoticeCategoryItem__textItem}>
-                <p>Breed:</p>
+                <p>{t('Breed')}</p>
               </li>
               <li className={styles.NoticeCategoryItem__textItem}>
-                <p>Place:</p>
+                <p>{t('Place')}</p>
               </li>
               <li className={styles.NoticeCategoryItem__textItem}>
-                <p>Age:</p>
+                <p>{t('Age')}</p>
               </li>
               {category === 'sell' && (
                 <li className={styles.NoticeCategoryItem__textItem}>
-                  <p>Price:</p>
+                  <p>{t('Price')}</p>
                 </li>
               )}
             </ul>
@@ -143,7 +145,7 @@ const NoticeCategoryItem = ({
           </div>
 
           <button type="button" className={styles.NoticeCategoryItem__LearnMoreButton} onClick={toggleModal}>
-            <span className={styles.NoticeCategoryItem__LearnMoreButtonText}>Learn more</span>
+            <span className={styles.NoticeCategoryItem__LearnMoreButtonText}>{t('Learn more')}</span>
           </button>
         </div>
       </li>

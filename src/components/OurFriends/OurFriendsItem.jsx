@@ -3,11 +3,13 @@ import scss from './FriendStyle.module.scss';
 import logo from '../../images/img_our_friend/logo-ru.png';
 import Box from '@mui/material/Box';
 import Popper from '@mui/material/Popper';
+import { useTranslation } from 'react-i18next';
 
 const FriendItem = ({ url, title, img, address, addressUrl, email, phone, timeWork }) => {
+  const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const handleClick = (e) => { 
+  const handleClick = (e) => {
     setAnchorEl(anchorEl ? null : e.currentTarget);
   };
 
@@ -17,7 +19,7 @@ const FriendItem = ({ url, title, img, address, addressUrl, email, phone, timeWo
   return (
     <li className={scss.friendItem}>
       <h3 className={scss.itemTitle}>
-        <a href={url}>{title}</a>
+        <a href={url} target="_blank" rel="noreferrer noopener">{title}</a>
       </h3>
       <div className={scss.ItemNetwork}>
         {!img ? (
@@ -30,51 +32,123 @@ const FriendItem = ({ url, title, img, address, addressUrl, email, phone, timeWo
             <li className={scss.itemInfoList}>
               {timeWork ? (
                 <>
-                <button className={scss.infoItemTime} aria-describedby={id} type="button" onClick={handleClick}>
-                  Time:
-                  <br />
-                  {timeWork[0].from}-{timeWork[0].to}
-                </button>
+                  <button className={scss.infoItemTime} aria-describedby={id} type="button" onClick={handleClick}>
+                    {t('time')}
+                    <br />
+                    {timeWork[0].from}-{timeWork[0].to}
+                  </button>
                   <Popper id={id} open={open} anchorEl={anchorEl}>
-                    <Box sx={{ border: 1,  bgcolor: 'background.paper' }} className={scss.popper}>
+                    <Box sx={{ border: 1, bgcolor: 'background.paper' }} className={scss.popper}>
                       <ul className={scss.listWorkDay}>
-                        {timeWork[0].isOpen ? <li className={scss.workDay}><span>MN</span> <span>{timeWork[0].from}-{timeWork[0].to}</span></li> : 
-                        <li className={scss.workDay}><span>MN</span> <span>day off</span></li>}
-                        {timeWork[1].isOpen ? <li className={scss.workDay}><span>TU</span> <span>{timeWork[1].from}-{timeWork[1].to}</span></li> : 
-                        <li className={scss.workDay}><span>TU</span> <span>day off</span></li>}
-                        {timeWork[2].isOpen ? <li className={scss.workDay}><span>WE</span> <span>{timeWork[2].from}-{timeWork[2].to}</span></li> : 
-                        <li className={scss.workDay}><span>WE</span> <span>day off</span></li>}
-                        {timeWork[3].isOpen ? <li className={scss.workDay}><span>TH</span> <span>{timeWork[3].from}-{timeWork[3].to}</span></li> : 
-                        <li className={scss.workDay}><span>TH</span> <span>day off</span></li>}
-                        {timeWork[4].isOpen ? <li className={scss.workDay}><span>FR</span> <span>{timeWork[4].from}-{timeWork[4].to}</span></li> : 
-                        <li className={scss.workDay}><span>FR</span> <span>day off</span></li>}
-                        {timeWork[5].isOpen ? <li className={scss.workDay}><span>SA</span> <span>{timeWork[5].from}-{timeWork[5].to}</span></li> : 
-                        <li className={scss.workDay}><span>SA</span> <span>day off</span></li>}
-                        {timeWork[6].isOpen ? <li className={scss.workDay}><span>SU</span> <span>{timeWork[6].from}-{timeWork[6].to}</span></li> : 
-                        <li className={scss.workDay}><span>SU</span> <span>day off</span></li>}
+                        {timeWork[0].isOpen ? (
+                          <li className={scss.workDay}>
+                            <span>MN</span>{' '}
+                            <span>
+                              {timeWork[0].from}-{timeWork[0].to}
+                            </span>
+                          </li>
+                        ) : (
+                          <li className={scss.workDay}>
+                            <span>MN</span> <span>day off</span>
+                          </li>
+                        )}
+                        {timeWork[1].isOpen ? (
+                          <li className={scss.workDay}>
+                            <span>TU</span>{' '}
+                            <span>
+                              {timeWork[1].from}-{timeWork[1].to}
+                            </span>
+                          </li>
+                        ) : (
+                          <li className={scss.workDay}>
+                            <span>TU</span> <span>day off</span>
+                          </li>
+                        )}
+                        {timeWork[2].isOpen ? (
+                          <li className={scss.workDay}>
+                            <span>WE</span>{' '}
+                            <span>
+                              {timeWork[2].from}-{timeWork[2].to}
+                            </span>
+                          </li>
+                        ) : (
+                          <li className={scss.workDay}>
+                            <span>WE</span> <span>day off</span>
+                          </li>
+                        )}
+                        {timeWork[3].isOpen ? (
+                          <li className={scss.workDay}>
+                            <span>TH</span>{' '}
+                            <span>
+                              {timeWork[3].from}-{timeWork[3].to}
+                            </span>
+                          </li>
+                        ) : (
+                          <li className={scss.workDay}>
+                            <span>TH</span> <span>day off</span>
+                          </li>
+                        )}
+                        {timeWork[4].isOpen ? (
+                          <li className={scss.workDay}>
+                            <span>FR</span>{' '}
+                            <span>
+                              {timeWork[4].from}-{timeWork[4].to}
+                            </span>
+                          </li>
+                        ) : (
+                          <li className={scss.workDay}>
+                            <span>FR</span> <span>day off</span>
+                          </li>
+                        )}
+                        {timeWork[5].isOpen ? (
+                          <li className={scss.workDay}>
+                            <span>SA</span>{' '}
+                            <span>
+                              {timeWork[5].from}-{timeWork[5].to}
+                            </span>
+                          </li>
+                        ) : (
+                          <li className={scss.workDay}>
+                            <span>SA</span> <span>day off</span>
+                          </li>
+                        )}
+                        {timeWork[6].isOpen ? (
+                          <li className={scss.workDay}>
+                            <span>SU</span>{' '}
+                            <span>
+                              {timeWork[6].from}-{timeWork[6].to}
+                            </span>
+                          </li>
+                        ) : (
+                          <li className={scss.workDay}>
+                            <span>SU</span> <span>day off</span>
+                          </li>
+                        )}
                       </ul>
                     </Box>
-                </Popper>
+                  </Popper>
                 </>
               ) : (
                 <p>
-                  Time:
+                  {t('time')}
                   <br />
-                  ------------
+                  No info
                 </p>
               )}
             </li>
             <li className={`${scss.itemInfoList} ${scss.text}`}>
               {!address ? (
                 <p>
-                  Address:
+                  {t('adress')}
                   <br />
-                  ------------
+                  No info
                 </p>
               ) : (
                 <address className={scss.infoItemAddress}>
-                  <a href={addressUrl}>
-                    Address:
+
+                  <a href={addressUrl} target="_blank" rel="noreferrer noopener">
+                    {t('adress')}
+
                     <br />
                     {address}
                   </a>
@@ -84,13 +158,13 @@ const FriendItem = ({ url, title, img, address, addressUrl, email, phone, timeWo
             <li className={`${scss.itemInfoList} ${scss.text}`}>
               {!email ? (
                 <p>
-                  Email:
+                  {t('email')}
                   <br />
-                  ------------
+                  No info
                 </p>
               ) : (
                 <a href={`mailto:${email}`} className={scss.friendItemEmail}>
-                  Email:
+                  {t('email')}
                   <br />
                   {email}
                 </a>
@@ -99,13 +173,13 @@ const FriendItem = ({ url, title, img, address, addressUrl, email, phone, timeWo
             <li className={`${scss.itemInfoList} ${scss.text}`}>
               {!phone ? (
                 <p>
-                  Phone:
+                  {t('phone')}
                   <br />
-                  ------------
+                  No info
                 </p>
               ) : (
                 <a href={`tel:${phone}`} className={scss.friendItemPhone}>
-                  Phone:
+                  {t('phone')}
                   <br />
                   {phone}
                 </a>

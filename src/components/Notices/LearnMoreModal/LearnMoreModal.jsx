@@ -1,4 +1,5 @@
 import React from 'react';
+import PetsIcon from '@mui/icons-material/Pets';
 import scss from './LearnMoreModal.module.scss';
 import Button from 'components/Button';
 import style from '../../Button/Button.module.scss';
@@ -42,9 +43,7 @@ const LearnMore = ({
         <div className={scss.wrap_container_padding}>
           <div className={scss.wrap_image_info}>
             <button className={scss.button__close} onClick={onCloseModal}>
-              <svg className={scss.iconClose}>
-                <use href={sprite + '#icon-exit'} />
-              </svg>
+              <PetsIcon sx={{ fontSize: 30 }} />
             </button>
             <div className={scss.image}>
               <img className={scss.photo} src={imageUrl} alt="Cat error" />

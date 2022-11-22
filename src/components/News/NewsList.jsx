@@ -1,10 +1,34 @@
+import React from "react";
 import { NewsItem } from './NewsItem.jsx';
 import scss from './News.module.scss'
+import { useGetNewsListQuery } from 'redux/fetchNews'
+import{ useSelector } from 'react-redux';
+import { selectors } from 'redux/selectors';
 
-export const NewsList = ({ info }) => {
+
+
+export const NewsList = () => {
+    const { data } = useGetNewsListQuery();
+
+    const onFilter = useSelector(selectors.getNews);
+
+    const getVisibleNews = () => {
+        const normalizedFil = onFilter.toLocaleLowerCase()
+        return data.filter(news =>
+            news.title.toLocaleLowerCase().includes(normalizedFil))
+    };
+    
+
+    
     return (
-        <ul className={scss.newsList}>
-            {info.map(({ url, title, description, date, linkNews}) => {
+        <>
+            {!data ? (
+                <div className={scss.notNewsFound}>
+                    <h3 className={scss.notNewsFoundText}>Waiting pleas...</h3>
+                </div>
+            ) : (
+               <ul className={scss.newsList}>
+            {getVisibleNews().map(({ url, title, description, date, linkNews}) => {
                     return (
                         <NewsItem
                             key={url}
@@ -17,7 +41,11 @@ export const NewsList = ({ info }) => {
                 }
                 )
             }
-        </ul>
+        </ul>     
+            )
+            }
+        </>
+        
     )
 };
 

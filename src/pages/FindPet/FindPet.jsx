@@ -1,17 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import NoticesSearch from 'components/Notices/NoticesSearch';
 import NoticesCategoriesNav from 'components/Notices/NoticesCategoriesNav';
 import AddNoticeButton from 'components/Notices/AddNoticeButton';
 import styles from './FindPet.module.scss';
 import Container from 'components/Container';
 import { Outlet } from 'react-router-dom/dist';
+import { useTranslation } from 'react-i18next';
+mport { useGetNoticeByWordQuery } from 'redux/fetchNotice';
+// import NoticesCategoriesList from 'components/Notices/`NoticesCategoriesList`';
+
 
 const FindPet = () => {
+  const [value, setValue] = useState('');
+  const { data: findPet, refetch } = useGetNoticeByWordQuery(value, { skip: !value });
+  const { t } = useTranslation();
+  useEffect(() => {
+    if (!value) {
+      return;
+    }
+    refetch();
+  }, [refetch, value]);
+
+  const onSubmit = (query) => {
+    setValue(query);
+  };
   return (
     <>
       <Container>
-        <h1 className={styles.title__findpet}>Find your favorite pet</h1>
-        <NoticesSearch />
+        <h1 className={styles.title__findpet}>{t('Find your favorite pet')}</h1>
+        <NoticesSearch onSubmit={onSubmit} />
+
         <div className={styles.navContainer__findpet}>
           <NoticesCategoriesNav />
           <AddNoticeButton />
@@ -19,7 +37,7 @@ const FindPet = () => {
 
         <Outlet />
 
-        {/* <NoticesCategoriesList data={findpet} /> */}
+        {/* <NoticesCategoriesList data={findPet} /> */}
       </Container>
     </>
   );
