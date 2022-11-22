@@ -7,9 +7,8 @@ import Modal from 'components/Modal';
 import { useAddToFavoritesMutation, useDeleteFromFavoritesMutation, useDeleteUserNoticeByIdMutation } from '../../../redux/fetchNotice';
 import { useSelector } from 'react-redux';
 import { selectors } from '../../../redux/selectors.js';
-import { useState } from 'react';
-import { useGetCurrentUserQuery } from '../../../redux/fetchUser';
-// import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
 moment().format();
 
 const NoticeCategoryItem = ({
@@ -25,30 +24,19 @@ const NoticeCategoryItem = ({
   place,
   age,
   price,
-  favorite,
-  myads
+  myads,
+  refetchUser
 }) => {
   const { isModalOpen, closeModal, toggleModal } = useModal();
-  // const [favorite, setFavorite] = useState(false);
-  // const token = useSelector(selectors.getToken);
-  const userId = useSelector(selectors.getUserId);
-  // console.log(userId);
-  const userName = useSelector(selectors.getUserName);
-  // const userFavorites = useSelector(selectors.getFavorites);
-  // console.log(userFavorites);
 
-  // useEffect(() => {
-  //   setFavorite(userFavorites.includes(_id));
-  // }, [_id, userFavorites]);
-  // console.log(userName);
+  const userFavorites = useSelector(selectors.getFavorites);
 
-  const User = useGetCurrentUserQuery();
-  // console.log(User);
+  const favorite = userFavorites.includes(_id);
 
-  const [cardId, setCardId] = useState('');
   const [addToFavorites] = useAddToFavoritesMutation();
   const [deleteFromFavorites] = useDeleteFromFavoritesMutation();
   const [deleteUserNoticeById] = useDeleteUserNoticeByIdMutation();
+  const [isFavorite, setIsFavorite] = useState(favorite);
 
   const normilizeCategory = (category) => {
     switch (category) {
@@ -63,29 +51,34 @@ const NoticeCategoryItem = ({
     }
   };
 
+  useEffect(() => {
+    refetchUser();
+  }, [refetchUser, isFavorite]);
+
   const calculatedogAge = (age) => {
     const dogAge = moment(age, 'DD.MM.YYYY').fromNow().slice(0, -4);
     return dogAge;
   };
 
   const handleAddToFavorites = (event) => {
-    // console.log(event);
-    // console.log(event.target.parentElement.parentElement.parentElement.id);
-    // console.log(event.target.parentElement.id);
     const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
-    // console.log(cardId);
+
     addToFavorites(cardId);
+    setIsFavorite(true);
+
   };
 
   const handleDeleteFromFavorites = (event) => {
     const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
 
     deleteFromFavorites(cardId);
+    setIsFavorite(false);
+
   };
 
   const handleDeleteUserNotice = (event) => {
     const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
-    // console.log(cardId);
+
     deleteUserNoticeById(cardId);
   };
 
@@ -94,7 +87,7 @@ const NoticeCategoryItem = ({
       <li key={_id} className={styles.NoticeCategoryItem} id={_id}>
         <img src={imageUrl} alt="" className={styles.NoticeCategoryItem__img} />
         <p className={styles.NoticeCategoryItem__category}>{normilizeCategory(category)}</p>
-        {favorite ? (
+        {isFavorite ? (
           <button className={styles.NoticeCategoryItem__heartbutton} type="button" onClick={handleDeleteFromFavorites}>
             <svg className={styles.NoticeCategoryItem__svg}>
               <use href={sprite + '#icon-heartFull'} />
@@ -172,7 +165,8 @@ const NoticeCategoryItem = ({
             place={place}
             price={price}
             age={age}
-            favorite={favorite}
+            favorite={isFavorite}
+            setIsFavorite={setIsFavorite}
             myads={myads}
           />
         </Modal>
