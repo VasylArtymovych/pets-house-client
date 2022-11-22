@@ -32,6 +32,14 @@ export const petsApi= createApi({
             }),
             invalidatesTags:['Pets'],
         }),
+        addAvatarToPet:builder.mutation({
+            query:(payload)=>({
+                url:'/pets/petImage',
+                method:'PATCH',
+                body:payload,
+            }),
+            invalidatesTags:['Pets']
+        }),
         deletePet:builder.mutation({
             query:(id)=>({
                 url:`/pets/${id}`,
@@ -42,4 +50,4 @@ export const petsApi= createApi({
     })
 })
 
-export const { useGetUserPetsQuery, usePostPetMutation, useUpdatePetMutation, useDeletePetMutation }= petsApi;
+export const { useGetUserPetsQuery, usePostPetMutation, useUpdatePetMutation, useAddAvatarToPetMutation, useDeletePetMutation }= petsApi;
