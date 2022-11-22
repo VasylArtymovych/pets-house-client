@@ -21,7 +21,7 @@ const Register = () => {
 
   const [page, setPage] = useState(0);
 
-  const formTitles = ['Registration', 'Personal Info'];
+  // const formTitles = ['Registration', 'Personal Info'];
 
   const makeRequest = async (formData) => {
     const { error } = await register(formData);
@@ -48,8 +48,8 @@ const Register = () => {
   };
 
   const steps = [
-    <AuthFormFirstPage next={handleNextStep} data={data} title={formTitles[page]} />,
-    <AuthFormSecondPage prev={handlePrevStep} next={handleNextStep} data={data} title={formTitles[page]} isLoading={isLoading} />
+    <AuthFormFirstPage next={handleNextStep} data={data} title={t('Registration')} />,
+    <AuthFormSecondPage prev={handlePrevStep} next={handleNextStep} data={data} title={t('Personal Info')} isLoading={isLoading} />
   ];
 
   return (

@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import PetsIcon from '@mui/icons-material/Pets';
 import { InputForm } from 'components/Input';
 import scss from './ModalAddsPetSell.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const stepOneValidationSchema = Yup.object({
   title: Yup.string().required('Required'),
@@ -17,6 +18,7 @@ const stepOneValidationSchema = Yup.object({
 });
 
 export const ModalAddsPetSellFirstPage = (props) => {
+  const { t } = useTranslation();
   const handleSubmit = (values) => {
     props.next(values, true);
   };
@@ -25,7 +27,7 @@ export const ModalAddsPetSellFirstPage = (props) => {
       <button type="button" onClick={props.closeModal} className={scss.btnClose}>
         <PetsIcon />
       </button>
-      <h3 className={scss.title}>Add pet</h3>
+      <h3 className={scss.title}>{t('Add pet')}</h3>
 
       <div className={scss.wrapForm}>
         <Formik validationSchema={stepOneValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
@@ -51,7 +53,8 @@ export const ModalAddsPetSellFirstPage = (props) => {
               </div>
 
               <label htmlFor="title" className={scss.label}>
-                Tittle of ad<span className={scss.mark}>*</span>
+                {t('Tittle of ad')}
+                <span className={scss.mark}>*</span>
               </label>
               <div className={scss.inputWrapper}>
                 <InputForm customStyle={scss.input} name="title" type="text" placeholder="Tittle of ad" />
@@ -59,7 +62,7 @@ export const ModalAddsPetSellFirstPage = (props) => {
               </div>
 
               <label htmlFor="name" className={scss.label}>
-                Name pet
+                {t('Name pet')}
               </label>
               <div className={scss.inputWrapper}>
                 <InputForm customStyle={scss.input} name="name" type="text" placeholder="Type name pet" />
@@ -67,7 +70,7 @@ export const ModalAddsPetSellFirstPage = (props) => {
               </div>
 
               <label htmlFor="dateOfBirth" className={scss.label}>
-                Date of birth
+                {t('Date of birth')}
               </label>
               <div className={scss.inputWrapper}>
                 <InputForm customStyle={scss.input} name="dateOfBirth" type="text" placeholder="Type date of birth" />
@@ -75,7 +78,7 @@ export const ModalAddsPetSellFirstPage = (props) => {
               </div>
 
               <label htmlFor="breed" className={scss.label}>
-                Breed
+                {t('Breed')}
               </label>
               <div className={scss.inputWrapperLast}>
                 <InputForm customStyle={scss.input_last} name="breed" type="text" placeholder="Type breed" />
@@ -84,10 +87,10 @@ export const ModalAddsPetSellFirstPage = (props) => {
 
               <div className={scss.btnWrap}>
                 <button type="submit" className={scss.buttonFill}>
-                  Next
+                  {t('Next')}
                 </button>
                 <button type="button" className={scss.buttonEmpty} onClick={props.closeModal}>
-                  Cancel
+                  {t('Сancel')}
                 </button>
               </div>
             </Form>

@@ -1,9 +1,11 @@
 import { ForgotPasswordForm } from 'components/AuthForm/ForgotPasswordForm';
+import { useTranslation } from 'react-i18next';
 
 const ForgotPassword = () => {
+  const { t } = useTranslation();
   return (
     <>
-      <ForgotPasswordForm title="Write your email address, please" />
+      <ForgotPasswordForm title={t('Write your email address, please')} />
     </>
   );
 };

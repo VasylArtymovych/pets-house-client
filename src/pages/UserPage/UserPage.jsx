@@ -5,30 +5,32 @@ import { Logout } from 'components/User/Logout';
 import PetsData from 'components/User/PetsData';
 import UserData from 'components/User/UserData';
 import { useModal } from 'hooks';
+import { useTranslation } from 'react-i18next';
 
 import sprite from '../../images/symbol-defs.svg';
 
 import scss from './UserPage.module.scss';
 
 const UserPage = () => {
+  const { t } = useTranslation();
   const { isModalOpen, closeModal, toggleModal } = useModal();
 
   return (
     <Container>
       <div className={scss.user__box}>
         <div>
-          <h1 className={scss.user__title}>My information:</h1>
+          <h1 className={scss.user__title}>{t('My information:')}</h1>
           <div className={scss.user__info}>
             <UserData />
             <Logout />
           </div>
         </div>
         <div className={scss.pets__container}>
-          <h2 className={scss.user__pets}>My Pets:</h2>
+          <h2 className={scss.user__pets}>{t('My Pets:')}</h2>
           <PetsData />
         </div>
         <div className={scss.addpats}>
-          <p className={scss.addpats__title}>Add pet</p>
+          <p className={scss.addpats__title}>{t('Add pet')}</p>
           <button className={scss.addpats__btm} type="button" onClick={toggleModal}>
             <svg className={scss.addpats__svg}>
               <use href={sprite + '#icon-plus'} />

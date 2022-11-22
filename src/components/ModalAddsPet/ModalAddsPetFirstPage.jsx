@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import PetsIcon from '@mui/icons-material/Pets';
 import { InputForm } from 'components/Input';
 import scss from './ModalAddsPet.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const stepOneValidationSchema = Yup.object({
   name: Yup.string().required('Required'),
@@ -16,6 +17,7 @@ const stepOneValidationSchema = Yup.object({
 });
 
 export const ModalAddsPetFirstPage = (props) => {
+  const { t } = useTranslation();
   const handleSubmit = (values) => {
     props.next(values, true);
   };
@@ -24,13 +26,13 @@ export const ModalAddsPetFirstPage = (props) => {
       <button type="button" onClick={props.closeModal} className={scss.btnClose}>
         <PetsIcon />
       </button>
-      <h3 className={scss.title}>Add pet</h3>
+      <h3 className={scss.title}>{t('Add pet')}</h3>
       <div className={scss.wrapForm}>
         <Formik validationSchema={stepOneValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
           {() => (
             <Form className={scss.formFirst + ' ' + props.customStyle}>
               <label htmlFor="namePet" className={scss.label}>
-                Name pet
+                {t('Name pet')}
               </label>
               <div className={scss.inputWrapper}>
                 <InputForm customStyle={scss.input} name="name" placeholder="Type name pet" />
@@ -38,14 +40,14 @@ export const ModalAddsPetFirstPage = (props) => {
               </div>
 
               <label htmlFor="dateOfBirth" className={scss.label}>
-                Date of birth
+                {t('Date of birth')}
               </label>
               <div className={scss.inputWrapper}>
                 <InputForm customStyle={scss.input} name="dateOfBirth" placeholder="Type date of birth" />
                 <ErrorMessage name="dateOfBirth" className={scss.error} component="p" />
               </div>
               <label htmlFor="breed" className={scss.label}>
-                Breed
+                {t('Breed')}
               </label>
               <div className={scss.inputWrapperLast}>
                 <InputForm customStyle={scss.input_last} name="breed" placeholder="Type breed" />
@@ -53,10 +55,10 @@ export const ModalAddsPetFirstPage = (props) => {
               </div>
               <div className={scss.btnWrap}>
                 <button type="submit" className={scss.buttonFill}>
-                  Next
+                  {t('Next')}
                 </button>
                 <button type="button" className={scss.buttonEmpty} onClick={props.closeModal}>
-                  Cancel
+                  {t('Сancel')}
                 </button>
               </div>
             </Form>

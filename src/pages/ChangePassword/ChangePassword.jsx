@@ -1,10 +1,11 @@
-import { ChangePasswordForm } from "components/AuthForm/ChangePasswordForm";
-
+import { ChangePasswordForm } from 'components/AuthForm/ChangePasswordForm';
+import { useTranslation } from 'react-i18next';
 
 const ChangePassword = () => {
+  const { t } = useTranslation();
   return (
     <>
-      <ChangePasswordForm title="Password change" />
+      <ChangePasswordForm title={t('Password change')} />
     </>
   );
 };

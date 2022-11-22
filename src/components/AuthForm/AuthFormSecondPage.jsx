@@ -5,11 +5,13 @@ import Button from 'components/Button';
 import scssButton from '../Button/Button.module.scss';
 import { stepTwoValidationSchema } from 'services';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import useSound from 'use-sound';
 
 import dogsound from 'sounds/00990.mp3';
 
 export const AuthFormSecondPage = (props) => {
+  const { t } = useTranslation();
   const handleSubmit = (values) => {
     props.next(values, true);
   };
@@ -33,13 +35,19 @@ export const AuthFormSecondPage = (props) => {
               <ErrorMessage name="phone" component="p" className={scss.error} />
             </div>
             <div className={scss.button__container}>
-              <Button type="submit" customStyle={scssButton.button__auth_first} onClick={play} buttonName="Register" disabled={props.isLoading} />
-              <Button onClick={() => props.prev(values)} customStyle={scssButton.button__auth_last} buttonName="Back" />
+              <Button
+                type="submit"
+                customStyle={scssButton.button__auth_first}
+                onClick={play}
+                buttonName={t('Register')}
+                disabled={props.isLoading}
+              />
+              <Button onClick={() => props.prev(values)} customStyle={scssButton.button__auth_last} buttonName={t('Back')} />
             </div>
             <p className={scss.redirect__auth}>
-              Already have an account?
+              {t('Already have an account?')}
               <Link to="/login" className={scss.redirect_link__auth}>
-                Login
+                {t('Login')}
               </Link>
             </p>
           </Form>
