@@ -7,9 +7,8 @@ import Modal from 'components/Modal';
 import { useAddToFavoritesMutation, useDeleteFromFavoritesMutation, useDeleteUserNoticeByIdMutation } from '../../../redux/fetchNotice';
 import { useSelector } from 'react-redux';
 import { selectors } from '../../../redux/selectors.js';
-import { useState } from 'react';
-import { useGetCurrentUserQuery } from '../../../redux/fetchUser';
-// import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
 moment().format();
 
 const NoticeCategoryItem = ({
@@ -25,31 +24,15 @@ const NoticeCategoryItem = ({
   place,
   age,
   price,
-  // favorite,
-  myads
+  myads,
+  refetchUser
 }) => {
   const { isModalOpen, closeModal, toggleModal } = useModal();
-  // const [favorite, setFavorite] = useState(false);
-  // const token = useSelector(selectors.getToken);
-  const userId = useSelector(selectors.getUserId);
 
-  // console.log(userId);
-  const userName = useSelector(selectors.getUserName);
   const userFavorites = useSelector(selectors.getFavorites);
 
   const favorite = userFavorites.includes(_id);
 
-  // console.log(userFavorites);
-
-  // useEffect(() => {
-  //   setFavorite(userFavorites.includes(_id));
-  // }, [_id, userFavorites]);
-  // console.log(userName);
-
-  // const User = useGetCurrentUserQuery();
-  // console.log(User);
-
-  // const [cardId, setCardId] = useState('');
   const [addToFavorites] = useAddToFavoritesMutation();
   const [deleteFromFavorites] = useDeleteFromFavoritesMutation();
   const [deleteUserNoticeById] = useDeleteUserNoticeByIdMutation();
@@ -68,19 +51,21 @@ const NoticeCategoryItem = ({
     }
   };
 
+  useEffect(() => {
+    refetchUser();
+  }, [refetchUser, isFavorite]);
+
   const calculatedogAge = (age) => {
     const dogAge = moment(age, 'DD.MM.YYYY').fromNow().slice(0, -4);
     return dogAge;
   };
 
   const handleAddToFavorites = (event) => {
-    // console.log(event);
-    // console.log(event.target.parentElement.parentElement.parentElement.id);
-    // console.log(event.target.parentElement.id);
     const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
-    // console.log(cardId);
+
     addToFavorites(cardId);
     setIsFavorite(true);
+
   };
 
   const handleDeleteFromFavorites = (event) => {
@@ -88,11 +73,12 @@ const NoticeCategoryItem = ({
 
     deleteFromFavorites(cardId);
     setIsFavorite(false);
+
   };
 
   const handleDeleteUserNotice = (event) => {
     const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
-    // console.log(cardId);
+
     deleteUserNoticeById(cardId);
   };
 
@@ -179,7 +165,8 @@ const NoticeCategoryItem = ({
             place={place}
             price={price}
             age={age}
-            favorite={favorite}
+            favorite={isFavorite}
+            setIsFavorite={setIsFavorite}
             myads={myads}
           />
         </Modal>

@@ -4,6 +4,7 @@ import React from 'react';
 import NoticeCategoryItem from 'components/Notices/NoticeCategoryItem';
 import styles from './NoticesCategoriesList.module.scss';
 import { useGetNoticeQuery, useGetNoticeFavoritesQuery, useGetUserNoticesQuery } from 'redux/fetchNotice';
+import { useGetCurrentUserQuery } from 'redux/fetchUser';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { selectors } from '../../../redux/selectors.js';
@@ -11,7 +12,6 @@ import { skipToken } from '@reduxjs/toolkit/query';
 
 const NoticesCategoriesList = () => {
   const { pathname } = useLocation();
-  const userFavorites = useSelector(selectors.getFavorites);
   const userAds = useSelector(selectors.getUserNotices);
   const isLogged = useSelector(selectors.isLogged);
 
@@ -32,6 +32,8 @@ const NoticesCategoriesList = () => {
     }
   };
   const category = renderCategory();
+
+  let { data: user, refetch } = useGetCurrentUserQuery();
 
   let { data } = useGetNoticeQuery(category);
 
@@ -80,7 +82,6 @@ const NoticesCategoriesList = () => {
         <ul className={styles.NoticesCategoriesList}>
           {pets.map(
             ({ _id, name, owner, comments = 'There is no comments', sex, category, petImage, title, breed, location, dateOfBirth, price }) => {
-              // const favorite = userFavorites.includes(_id);
               const myads = userAds.includes(_id);
 
               return (
@@ -99,7 +100,7 @@ const NoticesCategoriesList = () => {
                   price={price}
                   age={dateOfBirth}
                   myads={myads}
-                  // favorite={favorite}
+                  refetchUser={refetch}
                 />
               );
             }
