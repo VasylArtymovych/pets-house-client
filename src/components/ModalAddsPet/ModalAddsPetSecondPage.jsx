@@ -1,5 +1,6 @@
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import PetsIcon from '@mui/icons-material/Pets';
 import { InputForm } from 'components/Input';
 import sprite from '../../images/symbol-defs.svg';
 import scss from './ModalAddsPet.module.scss';
@@ -16,9 +17,7 @@ export const ModalAddsPetSecondPage = (props) => {
   return (
     <div className={scss.container}>
       <button type="button" onClick={props.closeModal} className={scss.btnClose}>
-        <svg className={scss.crossSmall}>
-          <use href={sprite + '#icon-blackCross'} />
-        </svg>
+        <PetsIcon />
       </button>
       <h3 className={scss.title}>Add pet</h3>
       <div className={scss.wrapForm}>
@@ -29,14 +28,14 @@ export const ModalAddsPetSecondPage = (props) => {
 
               <button type="button" className={scss.btnAddPhoto}>
                 <svg className={scss.crossBig}>
-                    <use href={sprite + '#icon-blackCross'} />
+                  <use href={sprite + '#icon-blackCross'} />
                 </svg>
-                <InputForm customStyle={scss.input_photo}  name="petImage" type="file" />
+                <InputForm customStyle={scss.input_photo} name="petImage" type="file" />
               </button>
 
               <div className={scss.wrapTextarea}>
                 <label className={scss.label}> Comments</label>
-                <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Type comments"/>
+                <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Type comments" />
               </div>
 
               <div className={scss.btnWrap}>
@@ -47,7 +46,6 @@ export const ModalAddsPetSecondPage = (props) => {
                   Back
                 </button>
               </div>
-
             </Form>
           )}
         </Formik>
@@ -55,4 +53,3 @@ export const ModalAddsPetSecondPage = (props) => {
     </div>
   );
 };
-
