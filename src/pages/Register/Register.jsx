@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRegistrationUserMutation } from 'redux/fetchUser';
 import { AuthError, AuthFormFirstPage, AuthFormSecondPage } from 'components/AuthForm';
+import { useTranslation } from 'react-i18next';
 
 const Register = () => {
+  const { t } = useTranslation();
   const [register, { isLoading, error }] = useRegistrationUserMutation();
 
   const navigate = useNavigate();

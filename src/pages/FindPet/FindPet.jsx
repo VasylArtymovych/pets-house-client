@@ -5,13 +5,15 @@ import AddNoticeButton from 'components/Notices/AddNoticeButton';
 import styles from './FindPet.module.scss';
 import Container from 'components/Container';
 import { Outlet } from 'react-router-dom/dist';
-import { useGetNoticeByWordQuery } from 'redux/fetchNotice';
+import { useTranslation } from 'react-i18next';
+mport { useGetNoticeByWordQuery } from 'redux/fetchNotice';
 // import NoticesCategoriesList from 'components/Notices/`NoticesCategoriesList`';
+
 
 const FindPet = () => {
   const [value, setValue] = useState('');
   const { data: findPet, refetch } = useGetNoticeByWordQuery(value, { skip: !value });
-
+  const { t } = useTranslation();
   useEffect(() => {
     if (!value) {
       return;
@@ -25,8 +27,9 @@ const FindPet = () => {
   return (
     <>
       <Container>
-        <h1 className={styles.title__findpet}>Find your favorite pet</h1>
+        <h1 className={styles.title__findpet}>{t('Find your favorite pet')}</h1>
         <NoticesSearch onSubmit={onSubmit} />
+
         <div className={styles.navContainer__findpet}>
           <NoticesCategoriesNav />
           <AddNoticeButton />
