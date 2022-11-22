@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,WAAW,CAAC;EACV,KAAK,EAAE,KAAK;EACZ,UAAU,EAAE,IAAI;EAChB,aAAa,EAAE,IAAI;CAQpB;;AAPC,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,KAAK;EAJrC,AAAA,WAAW,CAAC;IAKR,KAAK,EAAE,KAAK;IACZ,KAAK,EAAE,CAAC;GAKX;;;AAHC,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,MAAM;EARtC,AAAA,WAAW,CAAC;IASR,KAAK,EAAE,CAAC;GAEX",
-    "sources": [
-        "UserDataItem.module.scss"
-    ],
-    "names": [],
-    "file": "UserDataItem.module.css"
-}
