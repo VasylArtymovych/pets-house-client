@@ -10,9 +10,11 @@ import { useGetNoticeByWordQuery } from 'redux/fetchNotice';
 // import NoticesCategoriesList from 'components/Notices/`NoticesCategoriesList`';
 
 const FindPet = () => {
-  const [value, setValue] = useState('');
-  const { data: findPet, refetch } = useGetNoticeByWordQuery(value, { skip: !value });
   const { t } = useTranslation();
+  const [value, setValue] = useState('');
+
+  const { data, refetch } = useGetNoticeByWordQuery(value, { skip: !value });
+
   useEffect(() => {
     if (!value) {
       return;
@@ -34,7 +36,7 @@ const FindPet = () => {
           <AddNoticeButton />
         </div>
 
-        <Outlet />
+        <Outlet data={data?.notices} />
 
         {/* <NoticesCategoriesList data={findPet} /> */}
       </Container>
