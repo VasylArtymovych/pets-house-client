@@ -7,13 +7,16 @@ import Container from 'components/Container';
 import { Outlet } from 'react-router-dom/dist';
 import { useTranslation } from 'react-i18next';
 import { useGetNoticeByWordQuery } from 'redux/fetchNotice';
-// import NoticesCategoriesList from 'components/Notices/`NoticesCategoriesList`';
 
 const FindPet = () => {
   const { t } = useTranslation();
   const [value, setValue] = useState('');
 
   const { data, refetch } = useGetNoticeByWordQuery(value, { skip: !value });
+  console.log(data);
+
+  const petsByWord = data !== undefined ? data.notices : null;
+  console.log(petsByWord);
 
   useEffect(() => {
     if (!value) {
@@ -36,7 +39,7 @@ const FindPet = () => {
           <AddNoticeButton />
         </div>
 
-        <Outlet data={data?.notices} />
+        <Outlet context={[petsByWord]} />
 
         {/* <NoticesCategoriesList data={findPet} /> */}
       </Container>

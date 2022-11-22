@@ -10,12 +10,15 @@ import { useSelector } from 'react-redux';
 import { selectors } from '../../../redux/selectors.js';
 import { skipToken } from '@reduxjs/toolkit/query';
 import { useTranslation } from 'react-i18next';
+import { useOutletContext } from 'react-router-dom';
 
 const NoticesCategoriesList = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const userAds = useSelector(selectors.getUserNotices);
   const isLogged = useSelector(selectors.isLogged);
+
+  let [petsByWord] = useOutletContext();
 
   const renderCategory = () => {
     switch (pathname) {
@@ -77,37 +80,67 @@ const NoticesCategoriesList = () => {
     }
   }, [category, data, favorites, userNotices]);
 
+  // if (petsByWord) {
+  //   setPets(petsByWord);
+  //   [petsByWord] = null;
+  // }
   // console.log(pets);
   return (
     <div className={styles.NoticesCategoriesList__Container}>
       {pets && pets.length !== 0 ? (
         // <ul className={styles.NoticesCategoriesList}>
         <ul className={styles.NoticesCategoriesList} style={{ marginTop: isLogged && '0px' }}>
-          {pets.map(
-            ({ _id, name, owner, comments = 'There is no comments', sex, category, petImage, title, breed, location, dateOfBirth, price }) => {
-              const myads = userAds.includes(_id);
+          {petsByWord
+            ? petsByWord.map(
+                ({ _id, name, owner, comments = 'There is no comments', sex, category, petImage, title, breed, location, dateOfBirth, price }) => {
+                  const myads = userAds.includes(_id);
 
-              return (
-                <NoticeCategoryItem
-                  key={_id}
-                  _id={_id}
-                  name={name}
-                  owner={owner}
-                  sex={sex}
-                  comments={comments}
-                  category={category}
-                  imageUrl={`http://localhost:8888/${petImage}`}
-                  title={title}
-                  breed={breed}
-                  place={location}
-                  price={price}
-                  age={dateOfBirth}
-                  myads={myads}
-                  refetchUser={refetch}
-                />
-              );
-            }
-          )}
+                  return (
+                    <NoticeCategoryItem
+                      key={_id}
+                      _id={_id}
+                      name={name}
+                      owner={owner}
+                      sex={sex}
+                      comments={comments}
+                      category={category}
+                      imageUrl={`http://localhost:8888/${petImage}`}
+                      title={title}
+                      breed={breed}
+                      place={location}
+                      price={price}
+                      age={dateOfBirth}
+                      myads={myads}
+                      refetchUser={refetch}
+                    />
+                  );
+                }
+              )
+            : pets.map(
+                ({ _id, name, owner, comments = 'There is no comments', sex, category, petImage, title, breed, location, dateOfBirth, price }) => {
+                  const myads = userAds.includes(_id);
+
+                  return (
+                    <NoticeCategoryItem
+                      key={_id}
+                      _id={_id}
+                      name={name}
+                      owner={owner}
+                      sex={sex}
+                      comments={comments}
+                      category={category}
+                      imageUrl={`http://localhost:8888/${petImage}`}
+                      title={title}
+                      breed={breed}
+                      place={location}
+                      price={price}
+                      age={dateOfBirth}
+                      myads={myads}
+                      refetchUser={refetch}
+                    />
+                  );
+                }
+              )}
         </ul>
       ) : (
         <p>{t('There are no advertisements in this category')}</p>
