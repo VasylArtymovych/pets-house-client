@@ -1,0 +1,296 @@
+.avatar__modal {
+  width: 280px;
+  height: 430px;
+  padding: 20px 20px;
+  position: relative;
+  background-color: var(--btn__color);
+  -webkit-box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+          box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+  border-radius: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .avatar__modal {
+    width: 450px;
+    height: 550px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .avatar__modal {
+    width: 450px;
+    height: 550px;
+  }
+}
+
+.avatar__close {
+  width: 33px;
+  height: 33px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: var(--bg__color);
+  cursor: pointer;
+  border-radius: 100px;
+  border-color: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  .avatar__close {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.close__svg {
+  width: 15px;
+  height: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .close__svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.avatar__box {
+  position: relative;
+  overflow: hidden;
+  width: 233px;
+  height: 233px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 50px;
+}
+
+.avatar__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+  .avatar__img {
+    margin-bottom: 80px;
+  }
+}
+
+.input__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.input__wrapper {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.input__file {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.input__fileIcon {
+  height: 50px;
+  width: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .input__fileIcon {
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+  }
+}
+
+.input__fileIconDelete {
+  height: 50px;
+  width: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: 2px solid var(--accent__color);
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+@media screen and (min-width: 768px) {
+  .input__fileIconDelete {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.input__fileButton {
+  position: relative;
+  width: 170px;
+  height: 50px;
+  background-color: var(--accent__color);
+  color: var(--btn__color);
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+  max-width: 290px;
+  -webkit-transition: font-size 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: font-size 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media screen and (min-width: 768px) {
+  .input__fileButton {
+    width: 230px;
+    height: 60px;
+    font-size: 1.125rem;
+  }
+}
+
+.input__fileButton:hover, .input__fileButton:focus {
+  font-size: 1.2rem;
+}
+
+.input__fileButton:hover .input__iconSave, .input__fileButton:focus {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.input__iconSave {
+  width: 25px;
+  height: 25px;
+  fill: var(--btn__color);
+  -webkit-transition: -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media screen and (min-width: 768px) {
+  .input__iconSave {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+.input__iconDelete {
+  width: 20px;
+  height: 20px;
+  fill: var(--accent__color);
+  -webkit-transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media screen and (min-width: 768px) {
+  .input__iconDelete {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.input__fileIconDelete:hover .input__iconDelete,
+.input__fileIconDelete:focus .input__iconDelete {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.input__buttonText {
+  line-height: 1;
+  margin-top: 1px;
+}
+
+.save__avatar {
+  width: 100px;
+  height: 34px;
+  background-color: transparent;
+  border-radius: 8px;
+  border: 2px solid var(--accent__color);
+  cursor: pointer;
+  font-family: inherit;
+  outline: none;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  -webkit-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media screen and (min-width: 768px) {
+  .save__avatar {
+    width: 150px;
+    height: 44px;
+  }
+}
+
+.save__avatar:hover, .save__avatar:focus {
+  background-color: var(--accent__color);
+  color: var(--btn__color);
+}
+/*# sourceMappingURL=UserAvatarModal.module.css.map */

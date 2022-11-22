@@ -13,7 +13,11 @@ import { skipToken } from '@reduxjs/toolkit/query';
 const NoticesCategoriesList = () => {
   const { pathname } = useLocation();
   const userAds = useSelector(selectors.getUserNotices);
+
+  const isUser = useSelector(selectors.isLogged);
+
   const isLogged = useSelector(selectors.isLogged);
+
 
   const renderCategory = () => {
     switch (pathname) {
@@ -79,7 +83,8 @@ const NoticesCategoriesList = () => {
   return (
     <div className={styles.NoticesCategoriesList__Container}>
       {pets && pets.length !== 0 ? (
-        <ul className={styles.NoticesCategoriesList}>
+        // <ul className={styles.NoticesCategoriesList}>
+        <ul className={styles.NoticesCategoriesList} style={{ marginTop: isUser && '0px' }}>
           {pets.map(
             ({ _id, name, owner, comments = 'There is no comments', sex, category, petImage, title, breed, location, dateOfBirth, price }) => {
               const myads = userAds.includes(_id);
