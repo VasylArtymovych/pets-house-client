@@ -1,17 +1,15 @@
-import { lazy, Suspense, useState, useEffect } from 'react';
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import SharedLayout from 'components/SharedLayout';
 import { useGetCurrentUserQuery } from 'redux/fetchUser';
 import { selectors } from 'redux/selectors';
-import Loader from 'components/Loader';
 import LoaderBear from 'components/LoaderBear';
 import ForgotPassword from 'pages/ForgotPassword';
 import ChangePassword from 'pages/ChangePassword';
 import PrivateRoutes from 'components/PrivateRoutes';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
@@ -28,21 +26,21 @@ function App() {
   // console.log(token);
   useGetCurrentUserQuery(undefined, { skip: !token });
 
-  const [isBigLoader, setIsBigLoader] = useState(false);
+  // const [isBigLoader, setIsBigLoader] = useState(false);
 
-  useEffect(() => {
-    const witdthScren = document.querySelector('body').scrollWidth;
-    if (witdthScren > 880) {
-      setIsBigLoader(true);
-    }
-  }, [setIsBigLoader]);
+  // useEffect(() => {
+  //   const witdthScren = document.querySelector('body').scrollWidth;
+  //   if (witdthScren > 880) {
+  //     setIsBigLoader(true);
+  //   }
+  // }, [setIsBigLoader]);
 
   // console.log(isBigLoader);
 
   return (
     <>
       <ToastContainer autoClose={3000} closeOnClick={true} />
-      <Suspense fallback={isBigLoader ? <Loader /> : <LoaderBear />}>
+      <Suspense fallback={<LoaderBear />}>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />
