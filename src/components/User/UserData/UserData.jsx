@@ -7,8 +7,10 @@ import Modal from 'components/Modal';
 import UserAvatarModal from '../UserAvatarModal';
 import { useSelector } from 'react-redux';
 import { selectors } from '../../../redux/selectors.js';
+import { useTranslation } from 'react-i18next';
 
 const UserData = () => {
+  const { t } = useTranslation();
   const { isModalOpen, closeModal, toggleModal } = useModal();
 
   const avatar = useSelector(selectors.getUserAvatar);
@@ -26,7 +28,7 @@ const UserData = () => {
             <svg className={scss.info__camera} width="18" height="18">
               <use href={sprite + '#icon-profilePhotoCamera'} />
             </svg>
-            Edit photo
+            {t('Edit photo')}
           </button>
         </div>
       </div>

@@ -2,8 +2,10 @@ import { useState } from 'react';
 import sprite from '../../../images/symbol-defs.svg';
 import scss from './PetsList.module.scss';
 import { useUpdatePetMutation } from 'redux/fetchPets';
+import { useTranslation } from 'react-i18next';
 
 const FieldPetsComments = ({ value, onIsUpdate, _id }) => {
+  const { t } = useTranslation();
   const [isUpdate, setIsUpdate] = useState(onIsUpdate);
   const [petsName, setPetsName] = useState(value);
 
@@ -34,7 +36,7 @@ const FieldPetsComments = ({ value, onIsUpdate, _id }) => {
       )}
       <div className={scss.pets__commentBox}>
         <p className={scss.pets__commentTitle}>
-          <label htmlFor="comment">Comments:</label>
+          <label htmlFor="comment">{t('Comments:')}</label>
         </p>
         {isUpdate ? (
           <textarea

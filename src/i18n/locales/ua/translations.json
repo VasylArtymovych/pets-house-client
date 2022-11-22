@@ -33,5 +33,19 @@
     "Sell": "Продаж",
     "Favorite ads": "Улюблені оголошення",
     "My ads": "Мої оголошення",
-    "Search": "Пошук"
+    "Search": "Пошук",
+    "Log Out": "Вийти",
+    "Do you really want to Log Out of your account?": "Ви дійсно хочете вийти зі свого облікового запису ? ",
+    "Сancel": "Скасувати",
+    "You havent added your pet yet": "Ви ще не додали свого улюбленця",
+    "Date of birth:": "Дата народження:",
+    "Comments:": "Коментарі:",
+    "Select a file": "Виберіть файл",
+    "Save": "Додати",
+    "Edit photo": "Редагувати фото",
+    "My information:": "Моя інформація:",
+    "My Pets:": "Мої домашні тварини:",
+    "Add pet": "Додати улюбленця",
+    "Personal Info": "Особиста інформація",
+    "Back": "Назад"
 }
