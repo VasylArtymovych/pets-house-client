@@ -4,6 +4,7 @@ import PetsIcon from '@mui/icons-material/Pets';
 import { InputForm } from 'components/Input';
 import sprite from '../../images/symbol-defs.svg';
 import scss from './ModalAddsPetSell.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const stepTwoValidationSchema = Yup.object({
   location: Yup.string(),
@@ -12,6 +13,7 @@ const stepTwoValidationSchema = Yup.object({
 });
 
 export const ModalAddsPetSellSecondPage = (props) => {
+  const { t } = useTranslation();
   const handleSubmit = (values) => {
     props.next(values, true);
     props.closeModal();
@@ -22,14 +24,15 @@ export const ModalAddsPetSellSecondPage = (props) => {
       <button type="button" onClick={props.closeModal} className={scss.btnClose}>
         <PetsIcon />
       </button>
-      <h3 className={scss.titleSecond}>Add pet</h3>
+      <h3 className={scss.titleSecond}>{t('Add pet')}</h3>
       <div className={scss.wrapForm}>
         <Formik validationSchema={stepTwoValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
           {() => (
             <Form className={scss.formSecond + ' ' + props.customStyle}>
               <div className={scss.wrapRadio}>
                 <p className={scss.textIcon}>
-                  The sex<span className={scss.mark}>*</span>:
+                  {t('The sex')}
+                  <span className={scss.mark}>*</span>:
                 </p>
                 <div className={scss.wrapIcon}>
                   <Field className={scss.radioInput} name="sex" type="radio" id="male" value="male" />
@@ -37,7 +40,7 @@ export const ModalAddsPetSellSecondPage = (props) => {
                     <svg className={scss.icon}>
                       <use href={sprite + '#icon-male'} />
                     </svg>
-                    Male
+                    {t('Male')}
                   </label>
 
                   <Field className={scss.radioInput} name="sex" type="radio" id="female" value="female" />
@@ -45,13 +48,14 @@ export const ModalAddsPetSellSecondPage = (props) => {
                     <svg className={scss.icon}>
                       <use href={sprite + '#icon-female'} />
                     </svg>
-                    Female
+                    {t('Female')}
                   </label>
                 </div>
               </div>
 
               <label htmlFor="location" className={scss.label}>
-                Location<span className={scss.mark}>*</span>:
+                {t('Location')}
+                <span className={scss.mark}>*</span>:
               </label>
               <InputForm customStyle={scss.input} name="location" placeholder="Type location" />
               <ErrorMessage name="location" />
@@ -59,14 +63,15 @@ export const ModalAddsPetSellSecondPage = (props) => {
               {props.data.category === 'sell' && (
                 <div>
                   <label htmlFor="price" className={scss.label}>
-                    Price<span className={scss.mark}>*</span>:
+                    {t('Price')}
+                    <span className={scss.mark}>*</span>:
                   </label>
                   <InputForm customStyle={scss.input} name="price" placeholder="Type price" />
                   <ErrorMessage name="price" />
                 </div>
               )}
 
-              <p className={scss.label}>Load the pet’s image:</p>
+              <p className={scss.label}>{t('Load the pet’s image:')}</p>
               <button type="button" className={scss.btnAddPhoto}>
                 <svg className={scss.crossBig}>
                   <use href={sprite + '#icon-blackCross'} />
@@ -74,15 +79,15 @@ export const ModalAddsPetSellSecondPage = (props) => {
                 <InputForm customStyle={scss.input_photo} name="petImage" type="file" />
               </button>
               <div className={scss.wrapTextarea}>
-                <label className={scss.label}>Comments</label>
+                <label className={scss.label}>{t('Comments')}</label>
                 <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Type comments" />
               </div>
               <div className={scss.btnWrap}>
                 <button type="submit" className={scss.buttonFill}>
-                  Done
+                  {t('Done')}
                 </button>
                 <button type="button" onClick={props.prev} className={scss.buttonEmpty}>
-                  Back
+                  {t('Back')}
                 </button>
               </div>
             </Form>
