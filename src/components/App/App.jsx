@@ -12,7 +12,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PublicRoutes from 'components/PublicRoutes';
 
-
 const Home = lazy(() => import('pages/Home'));
 const Register = lazy(() => import('pages/Register'));
 const UserPage = lazy(() => import('pages/UserPage'));
@@ -25,19 +24,8 @@ const NoticesCategoriesList = lazy(() => import('components/Notices/NoticesCateg
 function App() {
   const { getToken } = selectors;
   const token = useSelector(getToken);
-  // console.log(token);
+
   useGetCurrentUserQuery(undefined, { skip: !token });
-
-  // const [isBigLoader, setIsBigLoader] = useState(false);
-
-  // useEffect(() => {
-  //   const witdthScren = document.querySelector('body').scrollWidth;
-  //   if (witdthScren > 880) {
-  //     setIsBigLoader(true);
-  //   }
-  // }, [setIsBigLoader]);
-
-  // console.log(isBigLoader);
 
   return (
     <>

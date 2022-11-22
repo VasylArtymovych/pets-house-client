@@ -14,6 +14,7 @@
   background: #ffffff;
   border: none;
   box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
+  z-index: -1;
 
   @media screen and (max-width: $breakpoint768) {
     min-width: 280px;
@@ -42,15 +43,6 @@
   position: absolute;
   top: 10px;
   right: 3%;
-  z-index: 1;
-
-  @media screen and (max-width: $breakpoint768) {
-    // right: 14px;
-  }
-
-  @media screen and (min-width: $breakpoint992) {
-    // right: 20%;
-  }
 }
 
 .searchBar__input_icon {

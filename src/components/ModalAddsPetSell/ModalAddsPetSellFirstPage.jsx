@@ -1,14 +1,18 @@
-import { InputForm } from 'components/Input';
 import { ErrorMessage, Form, Formik, Field } from 'formik';
 import * as Yup from 'yup';
-import sprite from '../../images/symbol-defs.svg';
+import PetsIcon from '@mui/icons-material/Pets';
+import { InputForm } from 'components/Input';
 import scss from './ModalAddsPetSell.module.scss';
-
 
 const stepOneValidationSchema = Yup.object({
   title: Yup.string().required('Required'),
   name: Yup.string().required('Required'),
-  dateOfBirth: Yup.date().nullable().min(new Date(1900, 0, 1)),
+  dateOfBirth: Yup.string()
+    .matches(
+      /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/,
+      'Incorrect date format'
+    )
+    .required('Required'),
   breed: Yup.string().required('Required')
 });
 
@@ -19,9 +23,7 @@ export const ModalAddsPetSellFirstPage = (props) => {
   return (
     <div className={scss.container}>
       <button type="button" onClick={props.closeModal} className={scss.btnClose}>
-        <svg className={scss.crossSmall}>
-          <use href={sprite + '#icon-blackCross'} />
-        </svg>
+        <PetsIcon />
       </button>
       <h3 className={scss.title}>Add pet</h3>
 
@@ -32,14 +34,20 @@ export const ModalAddsPetSellFirstPage = (props) => {
               <p className={scss.text}>Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur</p>
 
               <div className={scss.btnContainer}>
-                 <Field className={scss.radioInput} name="category" type="radio" id="lostFound" value="lostFound"/>
-                 <label htmlFor="lostFound" className={scss.label_radio_medium + " " + scss.activ}>lost/found</label>
+                <Field className={scss.radioInput} name="category" type="radio" id="lostFound" value="lostFound" />
+                <label htmlFor="lostFound" className={scss.label_radio_medium + ' ' + scss.activ}>
+                  lost/found
+                </label>
 
-                 <Field className={scss.radioInput} name="category" type="radio" id="inGoodHands" value="inGoodHands" />
-                 <label htmlFor="inGoodHands" className={scss.label_radio_big + " " + scss.activ}>In good hands</label>
-                
-                 <Field className={scss.radioInput} name="category" type="radio" id="sell" value="sell"/>
-                 <label htmlFor="sell" className={scss.label_radio_small + " " + scss.activ}>sell</label>
+                <Field className={scss.radioInput} name="category" type="radio" id="inGoodHands" value="inGoodHands" />
+                <label htmlFor="inGoodHands" className={scss.label_radio_big + ' ' + scss.activ}>
+                  In good hands
+                </label>
+
+                <Field className={scss.radioInput} name="category" type="radio" id="sell" value="sell" />
+                <label htmlFor="sell" className={scss.label_radio_small + ' ' + scss.activ}>
+                  sell
+                </label>
               </div>
 
               <label htmlFor="title" className={scss.label}>
