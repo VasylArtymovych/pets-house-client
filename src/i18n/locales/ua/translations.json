@@ -55,10 +55,11 @@
     "Your password has been changed.": "Ваш пароль був змінений.",
     "Please,": "Будь ласка,",
     "Please, try again": "Будь ласка спробуйте ще раз",
-    "Name pet": "Назвіть тваринку",
+    "Name pet": "Ім'я улюбленця",
     "Date of birth": "Дата народження",
     "Add photo and some comments": "Додайте фото та кілька коментарів",
     "Done": "Готово",
     "First Page": "Перша сторінка",
-    "Second Page": "Друга сторінка"
+    "Second Page": "Друга сторінка",
+    "Tittle of ad": "Назва оголошення"
 }
