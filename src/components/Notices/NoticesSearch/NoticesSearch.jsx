@@ -4,8 +4,10 @@ import css from './NoticesSearch.module.scss';
 
 import sprite from '../../../images/symbol-defs.svg';
 import scss from '../LearnMoreModal/LearnMoreModal.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const NoticesSearch = () => {
+  const { t } = useTranslation();
   const onChange = (event) => {
     event.preventDefault();
   };
@@ -15,7 +17,7 @@ const NoticesSearch = () => {
         <Input
           name="findpet"
           type="text"
-          placeholder="Search"
+          placeholder={t('Search')}
           customStyle={css.searchBar__input}
           onChange={onChange}
           label={

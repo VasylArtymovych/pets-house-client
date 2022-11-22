@@ -5,12 +5,14 @@ import AddNoticeButton from 'components/Notices/AddNoticeButton';
 import styles from './FindPet.module.scss';
 import Container from 'components/Container';
 import { Outlet } from 'react-router-dom/dist';
+import { useTranslation } from 'react-i18next';
 
 const FindPet = () => {
+  const { t } = useTranslation();
   return (
     <>
       <Container>
-        <h1 className={styles.title__findpet}>Find your favorite pet</h1>
+        <h1 className={styles.title__findpet}>{t('Find your favorite pet')}</h1>
         <NoticesSearch />
         <div className={styles.navContainer__findpet}>
           <NoticesCategoriesNav />
