@@ -3,10 +3,13 @@ import scss from './PetsData.module.scss';
 import { useTranslation } from 'react-i18next';
 
 import { useGetUserPetsQuery } from 'redux/fetchPets';
+import { selectors } from 'redux/selectors';
+import { useSelector } from 'react-redux';
 
 const PetsData = () => {
   const { t } = useTranslation();
-  const { data, isFetching } = useGetUserPetsQuery();
+  const token = useSelector(selectors.getToken);
+  const { data, isFetching } = useGetUserPetsQuery(token, { skip: !token });
 
   return (
     <ul className={scss.pets__container}>

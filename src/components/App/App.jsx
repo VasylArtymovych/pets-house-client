@@ -25,7 +25,7 @@ function App() {
   const { getToken } = selectors;
   const token = useSelector(getToken);
 
-  useGetCurrentUserQuery(undefined, { skip: !token });
+  useGetCurrentUserQuery(token, { skip: !token });
 
   return (
     <>

@@ -91,9 +91,10 @@ export const authSlice = createSlice({
       state.loadUser = true;
     });
     builder.addMatcher(userApi.endpoints.getCurrentUser.matchRejected, (state, { payload }) => {
-      if (payload?.status === 401) {
+      if (payload?.data.additionalInfo === 'Provide valid token' || payload?.data.additionalInfo === 'jwt') {
         state.token = ``;
         state.loadUser = false;
+        state.isLogged = false;
       }
     });
     builder.addMatcher(userApi.endpoints.logOut.matchPending, (state) => {
