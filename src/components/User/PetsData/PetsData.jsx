@@ -10,7 +10,7 @@ const PetsData = () => {
 
   return (
     <ul className={scss.pets__container}>
-      {!isFetching && data.pets.length > 0 ? (
+      {data && !isFetching && data.pets.length > 0 ? (
         data.pets.map((pet) => (
           <li className={scss.pets__item} key={pet._id}>
             <PetsList {...pet} />
