@@ -25,20 +25,22 @@ const NoticeCategoryItem = ({
   place,
   age,
   price,
-  myads,
   refetchUser
 }) => {
   const { t } = useTranslation();
   const { isModalOpen, closeModal, toggleModal } = useModal();
 
   const userFavorites = useSelector(selectors.getFavorites);
+  const userAds = useSelector(selectors.getUserNotices);
 
   const favorite = userFavorites.includes(_id);
+  const myads = userAds.includes(_id);
 
   const [addToFavorites] = useAddToFavoritesMutation();
   const [deleteFromFavorites] = useDeleteFromFavoritesMutation();
   const [deleteUserNoticeById] = useDeleteUserNoticeByIdMutation();
   const [isFavorite, setIsFavorite] = useState(favorite);
+  const [isOwn, setIsOwn] = useState(myads);
 
   const normilizeCategory = (category) => {
     switch (category) {
@@ -55,7 +57,7 @@ const NoticeCategoryItem = ({
 
   useEffect(() => {
     refetchUser();
-  }, [refetchUser, isFavorite]);
+  }, [refetchUser, isFavorite, isOwn]);
 
   const calculatedogAge = (age) => {
     const dogAge = moment(age, 'DD.MM.YYYY').fromNow().slice(0, -4);
@@ -63,6 +65,7 @@ const NoticeCategoryItem = ({
   };
 
   const handleAddToFavorites = (event) => {
+    console.log(event);
     const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
 
     addToFavorites(cardId);
@@ -80,6 +83,7 @@ const NoticeCategoryItem = ({
     const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
 
     deleteUserNoticeById(cardId);
+    setIsOwn(false);
   };
 
   return (

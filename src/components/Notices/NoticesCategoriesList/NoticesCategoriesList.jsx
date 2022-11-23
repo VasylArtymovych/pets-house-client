@@ -15,7 +15,7 @@ import { useOutletContext } from 'react-router-dom';
 const NoticesCategoriesList = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
-  const userAds = useSelector(selectors.getUserNotices);
+
   const isLogged = useSelector(selectors.isLogged);
 
   let [petsByWord] = useOutletContext();
@@ -47,6 +47,8 @@ const NoticesCategoriesList = () => {
   let { data: userNotices } = useGetUserNoticesQuery(isLogged ? null : skipToken);
 
   const [pets, setPets] = useState(null);
+
+  console.log(pets);
 
   useEffect(() => {
     if (data || favorites || userNotices) {
@@ -93,8 +95,6 @@ const NoticesCategoriesList = () => {
           {petsByWord
             ? petsByWord.map(
                 ({ _id, name, owner, comments = 'There is no comments', sex, category, petImage, title, breed, location, dateOfBirth, price }) => {
-                  const myads = userAds.includes(_id);
-
                   return (
                     <NoticeCategoryItem
                       key={_id}
@@ -110,7 +110,6 @@ const NoticesCategoriesList = () => {
                       place={location}
                       price={price}
                       age={dateOfBirth}
-                      myads={myads}
                       refetchUser={refetch}
                     />
                   );
@@ -118,8 +117,6 @@ const NoticesCategoriesList = () => {
               )
             : pets.map(
                 ({ _id, name, owner, comments = 'There is no comments', sex, category, petImage, title, breed, location, dateOfBirth, price }) => {
-                  const myads = userAds.includes(_id);
-
                   return (
                     <NoticeCategoryItem
                       key={_id}
@@ -135,7 +132,6 @@ const NoticesCategoriesList = () => {
                       place={location}
                       price={price}
                       age={dateOfBirth}
-                      myads={myads}
                       refetchUser={refetch}
                     />
                   );
