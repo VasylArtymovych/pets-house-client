@@ -270,6 +270,20 @@
     // border: 1px solid green;
 }
 
+.avatar__img {
+    min-width: 182px;
+    min-height: 182px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+    @media screen and (min-width: 768px) {
+      margin-bottom: 80px;
+    }
+  }
+
 .text {
     text-align: center;
     font-weight: 500;
@@ -380,4 +394,5 @@
         margin-top: 12px;
     }
 }
+
 
