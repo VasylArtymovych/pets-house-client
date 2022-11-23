@@ -18,7 +18,6 @@ export const ModalAddsPetSecondPage = props => {
 
       const fileUploaded = e.target.files[0];
       setImg(URL.createObjectURL(fileUploaded));
-      
       setFile(fileUploaded);
     }
 
@@ -30,8 +29,6 @@ export const ModalAddsPetSecondPage = props => {
       fileImg.append('petImage', file);
       fileImg.append('comments', comments);
 
-  // const newValue = { name, dateOfBirth, breed, petImage: file, comments };
-  // console.log(newValue);
   props.next(fileImg, true);
   props.closeModal();
  };
