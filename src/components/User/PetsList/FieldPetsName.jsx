@@ -1,8 +1,10 @@
-import { Input } from 'components/Input';
-import { useState } from 'react';
-import sprite from '../../../images/symbol-defs.svg';
-import scss from './PetsList.module.scss';
 import { useUpdatePetMutation } from 'redux/fetchPets';
+import { useState } from 'react';
+
+import { Input } from 'components/Input';
+
+import sprite from 'images/symbol-defs.svg';
+import scss from './PetsList.module.scss';
 
 const FieldPetsName = ({ text, value, onIsUpdate, _id }) => {
   const [isUpdate, setIsUpdate] = useState(onIsUpdate);

@@ -1,14 +1,16 @@
+import { useModal } from 'hooks';
+import { useTranslation } from 'react-i18next';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Container from 'components/Container';
 import Modal from 'components/Modal';
 import { ModalAddsPet } from 'components/ModalAddsPet';
 import { Logout } from 'components/User/Logout';
 import PetsData from 'components/User/PetsData';
 import UserData from 'components/User/UserData';
-import { useModal } from 'hooks';
-import { useTranslation } from 'react-i18next';
 
-import sprite from '../../images/symbol-defs.svg';
-
+import sprite from 'images/symbol-defs.svg';
 import scss from './UserPage.module.scss';
 
 const UserPage = () => {
@@ -43,6 +45,7 @@ const UserPage = () => {
           )}
         </div>
       </div>
+      <ToastContainer autoClose={3000} />
     </Container>
   );
 };

@@ -1,10 +1,11 @@
-import PetsList from '../PetsList';
-import scss from './PetsData.module.scss';
 import { useTranslation } from 'react-i18next';
-
 import { useGetUserPetsQuery } from 'redux/fetchPets';
 import { selectors } from 'redux/selectors';
 import { useSelector } from 'react-redux';
+
+import PetsList from '../PetsList';
+
+import scss from './PetsData.module.scss';
 
 const PetsData = () => {
   const { t } = useTranslation();

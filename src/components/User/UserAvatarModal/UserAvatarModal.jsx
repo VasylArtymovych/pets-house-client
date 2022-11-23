@@ -1,23 +1,23 @@
 import { useState } from 'react';
 import { useUpdateUserAvatarMutation } from 'redux/fetchUser';
-import scss from './UserAvatarModal.module.scss';
-import sprite from '../../../images/symbol-defs.svg';
 import { useTranslation } from 'react-i18next';
+import { HOST } from 'config';
+
+import sprite from 'images/symbol-defs.svg';
+import scss from './UserAvatarModal.module.scss';
 
 const UserAvatarModal = ({ onCloseModal, onAvatarImg }) => {
   const { t } = useTranslation();
   const [img, setImg] = useState(onAvatarImg);
   const [file, setFile] = useState(null);
-  // console.log(file);
+
   const [updateUserAvatar] = useUpdateUserAvatarMutation();
 
   const imageHandler = async (e) => {
-    // console.log('img', img);
     const fileUploaded = e.target.files[0];
     setImg(URL.createObjectURL(fileUploaded));
     const file = new FormData();
     file.append('avatar', fileUploaded);
-    console.log('avatar', file);
     setFile(file);
   };
 
@@ -37,7 +37,7 @@ const UserAvatarModal = ({ onCloseModal, onAvatarImg }) => {
           {img ? (
             <img className={scss.avatar__img} src={img} alt="avatar" />
           ) : (
-            <img className={scss.avatar__img} src={`http://localhost:8888/${img}`} alt="avatar" />
+            <img className={scss.avatar__img} src={`${HOST}/${img}`} alt="avatar" />
           )}
         </div>
 
@@ -52,11 +52,6 @@ const UserAvatarModal = ({ onCloseModal, onAvatarImg }) => {
 
             <span className={scss.input__buttonText}>{t('Select a file')}</span>
           </label>
-          {/* <button className={scss.input__fileIconDelete} type="button">
-            <svg className={scss.input__iconDelete}>
-              <use href={sprite + '#icon-remov-pets'} />
-            </svg>
-          </button> */}
         </div>
         <button className={scss.save__avatar} type="submit" onClick={ImageSaveClick}>
           {t('Save')}
