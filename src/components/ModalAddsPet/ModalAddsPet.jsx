@@ -10,7 +10,7 @@ export const ModalAddsPet = (props) => {
     name: '',
     dateOfBirth: '',
     breed: '',
-    petImage: '',
+    // petImage: '',
     comments: ''
   });
   const [page, setPage] = useState(0);
