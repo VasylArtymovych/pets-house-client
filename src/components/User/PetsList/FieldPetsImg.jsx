@@ -1,20 +1,16 @@
 import scss from './PetsList.module.scss';
 import sprite from '../../../images/symbol-defs.svg';
-import { useUpdatePetMutation } from 'redux/fetchPets';
+import { useAddAvatarToPetMutation } from 'redux/fetchPets';
 
 const FieldPetsImg = ({ petImage, _id }) => {
-  console.log(petImage);
-
-  const [updatePet] = useUpdatePetMutation();
+  const [addAvatarToPet] = useAddAvatarToPetMutation();
 
   const imageHandler = async (e) => {
     const fileUploaded = e.target.files[0];
     const file = new FormData();
     file.append('petImage', fileUploaded);
-    // file.append('_id', _id);
-    console.log(file);
-    // updatePet({ _id, ...file });
-    updatePet({ _id, petImage: file });
+
+    addAvatarToPet({ _id, petImage: file });
   };
 
   return (
