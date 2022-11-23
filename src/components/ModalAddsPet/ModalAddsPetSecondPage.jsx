@@ -18,15 +18,21 @@ export const ModalAddsPetSecondPage = props => {
 
       const fileUploaded = e.target.files[0];
       setImg(URL.createObjectURL(fileUploaded));
-      const fileImg = new FormData();
-      fileImg.append('petImage', fileUploaded);
-      setFile(fileImg);
+      
+      setFile(fileUploaded);
     }
 
  const handleSubmit = ({ name, dateOfBirth, breed, comments }) => {
-  const newValue = { name, dateOfBirth, breed, petImage: file, comments };
-  console.log(newValue);
-  props.next(newValue, true);
+  const fileImg = new FormData();
+      fileImg.append('name', name);
+      fileImg.append('dateOfBirth', dateOfBirth);
+      fileImg.append('breed', breed);
+      fileImg.append('petImage', file);
+      fileImg.append('comments', comments);
+
+  // const newValue = { name, dateOfBirth, breed, petImage: file, comments };
+  // console.log(newValue);
+  props.next(fileImg, true);
   props.closeModal();
  };
  return (
