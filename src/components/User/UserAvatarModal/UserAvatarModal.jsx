@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { useUpdateUserAvatarMutation } from 'redux/fetchUser';
 import scss from './UserAvatarModal.module.scss';
 import sprite from '../../../images/symbol-defs.svg';
+import { useTranslation } from 'react-i18next';
 
 const UserAvatarModal = ({ onCloseModal, onAvatarImg }) => {
+  const { t } = useTranslation();
   const [img, setImg] = useState(onAvatarImg);
   const [file, setFile] = useState(null);
   // console.log(file);
@@ -48,7 +50,7 @@ const UserAvatarModal = ({ onCloseModal, onAvatarImg }) => {
               </svg>
             </span>
 
-            <span className={scss.input__buttonText}>Select a file</span>
+            <span className={scss.input__buttonText}>{t('Select a file')}</span>
           </label>
           {/* <button className={scss.input__fileIconDelete} type="button">
             <svg className={scss.input__iconDelete}>
@@ -57,7 +59,7 @@ const UserAvatarModal = ({ onCloseModal, onAvatarImg }) => {
           </button> */}
         </div>
         <button className={scss.save__avatar} type="submit" onClick={ImageSaveClick}>
-          Save
+          {t('Save')}
         </button>
       </div>
     </div>

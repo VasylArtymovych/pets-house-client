@@ -6,8 +6,10 @@ import Modal from 'components/Modal';
 import { toast } from 'react-toastify';
 import sprite from '../../../images/symbol-defs.svg';
 import { ModalAddsPetSell } from 'components/ModalAddsPetSell';
+import { useTranslation } from 'react-i18next';
 
 const AddNoticeButton = () => {
+  const { t } = useTranslation();
   const isLogged = useSelector((state) => state.users.isLogged);
   console.log(isLogged);
   const { isModalOpen, closeModal, toggleModal } = useModal();
@@ -29,8 +31,8 @@ const AddNoticeButton = () => {
         </Modal>
       )}
       <div className={styles.AddNoticeButton__container}>
-        <span className={styles.AddNoticeButton__span}>Add</span>
-        <span className={styles.AddNoticeButton__span}>&nbsp;pet</span>
+        <span className={styles.AddNoticeButton__span}>{t('Add')}</span>
+        <span className={styles.AddNoticeButton__span}>&nbsp;{t('pet')}</span>
         <button type="button" className={styles.AddNoticeButton__button} onClick={buttonSwitch}>
           <svg className={styles.AddNoticeButton__svg}>
             <use href={sprite + '#icon-plus'} />

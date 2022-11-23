@@ -17,4 +17,5 @@ export const selectors={
     isErrorRegistration: state=> state.users.errorRegistration,
     getNotices: state=> state.notices.onFilterNotice,
     getNews:state=>state.news.onFilterNews,
+    stateUserPets:state=>state.pets.petsFinded,
 }

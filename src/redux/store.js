@@ -5,6 +5,7 @@ import { userApi } from "./fetchUser";
 import { noticeApi } from "./fetchNotice";
 import { petsApi } from "./fetchPets";
 import { newsApi } from "./fetchNews";
+import {petsUserReducer} from "./slicePets";
 import { sponsorsApi } from "./fetchSponsors";
 import { newsReducer } from "./sliceNews";
 
@@ -26,6 +27,7 @@ export const store= configureStore({
         [newsApi.reducerPath]:newsApi.reducer,
         [sponsorsApi.reducerPath]:sponsorsApi.reducer,
         [petsApi.reducerPath]:petsApi.reducer,
+        userPets:petsUserReducer,
         news:newsReducer,
 },
 middleware: getDefaultMiddleware=>

@@ -11,8 +11,8 @@ const initialState = {
     city: null,
     phone: null,
     id: null,
-    avatar:null,
-    birthday:null,
+    avatar: null,
+    birthday: null,
     pets: [],
     notices: [],
     favorites: []
@@ -35,8 +35,8 @@ export const authSlice = createSlice({
       state.user.city = user.city;
       state.user.phone = user.phone;
       state.user.id = user._id;
-      state.user.avatar= user.avatar;
-      state.user.birthday= user.birthday
+      state.user.avatar = user.avatar;
+      state.user.birthday = user.birthday;
       state.user.pets = user.pets;
       state.user.notices = user.notices;
       state.user.favorites = user.favorites;
@@ -50,7 +50,7 @@ export const authSlice = createSlice({
     });
     builder.addMatcher(userApi.endpoints.logIn.matchRejected, (state, { payload }) => {
       if (payload?.status === 400) {
-        state.loadUser= false;
+        state.loadUser = false;
         state.errorServer = true;
       }
     });
@@ -69,12 +69,12 @@ export const authSlice = createSlice({
     });
     builder.addMatcher(userApi.endpoints.registrationUser.matchRejected, (state, { payload }) => {
       if (payload?.status === 400) {
-        state.loadUser= false;
+        state.loadUser = false;
         state.errorRegistration = true;
       }
     });
     builder.addMatcher(userApi.endpoints.getCurrentUser.matchFulfilled, (state, { payload }) => {
-      const { email, name, city, phone,avatar,birthday, pets, notices, favorites } = payload.user;
+      const { email, name, city, phone, avatar, birthday, pets, notices, favorites } = payload.user;
       state.user.email = email;
       state.user.name = name;
       state.user.city = city;
@@ -93,13 +93,16 @@ export const authSlice = createSlice({
     builder.addMatcher(userApi.endpoints.getCurrentUser.matchRejected, (state, { payload }) => {
       if (payload?.status === 401) {
         state.token = ``;
-        state.loadUser= false;
+        state.loadUser = false;
       }
     });
     builder.addMatcher(userApi.endpoints.logOut.matchPending, (state) => {
       state.loadUser = true;
     });
     builder.addMatcher(userApi.endpoints.logOut.matchFulfilled, () => {
+      return { ...initialState };
+    });
+    builder.addMatcher(userApi.endpoints.logOut.matchRejected, () => {
       return { ...initialState };
     });
     builder.addMatcher(userApi.endpoints.updateUser.matchFulfilled, (state, { payload }) => {
@@ -123,7 +126,7 @@ export const authSlice = createSlice({
     builder.addMatcher(userApi.endpoints.updateUser.matchRejected, (state, { payload }) => {
       if (payload?.status === 400) {
         state.errorServer = true;
-        state.loadUser= false;
+        state.loadUser = false;
       }
     });
   }
@@ -132,10 +135,7 @@ export const authSlice = createSlice({
 const persistConfig = {
   key: 'users',
   storage,
-  whitelist: ['token', "isLogged"]
+  whitelist: ['token', 'isLogged']
 };
 
-
 export const persistSliceAuth = persistReducer(persistConfig, authSlice.reducer);
-
-
