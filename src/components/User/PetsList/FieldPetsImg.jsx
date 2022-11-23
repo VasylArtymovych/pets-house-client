@@ -5,14 +5,11 @@ import { useAddAvatarToPetMutation } from 'redux/fetchPets';
 const FieldPetsImg = ({ petImage, _id }) => {
   const [addAvatarToPet] = useAddAvatarToPetMutation();
 
-  console.log('idAll', _id);
-
-  const imageHandler = async (e, petId) => {
-    console.log('petId', petId);
+  const imageHandler = async (e) => {
     const fileUploaded = e.target.files[0];
     const file = new FormData();
     file.append('petImage', fileUploaded);
-    addAvatarToPet({ petId, petImage: file });
+    addAvatarToPet({ _id, petImage: file });
   };
 
   return (
@@ -21,21 +18,8 @@ const FieldPetsImg = ({ petImage, _id }) => {
         <img className={scss.pets__animalImg} src={`http://localhost:8888/${petImage}`} alt="pet" />
       </div>
       <div className={scss.pets__imgAdd}>
-        <input
-          className={scss.input__file}
-          type="file"
-          name="petImage"
-          id="input__animal"
-          // id={_id}
-          accept="image/*"
-          onChange={(e) => {
-            imageHandler(e, _id);
-            console.log('_id', _id);
-          }}
-        />
-
-        {/* htmlFor={_id} */}
-        <label className={scss.input__fileButton} htmlFor={'input__animal'}>
+        <input className={scss.input__file} type="file" name="petImage" id={_id} accept="image/*" onChange={(e) => imageHandler(e)} />
+        <label className={scss.input__fileButton} htmlFor={_id}>
           <svg className={scss.info__camera} width="30" height="30">
             <use href={sprite + '#icon-profilePhotoCamera'} />
           </svg>
