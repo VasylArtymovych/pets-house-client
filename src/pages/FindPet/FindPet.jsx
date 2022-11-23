@@ -13,10 +13,8 @@ const FindPet = () => {
   const [value, setValue] = useState('');
 
   const { data, refetch } = useGetNoticeByWordQuery(value, { skip: !value });
-  console.log(data);
 
   const petsByWord = data !== undefined ? data.notices : null;
-  console.log(petsByWord);
 
   useEffect(() => {
     if (!value) {

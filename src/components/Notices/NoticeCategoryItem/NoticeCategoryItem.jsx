@@ -65,22 +65,63 @@ const NoticeCategoryItem = ({
   };
 
   const handleAddToFavorites = (event) => {
-    console.log(event);
-    const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
+    let cardId;
+
+    switch (event.target.nodeName) {
+      case 'BUTTON':
+        cardId = event.target.parentElement.id;
+        break;
+      case 'svg':
+        cardId = event.target.parentElement.parentElement.id;
+        break;
+      case 'use':
+        cardId = event.target.parentElement.parentElement.parentElement.id;
+        break;
+      default:
+        break;
+    }
 
     addToFavorites(cardId);
     setIsFavorite(true);
   };
 
   const handleDeleteFromFavorites = (event) => {
-    const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
+    let cardId;
+
+    switch (event.target.nodeName) {
+      case 'BUTTON':
+        cardId = event.target.parentElement.id;
+        break;
+      case 'svg':
+        cardId = event.target.parentElement.parentElement.id;
+        break;
+      case 'use':
+        cardId = event.target.parentElement.parentElement.parentElement.id;
+        break;
+      default:
+        break;
+    }
 
     deleteFromFavorites(cardId);
     setIsFavorite(false);
   };
 
   const handleDeleteUserNotice = (event) => {
-    const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
+    let cardId;
+
+    switch (event.target.nodeName) {
+      case 'BUTTON':
+        cardId = event.target.parentElement.id;
+        break;
+      case 'svg':
+        cardId = event.target.parentElement.parentElement.id;
+        break;
+      case 'use':
+        cardId = event.target.parentElement.parentElement.parentElement.id;
+        break;
+      default:
+        break;
+    }
 
     deleteUserNoticeById(cardId);
     setIsOwn(false);
