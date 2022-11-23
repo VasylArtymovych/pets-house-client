@@ -27,20 +27,40 @@
     text-transform: uppercase;
   }
 }
+.pets__imgBox {
+  position: relative;
+  overflow: hidden;
+  width: 233px;
+  height: 233px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  margin: 0 auto 20px auto;
+  @media screen and (min-width: 768px) {
+    width: 161px;
+    height: 161px;
+    margin-bottom: 0;
+    margin-right: 22px;
+  }
+}
 .pets__animalImg {
   min-width: 240px;
   min-height: 240px;
   max-width: 240px;
   max-height: 240px;
-  margin: 0 auto 20px auto;
-  border-radius: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
   @media screen and (min-width: 768px) {
     min-width: 161px;
     min-height: 161px;
     max-width: 161px;
     max-height: 161px;
-    margin-bottom: 0;
-    margin-right: 22px;
   }
 }
 .pets__info {
@@ -52,8 +72,8 @@
   display: flex;
   flex-direction: column-reverse;
   position: absolute;
-  top: 265px;
-  right: 20px;
+  bottom: 15px;
+  right: 15px;
   @media screen and (min-width: 768px) {
     flex-direction: row;
     top: 20px;
