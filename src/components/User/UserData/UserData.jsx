@@ -1,13 +1,16 @@
-import UserDataItem from '../UserDataItem';
-import scss from './UserData.module.scss';
-import sprite from '../../../images/symbol-defs.svg';
-import DefaultAvatar from '../../../images/desctop/DefaultAvatar.png';
+import { useSelector } from 'react-redux';
+import { selectors } from 'redux/selectors.js';
+import { useTranslation } from 'react-i18next';
+import { HOST } from 'config';
 import { useModal } from 'hooks';
+
+import UserDataItem from '../UserDataItem';
 import Modal from 'components/Modal';
 import UserAvatarModal from '../UserAvatarModal';
-import { useSelector } from 'react-redux';
-import { selectors } from '../../../redux/selectors.js';
-import { useTranslation } from 'react-i18next';
+
+import DefaultAvatar from 'images/desctop/DefaultAvatar.png';
+import sprite from 'images/symbol-defs.svg';
+import scss from './UserData.module.scss';
 
 const UserData = () => {
   const { t } = useTranslation();
@@ -15,7 +18,7 @@ const UserData = () => {
 
   const avatar = useSelector(selectors.getUserAvatar);
 
-  const avatarImg = avatar ? `http://localhost:8888/${avatar}` : DefaultAvatar;
+  const avatarImg = avatar ? `${HOST}/${avatar}` : DefaultAvatar;
 
   return (
     <div className={scss.data__container}>

@@ -1,8 +1,10 @@
-import { Input } from 'components/Input';
 import { useState } from 'react';
-import sprite from '../../../images/symbol-defs.svg';
+import { useUpdateUserMutation } from 'redux/fetchUser';
+
+import { Input } from 'components/Input';
+
+import sprite from 'images/symbol-defs.svg';
 import scss from './Field.module.scss';
-import { useUpdateUserMutation } from '../../../redux/fetchUser';
 
 export const Field = ({ text, value }) => {
   const [isUpdate, setIsUpdate] = useState(false);

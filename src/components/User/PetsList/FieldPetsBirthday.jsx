@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useUpdatePetMutation } from 'redux/fetchPets';
-import Calendar from '../Calendar';
-import sprite from '../../../images/symbol-defs.svg';
-import scss from './PetsList.module.scss';
 import { useTranslation } from 'react-i18next';
+import Calendar from '../Calendar';
+
+import sprite from 'images/symbol-defs.svg';
+import scss from './PetsList.module.scss';
 
 const FieldPetsBirthday = ({ value, onIsUpdate, _id }) => {
   const { t } = useTranslation();

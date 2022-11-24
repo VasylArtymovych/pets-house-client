@@ -1,10 +1,11 @@
-import Button from 'components/Button';
-import CatInShrek from '../../../images/desctop/CatInShrek.png';
-import scss from './LogOutModal.module.scss';
-
-import { useLogOutMutation } from '../../../redux/fetchUser.js';
+import { useLogOutMutation } from 'redux/fetchUser.js';
 import useSound from 'use-sound';
 import { useTranslation } from 'react-i18next';
+
+import Button from 'components/Button';
+
+import CatInShrek from 'images/desctop/CatInShrek.png';
+import scss from './LogOutModal.module.scss';
 
 import catsound from 'sounds/00985.mp3';
 
@@ -12,6 +13,7 @@ export const LogOutModal = ({ onCloseModal }) => {
   const { t } = useTranslation();
   const [play] = useSound(catsound);
   const [LogOut] = useLogOutMutation();
+
   const handleLogoutClick = () => {
     LogOut();
     onCloseModal();

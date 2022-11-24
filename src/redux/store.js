@@ -9,7 +9,9 @@ import { noticeUserReducer } from './sliceNotice';
 import { sponsorsApi } from './fetchSponsors';
 import { newsReducer } from './sliceNews';
 
+
 import { persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
+
 
 export const store = configureStore({
   reducer: {
@@ -29,6 +31,7 @@ export const store = configureStore({
       }
     }).concat(userApi.middleware, noticeApi.middleware, petsApi.middleware, newsApi.middleware, sponsorsApi.middleware)
 });
+
 
 export const persistor = persistStore(store);
 

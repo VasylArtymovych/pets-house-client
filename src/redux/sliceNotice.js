@@ -23,3 +23,4 @@ export const sliceNotice = createSlice({
 export const { postToUserNotice } = sliceNotice.actions;
 
 export const noticeUserReducer = sliceNotice.reducer;
+

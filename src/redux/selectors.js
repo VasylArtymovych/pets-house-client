@@ -19,3 +19,4 @@ export const selectors = {
   getNews: (state) => state.news.onFilterNews,
   stateUserNotices: (state) => state.notice.noticesFinded
 };
+
