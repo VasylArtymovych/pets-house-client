@@ -1,9 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import styles from './AddNoticeButton.module.scss';
 import { useModal } from 'hooks';
 import Modal from 'components/Modal';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import sprite from '../../../images/symbol-defs.svg';
 import { ModalAddUserNotice } from 'components/ModalAddUserNotice';
 import { useTranslation } from 'react-i18next';
@@ -11,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 const AddNoticeButton = () => {
   const { t } = useTranslation();
   const isLogged = useSelector((state) => state.users.isLogged);
+  const navigate = useNavigate();
 
   const { isModalOpen, closeModal, toggleModal } = useModal();
 
@@ -19,7 +21,8 @@ const AddNoticeButton = () => {
       toggleModal();
       return;
     } else {
-      toast.warn(`You don't ask in respect or friendship. And you don't think to call me Godfather. To get started, you would do well to login. `);
+      navigate('/login');
+      return;
     }
   };
 

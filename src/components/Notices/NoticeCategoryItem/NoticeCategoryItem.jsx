@@ -1,12 +1,13 @@
 import { useModal } from 'hooks';
 import LearnMoreModal from '../LearnMoreModal';
+import { useNavigate } from 'react-router-dom';
 import styles from './NoticeCategoryItem.module.scss';
 import sprite from '../../../images/symbol-defs.svg';
 import moment from 'moment';
 import Modal from 'components/Modal';
-import { useAddToFavoritesMutation, useDeleteFromFavoritesMutation, useDeleteUserNoticeByIdMutation } from '../../../redux/fetchNotice';
+import { useAddToFavoritesMutation, useDeleteFromFavoritesMutation, useDeleteUserNoticeByIdMutation } from 'redux/fetchNotice';
 import { useSelector } from 'react-redux';
-import { selectors } from '../../../redux/selectors.js';
+import { selectors } from 'redux/selectors.js';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -25,10 +26,12 @@ const NoticeCategoryItem = ({
   place,
   age,
   price,
-  refetchUser
+  refetchUser,
+  isLogged
 }) => {
   const { t } = useTranslation();
   const { isModalOpen, closeModal, toggleModal } = useModal();
+  const navigate = useNavigate();
 
   const userFavorites = useSelector(selectors.getFavorites);
   const userAds = useSelector(selectors.getUserNotices);
@@ -56,8 +59,10 @@ const NoticeCategoryItem = ({
   };
 
   useEffect(() => {
+    if (!isLogged) return;
+
     refetchUser();
-  }, [refetchUser, isFavorite, isOwn]);
+  }, [refetchUser, isFavorite, isOwn, isLogged]);
 
   const calculatedogAge = (age) => {
     const dogAge = moment(age, 'DD.MM.YYYY').fromNow().slice(0, -4);
@@ -65,6 +70,11 @@ const NoticeCategoryItem = ({
   };
 
   const handleAddToFavorites = (event) => {
+    if (!isLogged) {
+      navigate('/login');
+      return;
+    }
+
     let cardId;
 
     switch (event.target.nodeName) {
