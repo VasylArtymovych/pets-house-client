@@ -57,7 +57,7 @@ export const ModalAddUserNoticeSecondPage = (props) => {
                   <span className={scss.mark}>*</span>:
                 </p>
                 <div className={scss.wrapIcon}>
-                  <Field className={scss.radioInput} name="sex" type="radio" id="male" value="male" checked={true} />
+                  <Field className={scss.radioInput} name="sex" type="radio" id="male" value="male" />
                   <label htmlFor="male" className={scss.labelGender + ' ' + scss.activGender}>
                     <svg className={scss.icon}>
                       <use href={sprite + '#icon-male'} />
