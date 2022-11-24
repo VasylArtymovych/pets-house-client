@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { HOST } from 'config';
 
 export const petsApi = createApi({
   reducerPath: 'petsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:8888/api/user',
+    baseUrl: `${HOST}/api/user`,
     prepareHeaders: (headers, { getState }) => {
       const token = getState()?.users.token;
       if (token) {

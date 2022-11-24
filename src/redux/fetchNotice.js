@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { HOST } from 'config';
 
 export const noticeApi = createApi({
   reducerPath: 'noticeApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:8888/api',
+    baseUrl: `${HOST}/api`,
     prepareHeaders: (headers, { getState }) => {
       const token = getState().users.token;
       if (token) {
