@@ -69,71 +69,71 @@ const NoticeCategoryItem = ({
     return dogAge;
   };
 
-  const handleAddToFavorites = (event) => {
+  const handleAddToFavorites = () => {
     if (!isLogged) {
       navigate('/login');
       return;
     }
 
-    let cardId;
+    // let cardId;
 
-    switch (event.target.nodeName) {
-      case 'BUTTON':
-        cardId = event.target.parentElement.id;
-        break;
-      case 'svg':
-        cardId = event.target.parentElement.parentElement.id;
-        break;
-      case 'use':
-        cardId = event.target.parentElement.parentElement.parentElement.id;
-        break;
-      default:
-        break;
-    }
+    // switch (event.target.nodeName) {
+    //   case 'BUTTON':
+    //     cardId = event.target.parentElement.id;
+    //     break;
+    //   case 'svg':
+    //     cardId = event.target.parentElement.parentElement.id;
+    //     break;
+    //   case 'use':
+    //     cardId = event.target.parentElement.parentElement.parentElement.id;
+    //     break;
+    //   default:
+    //     break;
+    // }
 
-    addToFavorites(cardId);
+    addToFavorites(_id);
     setIsFavorite(true);
   };
 
-  const handleDeleteFromFavorites = (event) => {
-    let cardId;
+  const handleDeleteFromFavorites = () => {
+    // let cardId;
 
-    switch (event.target.nodeName) {
-      case 'BUTTON':
-        cardId = event.target.parentElement.id;
-        break;
-      case 'svg':
-        cardId = event.target.parentElement.parentElement.id;
-        break;
-      case 'use':
-        cardId = event.target.parentElement.parentElement.parentElement.id;
-        break;
-      default:
-        break;
-    }
+    // switch (event.target.nodeName) {
+    //   case 'BUTTON':
+    //     cardId = event.target.parentElement.id;
+    //     break;
+    //   case 'svg':
+    //     cardId = event.target.parentElement.parentElement.id;
+    //     break;
+    //   case 'use':
+    //     cardId = event.target.parentElement.parentElement.parentElement.id;
+    //     break;
+    //   default:
+    //     break;
+    // }
 
-    deleteFromFavorites(cardId);
+    deleteFromFavorites(_id);
     setIsFavorite(false);
   };
 
-  const handleDeleteUserNotice = (event) => {
-    let cardId;
+  const handleDeleteUserNotice = () => {
+    // let cardId;
 
-    switch (event.target.nodeName) {
-      case 'BUTTON':
-        cardId = event.target.parentElement.id;
-        break;
-      case 'svg':
-        cardId = event.target.parentElement.parentElement.id;
-        break;
-      case 'use':
-        cardId = event.target.parentElement.parentElement.parentElement.id;
-        break;
-      default:
-        break;
-    }
+    // switch (event.target.nodeName) {
+    //   case 'BUTTON':
+    //     cardId = event.target.parentElement.id;
+    //     break;
+    //   case 'svg':
+    //     cardId = event.target.parentElement.parentElement.id;
+    //     break;
+    //   case 'use':
+    //     cardId = event.target.parentElement.parentElement.parentElement.id;
+    //     break;
+    //   default:
+    //     break;
+    // }
 
-    deleteUserNoticeById(cardId);
+    deleteUserNoticeById(_id);
     setIsOwn(false);
   };
 

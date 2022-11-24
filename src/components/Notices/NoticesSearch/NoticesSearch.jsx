@@ -3,9 +3,7 @@ import { toast } from 'react-toastify';
 import { Input } from '../../Input';
 import css from './NoticesSearch.module.scss';
 import sprite from 'images/symbol-defs.svg';
-import scss from '../LearnMoreModal/LearnMoreModal.module.scss';
 import { useTranslation } from 'react-i18next';
-
 
 const NoticesSearch = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
@@ -27,11 +25,10 @@ const NoticesSearch = ({ onSubmit }) => {
 
   return (
     <>
-
       <form onSubmit={handleSubmit} className={css.searchBar__input_wrap}>
-        <Input  name="findpet" type="text" value={query}  placeholder={t('Search')} customStyle={css.searchBar__input} onChange={handleInput} />
+        <Input name="findpet" type="text" value={query} placeholder={t('Search')} customStyle={css.searchBar__input} onChange={handleInput} />
         <button className={css.searchBar__input_button} type="submit">
-          <svg className={scss.iconHeart + ' ' + css.searchBar__input_icon}>
+          <svg className={css.iconHeart + ' ' + css.searchBar__input_icon}>
             <use href={sprite + '#icon-loupe'} />
           </svg>
         </button>
