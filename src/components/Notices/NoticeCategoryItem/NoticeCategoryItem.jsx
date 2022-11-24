@@ -25,20 +25,22 @@ const NoticeCategoryItem = ({
   place,
   age,
   price,
-  myads,
   refetchUser
 }) => {
   const { t } = useTranslation();
   const { isModalOpen, closeModal, toggleModal } = useModal();
 
   const userFavorites = useSelector(selectors.getFavorites);
+  const userAds = useSelector(selectors.getUserNotices);
 
   const favorite = userFavorites.includes(_id);
+  const myads = userAds.includes(_id);
 
   const [addToFavorites] = useAddToFavoritesMutation();
   const [deleteFromFavorites] = useDeleteFromFavoritesMutation();
   const [deleteUserNoticeById] = useDeleteUserNoticeByIdMutation();
   const [isFavorite, setIsFavorite] = useState(favorite);
+  const [isOwn, setIsOwn] = useState(myads);
 
   const normilizeCategory = (category) => {
     switch (category) {
@@ -55,7 +57,7 @@ const NoticeCategoryItem = ({
 
   useEffect(() => {
     refetchUser();
-  }, [refetchUser, isFavorite]);
+  }, [refetchUser, isFavorite, isOwn]);
 
   const calculatedogAge = (age) => {
     const dogAge = moment(age, 'DD.MM.YYYY').fromNow().slice(0, -4);
@@ -63,23 +65,66 @@ const NoticeCategoryItem = ({
   };
 
   const handleAddToFavorites = (event) => {
-    const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
+    let cardId;
+
+    switch (event.target.nodeName) {
+      case 'BUTTON':
+        cardId = event.target.parentElement.id;
+        break;
+      case 'svg':
+        cardId = event.target.parentElement.parentElement.id;
+        break;
+      case 'use':
+        cardId = event.target.parentElement.parentElement.parentElement.id;
+        break;
+      default:
+        break;
+    }
 
     addToFavorites(cardId);
     setIsFavorite(true);
   };
 
   const handleDeleteFromFavorites = (event) => {
-    const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
+    let cardId;
+
+    switch (event.target.nodeName) {
+      case 'BUTTON':
+        cardId = event.target.parentElement.id;
+        break;
+      case 'svg':
+        cardId = event.target.parentElement.parentElement.id;
+        break;
+      case 'use':
+        cardId = event.target.parentElement.parentElement.parentElement.id;
+        break;
+      default:
+        break;
+    }
 
     deleteFromFavorites(cardId);
     setIsFavorite(false);
   };
 
   const handleDeleteUserNotice = (event) => {
-    const cardId = event.target.parentElement.id === '' ? event.target.parentElement.parentElement.parentElement.id : event.target.parentElement.id;
+    let cardId;
+
+    switch (event.target.nodeName) {
+      case 'BUTTON':
+        cardId = event.target.parentElement.id;
+        break;
+      case 'svg':
+        cardId = event.target.parentElement.parentElement.id;
+        break;
+      case 'use':
+        cardId = event.target.parentElement.parentElement.parentElement.id;
+        break;
+      default:
+        break;
+    }
 
     deleteUserNoticeById(cardId);
+    setIsOwn(false);
   };
 
   return (
