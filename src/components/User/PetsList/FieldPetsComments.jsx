@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import sprite from '../../../images/symbol-defs.svg';
-import scss from './PetsList.module.scss';
 import { useUpdatePetMutation } from 'redux/fetchPets';
 import { useTranslation } from 'react-i18next';
+
+import sprite from 'images/symbol-defs.svg';
+import scss from './PetsList.module.scss';
 
 const FieldPetsComments = ({ value, onIsUpdate, _id }) => {
   const { t } = useTranslation();

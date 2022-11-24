@@ -67,7 +67,6 @@
   display: block;
   font-weight: 400;
 }
-
 .pats__btns {
   display: flex;
   flex-direction: column-reverse;
@@ -106,7 +105,6 @@
     background-color: var(--accent__color);
   }
 }
-
 .pets__deleteSvg {
   width: 16.5px;
   height: 16.5px;
@@ -288,7 +286,9 @@
     outline: none;
   }
 }
+
 //////comment///////
+
 .pets__commentInfo {
   display: block;
   width: 210px;
@@ -322,11 +322,12 @@
     width: 431px;
   }
 }
+
 ////img////
+
 .pets__imgContainer {
   position: relative;
 }
-
 .input__file {
   max-width: 0;
   opacity: 0;
@@ -342,7 +343,6 @@
     right: 15px;
   }
 }
-
 .input__fileButton {
   width: 50px;
   height: 50px;

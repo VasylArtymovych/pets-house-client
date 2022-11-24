@@ -1,9 +1,11 @@
-import scss from './Logout.module.scss';
-import sprite from '../../../images/symbol-defs.svg';
 import { useModal } from 'hooks';
+import { useTranslation } from 'react-i18next';
+
 import Modal from 'components/Modal';
 import { LogOutModal } from './LogOutModal';
-import { useTranslation } from 'react-i18next';
+
+import sprite from 'images/symbol-defs.svg';
+import scss from './Logout.module.scss';
 
 export const Logout = () => {
   const { t } = useTranslation();

@@ -1,7 +1,9 @@
-import { Field, FieldBirthday } from '../Field';
-import scss from './UserDataItem.module.scss';
 import { useSelector } from 'react-redux';
-import { selectors } from '../../../redux/selectors.js';
+import { selectors } from 'redux/selectors.js';
+
+import { Field, FieldBirthday } from '../Field';
+
+import scss from './UserDataItem.module.scss';
 
 const UserDataItem = () => {
   const { name, email, phone, city, birthday } = useSelector(selectors.getUserInfo);

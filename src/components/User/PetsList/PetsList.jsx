@@ -1,15 +1,24 @@
-import sprite from '../../../images/symbol-defs.svg';
-import scss from './PetsList.module.scss';
 import { useState } from 'react';
 import { useDeletePetMutation } from 'redux/fetchPets';
+import { toast } from 'react-toastify';
+
 import FieldPetsImg from './FieldPetsImg';
 import FieldPetsName from './FieldPetsName';
 import FieldPetsBirthday from './FieldPetsBirthday';
 import FieldPetsComments from './FieldPetsComments';
 
+import sprite from 'images/symbol-defs.svg';
+import scss from './PetsList.module.scss';
+
 const PetsList = ({ petImage, name, dateOfBirth, breed, comments, _id }) => {
   const [isUpdate, setIsUpdate] = useState(false);
   const [deletePet] = useDeletePetMutation();
+
+  const deletePets = () => {
+    deletePet(_id);
+    toast.success(`You deleted a pet, ${name}`);
+  };
+
   return (
     <>
       {isUpdate ? (
@@ -23,7 +32,7 @@ const PetsList = ({ petImage, name, dateOfBirth, breed, comments, _id }) => {
       ) : (
         <>
           <div className={scss.pats__btns}>
-            <button className={scss.pats__delete} type="button" onClick={() => deletePet(_id)}>
+            <button className={scss.pats__delete} type="button" onClick={deletePets}>
               <svg className={scss.pets__deleteSvg}>
                 <use href={sprite + '#icon-remov-pets'} />
               </svg>

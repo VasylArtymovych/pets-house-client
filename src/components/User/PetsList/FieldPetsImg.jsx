@@ -1,6 +1,8 @@
-import scss from './PetsList.module.scss';
-import sprite from '../../../images/symbol-defs.svg';
 import { useAddAvatarToPetMutation } from 'redux/fetchPets';
+import { HOST } from 'config';
+
+import sprite from 'images/symbol-defs.svg';
+import scss from './PetsList.module.scss';
 
 const FieldPetsImg = ({ petImage, _id }) => {
   const [addAvatarToPet] = useAddAvatarToPetMutation();
@@ -15,7 +17,7 @@ const FieldPetsImg = ({ petImage, _id }) => {
   return (
     <div className={scss.pets__imgContainer}>
       <div className={scss.pets__imgBox}>
-        <img className={scss.pets__animalImg} src={`http://localhost:8888/${petImage}`} alt="pet" />
+        <img className={scss.pets__animalImg} src={`${HOST}/${petImage}`} alt="pet" />
       </div>
       <div className={scss.pets__imgAdd}>
         <input className={scss.input__file} type="file" name="petImage" id={_id} accept="image/*" onChange={(e) => imageHandler(e)} />

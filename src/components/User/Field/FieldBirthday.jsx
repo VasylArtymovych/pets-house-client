@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import sprite from '../../../images/symbol-defs.svg';
+import { useUpdateUserMutation } from 'redux/fetchUser';
+
 import Calendar from '../Calendar';
+
+import sprite from 'images/symbol-defs.svg';
 import scss from './Field.module.scss';
-import { useUpdateUserMutation } from '../../../redux/fetchUser';
 
 export const FieldBirthday = ({ text, value }) => {
   const [isUpdate, setIsUpdate] = useState(false);
