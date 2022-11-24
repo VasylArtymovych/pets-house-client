@@ -5,13 +5,13 @@ import { useModal } from 'hooks';
 import Modal from 'components/Modal';
 import { toast } from 'react-toastify';
 import sprite from '../../../images/symbol-defs.svg';
-import { ModalAddsPetSell } from 'components/ModalAddsPetSell';
+import { ModalAddUserNotice } from 'components/ModalAddUserNotice';
 import { useTranslation } from 'react-i18next';
 
 const AddNoticeButton = () => {
   const { t } = useTranslation();
   const isLogged = useSelector((state) => state.users.isLogged);
-  console.log(isLogged);
+
   const { isModalOpen, closeModal, toggleModal } = useModal();
 
   const buttonSwitch = () => {
@@ -27,7 +27,7 @@ const AddNoticeButton = () => {
     <>
       {isModalOpen && (
         <Modal onCloseModal={closeModal} mode="dark">
-          {<ModalAddsPetSell onCloseModal={closeModal} />}
+          {<ModalAddUserNotice onCloseModal={closeModal} />}
         </Modal>
       )}
       <div className={styles.AddNoticeButton__container}>

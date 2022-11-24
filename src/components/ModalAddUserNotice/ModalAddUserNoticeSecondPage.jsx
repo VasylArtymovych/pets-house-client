@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import PetsIcon from '@mui/icons-material/Pets';
 import { Input, InputForm } from 'components/Input';
 import sprite from '../../images/symbol-defs.svg';
-import scss from './ModalAddsPetSell.module.scss';
+import scss from './ModalAddUserNotice.module.scss';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 
@@ -13,7 +13,7 @@ const stepTwoValidationSchema = Yup.object({
   comment: Yup.string()
 });
 
-export const ModalAddsPetSellSecondPage = (props) => {
+export const ModalAddUserNoticeSecondPage = (props) => {
   const { t } = useTranslation();
   const [img, setImg] = useState();
   const [file, setFile] = useState(null);
@@ -57,7 +57,7 @@ export const ModalAddsPetSellSecondPage = (props) => {
                   <span className={scss.mark}>*</span>:
                 </p>
                 <div className={scss.wrapIcon}>
-                  <Field className={scss.radioInput} name="sex" type="radio" id="male" value="male" checked />
+                  <Field className={scss.radioInput} name="sex" type="radio" id="male" value="male" checked={true} />
                   <label htmlFor="male" className={scss.labelGender + ' ' + scss.activGender}>
                     <svg className={scss.icon}>
                       <use href={sprite + '#icon-male'} />

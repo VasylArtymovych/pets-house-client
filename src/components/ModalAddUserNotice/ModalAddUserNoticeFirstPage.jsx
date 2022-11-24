@@ -2,7 +2,7 @@ import { ErrorMessage, Form, Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import PetsIcon from '@mui/icons-material/Pets';
 import { InputForm } from 'components/Input';
-import scss from './ModalAddsPetSell.module.scss';
+import scss from './ModalAddUserNotice.module.scss';
 import { useTranslation } from 'react-i18next';
 
 const stepOneValidationSchema = Yup.object({
@@ -17,7 +17,7 @@ const stepOneValidationSchema = Yup.object({
   breed: Yup.string().required('Required')
 });
 
-export const ModalAddsPetSellFirstPage = (props) => {
+export const ModalAddUserNoticeFirstPage = (props) => {
   const { t } = useTranslation();
   const handleSubmit = (values) => {
     props.next(values, true);
@@ -36,8 +36,8 @@ export const ModalAddsPetSellFirstPage = (props) => {
               <p className={scss.text}>Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur</p>
 
               <div className={scss.btnContainer}>
-                <Field className={scss.radioInput} name="category" type="radio" id="lostFound" value="lostFound" />
-                <label htmlFor="lostFound" className={scss.label_radio_medium + ' ' + scss.activ}>
+                <Field className={scss.radioInput} name="category" type="radio" id="lost-found" value="lost-found" />
+                <label htmlFor="lost-found" className={scss.label_radio_medium + ' ' + scss.activ}>
                   lost/found
                 </label>
 
