@@ -2,15 +2,14 @@
 import { useLocation } from 'react-router-dom';
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { skipToken } from '@reduxjs/toolkit/query';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import NoticeCategoryItem from 'components/Notices/NoticeCategoryItem';
 import styles from './NoticesCategoriesList.module.scss';
 import { useGetNoticeQuery, useGetNoticeFavoritesQuery, useGetUserNoticesQuery } from 'redux/fetchNotice';
 import { useGetCurrentUserQuery } from 'redux/fetchUser';
 import { selectors } from 'redux/selectors';
-import { postToUserNotice } from 'redux/sliceNotice';
+// import { postToUserNotice } from 'redux/sliceNotice';
 import { HOST } from 'config';
 // import { useOutletContext } from 'react-router-dom';
 
@@ -19,7 +18,7 @@ const NoticesCategoriesList = () => {
   const { pathname } = useLocation();
 
   const isLogged = useSelector(selectors.isLogged);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const petsByWord = useSelector(selectors.stateUserNotices);
   // let [petsByWord] = useOutletContext();
 
@@ -41,13 +40,13 @@ const NoticesCategoriesList = () => {
   };
   const category = renderCategory();
 
-  let { refetch } = useGetCurrentUserQuery(isLogged ? null : skipToken);
+  let { refetch } = useGetCurrentUserQuery(isLogged, { skip: !isLogged });
 
   let { data } = useGetNoticeQuery(category);
 
-  let { data: favorites } = useGetNoticeFavoritesQuery(isLogged ? null : skipToken);
+  let { data: favorites } = useGetNoticeFavoritesQuery(isLogged, { skip: !isLogged });
 
-  let { data: userNotices } = useGetUserNoticesQuery(isLogged ? null : skipToken);
+  let { data: userNotices } = useGetUserNoticesQuery(isLogged, { skip: !isLogged });
 
   const [pets, setPets] = useState(null);
 
@@ -87,7 +86,7 @@ const NoticesCategoriesList = () => {
   //   setPets(petsByWord);
   //   [petsByWord] = null;
   // }
-  // console.log(pets);
+  console.log(pets);
   return (
     <div className={styles.NoticesCategoriesList__Container}>
       {pets && pets.length !== 0 ? (
@@ -112,6 +111,7 @@ const NoticesCategoriesList = () => {
                       price={price}
                       age={dateOfBirth}
                       refetchUser={refetch}
+                      isLogged={isLogged}
                     />
                   );
                 }
@@ -134,6 +134,7 @@ const NoticesCategoriesList = () => {
                       price={price}
                       age={dateOfBirth}
                       refetchUser={refetch}
+                      isLogged={isLogged}
                     />
                   );
                 }
