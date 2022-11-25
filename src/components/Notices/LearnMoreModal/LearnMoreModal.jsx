@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import PetsIcon from '@mui/icons-material/Pets';
 import scss from './LearnMoreModal.module.scss';
 import Button from 'components/Button';
 import style from '../../Button/Button.module.scss';
+import { useSelector } from 'react-redux';
 import { useAddToFavoritesMutation, useDeleteFromFavoritesMutation } from '../../../redux/fetchNotice';
 
 import sprite from '../../../images/symbol-defs.svg';
@@ -28,14 +30,27 @@ const LearnMore = ({
   const [addToFavorites] = useAddToFavoritesMutation();
   const [deleteFromFavorites] = useDeleteFromFavoritesMutation();
 
+  const isLogged = useSelector((state) => state.users.isLogged);
+  const navigate = useNavigate();
+
   const handleAddToFavorites = () => {
-    addToFavorites(_id);
-    setIsFavorite(true);
+    if (!isLogged) {
+      navigate('/login');
+      return;
+    } else {
+      addToFavorites(_id);
+      setIsFavorite(true);
+    }
   };
 
   const handleDeleteFromFavorites = () => {
-    deleteFromFavorites(_id);
-    setIsFavorite(false);
+    if (!isLogged) {
+      navigate('/login');
+      return;
+    } else {
+      deleteFromFavorites(_id);
+      setIsFavorite(false);
+    }
   };
 
   return (
