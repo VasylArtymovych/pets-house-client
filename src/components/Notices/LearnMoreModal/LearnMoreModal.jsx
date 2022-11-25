@@ -32,6 +32,7 @@ const LearnMore = ({
     addToFavorites(_id);
     setIsFavorite(true);
   };
+
   const handleDeleteFromFavorites = () => {
     deleteFromFavorites(_id);
     setIsFavorite(false);
@@ -74,8 +75,8 @@ const LearnMore = ({
                     <li className={scss.second_column}>{breed}</li>
                     <li className={scss.second_column}>{place}</li>
                     <li className={scss.second_column}>{sex}</li>
-                    <li className={scss.second_column}>user@mail.com </li>
-                    <li className={scss.second_column}>+380971234567</li>
+                    <li className={scss.second_column}>{owner.email}</li>
+                    <li className={scss.second_column}>{owner.phone}</li>
                     {category === 'Sell' && <li className={scss.first_column}>{price}$</li>}
                   </ul>
                 </div>
@@ -111,7 +112,9 @@ const LearnMore = ({
                   onClick={handleAddToFavorites}
                 ></Button>
               )}
-              <Button customStyle={style.botton__learn_more_mobile} buttonName="Contact"></Button>
+              <button type="button" className={scss.button__contact}>
+                <a href={`tel:${owner.phone}`}>Contact</a>
+              </button>
             </div>
           </div>
         </div>

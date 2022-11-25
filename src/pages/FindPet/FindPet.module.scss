@@ -52,13 +52,14 @@
 .navContainer__findpet {
   display: flex;
   justify-content: space-between;
-  @media screen and (min-width: 767.9px) {
-    & {
-      // display: flex;
-      // justify-content: space-between;
-      height: 48px;
-    }
-  }
+  align-items: flex-start;
+  // @media screen and (min-width: 767.9px) {
+  //   & {
+  //      display: flex;
+  //      justify-content: space-between;
+  //      height: 48px;
+  //   }
+  // }
 
   // margin-bottom: 60px;
 
