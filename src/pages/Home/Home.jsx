@@ -1,5 +1,4 @@
 import scss from './Home.module.scss';
-import woman from '../../images/desctop/womanAndDog.png';
 import heart from '../../images/desctop/heart.png';
 import Container from 'components/Container';
 import { useTranslation } from 'react-i18next';
@@ -14,7 +13,6 @@ function Home() {
           <br />
           <span>{t('your small pets')}</span>
         </h1>
-        <img src={woman} alt="woman" className={scss.home__woman} />
         <img src={heart} alt="heart" className={scss.home__heart} />
       </Container>
     </div>

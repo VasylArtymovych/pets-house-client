@@ -2,32 +2,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('../../images/mobile/homeBg.png');
-  background-position: bottom;
+  background-image: url('../../images/mobile/woman.png'), url('../../images/mobile/homeBg.png');
+  background-position: right bottom, bottom;
   background-repeat: no-repeat;
-  background-size: 100vw;
-  position: relative;
-  bottom: 0px;
+  background-size: 20rem, 100vw;
   padding-top: 50px;
   height: calc(100vh - 68px);
-
   @media screen and (min-width: 768px) {
     align-items: flex-start;
-    background-image: url('../../images/tablet/homeBg.png');
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: 100vw;
-    position: relative;
-    bottom: 0px;
+    background-image: url('../../images/tablet/woman.png'), url('../../images/tablet/homeBg.png');
+    background-size: 31rem, 100vw;
   }
 
   @media screen and (min-width: 1280px) {
-    background-image: url('../../images/desctop/homeBackground.png');
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: 105vw;
-    position: relative;
-    bottom: 0px;
+    background-image: url('../../images/desctop/womanAndDog.png/'), url('../../images/desctop/homeBackground.png');
+    background-size: 39rem, 105vw;
   }
 }
 
