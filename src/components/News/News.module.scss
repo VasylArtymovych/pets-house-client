@@ -48,17 +48,25 @@
     border: none;
     background: transparent;
     position: absolute;
+    width: 20px;
+        height: 20px;
     padding: 10px;
-    right: 2px;
+    right: 17px;
+    top: 4px;
+    @media screen and (min-width: 768px) {
+            width: 24px;
+            height: 24px;
+            right: 20px;
+        }
 }
 .search_icon{
-    width: 20px;
-    height: 20px;
+    width: 14.5px;
+    height: 14.5px;
     fill: #111111;
     cursor: pointer;
     @media screen and (min-width: 768px){
-        width: 24px;
-            height: 24px;
+        width: 17.5px;
+            height: 17.5px;
     }
     
 }
@@ -93,7 +101,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 22px;
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
     list-style: none;
     max-width: 279px;
     @media screen and (min-width: 768px){
@@ -101,6 +109,8 @@
     }
     @media screen and (min-width: 1280px) {
         max-width: 394px;
+        margin-right: 22px;
+        margin-left: 0;
     }
 }
 
