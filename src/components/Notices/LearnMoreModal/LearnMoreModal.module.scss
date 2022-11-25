@@ -8,12 +8,13 @@
   // height: 504px;
   @media screen and (max-width: $breakpoint768) {
     width: 280px;
+    margin-top: auto;
     // height: 100%;
   }
 }
 
 .wrap_container_padding {
-  padding: 32px 24px 32px 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -29,11 +30,10 @@
 }
 
 .image {
-  position: relative; // что абсолютные дочерние блоки распологались относительно этого блока
   display: inline-block;
   width: 288px;
   height: 328px;
-
+  position: relative;
   margin-bottom: 28px;
 
   @media screen and (max-width: $breakpoint768) {
@@ -94,9 +94,8 @@
   align-items: center;
   width: 44px;
   height: 44px;
-  position: absolute;
-  top: 24px;
-  right: 32px;
+  margin-left: auto;
+  margin-bottom: 1rem;
   background: transparent;
   border-style: none;
   cursor: pointer;
@@ -106,13 +105,8 @@
   padding: 12px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 
-  @media screen and (max-width: $breakpoint768) {
-    width: 34px;
-    height: 34px;
-
-    top: 20px;
-    right: 20px;
-    padding: 9.22px;
+  @media screen and (min-width: $breakpoint768) {
+    order: 2;
   }
 }
 
