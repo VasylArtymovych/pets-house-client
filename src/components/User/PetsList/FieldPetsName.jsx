@@ -1,5 +1,7 @@
-import { useUpdatePetMutation } from 'redux/fetchPets';
 import { useState } from 'react';
+import { useUpdatePetMutation } from 'redux/fetchPets';
+// import { toast } from 'react-toastify';
+// import { toastMainOptions } from 'config';
 
 import { Input } from 'components/Input';
 
@@ -19,7 +21,12 @@ const FieldPetsName = ({ text, value, onIsUpdate, _id }) => {
       updatePet({ _id, [text]: petsName });
       setIsUpdate(false);
     }
+    // if (!isNaN(petsName)) {
+    //   toast.error(`Invalid value, must be a string`, toastMainOptions);
+    //   setIsUpdate(true);
+    // }
   };
+
   return (
     <li className={scss.pets__items}>
       {isUpdate ? (
@@ -35,7 +42,7 @@ const FieldPetsName = ({ text, value, onIsUpdate, _id }) => {
           </svg>
         </button>
       )}
-      <p className={scss.pets__subtitle}>{text}:</p>
+      <p className={scss.pets__subtitle}>{text}</p>
       {isUpdate ? (
         <div className={scss.pets__changeBox}>
           <Input value={petsName} customStyle={scss.input__change} name={text} onChange={(e) => setPetsName(e.currentTarget.value)} />
