@@ -1,10 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import styles from './NoticesCategoriesNav.module.scss';
 import { useLocation } from 'react-router-dom/dist';
 import { Trans, withTranslation } from 'react-i18next';
-import { postToUserNotice } from 'redux/sliceNotice';
 import { selectors } from 'redux/selectors';
 
 const link = [
@@ -19,15 +18,8 @@ const linkAuth = [
 ];
 
 const NoticesCategoriesNav = () => {
-  const isLogged = useSelector((state) => state.users.isLogged);
+  const isLogged = useSelector(selectors.isLogged);
   let location = useLocation();
-  const dispatch = useDispatch();
-  const petsByWord = useSelector(selectors.stateUserNotices);
-
-  const handleResetNoticesByWord = () => {
-    if (petsByWord === null) return;
-    dispatch(postToUserNotice({ noticesFinded: null }));
-  };
 
   return (
     <div className={styles.NoticesCategoriesNav__Container}>
@@ -36,7 +28,6 @@ const NoticesCategoriesNav = () => {
           return (
             <li key={Math.random()} className={styles.NoticesCategoriesNav__Item}>
               <NavLink
-                onClick={handleResetNoticesByWord}
                 to={el.to}
                 className={
                   location.pathname === el.to ? `${styles.NoticesCategoriesNav__Button} ${styles.active}` : styles.NoticesCategoriesNav__Button
@@ -55,7 +46,6 @@ const NoticesCategoriesNav = () => {
               return (
                 <li key={Math.random()} className={styles.NoticesCategoriesNav__Item}>
                   <NavLink
-                    onClick={handleResetNoticesByWord}
                     to={el.to}
                     className={
                       location.pathname === el.to ? `${styles.NoticesCategoriesNav__Button} ${styles.active}` : styles.NoticesCategoriesNav__Button

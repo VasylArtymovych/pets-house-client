@@ -75,64 +75,16 @@ const NoticeCategoryItem = ({
       return;
     }
 
-    // let cardId;
-
-    // switch (event.target.nodeName) {
-    //   case 'BUTTON':
-    //     cardId = event.target.parentElement.id;
-    //     break;
-    //   case 'svg':
-    //     cardId = event.target.parentElement.parentElement.id;
-    //     break;
-    //   case 'use':
-    //     cardId = event.target.parentElement.parentElement.parentElement.id;
-    //     break;
-    //   default:
-    //     break;
-    // }
-
     addToFavorites(_id);
     setIsFavorite(true);
   };
 
   const handleDeleteFromFavorites = () => {
-    // let cardId;
-
-    // switch (event.target.nodeName) {
-    //   case 'BUTTON':
-    //     cardId = event.target.parentElement.id;
-    //     break;
-    //   case 'svg':
-    //     cardId = event.target.parentElement.parentElement.id;
-    //     break;
-    //   case 'use':
-    //     cardId = event.target.parentElement.parentElement.parentElement.id;
-    //     break;
-    //   default:
-    //     break;
-    // }
-
     deleteFromFavorites(_id);
     setIsFavorite(false);
   };
 
   const handleDeleteUserNotice = () => {
-    // let cardId;
-
-    // switch (event.target.nodeName) {
-    //   case 'BUTTON':
-    //     cardId = event.target.parentElement.id;
-    //     break;
-    //   case 'svg':
-    //     cardId = event.target.parentElement.parentElement.id;
-    //     break;
-    //   case 'use':
-    //     cardId = event.target.parentElement.parentElement.parentElement.id;
-    //     break;
-    //   default:
-    //     break;
-    // }
-
     deleteUserNoticeById(_id);
     setIsOwn(false);
   };
@@ -165,35 +117,39 @@ const NoticeCategoryItem = ({
         <div className={styles.NoticeCategoryItem__infoContainer}>
           <h3 className={styles.NoticeCategoryItem__title}>{title}</h3>
           <div className={`${styles.NoticeCategoryItem__textContainer} ${styles.sell}`}>
-            <ul className={styles.NoticeCategoryItem__textListKeys}>
+            <ul className={styles.NoticeCategoryItem__textList}>
               <li className={styles.NoticeCategoryItem__textItem}>
-                <p>{t('Breed')}</p>
+                <div className={styles.NoticeCategoryItem__textKeysContainer}>
+                  <p>{t('Breed')}</p>
+                </div>
+                <div className={styles.NoticeCategoryItem__textValuesContainer}>
+                  <span className={styles.NoticeCategoryItem__textItemspan}>{breed}</span>
+                </div>
               </li>
               <li className={styles.NoticeCategoryItem__textItem}>
-                <p>{t('Place')}</p>
+                <div className={styles.NoticeCategoryItem__textKeysContainer}>
+                  <p>{t('Place')}</p>
+                </div>
+                <div className={styles.NoticeCategoryItem__textValuesContainer}>
+                  <span className={styles.NoticeCategoryItem__textItemspan}>{place}</span>
+                </div>
               </li>
               <li className={styles.NoticeCategoryItem__textItem}>
-                <p>{t('Age')}</p>
+                <div className={styles.NoticeCategoryItem__textKeysContainer}>
+                  <p>{t('Age')}</p>
+                </div>
+                <div className={styles.NoticeCategoryItem__textValuesContainer}>
+                  <span className={styles.NoticeCategoryItem__textItemspan}>{calculatedogAge(age)}</span>
+                </div>
               </li>
               {category === 'sell' && (
                 <li className={styles.NoticeCategoryItem__textItem}>
-                  <p>{t('Price')}</p>
-                </li>
-              )}
-            </ul>
-            <ul className={styles.NoticeCategoryItem__textListValues}>
-              <li className={styles.NoticeCategoryItem__textItem}>
-                <span className={styles.NoticeCategoryItem__textItemspan}>{breed}</span>
-              </li>
-              <li className={styles.NoticeCategoryItem__textItem}>
-                <span className={styles.NoticeCategoryItem__textItemspan}>{place}</span>
-              </li>
-              <li className={styles.NoticeCategoryItem__textItem}>
-                <span className={styles.NoticeCategoryItem__textItemspan}>{calculatedogAge(age)}</span>
-              </li>
-              {category === 'sell' && (
-                <li className={styles.NoticeCategoryItem__textItem}>
-                  <span className={styles.NoticeCategoryItem__textItemspan}>{price}$</span>
+                  <div className={styles.NoticeCategoryItem__textKeysContainer}>
+                    <p>{t('Price')}</p>
+                  </div>
+                  <div className={styles.NoticeCategoryItem__textValuesContainer}>
+                    <span className={styles.NoticeCategoryItem__textItemspan}>{price}$</span>
+                  </div>
                 </li>
               )}
             </ul>
