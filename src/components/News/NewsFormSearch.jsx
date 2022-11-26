@@ -22,8 +22,10 @@ const FormSearchNews = () => {
   const onChangeNews = (e) => {
     if (e.currentTarget.value === "  ") {
       toast.error(`Bad request`, toastMainOptions);
+    }else{
+      setValueIn(e.currentTarget.value);
     }
-    setValueIn(e.currentTarget.value);
+    
 }
 
 const onClickNews = (e) => {
