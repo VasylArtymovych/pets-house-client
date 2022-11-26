@@ -11,8 +11,6 @@ export const NewsList = () => {
     const { data } = useGetNewsListQuery();
 
     const onFilter = useSelector(selectors.getNews);
-
-     // toast.info('Sorry, your search did not match any results.', toastMainOptions);
     
     const getVisibleNews = () => {
         const normalizedFil = onFilter.toLocaleLowerCase()
