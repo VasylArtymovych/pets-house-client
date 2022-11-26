@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
   letter-spacing: 0.04em;
-  color: #000000;
+  color: var(--header__color);
   margin-bottom: 18px;
   @media screen and (min-width: 768px) {
     font-size: 28px;
@@ -31,7 +31,7 @@
   max-width: 280px;
   display: block;
   margin: 0 auto;
-  background: var(--btn__color);
+  background-color: var(--card__color);
   box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
   border-radius: 20px;
   padding: 20px 12px 20px 16px;
@@ -60,7 +60,7 @@
   display: flex;
   align-items: center;
   letter-spacing: 0.04em;
-  color: #000000;
+  color: var(--header__color);
   margin-bottom: 26px;
 
   @media screen and (min-width: 768px) {
@@ -100,7 +100,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 1.35;
-  color: #111111;
+  color: var(--header__color);
   margin-right: 12px;
 }
 

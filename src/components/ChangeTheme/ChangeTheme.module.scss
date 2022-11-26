@@ -1,0 +1,12 @@
+.buttonTheme {
+    cursor: pointer;
+    color: var(--header__color);
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color__activelight)
+}
+
+.buttonTheme:hover {
+    background-color: rgb(245, 146, 86);
+}
+

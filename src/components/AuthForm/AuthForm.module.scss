@@ -30,7 +30,7 @@
 	.form {
 		padding: 60px 80px 40px;
 		width: 610px;
-		background: #ffffff;
+		background: var(--form__color);
 		box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 		border-radius: 40px;
 	}
@@ -54,7 +54,7 @@
 	text-align: center;
 	letter-spacing: 0.04em;
 
-	color: #111111;
+	color: var(--text__color);
 }
 
 .button__container {
@@ -67,7 +67,7 @@
 	line-height: 16px;
 	text-align: center;
 	letter-spacing: 0.04em;
-	color: rgba(17, 17, 17, 0.6);
+	color: var(--text__color);
 }
 .redirect_link__auth {
 	color: #3091eb;

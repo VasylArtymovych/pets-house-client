@@ -41,7 +41,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 21.35;
-  color: #111111;
+  color: var(--header__color);
   @media screen and (min-width: 768px) {
     font-size: 28px;
     line-height: 1.35;
