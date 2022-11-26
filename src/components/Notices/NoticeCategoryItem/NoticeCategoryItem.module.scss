@@ -22,6 +22,28 @@
   object-fit: cover;
   width: 280px;
   height: 288px;
+  background: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)), url('../../../images/mobile/woman.png');
+  // z-index: -10;
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    max-width: initial;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 288px;
+    max-width: initial;
+  }
+}
+
+.NoticeCategoryItem__imgd {
+  display: block;
+  object-fit: cover;
+  width: 280px;
+  height: 288px;
+  background: url('../../../images/mobile/woman.png');
+  filter: blur(5px);
+  transition: filter 500ms;
 
   @media screen and (min-width: 768px) {
     width: 336px;
@@ -210,8 +232,8 @@
 
 .blurup {
   // filter: blur(5px);
-  // transition: filter 500ms;
-  animation: example 2000ms linear;
+  transition: filter 500ms;
+  animation: example 1500ms linear;
 }
 
 @keyframes example {
