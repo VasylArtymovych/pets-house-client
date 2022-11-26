@@ -13,8 +13,8 @@ const FieldPetsName = ({ text, value, onIsUpdate, _id }) => {
   const [updatePet] = useUpdatePetMutation();
 
   const handleSend = () => {
-    if (petsName.length === 0) {
-      return;
+    if (petsName.length === 0 || value === petsName) {
+      return setIsUpdate(false);
     } else {
       updatePet({ _id, [text]: petsName });
       setIsUpdate(false);

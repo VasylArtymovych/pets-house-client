@@ -13,8 +13,8 @@ const FieldPetsComments = ({ value, onIsUpdate, _id }) => {
   const [updatePet] = useUpdatePetMutation();
 
   const handleSend = () => {
-    if (petsName.length === 0) {
-      return;
+    if (petsName.length === 0 || value === petsName) {
+      return setIsUpdate(false);
     } else {
       updatePet({ _id, comments: petsName });
       setIsUpdate(false);

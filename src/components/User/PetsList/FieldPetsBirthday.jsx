@@ -14,9 +14,8 @@ const FieldPetsBirthday = ({ value, onIsUpdate, _id }) => {
   const [updatePet] = useUpdatePetMutation();
 
   const handleSend = () => {
-    if (userPetshday.length === 0) {
-      setIsUpdate(false);
-      return;
+    if (userPetshday.length === 0 || value === userPetshday) {
+      return setIsUpdate(false);
     } else {
       const date = JSON.parse(userPetshday);
       updatePet({ _id, dateOfBirth: date });
