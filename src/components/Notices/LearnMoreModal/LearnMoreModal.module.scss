@@ -1,24 +1,23 @@
 @import '../../../components/Header/container.module.scss';
 
 .wrap_container {
+  width: 280px;
+  margin-top: auto;
   background-color: #fff;
   border-radius: 40px;
-
-  // max-width: 704px;
-  // height: 504px;
-  @media screen and (max-width: $breakpoint768) {
-    width: 280px;
-    margin-top: auto;
-    // height: 100%;
-    // z-index: 15;
-  }
-}
-
-.wrap_container_padding {
+  position: relative;
   padding: 20px;
   display: flex;
   flex-direction: column;
   position: relative;
+
+  @media screen and (min-width: $breakpoint768) {
+    width: 704px;
+    padding: 32px 24px 32px 20px;
+  }
+  @media screen and (min-width: $breakpoint992) {
+    margin-top: 0;
+  }
 }
 
 .wrap_image_info {
@@ -31,16 +30,17 @@
 }
 
 .image {
-  display: inline-block;
-  width: 288px;
-  height: 328px;
+  margin-bottom: 16px;
+  height: 240px;
+  width: 240px;
   position: relative;
-  margin-bottom: 28px;
+  @media screen and (min-width: $breakpoint768) {
+    display: inline-block;
+    width: 288px;
+    height: 328px;
 
-  @media screen and (max-width: $breakpoint768) {
-    margin-bottom: 16px;
-    height: 240px;
-    width: 240px;
+    margin-bottom: 28px;
+    margin-right: 20px;
   }
 }
 
@@ -49,7 +49,6 @@
   height: 100%;
   border-radius: 0px 0px 40px 40px;
   object-fit: cover;
-  background: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)), url('../../../images/mobile/woman.png');
 }
 
 .sale {
@@ -63,12 +62,8 @@
   width: 158px;
   height: 28px;
   border-radius: 0px 10px 10px 0px;
-
-  // color: white;
-  // background: red; // сюда свою картинку прописываете
   padding: 6px 54px 6px 20px;
-  // border-radius: 10px;
-  z-index: 10; // поднять значение, если перекрывается другими элементами, но не слишком высокое, что бы например не торчало поверх попапов
+  z-index: 10;
 }
 
 .text {
@@ -80,9 +75,7 @@
   display: flex;
   align-items: center;
   letter-spacing: 0.04em;
-
   color: #111111;
-
   width: max-content;
 
   @media screen and (max-width: $breakpoint768) {
@@ -94,10 +87,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 44px;
-  height: 44px;
+  width: 34px;
+  height: 34px;
   margin-left: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 6px;
   background: transparent;
   border-style: none;
   cursor: pointer;
@@ -108,17 +101,11 @@
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 
   @media screen and (min-width: $breakpoint768) {
-    order: 2;
-  }
-}
-
-.iconClose {
-  width: 20px;
-  height: 20px;
-
-  @media screen and (max-width: $breakpoint768) {
-    width: 15.6px;
-    height: 15.6px;
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    top: 12px;
+    right: 20px;
   }
 }
 
@@ -129,13 +116,11 @@
   font-size: 28px;
   line-height: 38px;
   letter-spacing: -0.01em;
-
   color: #000000;
   margin-bottom: 20px;
 
-  @media screen and (max-width: $breakpoint768) {
+  @media screen and (min-width: $breakpoint768) {
     width: 200px;
-    font-weight: 700;
     font-size: 24px;
     line-height: 33px;
     letter-spacing: -0.01em;
@@ -153,66 +138,49 @@
 }
 
 .wrap_info {
-  margin-left: 20px;
+  width: 100%;
+  @media screen and (min-width: $breakpoint768) {
+    width: 50%;
+  }
 }
 
-.wrap_info_ul {
+.wrap_info_column {
   display: flex;
+  width: 100%;
   @media screen and (max-width: $breakpoint768) {
-    margin-bottom: 28px;
+    margin-bottom: 20px;
   }
 }
 
-.wrap_info_first_column {
-  margin-right: 50px;
+.list_info {
+  width: 100%;
 }
 
-.first_column {
-  font-family: 'Manrope';
-  font-style: normal;
+.item_info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.wrap_text_info {
+  width: 50%;
+  display: flex;
+  justify-content: start;
+  white-space: normal;
+}
+
+.first_column_info {
   font-weight: 600;
-  font-size: 16px;
-  line-height: 22px;
-
-  &:not(:last-child) {
-    margin-bottom: 8px;
-  }
-
-  @media screen and (max-width: $breakpoint768) {
-    font-size: 14px;
-    line-height: 19px;
-  }
-}
-
-.second_column {
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 22px;
-
-  &:not(:last-child) {
-    margin-bottom: 8px;
-  }
-
-  @media screen and (max-width: $breakpoint768) {
-    font-size: 14px;
-    line-height: 19px;
-  }
 }
 
 .comments {
   font-family: 'Manrope';
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.5;
-
-  display: flex;
-  align-items: center;
   letter-spacing: 0.04em;
-
   color: #000000;
-
   margin-bottom: 32px;
 
   @media screen and (max-width: $breakpoint768) {
@@ -220,12 +188,19 @@
   }
 }
 
+.comments_span {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
 .buttons {
   width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 10px;
+  @media screen and (min-width: $breakpoint768) {
+    gap: 10px;
+  }
 
   @media screen and (max-width: $breakpoint768) {
     flex-direction: column-reverse;
@@ -254,7 +229,6 @@
   -webkit-tap-highlight-color: transparent;
   outline: 0px;
   border: 0px;
-  // margin-bottom: 40px;
   cursor: pointer;
   text-decoration: none;
   font-family: Manrope, sans-serif;
@@ -284,5 +258,6 @@
   width: 160px;
   @media screen and (max-width: 768px) {
     margin-bottom: 12px;
+    width: 100%;
   }
 }
