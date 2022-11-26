@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 import { selectors } from 'redux/selectors.js';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import LazyLoad from 'react-lazyload';
 
 moment().format();
 
@@ -92,7 +93,10 @@ const NoticeCategoryItem = ({
   return (
     <>
       <li key={_id} className={styles.NoticeCategoryItem} id={_id}>
-        <img src={imageUrl} alt="" className={styles.NoticeCategoryItem__img} />
+        <LazyLoad height={200}>
+          <img src={imageUrl} alt="pet" className={`${styles.NoticeCategoryItem__img} ${styles.blurup} `} />
+        </LazyLoad>
+
         <p className={styles.NoticeCategoryItem__category}>{normilizeCategory(category)}</p>
         {isFavorite ? (
           <button className={styles.NoticeCategoryItem__heartbutton} type="button" onClick={handleDeleteFromFavorites}>

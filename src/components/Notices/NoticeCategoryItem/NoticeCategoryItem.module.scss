@@ -207,3 +207,27 @@
     margin-bottom: 8px;
   }
 }
+
+.blurup {
+  // filter: blur(5px);
+  // transition: filter 500ms;
+  animation: example 2000ms linear;
+}
+
+@keyframes example {
+  0% {
+    filter: blur(5px);
+  }
+  25% {
+    filter: blur(4px);
+  }
+  50% {
+    filter: blur(3px);
+  }
+  75% {
+    filter: blur(2px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+}
