@@ -1,7 +1,5 @@
 import { useModal } from 'hooks';
 import { useTranslation } from 'react-i18next';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 import Container from 'components/Container';
 import Modal from 'components/Modal';
@@ -45,7 +43,6 @@ const UserPage = () => {
           )}
         </div>
       </div>
-      <ToastContainer autoClose={3000} />
     </Container>
   );
 };
