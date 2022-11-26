@@ -56,81 +56,121 @@ const LearnMore = ({
   return (
     <>
       <div className={scss.wrap_container}>
-        <div className={scss.wrap_container_padding}>
-          <div className={scss.wrap_image_info}>
-            <button className={scss.button__close} onClick={onCloseModal}>
-              <PetsIcon sx={{ fontSize: 30 }} />
-            </button>
-            <div className={scss.image}>
-              <img className={scss.photo} src={imageUrl} alt="Cat error" />
-              <div className={scss.sale}>
-                <span className={scss.text}>{category}</span>
-              </div>
-            </div>
-
-            <div className={scss.wrap_info}>
-              <h3 className={scss.title}>{title}</h3>
-              <div className={scss.wrap_info_ul}>
-                <div className={scss.wrap_info_first_column}>
-                  <ul>
-                    <li className={scss.first_column}>Name:</li>
-                    <li className={scss.first_column}>Birthday:</li>
-                    <li className={scss.first_column}>Breed:</li>
-                    <li className={scss.first_column}>Place:</li>
-                    <li className={scss.first_column}>The sex:</li>
-                    <li className={scss.first_column}>Email :</li>
-                    <li className={scss.first_column}>Phone:</li>
-                    {category === 'Sell' && <li className={scss.first_column}>Sell:</li>}
-                  </ul>
-                </div>
-                <div>
-                  <ul>
-                    <li className={scss.second_column}>{name}</li>
-                    <li className={scss.second_column}>{age}</li>
-                    <li className={scss.second_column}>{breed}</li>
-                    <li className={scss.second_column}>{place}</li>
-                    <li className={scss.second_column}>{sex}</li>
-                    <li className={scss.second_column}>{owner.email}</li>
-                    <li className={scss.second_column}>{owner.phone}</li>
-                    {category === 'Sell' && <li className={scss.first_column}>{price}$</li>}
-                  </ul>
-                </div>
-              </div>
+        <div className={scss.wrap_image_info}>
+          <button className={scss.button__close} onClick={onCloseModal}>
+            <PetsIcon sx={{ fontSize: 30 }} />
+          </button>
+          <div className={scss.image}>
+            <img className={scss.photo} src={imageUrl} alt="Cat error" />
+            <div className={scss.sale}>
+              <span className={scss.text}>{category}</span>
             </div>
           </div>
-
-          <div className={scss.wrap_coments_buttons}>
-            <div>
-              <p className={scss.comments}>Comments: {comments}</p>
+          <div className={scss.wrap_info}>
+            <h3 className={scss.title}>{title}</h3>
+            <div className={scss.wrap_info_column}>
+              <ul className={scss.list_info}>
+                <li className={scss.item_info}>
+                  <div className={scss.wrap_text_info}>
+                    <p className={scss.first_column_info}>Name:</p>
+                  </div>
+                  <div className={scss.wrap_text_info}>
+                    <span>{name}</span>
+                  </div>
+                </li>
+                <li className={scss.item_info}>
+                  <div className={scss.wrap_text_info}>
+                    <p className={scss.first_column_info}>Birthday:</p>
+                  </div>
+                  <div className={scss.wrap_text_info}>
+                    <span>{age}</span>
+                  </div>
+                </li>
+                <li className={scss.item_info}>
+                  <div className={scss.wrap_text_info}>
+                    <p className={scss.first_column_info}>Breed:</p>
+                  </div>
+                  <div className={scss.wrap_text_info}>
+                    <span>{breed}</span>
+                  </div>
+                </li>
+                <li className={scss.item_info}>
+                  <div className={scss.wrap_text_info}>
+                    <p className={scss.first_column_info}>Location:</p>
+                  </div>
+                  <div className={scss.wrap_text_info}>
+                    <span>{place}</span>
+                  </div>
+                </li>
+                <li className={scss.item_info}>
+                  <div className={scss.wrap_text_info}>
+                    <p className={scss.first_column_info}>The sex:</p>
+                  </div>
+                  <div className={scss.wrap_text_info}>
+                    <span>{sex}</span>
+                  </div>
+                </li>
+                <li className={scss.item_info}>
+                  <div className={scss.wrap_text_info}>
+                    <p className={scss.first_column_info}>Email:</p>
+                  </div>
+                  <div className={scss.wrap_text_info}>
+                    <span>{owner.email}</span>
+                  </div>
+                </li>
+                <li className={scss.item_info}>
+                  <div className={scss.wrap_text_info}>
+                    <p className={scss.first_column_info}>Phone:</p>
+                  </div>
+                  <div className={scss.wrap_text_info}>
+                    <span>{owner.phone}</span>
+                  </div>
+                </li>
+                {category === 'Sell' && (
+                  <li className={scss.item_info}>
+                    <div className={scss.wrap_text_info}>
+                      <p className={scss.first_column_info}>Sell:</p>
+                    </div>
+                    <div className={scss.wrap_text_info}>
+                      <span>{price}</span>
+                    </div>
+                  </li>
+                )}
+              </ul>
             </div>
-            <div className={scss.buttons}>
-              {favorite ? (
-                <Button
-                  customStyle={style.button__auth_last + ' ' + style.botton__learn_more_mobile}
-                  buttonName="Remove"
-                  buttonIcon={
-                    <svg className={scss.iconHeart}>
-                      <use href={sprite + '#icon-heartFull'} />
-                    </svg>
-                  }
-                  onClick={handleDeleteFromFavorites}
-                ></Button>
-              ) : (
-                <Button
-                  customStyle={style.button__auth_last + ' ' + style.botton__learn_more_mobile}
-                  buttonName="Add to"
-                  buttonIcon={
-                    <svg className={scss.iconHeart}>
-                      <use href={sprite + '#icon-heartEmpty'} />
-                    </svg>
-                  }
-                  onClick={handleAddToFavorites}
-                ></Button>
-              )}
-              <button type="button" className={scss.button__contact}>
-                <a href={`tel:${owner.phone}`}>Contact</a>
-              </button>
-            </div>
+          </div>
+        </div>
+        <div className={scss.wrap_coments_buttons}>
+          <p className={scss.comments}>
+            <span className={scss.comments_span}>Comments: </span> {comments}
+          </p>
+          <div className={scss.buttons}>
+            {favorite ? (
+              <Button
+                customStyle={style.button__auth_last + ' ' + style.botton__learn_more_mobile}
+                buttonName="Remove"
+                buttonIcon={
+                  <svg className={scss.iconHeart}>
+                    <use href={sprite + '#icon-heartFull'} />
+                  </svg>
+                }
+                onClick={handleDeleteFromFavorites}
+              ></Button>
+            ) : (
+              <Button
+                customStyle={style.button__auth_last + ' ' + style.botton__learn_more_mobile}
+                buttonName="Add to"
+                buttonIcon={
+                  <svg className={scss.iconHeart}>
+                    <use href={sprite + '#icon-heartEmpty'} />
+                  </svg>
+                }
+                onClick={handleAddToFavorites}
+              ></Button>
+            )}
+            <button type="button" className={scss.button__contact}>
+              <a href={`tel:${owner.phone}`}>Contact</a>
+            </button>
           </div>
         </div>
       </div>
