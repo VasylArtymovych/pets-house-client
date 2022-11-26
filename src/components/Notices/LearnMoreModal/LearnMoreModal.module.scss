@@ -10,6 +10,7 @@
     width: 280px;
     margin-top: auto;
     // height: 100%;
+    // z-index: 15;
   }
 }
 
@@ -48,6 +49,7 @@
   height: 100%;
   border-radius: 0px 0px 40px 40px;
   object-fit: cover;
+  background: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)), url('../../../images/mobile/woman.png');
 }
 
 .sale {
