@@ -31,7 +31,7 @@
   font-size: 20px;
   line-height: 27px;
 
-  color: #111111;
+  color: var(--text__color);
 
   @media screen and (max-width: 767px) {
     position: absolute;

@@ -6,7 +6,7 @@
 
 .wraperBurgerMenu {
   position: fixed;
-  background: #fdf7f2;
+  background: var(--burger__color);
   left: 0;
   top: 0;
   height: 100vh;

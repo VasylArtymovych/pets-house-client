@@ -22,6 +22,8 @@ html[data-theme='light'] {
   --card__color: #ffffff;
   --card__shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
   --transform__card: none;
+  --burger__color:#fdf7f2;
+  --card__shadowpets:7px 4px 14px rgba(49, 21, 4, 0.07)
 }
 
 html[data-theme='dark'] {
@@ -29,10 +31,13 @@ html[data-theme='dark'] {
   --form__color: #0a0907d0;
   --text__color: #ffffff;
   --color__activedark: rgb(233, 106, 27);
-  --card__color: rgb(230, 230, 243);
+  --card__color: rgb(247, 236, 214);
   --card__shadow: 2px 4px 8px 1px rgb(105, 104, 104, 0.5),
     2px 4px 8px 3px rgb(233, 106, 27, 0.6);
   --transform__card: scale(1.015);
+  --burger__color: rgb(206, 197, 189);
+  --card__shadowpets:2px 4px 8px 1px rgb(105, 104, 104, 0.5),
+    2px 4px 8px 3px rgb(255, 107, 8, 0.6);
 
   background-image: linear-gradient(to right, #5c4d3d, #513d37, #423032, #2f242b, #1d1a21, #1d1a21, #1d1a21, #1d1a21, #2f242b, #423032, #513d37, #5c4d3d);
 }

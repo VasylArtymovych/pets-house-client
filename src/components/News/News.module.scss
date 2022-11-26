@@ -24,6 +24,7 @@
     font-size: 24px;
     line-height: 33px;
     margin-top: 42px;
+    color:var(--text__color);
     @media screen and (min-width: 768px){
         font-size: 48px;
         line-height: 66px;
@@ -101,6 +102,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 22px;
+    color:var(--text__color);
     // margin-bottom: 40px;
     list-style: none;
     max-width: 279px;
