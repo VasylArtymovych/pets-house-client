@@ -75,8 +75,8 @@ const Navigations = () => {
           </NavLink>
         ))}
       </div>
-      <ChangeLanguage />
       <ChangeTheme />
+      <ChangeLanguage />
       {/* navigation for registration */}
       {!isUser ? (
         <div className={styleNavigation.buttonLinkWrapp}>
