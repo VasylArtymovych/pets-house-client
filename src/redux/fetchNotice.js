@@ -20,8 +20,8 @@ export const noticeApi = createApi({
       providesTags: ['UserNotice']
     }),
     getNotice: builder.query({
-      query: (category) => ({
-        url: `/notice/category/${category}`,
+      query: ({ category, search = '' }) => ({
+        url: `/notice/category/${category}?search=${search}`,
         method: 'GET'
       }),
       providesTags: ['Notice']

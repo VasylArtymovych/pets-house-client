@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useLocation } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
@@ -9,18 +9,16 @@ import styles from './NoticesCategoriesList.module.scss';
 import { useGetNoticeQuery, useGetNoticeFavoritesQuery, useGetUserNoticesQuery } from 'redux/fetchNotice';
 import { useGetCurrentUserQuery } from 'redux/fetchUser';
 import { selectors } from 'redux/selectors';
-// import { postToUserNotice } from 'redux/sliceNotice';
 import { HOST } from 'config';
-// import { useOutletContext } from 'react-router-dom';
 
 const NoticesCategoriesList = () => {
+  const [searchParams] = useSearchParams();
+  let search = searchParams.get('search');
+  if (!search) search = '';
   const { t } = useTranslation();
   const { pathname } = useLocation();
 
   const isLogged = useSelector(selectors.isLogged);
-  // const dispatch = useDispatch();
-  const petsByWord = useSelector(selectors.stateUserNotices);
-  // let [petsByWord] = useOutletContext();
 
   const renderCategory = () => {
     switch (pathname) {
@@ -42,7 +40,7 @@ const NoticesCategoriesList = () => {
 
   let { refetch } = useGetCurrentUserQuery(isLogged, { skip: !isLogged });
 
-  let { data } = useGetNoticeQuery(category);
+  let { data } = useGetNoticeQuery({ category, search });
 
   let { data: favorites } = useGetNoticeFavoritesQuery(isLogged, { skip: !isLogged });
 
@@ -82,63 +80,34 @@ const NoticesCategoriesList = () => {
     }
   }, [category, data, favorites, userNotices]);
 
-  // if (petsByWord) {
-  //   setPets(petsByWord);
-  //   [petsByWord] = null;
-  // }
   console.log(pets);
   return (
     <div className={styles.NoticesCategoriesList__Container}>
       {pets && pets.length !== 0 ? (
-        // <ul className={styles.NoticesCategoriesList}>
-        <ul className={styles.NoticesCategoriesList} style={{ marginTop: isLogged && '0px' }}>
-          {petsByWord
-            ? petsByWord.map(
-                ({ _id, name, owner, comments = 'There is no comments', sex, category, petImage, title, breed, location, dateOfBirth, price }) => {
-                  return (
-                    <NoticeCategoryItem
-                      key={_id}
-                      _id={_id}
-                      name={name}
-                      owner={owner}
-                      sex={sex}
-                      comments={comments}
-                      category={category}
-                      imageUrl={`${HOST}/${petImage}`}
-                      title={title}
-                      breed={breed}
-                      place={location}
-                      price={price}
-                      age={dateOfBirth}
-                      refetchUser={refetch}
-                      isLogged={isLogged}
-                    />
-                  );
-                }
-              )
-            : pets.map(
-                ({ _id, name, owner, comments = 'There is no comments', sex, category, petImage, title, breed, location, dateOfBirth, price }) => {
-                  return (
-                    <NoticeCategoryItem
-                      key={_id}
-                      _id={_id}
-                      name={name}
-                      owner={owner}
-                      sex={sex}
-                      comments={comments}
-                      category={category}
-                      imageUrl={`${HOST}/${petImage}`}
-                      title={title}
-                      breed={breed}
-                      place={location}
-                      price={price}
-                      age={dateOfBirth}
-                      refetchUser={refetch}
-                      isLogged={isLogged}
-                    />
-                  );
-                }
-              )}
+        <ul className={styles.NoticesCategoriesList}>
+          {pets.map(
+            ({ _id, name, owner, comments = 'There is no comments', sex, category, petImage, title, breed, location, dateOfBirth, price }) => {
+              return (
+                <NoticeCategoryItem
+                  key={_id}
+                  _id={_id}
+                  name={name}
+                  owner={owner}
+                  sex={sex}
+                  comments={comments}
+                  category={category}
+                  imageUrl={`${HOST}/${petImage}`}
+                  title={title}
+                  breed={breed}
+                  place={location}
+                  price={price}
+                  age={dateOfBirth}
+                  refetchUser={refetch}
+                  isLogged={isLogged}
+                />
+              );
+            }
+          )}
         </ul>
       ) : (
         <p>{t('There are no advertisements in this category')}</p>
