@@ -1,17 +1,16 @@
-import { Form, Formik } from 'formik';
+import { Form, Formik, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import { Input, InputForm } from 'components/Input';
 import sprite from '../../images/symbol-defs.svg';
 import scss from './ModalAddsPet.module.scss';
 import { useState } from 'react';
-import DefaultAvatar from '../../images/desctop/DefaultAvatar.png';
 
 const stepTwoValidationSchema = Yup.object({
-  comments: Yup.string()
+  comments: Yup.string().required('Required')
 });
 
 export const ModalAddsPetSecondPage = (props) => {
-  const [img, setImg] = useState(DefaultAvatar);
+  const [img, setImg] = useState();
   const [file, setFile] = useState(null);
 
   const imageHandler = async (e) => {
@@ -56,8 +55,9 @@ export const ModalAddsPetSecondPage = (props) => {
               </button>
 
               <div className={scss.wrapTextarea}>
-                <label className={scss.label}> Comments</label>
-                <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Type comments" />
+                <label className={scss.label}>Comments</label>
+                <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Min 8, max 48 characters" />
+                <ErrorMessage name="comments" className={scss.error} component="p" />
               </div>
 
               <div className={scss.btnWrap}>

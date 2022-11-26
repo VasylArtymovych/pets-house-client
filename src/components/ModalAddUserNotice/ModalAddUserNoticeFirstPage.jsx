@@ -4,6 +4,7 @@ import { InputForm } from 'components/Input';
 import scss from './ModalAddUserNotice.module.scss';
 import { useTranslation } from 'react-i18next';
 import { notice } from 'services';
+
 export const ModalAddUserNoticeFirstPage = (props) => {
   const { t } = useTranslation();
   const handleSubmit = (values) => {

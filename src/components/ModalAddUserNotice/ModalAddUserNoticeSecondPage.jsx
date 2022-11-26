@@ -75,7 +75,7 @@ export const ModalAddUserNoticeSecondPage = (props) => {
               </label>
               <div className={scss.inputWrapper}>
                 <InputForm customStyle={scss.input} name="location" placeholder="City, Region" />
-                <ErrorMessage name="location" />
+                <ErrorMessage name="location" className={scss.error} component="p" />
               </div>
               {props.data.category === 'sell' && (
                 <>
