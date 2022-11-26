@@ -23,7 +23,7 @@ const AddNoticeButton = () => {
       return;
     } else {
       navigate('/login');
-      toast('Please login first.', toastMainOptions);
+      toast.info('Please login first.', toastMainOptions);
       return;
     }
   };
