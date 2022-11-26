@@ -14,8 +14,6 @@
   @media screen and (min-width: $breakpoint768) {
     width: 704px;
     padding: 32px 24px 32px 20px;
-  }
-  @media screen and (min-width: $breakpoint992) {
     margin-top: 0;
   }
 }
@@ -166,7 +164,7 @@
 .wrap_text_info {
   width: 50%;
   display: flex;
-  justify-content: start;
+  align-items: flex-start;
   white-space: normal;
 }
 

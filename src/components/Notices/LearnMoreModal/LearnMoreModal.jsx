@@ -132,7 +132,7 @@ const LearnMore = ({
                       <p className={scss.first_column_info}>Sell:</p>
                     </div>
                     <div className={scss.wrap_text_info}>
-                      <span>{price}</span>
+                      <span>{price}$</span>
                     </div>
                   </li>
                 )}
