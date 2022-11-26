@@ -7,7 +7,7 @@ export const arr = [
     name: 'Roman',
     desccription: 'Armed JS,React and Node.js',
     price: '$50.000',
-    git: ''
+    git: 'https://github.com/RomaSamkov'
   },
   {
     title: 'WANTED by IT companies',
@@ -27,17 +27,17 @@ export const arr = [
     name: 'Дмитрий',
     desccription: 'Armed & very dangerous',
     price: '$50.000',
-    git: ''
+    git: 'https://github.com/DKolod'
   },
   {
     title: 'WANTED by IT companies',
     par: 'Dead or Alive',
-    img: 'https://i.imgur.com/p8eOzMe.png',
+    img: 'https://avatars.githubusercontent.com/u/81769770?v=4',
     alt: '',
     name: 'Сергей',
     desccription: 'Armed & very dangerous',
     price: '$50.000',
-    git: ''
+    git: 'https://github.com/Sergey-Kapitanchuk'
   },
   {
     title: 'WANTED by IT companies',
@@ -47,7 +47,7 @@ export const arr = [
     name: 'Ivika Duda',
     desccription: 'Armed & very dangerous',
     price: '$50.000',
-    git: ''
+    git: 'https://github.com/IvetaDuda'
   },
   {
     title: 'WANTED by IT companies',
@@ -67,7 +67,7 @@ export const arr = [
     name: 'Володимир',
     desccription: 'Armed & very dangerous',
     price: '$50.000',
-    git: ''
+    git: 'https://github.com/PolztiukVolodymyr'
   },
   {
     title: 'WANTED by IT companies',
@@ -77,7 +77,7 @@ export const arr = [
     name: 'Vasyl Artymovych',
     desccription: 'Armed & very dangerous',
     price: '$50.000',
-    git: ''
+    git: 'https://github.com/VasylArtymovych'
   },
   {
     title: 'WANTED by IT companies',
@@ -92,12 +92,12 @@ export const arr = [
   {
     title: 'WANTED by IT companies',
     par: 'Dead or Alive',
-    img: 'https://i.imgur.com/p8eOzMe.png',
+    img: 'https://avatars.githubusercontent.com/u/92758256?v=4',
     alt: '',
-    name: 'SheihMaks',
+    name: 'Maksym Padalka',
     desccription: 'Armed & very dangerous',
     price: '$50.000',
-    git: ''
+    git: 'https://github.com/SheihMaks'
   },
   {
     title: 'WANTED by IT companies',
@@ -122,21 +122,21 @@ export const arr = [
   {
     title: 'WANTED by IT companies',
     par: 'Dead or Alive',
-    img: 'https://i.imgur.com/p8eOzMe.png',
+    img: 'https://avatars.githubusercontent.com/u/92438869?v=4',
     alt: '',
     name: 'Anna Tsisar🕊',
     desccription: 'Armed & very dangerous',
     price: '$50.000',
-    git: ''
+    git: 'https://github.com/annnacaesar'
   },
   {
     title: 'WANTED by IT companies',
     par: 'Dead or Alive',
-    img: 'https://i.imgur.com/p8eOzMe.png',
+    img: 'https://avatars.githubusercontent.com/u/92671445?v=4',
     alt: '',
-    name: 'Pavlovskyi',
+    name: 'Vitaliy',
     desccription: 'Armed & very dangerous',
     price: '$50.000',
-    git: ''
+    git: 'https://github.com/SpaceVit'
   }
 ];
