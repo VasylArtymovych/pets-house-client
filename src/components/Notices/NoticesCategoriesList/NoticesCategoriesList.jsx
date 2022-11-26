@@ -12,6 +12,7 @@ import { selectors } from 'redux/selectors';
 import { HOST } from 'config';
 
 const NoticesCategoriesList = () => {
+  const [pets, setPets] = useState(null);
   const [searchParams] = useSearchParams();
   let search = searchParams.get('search');
   if (!search) search = '';
@@ -46,8 +47,6 @@ const NoticesCategoriesList = () => {
 
   let { data: userNotices } = useGetUserNoticesQuery(isLogged, { skip: !isLogged });
 
-  const [pets, setPets] = useState(null);
-
   useEffect(() => {
     if (data || favorites || userNotices) {
       if (category === 'sell' || category === 'lost-found' || category === 'inGoodHands') {
@@ -80,7 +79,6 @@ const NoticesCategoriesList = () => {
     }
   }, [category, data, favorites, userNotices]);
 
-  console.log(pets);
   return (
     <div className={styles.NoticesCategoriesList__Container}>
       {pets && pets.length !== 0 ? (

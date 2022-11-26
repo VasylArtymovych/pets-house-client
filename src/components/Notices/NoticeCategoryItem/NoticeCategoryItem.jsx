@@ -69,13 +69,13 @@ const NoticeCategoryItem = ({
     return dogAge;
   };
 
-  const handleAddToFavorites = () => {
+  const handleAddToFavorites = async (e) => {
     if (!isLogged) {
       navigate('/login');
       return;
     }
 
-    addToFavorites(_id);
+    await addToFavorites(_id);
     setIsFavorite(true);
   };
 
