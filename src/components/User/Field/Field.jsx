@@ -12,8 +12,14 @@ export const Field = ({ text, value }) => {
 
   const [updateUser] = useUpdateUserMutation();
 
+  const handleChange = (e) => {
+    if (e.currentTarget.value === userName) return;
+    setUserName(e.currentTarget.value);
+  };
+
   const handleSend = () => {
-    if (userName.length === 0) {
+    if (userName.length === 0 || value === userName) {
+      setIsUpdate(false);
       return;
     } else {
       updateUser({ [text]: userName });
@@ -26,7 +32,7 @@ export const Field = ({ text, value }) => {
       <p className={scss.user__title}>{text}:</p>
       {isUpdate ? (
         <>
-          <Input customStyle={scss.input__change} type="text" name={text} onChange={(e) => setUserName(e.currentTarget.value)} value={userName} />
+          <Input customStyle={scss.input__change} type="text" name={text} onChange={handleChange} value={userName} />
           <button className={scss.input__btn} type="button" onClick={handleSend}>
             <svg className={scss.icon__profileCheckMark}>
               <use href={sprite + '#icon-profileCheckMark'} />

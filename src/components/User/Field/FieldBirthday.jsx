@@ -13,7 +13,7 @@ export const FieldBirthday = ({ text, value }) => {
   const [updateUser] = useUpdateUserMutation();
 
   const handleSend = () => {
-    if (userBirthday.length === 0) {
+    if (userBirthday.length === 0 || value === userBirthday) {
       setIsUpdate(false);
       return;
     } else {
