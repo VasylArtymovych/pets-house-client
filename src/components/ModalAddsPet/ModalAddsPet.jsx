@@ -6,21 +6,17 @@ import { useTranslation } from 'react-i18next';
 
 export const ModalAddsPet = (props) => {
   const { t } = useTranslation();
+
+  const [addPets] = usePostPetMutation();
+  const [page, setPage] = useState(0);
   const [data, setData] = useState({
     name: '',
     dateOfBirth: '',
     breed: '',
-    // petImage: '',
     comments: ''
   });
-  const [page, setPage] = useState(0);
-
-  // const formTitles = ['First Page', 'Second Page'];
-
-  const [addPets] = usePostPetMutation();
 
   const makeRequest = (formData) => {
-    console.log('Submiting', formData);
     addPets(formData);
   };
 
@@ -41,7 +37,7 @@ export const ModalAddsPet = (props) => {
 
   const steps = [
     <ModalAddsPetFirstPage closeModal={props.onCloseModal} next={handleNextStep} data={data} title={t('First Page')} />,
-    <ModalAddsPetSecondPage prev={handlePrevStep} closeModal={props.onCloseModal} next={handleNextStep} data={data} title={t('Second Page')} />
+    <ModalAddsPetSecondPage closeModal={props.onCloseModal} prev={handlePrevStep} next={handleNextStep} data={data} title={t('Second Page')} />
   ];
   // console.log('data', data);
   return <>{steps[page]}</>;

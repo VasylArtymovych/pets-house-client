@@ -100,7 +100,7 @@ export const ModalAddUserNoticeSecondPage = (props) => {
               </button>
               <div className={scss.wrapTextarea}>
                 <label className={scss.label}>{t('Comments')}</label>
-                <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Min 8, max 48 characters" />
+                <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Min 8, max 120 characters" />
               </div>
               <div className={scss.btnWrap}>
                 <button type="submit" className={scss.buttonFill}>

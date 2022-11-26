@@ -60,7 +60,7 @@ export const ModalAddUserNoticeFirstPage = (props) => {
                 {t('Date of birth')}
               </label>
               <div className={scss.inputWrapper}>
-                <InputForm customStyle={scss.input} name="dateOfBirth" type="text" placeholder="Date of birth: dd.mm.yyyy" />
+                <InputForm customStyle={scss.input} name="dateOfBirth" type="text" placeholder="Date format: dd.mm.yyyy" />
                 <ErrorMessage name="dateOfBirth" className={scss.error} component="p" />
               </div>
 
