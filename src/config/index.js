@@ -1,1 +1,2 @@
-export const HOST = 'https://pets-house-server-lg68.onrender.com';
+export { default as HOST } from './host';
+export * from './toastOptions';

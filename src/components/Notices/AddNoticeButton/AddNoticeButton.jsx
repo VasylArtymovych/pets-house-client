@@ -4,10 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import styles from './AddNoticeButton.module.scss';
 import { useModal } from 'hooks';
 import Modal from 'components/Modal';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import sprite from '../../../images/symbol-defs.svg';
 import { ModalAddUserNotice } from 'components/ModalAddUserNotice';
 import { useTranslation } from 'react-i18next';
+import { toastMainOptions } from 'config';
 
 const AddNoticeButton = () => {
   const { t } = useTranslation();
@@ -22,6 +23,7 @@ const AddNoticeButton = () => {
       return;
     } else {
       navigate('/login');
+      toast('Please login first.', toastMainOptions);
       return;
     }
   };

@@ -29,7 +29,7 @@ function App() {
 
   return (
     <>
-      <ToastContainer autoClose={3000} closeOnClick={true} />
+      <ToastContainer />
       <Suspense fallback={<LoaderBear />}>
         <Routes>
           <Route path="/" element={<SharedLayout />}>

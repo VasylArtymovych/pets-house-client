@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDeletePetMutation } from 'redux/fetchPets';
 import { toast } from 'react-toastify';
+import { toastMainOptions } from 'config';
 
 import FieldPetsImg from './FieldPetsImg';
 import FieldPetsName from './FieldPetsName';
@@ -16,7 +17,7 @@ const PetsList = ({ petImage, name, dateOfBirth, breed, comments, _id }) => {
 
   const deletePets = () => {
     deletePet(_id);
-    toast.success(`You deleted a pet, ${name}`);
+    toast.success(`You deleted a pet, ${name}`, toastMainOptions);
   };
 
   return (
