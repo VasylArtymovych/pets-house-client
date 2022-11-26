@@ -6,10 +6,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-}
-
-@media screen and (min-width: 767px) {
-    .container {
+    @media screen and (min-width: 767px) {
         width: 608px;
     }
 }
@@ -27,6 +24,11 @@
     background: var(--bg__color);
     border: none;
 
+    @media screen and (min-width: 767px) {
+        width: 44px;
+        height: 44px;
+    }
+
     &:hover,
     &:focus {
         transition: box-shadow 250ms ease-out;
@@ -39,19 +41,9 @@
 .crossSmall {
     width: 16px;
     height: 16px;
-}
-
-@media screen and (min-width: 767px) {
-    .crossSmall {
+    @media screen and (min-width: 767px) {
         width: 20px;
         height: 20px;
-    }
-}
-
-@media screen and (min-width: 767px) {
-    .btnClose {
-        width: 44px;
-        height: 44px;
     }
 }
 
@@ -61,10 +53,7 @@
     line-height: 33px;
     text-align: center;
     margin-top: 20px;
-}
-
-@media screen and (min-width: 767px) {
-    .title {
+    @media screen and (min-width: 767px) {
         font-size: 36px;
         line-height: 49px;
     }
@@ -75,10 +64,7 @@
     flex-direction: column;
     width: 100%;
     margin-top: 40px;
-}
-
-@media screen and (min-width: 767px) {
-    .btnWrap {
+    @media screen and (min-width: 767px) {
         flex-direction: row-reverse;
         justify-content: center;
     }
@@ -112,6 +98,12 @@
     background-color: #f59256;
     box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
     width: 100%;
+    @media screen and (min-width: 767px) {
+        max-width: 180px;
+        height: 44px;
+        margin-left: 20px;
+       
+    }
 
     &:hover,
     &:focus {
@@ -122,13 +114,6 @@
     }
 }
 
-@media screen and (min-width: 767px) {
-    .buttonFill {
-        max-width: 180px;
-        height: 44px;
-        margin-left: 20px;
-    }
-}
 
 .buttonEmpty {
     max-width: 240px;
@@ -143,6 +128,11 @@
     line-height: 22px;
     color: #111111;
     cursor: pointer;
+    @media screen and (min-width: 767px) {
+        width: 180px;
+        height: 44px;
+            
+    }
 
     &:hover,
     &:focus {
@@ -150,13 +140,6 @@
         box-shadow: 0px 0px 2px 4px rgba(245, 146, 86, 0.7);
         -webkit-box-shadow: 0px 0px 2px 4px rgba(245, 146, 86, 0.7);
         -moz-box-shadow: 0px 0px 4px 2px rgba(245, 146, 86, 0.7);
-    }
-}
-
-@media screen and (min-width: 767px) {
-    .buttonEmpty {
-        width: 180px;
-        height: 44px;
     }
 }
 
@@ -171,14 +154,6 @@
     width: 100%;
 }
 
-// .form {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     margin-top: 20px;
-//     margin-bottom: 40px;
-// }
 
 .formFirst {
     display: flex;
@@ -207,23 +182,19 @@
     position: relative;
     margin-top: 8px;
     margin-bottom: 16px;
-}
-
-@media screen and (min-width: 767px) {
-    .inputWrapper {
+    @media screen and (min-width: 767px) {
         margin-top: 12px;
         margin-bottom: 28px;
+            
     }
 }
 
 .inputWrapperLast {
      position: relative;
      margin-top: 8px;
-}
-
-@media screen and (min-width: 767px) {
-    .inputWrapperLast {
+    @media screen and (min-width: 767px) {
         margin-top: 12px;
+            
     }
 }
 
@@ -233,21 +204,17 @@
     line-height: 26px;
     width: 240px;
     height: 40px;
-}
-
-@media screen and (min-width: 767px) {
-    .input {
+    @media screen and (min-width: 767px) {
         width: 448px;
         height: 48px;
+            
     }
 }
 
 .input_last {
+    width: 240px;
     height: 40px;
-}
-
-@media screen and (min-width: 767px) {
-    .input_last {
+    @media screen and (min-width: 767px) {
         width: 448px;
         height: 48px;
     }
@@ -266,8 +233,6 @@
     opacity: 0;
     width: 100%;
     height: 100%;
-    // border-radius: 20px;
-    // border: 1px solid green;
 }
 
 .avatar__img {
@@ -291,10 +256,7 @@
     line-height: 22px;
     margin-right: auto;
     margin-left: auto;
-}
-
-@media screen and (min-width: 767px) {
-    .text {
+    @media screen and (min-width: 767px) {
         font-size: 20px;
         font-weight: 500;
     }
@@ -309,10 +271,7 @@
     margin: auto;
     margin-top: 20px;
     border: none;
-}
-
-@media screen and (min-width: 767px) {
-    .btnAddPhoto {
+    @media screen and (min-width: 767px) {
         width: 182px;
         height: 182px;
     }
@@ -326,10 +285,7 @@
     height: 45px;
     rotate: 45deg;
     fill: lightgray;
-}
-
-@media screen and (min-width: 767px) {
-    .crossBig {
+    @media screen and (min-width: 767px) {
         top: 65px;
         right: 63px;
     }
@@ -342,10 +298,7 @@
     align-items: center;
     margin-top: 20px;
     margin-bottom: 40px;
-}
-
-@media screen and (min-width: 767px) {
-    .form {
+    @media screen and (min-width: 767px) {
         margin-top: 80px;
         margin-bottom: 40px;
     }
@@ -355,10 +308,7 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 26px;
-}
-
-@media screen and (min-width: 767px) {
-    .label {
+    @media screen and (min-width: 767px) {
         font-size: 24px;
         line-height: 26px;
     }
@@ -368,12 +318,9 @@
     display: flex;
     flex-direction: column;
     margin-top: 20px;
-}
-
-@media screen and (min-width: 767px) {
-    .wrapTextarea {
+    @media screen and (min-width: 767px) {
         margin-top: 40px;
-    }
+    }   
 }
 
 .textarea {
@@ -385,14 +332,10 @@
     border-radius: 20px;
     margin-top: 8px;
     resize: none;
-}
-
-@media screen and (min-width: 767px) {
-    .textarea {
+    @media screen and (min-width: 767px) {
         width: 394px;
         height: 116px;
         margin-top: 12px;
+            
     }
 }
-
-

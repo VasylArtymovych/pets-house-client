@@ -73,18 +73,21 @@ export const ModalAddUserNoticeSecondPage = (props) => {
                 {t('Location')}
                 <span className={scss.mark}>*</span>:
               </label>
-              <InputForm customStyle={scss.input} name="location" placeholder="City, Region" />
-              <ErrorMessage name="location" />
-
+              <div className={scss.inputWrapper}>
+                <InputForm customStyle={scss.input} name="location" placeholder="City, Region" />
+                <ErrorMessage name="location" />
+              </div>
               {props.data.category === 'sell' && (
-                <div>
+                <>
                   <label htmlFor="price" className={scss.label}>
                     {t('Price')}
                     <span className={scss.mark}>*</span>:
                   </label>
-                  <InputForm customStyle={scss.input} name="price" placeholder="Not start with 0" />
-                  <ErrorMessage name="price" />
-                </div>
+                  <div className={scss.inputWrapper}>
+                    <InputForm customStyle={scss.input} name="price" placeholder="Not start with 0" />
+                    <ErrorMessage name="price" />
+                  </div>
+                </>
               )}
 
               <p className={scss.label}>{t('Load the pet’s image:')}</p>
