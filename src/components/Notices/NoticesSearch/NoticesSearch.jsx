@@ -21,6 +21,7 @@ const NoticesSearch = () => {
       return;
     }
     setSearchParams({ search: query });
+    event.target.reset();
   };
 
   return (

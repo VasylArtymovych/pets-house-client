@@ -1,13 +1,13 @@
-import { InputForm } from 'components/Input';
-import { ErrorMessage, Form, Formik } from 'formik';
-import scss from './AuthForm.module.scss';
-import Button from 'components/Button';
-import { stepOneValidationSchema } from 'services';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { ErrorMessage, Form, Formik } from 'formik';
+import { InputForm } from 'components/Input';
+import scss from './AuthForm.module.scss';
+import Button from 'components/Button';
+import { user } from 'services';
 
 export const AuthFormFirstPage = (props) => {
   const { t } = useTranslation();
@@ -22,7 +22,7 @@ export const AuthFormFirstPage = (props) => {
 
   return (
     <div className={scss.container}>
-      <Formik validationSchema={stepOneValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
+      <Formik validationSchema={user.stepOneValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
         {() => (
           <Form className={scss.form}>
             <h2 className={scss.title}>{props.title}</h2>

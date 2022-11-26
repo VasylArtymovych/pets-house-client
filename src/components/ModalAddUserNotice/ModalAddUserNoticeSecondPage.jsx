@@ -1,17 +1,11 @@
+import { useState } from 'react';
 import { Form, Formik, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import { useTranslation } from 'react-i18next';
 import PetsIcon from '@mui/icons-material/Pets';
 import { Input, InputForm } from 'components/Input';
 import sprite from '../../images/symbol-defs.svg';
 import scss from './ModalAddUserNotice.module.scss';
-import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
-
-const stepTwoValidationSchema = Yup.object({
-  location: Yup.string(),
-  price: Yup.string(),
-  comment: Yup.string()
-});
+import { notice } from 'services';
 
 export const ModalAddUserNoticeSecondPage = (props) => {
   const { t } = useTranslation();
@@ -48,7 +42,7 @@ export const ModalAddUserNoticeSecondPage = (props) => {
       </button>
       <h3 className={scss.titleSecond}>{t('Add pet')}</h3>
       <div className={scss.wrapForm}>
-        <Formik validationSchema={stepTwoValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
+        <Formik validationSchema={notice.stepTwoValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
           {() => (
             <Form className={scss.formSecond + ' ' + props.customStyle}>
               <div className={scss.wrapRadio}>
@@ -79,7 +73,7 @@ export const ModalAddUserNoticeSecondPage = (props) => {
                 {t('Location')}
                 <span className={scss.mark}>*</span>:
               </label>
-              <InputForm customStyle={scss.input} name="location" placeholder="Type location" />
+              <InputForm customStyle={scss.input} name="location" placeholder="City, Region" />
               <ErrorMessage name="location" />
 
               {props.data.category === 'sell' && (
@@ -88,7 +82,7 @@ export const ModalAddUserNoticeSecondPage = (props) => {
                     {t('Price')}
                     <span className={scss.mark}>*</span>:
                   </label>
-                  <InputForm customStyle={scss.input} name="price" placeholder="Type price" />
+                  <InputForm customStyle={scss.input} name="price" placeholder="Not start with 0" />
                   <ErrorMessage name="price" />
                 </div>
               )}
@@ -106,7 +100,7 @@ export const ModalAddUserNoticeSecondPage = (props) => {
               </button>
               <div className={scss.wrapTextarea}>
                 <label className={scss.label}>{t('Comments')}</label>
-                <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Type comments" />
+                <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Min 8, max 48 characters" />
               </div>
               <div className={scss.btnWrap}>
                 <button type="submit" className={scss.buttonFill}>

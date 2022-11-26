@@ -1,12 +1,12 @@
-import { InputForm } from 'components/Input';
-import { ErrorMessage, Form, Formik } from 'formik';
-import scss from './AuthForm.module.scss';
-import Button from 'components/Button';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { emailValidationSchema } from 'services';
 import { useForgotPasswordMutation } from 'redux/fetchUser';
 import { useTranslation } from 'react-i18next';
+import { ErrorMessage, Form, Formik } from 'formik';
+import { InputForm } from 'components/Input';
+import scss from './AuthForm.module.scss';
+import Button from 'components/Button';
+import { user } from 'services';
 
 const initialValues = {
   email: ''
@@ -35,7 +35,7 @@ export const ForgotPasswordForm = (props) => {
 
   return (
     <div className={scss.container}>
-      <Formik validationSchema={emailValidationSchema} initialValues={initialValues} onSubmit={handleSubmit}>
+      <Formik validationSchema={user.emailValidationSchema} initialValues={initialValues} onSubmit={handleSubmit}>
         {() => (
           <Form className={scss.form}>
             {!isSuccess ? (

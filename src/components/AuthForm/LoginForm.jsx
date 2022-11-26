@@ -1,16 +1,16 @@
-import { InputForm } from 'components/Input';
-import { ErrorMessage, Form, Formik } from 'formik';
-import scss from './AuthForm.module.scss';
-import Button from 'components/Button';
 import { useState } from 'react';
 import { useLogInMutation } from 'redux/fetchUser';
 import { useNavigate } from 'react-router-dom';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link } from 'react-router-dom';
-import { loginValidationSchema } from 'services';
+import { ErrorMessage, Form, Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import useSound from 'use-sound';
+import { InputForm } from 'components/Input';
+import Button from 'components/Button';
+import scss from './AuthForm.module.scss';
+import { user } from 'services';
 
 import dogsound from 'sounds/00990.mp3';
 
@@ -45,7 +45,7 @@ export const LoginForm = (props) => {
 
   return (
     <div className={scss.container}>
-      <Formik validationSchema={loginValidationSchema} initialValues={initialValues} onSubmit={handleSubmit}>
+      <Formik validationSchema={user.loginValidationSchema} initialValues={initialValues} onSubmit={handleSubmit}>
         {() => (
           <Form className={scss.form}>
             <h2 className={scss.title}>{props.title}</h2>

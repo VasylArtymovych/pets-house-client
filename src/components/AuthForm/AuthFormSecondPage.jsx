@@ -1,13 +1,12 @@
-import { InputForm } from 'components/Input';
+import { Link } from 'react-router-dom';
 import { ErrorMessage, Form, Formik } from 'formik';
+import { useTranslation } from 'react-i18next';
+import useSound from 'use-sound';
+import { InputForm } from 'components/Input';
 import scss from './AuthForm.module.scss';
 import Button from 'components/Button';
 import scssButton from '../Button/Button.module.scss';
-import { stepTwoValidationSchema } from 'services';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import useSound from 'use-sound';
-
+import { user } from 'services';
 import dogsound from 'sounds/00990.mp3';
 
 export const AuthFormSecondPage = (props) => {
@@ -18,7 +17,7 @@ export const AuthFormSecondPage = (props) => {
   const [play] = useSound(dogsound);
   return (
     <div className={scss.container}>
-      <Formik validationSchema={stepTwoValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
+      <Formik validationSchema={user.stepTwoValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
         {({ values }) => (
           <Form className={scss.form}>
             <h2 className={scss.title}>{props.title}</h2>

@@ -1,22 +1,9 @@
 import { ErrorMessage, Form, Formik, Field } from 'formik';
-import * as Yup from 'yup';
 import PetsIcon from '@mui/icons-material/Pets';
 import { InputForm } from 'components/Input';
 import scss from './ModalAddUserNotice.module.scss';
 import { useTranslation } from 'react-i18next';
-
-const stepOneValidationSchema = Yup.object({
-  title: Yup.string().required('Required'),
-  name: Yup.string().required('Required'),
-  dateOfBirth: Yup.string()
-    .matches(
-      /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/,
-      'Incorrect date format'
-    )
-    .required('Required'),
-  breed: Yup.string().required('Required')
-});
-
+import { notice } from 'services';
 export const ModalAddUserNoticeFirstPage = (props) => {
   const { t } = useTranslation();
   const handleSubmit = (values) => {
@@ -30,7 +17,7 @@ export const ModalAddUserNoticeFirstPage = (props) => {
       <h3 className={scss.title}>{t('Add pet')}</h3>
 
       <div className={scss.wrapForm}>
-        <Formik validationSchema={stepOneValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
+        <Formik validationSchema={notice.stepOneValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
           {() => (
             <Form className={scss.form + ' ' + props.customStyle}>
               <p className={scss.text}>Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur</p>
@@ -57,7 +44,7 @@ export const ModalAddUserNoticeFirstPage = (props) => {
                 <span className={scss.mark}>*</span>
               </label>
               <div className={scss.inputWrapper}>
-                <InputForm customStyle={scss.input} name="title" type="text" placeholder="Tittle of ad" />
+                <InputForm customStyle={scss.input} name="title" type="text" placeholder="Min 2, max 48 characters" />
                 <ErrorMessage name="title" className={scss.error} component="p" />
               </div>
 
@@ -65,7 +52,7 @@ export const ModalAddUserNoticeFirstPage = (props) => {
                 {t('Name pet')}
               </label>
               <div className={scss.inputWrapper}>
-                <InputForm customStyle={scss.input} name="name" type="text" placeholder="Type name pet" />
+                <InputForm customStyle={scss.input} name="name" type="text" placeholder="Min 2, max 16 characters" />
                 <ErrorMessage name="name" className={scss.error} component="p" />
               </div>
 
@@ -73,7 +60,7 @@ export const ModalAddUserNoticeFirstPage = (props) => {
                 {t('Date of birth')}
               </label>
               <div className={scss.inputWrapper}>
-                <InputForm customStyle={scss.input} name="dateOfBirth" type="text" placeholder="Type date of birth" />
+                <InputForm customStyle={scss.input} name="dateOfBirth" type="text" placeholder="Date of birth: dd.mm.yyyy" />
                 <ErrorMessage name="dateOfBirth" className={scss.error} component="p" />
               </div>
 
@@ -81,7 +68,7 @@ export const ModalAddUserNoticeFirstPage = (props) => {
                 {t('Breed')}
               </label>
               <div className={scss.inputWrapperLast}>
-                <InputForm customStyle={scss.input_last} name="breed" type="text" placeholder="Type breed" />
+                <InputForm customStyle={scss.input_last} name="breed" type="text" placeholder="Min 2, max 16 characters" />
                 <ErrorMessage name="breed" className={scss.error} component="p" />
               </div>
 

@@ -1,14 +1,14 @@
-import { InputForm } from 'components/Input';
-import { ErrorMessage, Form, Formik } from 'formik';
-import scss from './AuthForm.module.scss';
-import Button from 'components/Button';
 import { useState } from 'react';
-import { passwordValidationSchema } from 'services';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link, useParams } from 'react-router-dom';
 import { useUpdatePasswordMutation } from 'redux/fetchUser';
+import { ErrorMessage, Form, Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
+import { InputForm } from 'components/Input';
+import scss from './AuthForm.module.scss';
+import Button from 'components/Button';
+import { user } from 'services';
 
 const initialValues = {
   password: '',
@@ -45,7 +45,7 @@ export const ChangePasswordForm = (props) => {
 
   return (
     <div className={scss.container}>
-      <Formik validationSchema={passwordValidationSchema} initialValues={initialValues} onSubmit={handleSubmit}>
+      <Formik validationSchema={user.passwordValidationSchema} initialValues={initialValues} onSubmit={handleSubmit}>
         {() => (
           <Form className={scss.form}>
             {!isSuccess ? (
