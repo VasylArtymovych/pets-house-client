@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { useUpdatePetMutation } from 'redux/fetchPets';
-import { useTranslation } from 'react-i18next';
+
 import Calendar from '../Calendar';
 
 import sprite from 'images/symbol-defs.svg';
 import scss from './PetsList.module.scss';
 
 const FieldPetsBirthday = ({ value, onIsUpdate, _id }) => {
-  const { t } = useTranslation();
   const [isUpdate, setIsUpdate] = useState(onIsUpdate);
   const [userPetshday, setPetsBirthday] = useState('');
 
@@ -40,7 +39,7 @@ const FieldPetsBirthday = ({ value, onIsUpdate, _id }) => {
           </svg>
         </button>
       )}
-      <p className={scss.pets__subtitle}>{t('Date of birth:')}</p>
+      <p className={scss.pets__subtitle}>Date of birth:</p>
       {isUpdate ? (
         <Calendar
           onHandleDate={handleDate}

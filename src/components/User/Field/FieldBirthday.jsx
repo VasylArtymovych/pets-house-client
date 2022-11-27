@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useUpdateUserMutation } from 'redux/fetchUser';
+import { toast } from 'react-toastify';
+import { toastMainOptions } from 'config';
 
 import Calendar from '../Calendar';
 
@@ -10,7 +12,14 @@ export const FieldBirthday = ({ text, value }) => {
   const [isUpdate, setIsUpdate] = useState(false);
   const [userBirthday, setUserBirthday] = useState('');
 
-  const [updateUser] = useUpdateUserMutation();
+  const [updateUser, { isError }] = useUpdateUserMutation();
+
+  useEffect(() => {
+    if (isError) {
+      toast.error('Invalid value or format', toastMainOptions);
+      setIsUpdate(true);
+    }
+  }, [isError]);
 
   const handleSend = () => {
     if (userBirthday.length === 0 || value === userBirthday) {
@@ -37,20 +46,24 @@ export const FieldBirthday = ({ text, value }) => {
             customStyleDesktop={scss.input__birthdayDesk}
             onBirthday={value}
           />
-          <button className={scss.input__btn} type="button" onClick={handleSend}>
-            <svg className={scss.icon__profileCheckMark}>
-              <use href={sprite + '#icon-profileCheckMark'} />
-            </svg>
-          </button>
+          <div className={scss.btn__info}>
+            <button className={scss.input__btn} type="button" onClick={handleSend}>
+              <svg className={scss.icon__profileCheckMark}>
+                <use href={sprite + '#icon-profileCheckMark'} />
+              </svg>
+            </button>
+          </div>
         </>
       ) : (
         <>
           {!value ? <span className={scss.items_info}>00.00.0000</span> : <span className={scss.items_info}>{value}</span>}
-          <button className={scss.change__btn} onClick={() => setIsUpdate(true)}>
-            <svg className={scss.icon__profilePencil}>
-              <use href={sprite + '#icon-profilePencil'} />
-            </svg>
-          </button>
+          <div className={scss.btn__info}>
+            <button className={scss.change__btn} onClick={() => setIsUpdate(true)}>
+              <svg className={scss.icon__profilePencil}>
+                <use href={sprite + '#icon-profilePencil'} />
+              </svg>
+            </button>
+          </div>
         </>
       )}
     </li>
