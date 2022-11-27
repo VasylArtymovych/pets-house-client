@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useUpdatePetMutation } from 'redux/fetchPets';
-// import { toast } from 'react-toastify';
-// import { toastMainOptions } from 'config';
+import { toast } from 'react-toastify';
+import { toastMainOptions } from 'config';
 
 import { Input } from 'components/Input';
 
@@ -15,16 +15,16 @@ const FieldPetsName = ({ text, value, onIsUpdate, _id }) => {
   const [updatePet] = useUpdatePetMutation();
 
   const handleSend = () => {
+    const validate = /^[a-zA-Z\s]+$/;
     if (petsName.length === 0 || value === petsName) {
       return setIsUpdate(false);
     } else {
       updatePet({ _id, [text]: petsName });
       setIsUpdate(false);
     }
-    // if (!isNaN(petsName)) {
-    //   toast.error(`Invalid value, must be a string`, toastMainOptions);
-    //   setIsUpdate(true);
-    // }
+    if (!validate.test(petsName)) {
+      toast.error(`Invalid value, must be a string`, toastMainOptions);
+    }
   };
 
   return (
