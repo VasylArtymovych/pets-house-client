@@ -9,7 +9,6 @@ import styles from './NoticesCategoriesList.module.scss';
 import { useGetNoticeQuery, useGetNoticeFavoritesQuery, useGetUserNoticesQuery } from 'redux/fetchNotice';
 import { useGetCurrentUserQuery } from 'redux/fetchUser';
 import { selectors } from 'redux/selectors';
-import { HOST } from 'config';
 
 const NoticesCategoriesList = () => {
   const [pets, setPets] = useState(null);
@@ -94,7 +93,7 @@ const NoticesCategoriesList = () => {
                   sex={sex}
                   comments={comments}
                   category={category}
-                  imageUrl={`${HOST}/${petImage}`}
+                  imageUrl={petImage}
                   title={title}
                   breed={breed}
                   place={location}

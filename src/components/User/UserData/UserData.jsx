@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { selectors } from 'redux/selectors.js';
 import { useTranslation } from 'react-i18next';
-import { HOST } from 'config';
 import { useModal } from 'hooks';
 
 import UserDataItem from '../UserDataItem';
@@ -18,7 +17,7 @@ const UserData = () => {
 
   const avatar = useSelector(selectors.getUserAvatar);
 
-  const avatarImg = avatar ? `${HOST}/${avatar}` : DefaultAvatar;
+  const avatarImg = avatar ? avatar : DefaultAvatar;
 
   return (
     <div className={scss.data__container}>
