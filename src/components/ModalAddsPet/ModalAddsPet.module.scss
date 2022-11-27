@@ -253,13 +253,25 @@
     }
 }
 
+
 .error {
     position: absolute;
     top: 30%;
     right: 10%;
     color: red;
 }
-
+.error_image {
+    position: absolute;
+    top: 82%;
+    right: 21%;
+    color: red;
+}
+.error_textarea {
+    position: absolute;
+    top: 34%;
+    right: 4%;
+    color: red;
+}
 //---------------- Second page----------------
 
 .input_photo{
@@ -365,6 +377,7 @@
 }
 
 .wrapTextarea{
+    position: relative;
     display: flex;
     flex-direction: column;
     margin-top: 20px;

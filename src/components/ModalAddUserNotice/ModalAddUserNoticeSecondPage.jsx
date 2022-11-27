@@ -6,32 +6,16 @@ import { Input, InputForm } from 'components/Input';
 import sprite from '../../images/symbol-defs.svg';
 import scss from './ModalAddUserNotice.module.scss';
 import { notice } from 'services';
+import { string } from 'yup';
 
 export const ModalAddUserNoticeSecondPage = (props) => {
   const { t } = useTranslation();
   const [img, setImg] = useState();
-  const [file, setFile] = useState(null);
+  const [valid, setValid] = useState(false);
 
-  const imageHandler = async (e) => {
-    const fileUploaded = e.target.files[0];
-    setImg(URL.createObjectURL(fileUploaded));
-    setFile(fileUploaded);
-  };
+  const handleSubmit = (values) => {
 
-  const handleSubmit = ({ title, name, dateOfBirth, breed, location, price, comments, category, sex }) => {
-    const fileImg = new FormData();
-    fileImg.append('title', title);
-    fileImg.append('name', name);
-    fileImg.append('dateOfBirth', dateOfBirth);
-    fileImg.append('breed', breed);
-    fileImg.append('location', location);
-    price && fileImg.append('price', price);
-    fileImg.append('petImage', file);
-    fileImg.append('comments', comments);
-    fileImg.append('category', category);
-    fileImg.append('sex', sex);
-
-    props.next(fileImg, true);
+    props.next(values, true);
     props.closeModal();
   };
 
@@ -43,7 +27,7 @@ export const ModalAddUserNoticeSecondPage = (props) => {
       <h3 className={scss.titleSecond}>{t('Add pet')}</h3>
       <div className={scss.wrapForm}>
         <Formik validationSchema={notice.stepTwoValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
-          {() => (
+          {({setFieldValue}) => (
             <Form className={scss.formSecond + ' ' + props.customStyle}>
               <div className={scss.wrapRadio}>
                 <p className={scss.textIcon}>
@@ -69,38 +53,52 @@ export const ModalAddUserNoticeSecondPage = (props) => {
                 </div>
               </div>
 
+<div className={scss.inputWrapper}>
+
               <label htmlFor="location" className={scss.label}>
                 {t('Location')}
                 <span className={scss.mark}>*</span>:
               </label>
-              <InputForm customStyle={scss.input} name="location" placeholder="City, Region" />
-              <ErrorMessage name="location" />
+              <InputForm customStyle={scss.input} name="location" placeholder="Type location" />
+              <ErrorMessage name="location" className={scss.error_with_label} component="p"/>
+</div>
 
               {props.data.category === 'sell' && (
-                <div>
+                <div className={scss.inputWrapper}>
                   <label htmlFor="price" className={scss.label}>
                     {t('Price')}
                     <span className={scss.mark}>*</span>:
                   </label>
-                  <InputForm customStyle={scss.input} name="price" placeholder="Not start with 0" />
-                  <ErrorMessage name="price" />
+                  <InputForm customStyle={scss.input} name="price" placeholder="Type price" />
+                  <ErrorMessage name="price" className={scss.error_with_label} component="p"/>
                 </div>
               )}
 
               <p className={scss.label}>{t('Load the pet’s image:')}</p>
               <button type="button" className={scss.btnAddPhoto}>
-                {!file ? (
+              {!img ? (
                   <svg className={scss.crossBig}>
                     <use href={sprite + '#icon-blackCross'} />
                   </svg>
                 ) : (
                   <img className={scss.avatar__img} src={img} alt="avatar" />
                 )}
-                <Input customStyle={scss.input_photo} name="petImage" type="file" accept="image/*" onChange={(e) => imageHandler(e)} />
+                <Input customStyle={scss.input_photo} name="petImage" type="file" accept="image/*" onChange={(e) => {
+                  const fileUploaded = e.target.files[0];
+                  setFieldValue("petImage", e.target.files[0])
+                  setImg(URL.createObjectURL(fileUploaded));
+                  setValid(
+                    string()
+                      .required()
+                      .isValidSync(e.target.files[0])
+                  );
+          }} />
+          <p className={scss.error_image}>{!valid && "Image is required"}</p>
               </button>
               <div className={scss.wrapTextarea}>
                 <label className={scss.label}>{t('Comments')}</label>
-                <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Min 8, max 120 characters" />
+                <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Type comments" />
+                <ErrorMessage name="comments" className={scss.error_with_label} component="p" />
               </div>
               <div className={scss.btnWrap}>
                 <button type="submit" className={scss.buttonFill}>

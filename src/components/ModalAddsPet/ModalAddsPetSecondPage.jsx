@@ -1,30 +1,17 @@
 import { useState } from 'react';
-import { Form, Formik } from 'formik';
+import { ErrorMessage, Form, Formik } from 'formik';
 import { Input, InputForm } from 'components/Input';
 import sprite from 'images/symbol-defs.svg';
 import scss from './ModalAddsPet.module.scss';
-import DefaultAvatar from 'images/desctop/DefaultAvatar.png';
 import { pet } from 'services';
+import { string } from 'yup';
 
 export const ModalAddsPetSecondPage = (props) => {
-  const [img, setImg] = useState(DefaultAvatar);
-  const [file, setFile] = useState(null);
+  const [img, setImg] = useState(null);
+  const [valid, setValid] = useState(false);
 
-  const imageHandler = async (e) => {
-    const fileUploaded = e.target.files[0];
-    setImg(URL.createObjectURL(fileUploaded));
-    setFile(fileUploaded);
-  };
-
-  const handleSubmit = ({ name, dateOfBirth, breed, comments }) => {
-    const fileImg = new FormData();
-    fileImg.append('name', name);
-    fileImg.append('dateOfBirth', dateOfBirth);
-    fileImg.append('breed', breed);
-    fileImg.append('petImage', file);
-    fileImg.append('comments', comments);
-
-    props.next(fileImg, true);
+  const handleSubmit = (values) => {
+    props.next(values, true);
     props.closeModal();
   };
   return (
@@ -37,23 +24,34 @@ export const ModalAddsPetSecondPage = (props) => {
       <h3 className={scss.title}>Add pet</h3>
       <div className={scss.wrapForm}>
         <Formik validationSchema={pet.stepTwoValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
-          {() => (
-            <Form encType="multipart/form-data" className={scss.formSecond + ' ' + props.customStyle}>
+          {({setFieldValue}) => (
+            <Form encType="multipart/form-data" className={scss.formSecond}>
               <p className={scss.text}>Add photo and some comments</p>
               <button type="button" className={scss.btnAddPhoto}>
-                {!file ? (
+                {!img ? (
                   <svg className={scss.crossBig}>
                     <use href={sprite + '#icon-blackCross'} />
                   </svg>
                 ) : (
                   <img className={scss.avatar__img} src={img} alt="avatar" />
                 )}
-                <Input customStyle={scss.input_photo} type="file" accept="image/*" onChange={(e) => imageHandler(e)} />
+                <Input customStyle={scss.input_photo} type="file" accept="image/*" onChange={(e) => {
+                  const fileUploaded = e.target.files[0];
+                  setFieldValue("petImage", e.target.files[0])
+                  setImg(URL.createObjectURL(fileUploaded));
+                  setValid(
+                    string()
+                      .required()
+                      .isValidSync(e.target.files[0])
+                  );
+          } }/>
+          <p className={scss.error_image}>{!valid && "Image is required"}</p>
               </button>
 
               <div className={scss.wrapTextarea}>
                 <label className={scss.label}> Comments</label>
-                <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Min 8, max 120 characters" />
+                <InputForm customStyle={scss.textarea} name="comments" as="textarea" placeholder="Type comments" />
+                <ErrorMessage name="comments" className={scss.error_textarea} component="p" />
               </div>
 
               <div className={scss.btnWrap}>

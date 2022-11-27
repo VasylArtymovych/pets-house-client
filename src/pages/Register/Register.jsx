@@ -21,8 +21,6 @@ const Register = () => {
 
   const [page, setPage] = useState(0);
 
-  // const formTitles = ['Registration', 'Personal Info'];
-
   const makeRequest = async (formData) => {
     const { error } = await register(formData);
     console.log(error);

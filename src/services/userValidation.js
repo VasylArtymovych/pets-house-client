@@ -33,7 +33,7 @@ const stepTwoValidationSchema = Yup.object({
 		.max(70, 'Too Long!')
 		.required('Name is required')
 		.label('Name')
-		.matches(/^[a-z\s]+$/iu, 'In Latin letters'),
+		.matches(/^[a-zA-Z]+$/, 'In Latin letters'),
 	city: Yup.string()
 		.label('City')
 		.required('City, region is required')
