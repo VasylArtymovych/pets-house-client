@@ -14,7 +14,7 @@ import { selectors } from '../../redux/selectors';
 import { Trans, withTranslation } from 'react-i18next';
 import { useTranslation } from 'react-i18next';
 import ChangeLanguage from 'components/ChangeLanguage';
-import ChangeTheme from 'components/ChangeTheme/ChangeTheme';
+import ChangeTheme from 'components/ChangeTheme';
 
 const styleObjForHeaderMenuAndBurgerMenu = {
   styleNavigation,
@@ -75,8 +75,8 @@ const Navigations = () => {
           </NavLink>
         ))}
       </div>
-      <ChangeLanguage />
       <ChangeTheme />
+      <ChangeLanguage />
       {/* navigation for registration */}
       {!isUser ? (
         <div className={styleNavigation.buttonLinkWrapp}>

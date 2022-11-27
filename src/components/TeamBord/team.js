@@ -1,6 +1,6 @@
 export const arr = [
   {
-    title: 'WANTED by IT companies',
+    title: 'Looking for IT companies',
     par: 'Fullstack Developer',
     img: 'https://i.imgur.com/p8eOzMe.png',
     alt: '',

@@ -6,14 +6,14 @@ import scss from './ChangeTheme.module.scss';
 const ChangeTheme = () => {
   const { theme, setTheme } = useTheme();
 
-  const handleClickLightTheme = () => {
+  const handleClickTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
   };
 
   return (
     <div>
-      <button type="button" onClick={handleClickLightTheme} className={scss.buttonTheme}>
+      <button type="button" onClick={handleClickTheme} className={scss.buttonTheme}>
         {theme === 'light' ? <LightModeIcon /> : <DarkModeIcon />}
       </button>
     </div>

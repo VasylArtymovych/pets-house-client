@@ -24,6 +24,7 @@ padding-right: 20px;
     line-height: 33px;
     margin-bottom: 40px;
     margin-top: 47px;
+    color:var(--text__color);
     @media screen and (min-width: 768px) {
             font-size: 48px;
             line-height: 66px;
@@ -48,7 +49,7 @@ padding-right: 20px;
 }
 
 .friendItem{
-    background: var(--btn__color);
+    background: var(--card__color);
     border-radius: 20px;
     margin-top: 12px;
     width: 279px;
