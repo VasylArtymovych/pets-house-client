@@ -61,6 +61,12 @@ export const authSlice = createSlice({
       state.user.city = user.city;
       state.user.phone = user.phone;
       state.user.birthday = user.birthday;
+      state.user.avatar = user.avatar;
+      state.user.id = user._id;
+      state.user.pets = user.pets;
+      state.user.notices = user.notices;
+      state.user.favorites = user.favorites;
+      state.token = user.token;
       state.isLogged = true;
       state.loadUser = false;
     });
