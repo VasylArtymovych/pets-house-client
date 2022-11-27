@@ -72,7 +72,7 @@ export const arr = [
   {
     title: 'WANTED by IT companies',
     par: 'Dead or Alive',
-    img: 'https://i.imgur.com/p8eOzMe.png',
+    img: 'https://s.dou.ua/img/avatars/200x200_img-3248.jpg',
     alt: '',
     name: 'Vasyl Artymovych',
     desccription: 'Armed & very dangerous',
