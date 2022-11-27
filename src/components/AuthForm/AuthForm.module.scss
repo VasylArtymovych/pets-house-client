@@ -21,6 +21,7 @@
 .form {
 	width: 100%;
 	background-color: inherit;
+	height: calc(100vh - 150px);
 }
 
 @media screen and (min-width: 768px) {
