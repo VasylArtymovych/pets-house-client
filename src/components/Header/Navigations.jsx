@@ -22,22 +22,6 @@ const styleObjForHeaderMenuAndBurgerMenu = {
   styleLogo
 };
 
-// {
-//   "news": "News",
-//   "read": "Read more",
-//   "friends": "Our friends",
-//   "time": "Time:",
-//   "adress": "Address:",
-//   "email": "Email:",
-//   "phone": "Phone:",
-//   "login": "Login",
-//   "register": "Register",
-//   "Login": "Login",
-//   "Registration": "Registration",
-//   "News": "News",
-//   "Find pet": "Find pet",
-//   "Friends": "Friends",
-//   "Account": "Account"
 const link = [
   { to: '/news', text: 'news' },
   { to: '/notices', text: 'Find pet' },
