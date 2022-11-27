@@ -79,7 +79,9 @@
     font-size: 28px;
     line-height: 38px;
     letter-spacing: -0.01em;
+    margin: auto;
     margin-top: 40px;
+
 }
 
 .newsList{
@@ -88,10 +90,12 @@
         display: flex;
         flex-wrap: wrap;
         max-width: 734px;
-        margin: 0 auto;     
+        margin: auto; 
+        margin-bottom: 100px;
     }
     @media screen and (min-width: 1280px) {
         max-width: 1248px;
+        margin-bottom: 200px;
     }
     
 }

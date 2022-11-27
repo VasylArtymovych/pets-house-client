@@ -4,8 +4,8 @@ import Scss from 'components/Input/Input.module.scss'
 import sprite from 'images/symbol-defs.svg';
 import { useDispatch } from 'react-redux';
 import { setFilterNews } from 'redux/sliceNews';
-// import { useSelector } from 'react-redux';
-// import { selectors } from 'redux/selectors';
+import { toast } from 'react-toastify';
+import { toastMainOptions } from 'config';
 import { useState } from "react";
 import { useTranslation } from 'react-i18next';
 
@@ -16,10 +16,16 @@ const FormSearchNews = () => {
     const { t } = useTranslation();
 
    const dispatch = useDispatch();
-  // const onFilter = useSelector(selectors.getNews);
+  // toast.info('Please login first.', toastMainOptions);
+  // toast.error(`Bad request`, toastMainOptions);
 
   const onChangeNews = (e) => {
-    setValueIn(e.currentTarget.value);
+    if (e.currentTarget.value === " ") {
+      toast.error(`Bad request`, toastMainOptions);
+    }else{
+      setValueIn(e.currentTarget.value);
+    }
+    
 }
 
 const onClickNews = (e) => {

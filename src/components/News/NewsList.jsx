@@ -11,13 +11,12 @@ export const NewsList = () => {
     const { data } = useGetNewsListQuery();
 
     const onFilter = useSelector(selectors.getNews);
-
+    
     const getVisibleNews = () => {
         const normalizedFil = onFilter.toLocaleLowerCase()
         return data.filter(news =>
-            news.title.toLocaleLowerCase().includes(normalizedFil))
+            news.title.toLocaleLowerCase().includes(normalizedFil)) 
     };
-    
 
     
     return (
@@ -28,7 +27,12 @@ export const NewsList = () => {
                 </div>
             ) : (
                <ul className={scss.newsList}>
-            {getVisibleNews().map(({ url, title, description, date, linkNews}) => {
+                        {(getVisibleNews().length === 0) ? (
+                            <div className={scss.notNewsFound}>
+                    <h3 className={scss.notNewsFoundText}>Sorry, your search did not match any results.</h3>
+                </div>
+                            ) : (
+                                getVisibleNews().map(({ url, title, description, date, linkNews }) => {
                     return (
                         <NewsItem
                             key={url}
@@ -39,7 +43,7 @@ export const NewsList = () => {
                         />
                     )
                 }
-                )
+                ))
             }
         </ul>     
             )
