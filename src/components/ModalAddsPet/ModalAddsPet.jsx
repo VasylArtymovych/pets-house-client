@@ -13,7 +13,8 @@ export const ModalAddsPet = (props) => {
     name: '',
     dateOfBirth: '',
     breed: '',
-    comments: ''
+    petImage: "",
+    comments: '',
   });
 
   const makeRequest = (formData) => {
@@ -25,7 +26,14 @@ export const ModalAddsPet = (props) => {
     setPage((prev) => prev + 1);
 
     if (final && page === 1) {
-      makeRequest(newData);
+      const {name, dateOfBirth, breed, petImage, comments } = newData;
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('dateOfBirth', dateOfBirth);
+      formData.append('breed', breed);
+      formData.append('petImage', petImage);
+      formData.append('comments', comments);
+      makeRequest(formData);
       return;
     }
   };

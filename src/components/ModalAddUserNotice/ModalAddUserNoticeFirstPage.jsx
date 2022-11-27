@@ -44,7 +44,7 @@ export const ModalAddUserNoticeFirstPage = (props) => {
                 <span className={scss.mark}>*</span>
               </label>
               <div className={scss.inputWrapper}>
-                <InputForm customStyle={scss.input} name="title" type="text" placeholder="Min 2, max 48 characters" />
+                <InputForm customStyle={scss.input} name="title" type="text" placeholder="Type name" />
                 <ErrorMessage name="title" className={scss.error} component="p" />
               </div>
 
@@ -52,7 +52,7 @@ export const ModalAddUserNoticeFirstPage = (props) => {
                 {t('Name pet')}
               </label>
               <div className={scss.inputWrapper}>
-                <InputForm customStyle={scss.input} name="name" type="text" placeholder="Min 2, max 16 characters" />
+                <InputForm customStyle={scss.input} name="name" type="text" placeholder="Type name pet" />
                 <ErrorMessage name="name" className={scss.error} component="p" />
               </div>
 
@@ -60,7 +60,7 @@ export const ModalAddUserNoticeFirstPage = (props) => {
                 {t('Date of birth')}
               </label>
               <div className={scss.inputWrapper}>
-                <InputForm customStyle={scss.input} name="dateOfBirth" type="text" placeholder="Date format: dd.mm.yyyy" />
+                <InputForm customStyle={scss.input} name="dateOfBirth" type="text" placeholder="Type date of birth" />
                 <ErrorMessage name="dateOfBirth" className={scss.error} component="p" />
               </div>
 
@@ -68,7 +68,7 @@ export const ModalAddUserNoticeFirstPage = (props) => {
                 {t('Breed')}
               </label>
               <div className={scss.inputWrapperLast}>
-                <InputForm customStyle={scss.input_last} name="breed" type="text" placeholder="Min 2, max 16 characters" />
+                <InputForm customStyle={scss.input_last} name="breed" type="text" placeholder="Type breed" />
                 <ErrorMessage name="breed" className={scss.error} component="p" />
               </div>
 

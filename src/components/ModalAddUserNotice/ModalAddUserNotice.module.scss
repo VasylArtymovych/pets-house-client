@@ -254,6 +254,25 @@
   right: 10%;
   color: red;
 }
+  
+.error_image {
+  position: absolute;
+  top: 82%;
+  right: 13%;
+  color: red;
+}
+.error_textarea {
+  position: absolute;
+  top: 34%;
+  right: 4%;
+  color: red;
+}
+.error_with_label {
+  position: absolute;
+  top: 62%;
+ right: 6%;
+  color: red;
+}
 
 .btnContainer {
   position: relative;
@@ -515,6 +534,7 @@
 }
 
 .wrapTextarea {
+  position: relative;
   margin-top: 28px;
 }
 

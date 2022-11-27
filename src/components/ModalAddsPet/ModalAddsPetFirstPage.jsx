@@ -24,7 +24,7 @@ export const ModalAddsPetFirstPage = (props) => {
                 {t('Name pet')}
               </label>
               <div className={scss.inputWrapper}>
-                <InputForm customStyle={scss.input} name="name" placeholder="Min 2, max 16 characters" />
+                <InputForm customStyle={scss.input} name="name" placeholder="Type name pet" />
                 <ErrorMessage name="name" className={scss.error} component="p" />
               </div>
 
@@ -32,14 +32,14 @@ export const ModalAddsPetFirstPage = (props) => {
                 {t('Date of birth')}
               </label>
               <div className={scss.inputWrapper}>
-                <InputForm customStyle={scss.input} name="dateOfBirth" placeholder="Date format: dd.mm.yyyy" />
+                <InputForm customStyle={scss.input} name="dateOfBirth" placeholder="Type date of birth" />
                 <ErrorMessage name="dateOfBirth" className={scss.error} component="p" />
               </div>
               <label htmlFor="breed" className={scss.label}>
                 {t('Breed')}
               </label>
               <div className={scss.inputWrapperLast}>
-                <InputForm customStyle={scss.input_last} name="breed" placeholder="Min 2, max 16 characters" />
+                <InputForm customStyle={scss.input_last} name="breed" placeholder="Type breed" />
                 <ErrorMessage name="breed" className={scss.error} component="p" />
               </div>
               <div className={scss.btnWrap}>
