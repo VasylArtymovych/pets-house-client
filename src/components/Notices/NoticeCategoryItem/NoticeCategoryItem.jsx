@@ -10,7 +10,8 @@ import { useSelector } from 'react-redux';
 import { selectors } from 'redux/selectors.js';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+// import 'react-lazy-load-image-component/src/effects/blur.css';
 // import def from '../../../images/mobile/woman.png';
 
 moment().format();
@@ -94,7 +95,14 @@ const NoticeCategoryItem = ({
   return (
     <>
       <li key={_id} className={styles.NoticeCategoryItem} id={_id}>
-        <img src={imageUrl} alt="pet" className={`${styles.NoticeCategoryItem__img} ${styles.blurup} `} loading="lazy" />
+        <LazyLoadImage
+          className={`${styles.NoticeCategoryItem__img} ${styles.blurup} `}
+          loading="lazy"
+          // effect="blur"
+          alt="pet"
+          src={imageUrl} // use normal <img> attributes as props
+        />
+        {/* <img src={imageUrl} alt="pet" className={`${styles.NoticeCategoryItem__img} ${styles.blurup} `} loading="lazy" /> */}
 
         <p className={styles.NoticeCategoryItem__category}>{normilizeCategory(category)}</p>
         {isFavorite ? (
