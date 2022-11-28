@@ -2,7 +2,7 @@ export const arr = [
   {
     title: 'Looking for IT companies',
     par: 'Fullstack Developer',
-    img: 'https://i.imgur.com/p8eOzMe.png',
+    img: 'https://avatars.githubusercontent.com/u/92638707?v=4',
     alt: '',
     name: 'Roman',
     desccription: 'Armed JS,React and Node.js',
