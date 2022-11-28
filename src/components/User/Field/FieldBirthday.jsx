@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useUpdateUserMutation } from 'redux/fetchUser';
 import { toast } from 'react-toastify';
 import { toastMainOptions } from 'config';
+import { RotatingLines } from 'react-loader-spinner';
 
 import Calendar from '../Calendar';
 
@@ -12,7 +13,7 @@ export const FieldBirthday = ({ text, value }) => {
   const [isUpdate, setIsUpdate] = useState(false);
   const [userBirthday, setUserBirthday] = useState('');
 
-  const [updateUser, { isError }] = useUpdateUserMutation();
+  const [updateUser, { isError, isLoading }] = useUpdateUserMutation();
 
   useEffect(() => {
     if (isError) {
@@ -59,9 +60,13 @@ export const FieldBirthday = ({ text, value }) => {
           {!value ? <span className={scss.items_info}>00.00.0000</span> : <span className={scss.items_info}>{value}</span>}
           <div className={scss.btn__info}>
             <button className={scss.change__btn} onClick={() => setIsUpdate(true)}>
-              <svg className={scss.icon__profilePencil}>
-                <use href={sprite + '#icon-profilePencil'} />
-              </svg>
+              {isLoading ? (
+                <RotatingLines strokeColor="#ffffff" strokeWidth="5" animationDuration="0.75" width="20" visible={true} />
+              ) : (
+                <svg className={scss.icon__profilePencil}>
+                  <use href={sprite + '#icon-profilePencil'} />
+                </svg>
+              )}
             </button>
           </div>
         </>
