@@ -25,7 +25,7 @@ const ChangeLanguage = () => {
 
   return (
     <div className={scss.buttonLanguage}>
-      <select className={scss.changeLang} value={language} onChange={changeLanguage}>
+      <select className={scss.changeLang} value={language || ''} onChange={changeLanguage}>
         {options.map((option, idx) => (
           <option key={idx} className={scss.changeLangItem} value={option.value}>
             {option.label}
