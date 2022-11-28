@@ -222,7 +222,7 @@
 
 .input {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 26px;
   width: 240px;
   height: 40px;
@@ -234,6 +234,7 @@
     height: 48px;
     margin-top: 12px;
     margin-bottom: 28px;
+    font-size: 18px;
   }
 }
 
@@ -248,29 +249,44 @@
   }
 }
 
+.error_text_size {
+  font-size: 0.55rem;
+  @media screen and (min-width: 767px) {
+    font-size: 0.8rem;
+  }
+}
+
 .error {
+  @extend .error_text_size;
   position: absolute;
   top: 30%;
   right: 10%;
   color: red;
 }
-  
+
 .error_image {
+  @extend .error_text_size;
   position: absolute;
-  top: 82%;
-  right: 13%;
+  bottom: 12%;
+  right: 20%;
   color: red;
+  @media screen and (min-width: 767px) {
+    top: 82%;
+    right: 12%;
+  }
 }
 .error_textarea {
+  @extend .error_text_size;
   position: absolute;
   top: 34%;
   right: 4%;
   color: red;
 }
 .error_with_label {
+  @extend .error_text_size;
   position: absolute;
   top: 62%;
- right: 6%;
+  right: 6%;
   color: red;
 }
 
@@ -485,6 +501,17 @@
   // border: 1px solid green;
 }
 
+.avatar__img {
+  min-width: 182px;
+  min-height: 182px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+}
+
 .btnAddPhoto {
   position: relative;
   width: 116px;
@@ -494,6 +521,7 @@
   margin: auto;
   margin-top: 20px;
   border: none;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 767px) {

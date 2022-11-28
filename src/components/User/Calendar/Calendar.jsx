@@ -24,6 +24,7 @@ const Calendar = ({ customStyleMobile, customStyleDesktop, onHandleDate, onBirth
         <MobileDatePicker
           value={value}
           inputFormat="DD.MM.YYYY"
+          maxDate={dayjs(Date.now())}
           onChange={(newValue) => {
             setValue(newValue);
             onHandleDate(JSON.stringify(newValue.format('DD.MM.YYYY')));
@@ -39,6 +40,7 @@ const Calendar = ({ customStyleMobile, customStyleDesktop, onHandleDate, onBirth
         <DesktopDatePicker
           value={value}
           minDate={dayjs('1922-01-01')}
+          maxDate={dayjs(Date.now())}
           inputFormat="DD.MM.YYYY"
           onChange={(newValue) => {
             setValue(newValue);

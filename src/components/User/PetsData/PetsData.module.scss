@@ -14,7 +14,7 @@
   margin: 0 auto;
   background-color: var(--card__color);
   border-radius: 20px;
-  box-shadow: 7px 4px 14px #0000001c;
+  box-shadow: var(--card__shadow);
   padding: 16px 20px 40px 20px;
   &:not(:last-child) {
     margin-bottom: 20px;
@@ -46,4 +46,12 @@
     font-size: 28px;
     line-height: 1.35;
   }
+}
+
+//////spinner///////
+
+.pets__spinner {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }

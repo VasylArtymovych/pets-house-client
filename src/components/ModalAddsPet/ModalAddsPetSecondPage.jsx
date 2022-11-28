@@ -24,7 +24,7 @@ export const ModalAddsPetSecondPage = (props) => {
       <h3 className={scss.title}>Add pet</h3>
       <div className={scss.wrapForm}>
         <Formik validationSchema={pet.stepTwoValidationSchema} initialValues={props.data} onSubmit={handleSubmit}>
-          {({setFieldValue}) => (
+          {({ setFieldValue }) => (
             <Form encType="multipart/form-data" className={scss.formSecond}>
               <p className={scss.text}>Add photo and some comments</p>
               <button type="button" className={scss.btnAddPhoto}>
@@ -35,17 +35,18 @@ export const ModalAddsPetSecondPage = (props) => {
                 ) : (
                   <img className={scss.avatar__img} src={img} alt="avatar" />
                 )}
-                <Input customStyle={scss.input_photo} type="file" accept="image/*" onChange={(e) => {
-                  const fileUploaded = e.target.files[0];
-                  setFieldValue("petImage", e.target.files[0])
-                  setImg(URL.createObjectURL(fileUploaded));
-                  setValid(
-                    string()
-                      .required()
-                      .isValidSync(e.target.files[0])
-                  );
-          } }/>
-          <p className={scss.error_image}>{!valid && "Image is required"}</p>
+                <Input
+                  customStyle={scss.input_photo}
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => {
+                    const fileUploaded = e.target.files[0];
+                    setFieldValue('petImage', e.target.files[0]);
+                    setImg(URL.createObjectURL(fileUploaded));
+                    setValid(string().required().isValidSync(e.target.files[0]));
+                  }}
+                />
+                <p className={scss.error_image}>{!valid && 'Image is required'}</p>
               </button>
 
               <div className={scss.wrapTextarea}>

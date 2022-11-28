@@ -22,22 +22,6 @@ const styleObjForHeaderMenuAndBurgerMenu = {
   styleLogo
 };
 
-// {
-//   "news": "News",
-//   "read": "Read more",
-//   "friends": "Our friends",
-//   "time": "Time:",
-//   "adress": "Address:",
-//   "email": "Email:",
-//   "phone": "Phone:",
-//   "login": "Login",
-//   "register": "Register",
-//   "Login": "Login",
-//   "Registration": "Registration",
-//   "News": "News",
-//   "Find pet": "Find pet",
-//   "Friends": "Friends",
-//   "Account": "Account"
 const link = [
   { to: '/news', text: 'news' },
   { to: '/notices', text: 'Find pet' },
@@ -81,7 +65,11 @@ const Navigations = () => {
       {!isUser ? (
         <div className={styleNavigation.buttonLinkWrapp}>
           {linkAuth.map((el) => (
-            <NavLink key={Math.random()} to={el.to} className={styleNavigation.buttonlink}>
+            <NavLink
+              key={Math.random()}
+              to={el.to}
+              className={location.pathname === el.to ? `${styleNavigation.buttonlink} ${styleNavigation.active}` : styleNavigation.buttonlink}
+            >
               <Trans i18nKey={`${el.text}`}>
                 <span>{el.text}</span>
               </Trans>
