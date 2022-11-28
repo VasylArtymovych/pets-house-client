@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import SharedLayout from 'components/SharedLayout';
@@ -24,6 +24,13 @@ const NoticesCategoriesList = lazy(() => import('components/Notices/NoticesCateg
 function App() {
   const { getToken } = selectors;
   const token = useSelector(getToken);
+
+  useEffect(() => {
+    if (localStorage.getItem('app-theme') === 'dark') {
+      return;
+    }
+    localStorage.setItem('app-theme', 'light');
+  }, []);
 
   useGetCurrentUserQuery(token, { skip: !token });
 
