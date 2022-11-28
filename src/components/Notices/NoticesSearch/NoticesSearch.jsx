@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Input } from '../../Input';
@@ -7,6 +7,7 @@ import sprite from 'images/symbol-defs.svg';
 import { useTranslation } from 'react-i18next';
 
 const NoticesSearch = () => {
+  const [value, setValue] = useState('');
   const [, setSearchParams] = useSearchParams();
   let query;
   const { t } = useTranslation();
@@ -21,7 +22,12 @@ const NoticesSearch = () => {
       return;
     }
     setSearchParams({ search: query });
-    event.target.reset();
+    // event.target.reset();
+  };
+
+  const handleResetQuery = (event) => {
+    console.log(event);
+    setSearchParams({ search: '' });
   };
 
   return (
@@ -31,6 +37,11 @@ const NoticesSearch = () => {
         <button className={css.searchBar__input_button} type="submit">
           <svg className={css.iconHeart + ' ' + css.searchBar__input_icon}>
             <use href={sprite + '#icon-loupe'} />
+          </svg>
+        </button>
+        <button className={css.searchBar__input_button_delete} type="submit" onClick={handleResetQuery}>
+          <svg className={css.iconDelete + ' ' + css.searchBar__input_icon}>
+            <use href={sprite + '#icon-blackCross'} />
           </svg>
         </button>
       </form>
