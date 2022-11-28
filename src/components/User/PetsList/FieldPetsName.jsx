@@ -42,7 +42,7 @@ const FieldPetsName = ({ text, value, onIsUpdate, _id }) => {
           </svg>
         </button>
       )}
-      <p className={scss.pets__subtitle}>{text}</p>
+      <p className={scss.pets__subtitle}>{text}:</p>
       {isUpdate ? (
         <div className={scss.pets__changeBox}>
           <Input value={petsName} customStyle={scss.input__change} name={text} onChange={(e) => setPetsName(e.currentTarget.value)} />
