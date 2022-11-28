@@ -26,7 +26,7 @@ export const stepTwoValidationSchema = Yup.object({
   location: Yup.string()
     .required('Location is required')
     .label('Location')
-    .matches(/^[a-zA-Z\s,]+$/iu, 'Only Latin letters'),
+    .matches(/^[a-zA-Z]+,\s[a-zA-Z]+$/iu, 'Only: City, Region'),
   price: Yup.string()
     .label('Price')
     .matches(/^[1-9][0-9]*$/, 'Not start with 0')

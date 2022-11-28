@@ -254,7 +254,7 @@
   right: 10%;
   color: red;
 }
-  
+
 .error_image {
   position: absolute;
   top: 82%;
@@ -270,7 +270,7 @@
 .error_with_label {
   position: absolute;
   top: 62%;
- right: 6%;
+  right: 6%;
   color: red;
 }
 
@@ -485,6 +485,17 @@
   // border: 1px solid green;
 }
 
+.avatar__img {
+  min-width: 182px;
+  min-height: 182px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+}
+
 .btnAddPhoto {
   position: relative;
   width: 116px;
@@ -494,6 +505,7 @@
   margin: auto;
   margin-top: 20px;
   border: none;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 767px) {
