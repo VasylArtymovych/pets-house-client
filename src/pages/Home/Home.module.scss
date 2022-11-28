@@ -7,7 +7,7 @@
   background-repeat: no-repeat;
   background-size: 20rem, 100vw;
   padding-top: 50px;
-  height: calc(100vh - 68px);
+  height: calc(100vh - 72px);
   @media screen and (min-width: 768px) {
     align-items: flex-start;
     background-image: url('../../images/tablet/woman.png'), url('../../images/tablet/homeBg.png');
@@ -28,7 +28,7 @@
   line-height: 1.37;
   height: 88px;
   opacity: 0%;
-  color:var(--text__color);
+  color: var(--text__color);
   animation-name: title;
   animation-duration: var(--animation__duration__woman);
   animation-timing-function: linear;
