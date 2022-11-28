@@ -65,7 +65,11 @@ const Navigations = () => {
       {!isUser ? (
         <div className={styleNavigation.buttonLinkWrapp}>
           {linkAuth.map((el) => (
-            <NavLink key={Math.random()} to={el.to} className={styleNavigation.buttonlink}>
+            <NavLink
+              key={Math.random()}
+              to={el.to}
+              className={location.pathname === el.to ? `${styleNavigation.buttonlink} ${styleNavigation.active}` : styleNavigation.buttonlink}
+            >
               <Trans i18nKey={`${el.text}`}>
                 <span>{el.text}</span>
               </Trans>
