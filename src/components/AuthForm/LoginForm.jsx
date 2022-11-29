@@ -30,7 +30,6 @@ export const LoginForm = (props) => {
   const togglePassword = () => setPasswordShow((prevState) => !prevState);
 
   const handleSubmit = async (formData, { resetForm }) => {
-    console.log(formData);
     const { error } = await login(formData);
     if (error) {
       setIsError({

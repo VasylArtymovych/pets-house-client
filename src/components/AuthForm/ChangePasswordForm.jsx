@@ -31,7 +31,6 @@ export const ChangePasswordForm = (props) => {
   const handleSubmit = async ({ password }, { resetForm }) => {
     setIsSuccess(true);
     const { error } = await changePassword({ password, id });
-    console.log(error, 'error');
     if (error) {
       console.log('is error', error);
       setIsError({
