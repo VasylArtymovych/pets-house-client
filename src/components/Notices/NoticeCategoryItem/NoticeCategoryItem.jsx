@@ -68,7 +68,7 @@ const NoticeCategoryItem = ({
   }, [refetchUser, isFavorite, isOwn, isLogged]);
 
   const calculatedogAge = (age) => {
-    const dogAge = moment(age, 'DD.MM.YYYY').fromNow().slice(0, -4);
+    const dogAge = moment(age, 'DD.MM.YYYY').fromNow(true);
     return dogAge;
   };
 
