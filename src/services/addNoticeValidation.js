@@ -18,9 +18,12 @@ export const stepOneValidationSchema = Yup.object({
       'is-date-valid',
       () => `Future date not allowed`,
       (value) => {
-        let date = value.split('.');
-        const corectFormat = new Date(`${date[2]}/${date[1]}/${date[0]}`);
-        return corectFormat.getTime() < Date.now();
+        if (value) {
+          let date = value.split('.');
+          const corectFormat = new Date(`${date[2]}/${date[1]}/${date[0]}`);
+          return corectFormat.getTime() < Date.now();
+        }
+        return true;
       }
     )
     .label('Date of birth')
