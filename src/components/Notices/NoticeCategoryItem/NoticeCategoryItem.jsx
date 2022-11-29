@@ -3,7 +3,6 @@ import LearnMoreModal from '../LearnMoreModal';
 import { useNavigate } from 'react-router-dom';
 import styles from './NoticeCategoryItem.module.scss';
 import sprite from '../../../images/symbol-defs.svg';
-import noImageAvailable from 'images/No_image_available.png';
 import moment from 'moment';
 import Modal from 'components/Modal';
 import { useAddToFavoritesMutation, useDeleteFromFavoritesMutation, useDeleteUserNoticeByIdMutation } from 'redux/fetchNotice';
