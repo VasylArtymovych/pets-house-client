@@ -1,17 +1,20 @@
-import Footer from 'components/Footer';
-import Header from 'components/Header';
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import PetsIcon from '@mui/icons-material/Pets';
 import styleAnimation from './SharedLayout.module.scss';
-import { useState } from 'react';
 import Modal from 'components/Modal';
+import Footer from 'components/Footer';
 import TeamBord from 'components/TeamBord';
+import { Header, Logo, Navigations } from 'components/Header';
 
 function SharedLayout() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
-      <Header />
+      <Header>
+        <Logo />
+        <Navigations />
+      </Header>
       <Outlet />
       <Footer>
         <div className={styleAnimation.footerBicycle}></div>

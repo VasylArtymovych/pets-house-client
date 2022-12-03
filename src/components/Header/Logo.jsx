@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-
+import css from './Logo.module.scss';
 const logo = ['p', 'e', 't', 'l', 'y'];
 
-const Logo = ({ styleProp }) => {
+const Logo = () => {
   const variant = {
     visible: (i) => ({
       opacity: 1,
@@ -18,7 +18,7 @@ const Logo = ({ styleProp }) => {
   };
 
   return (
-    <div className={styleProp}>
+    <div className={css.logo}>
       {logo.map((letter, i) => {
         if (letter === 't') {
           return (
