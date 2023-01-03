@@ -6,7 +6,6 @@ import Button from 'components/Button';
 import style from '../../Button/Button.module.scss';
 import { useSelector } from 'react-redux';
 import { useAddToFavoritesMutation, useDeleteFromFavoritesMutation } from '../../../redux/fetchNotice';
-
 import sprite from '../../../images/symbol-defs.svg';
 
 const LearnMore = ({

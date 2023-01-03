@@ -23,14 +23,14 @@ const styleObjForHeaderMenuAndBurgerMenu = {
 };
 
 const link = [
-  { to: '/news', text: 'news' },
-  { to: '/notices', text: 'Find pet' },
-  { to: '/friends', text: 'Friends' }
+  { to: '/news', text: 'news', id: 1 },
+  { to: '/notices', text: 'Find pet', id: 2 },
+  { to: '/friends', text: 'Friends', id: 3 }
 ];
 
 const linkAuth = [
-  { to: '/login', text: 'Login' },
-  { to: '/register', text: 'register' }
+  { to: '/login', text: 'Login', id: 1 },
+  { to: '/register', text: 'register', id: 2 }
 ];
 
 const Navigations = () => {
@@ -49,7 +49,7 @@ const Navigations = () => {
       <div className={styleNavigation.navigationLinkWrapper}>
         {link.map((el) => (
           <NavLink
-            key={Math.random()}
+            key={el.id}
             to={el.to}
             className={location.pathname === el.to ? `${styleNavigation.navigationLink} ${styleNavigation.active}` : styleNavigation.navigationLink}
           >
@@ -66,7 +66,7 @@ const Navigations = () => {
         <div className={styleNavigation.buttonLinkWrapp}>
           {linkAuth.map((el) => (
             <NavLink
-              key={Math.random()}
+              key={el.id}
               to={el.to}
               className={location.pathname === el.to ? `${styleNavigation.buttonlink} ${styleNavigation.active}` : styleNavigation.buttonlink}
             >

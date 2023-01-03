@@ -2,11 +2,6 @@ import { NavLink } from 'react-router-dom';
 // import { Trans, withTranslation } from 'react-i18next';
 import { useTranslation } from 'react-i18next';
 
-// const linkAuth = [
-//   { to: '/login', text: 'Login' },
-//   { to: '/register', text: 'register' }
-// ];
-
 const CenterBlock = ({ styleProp, isOpen }) => {
   const { t } = useTranslation();
   return (

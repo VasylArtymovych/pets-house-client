@@ -2,15 +2,13 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Trans } from 'react-i18next';
 
-
 const link = [
-  { to: '/news', text: 'news' },
-  { to: '/notices', text: 'Find pet' },
-  { to: '/friends', text: 'Friends' }
+  { to: '/news', text: 'news', id: 1 },
+  { to: '/notices', text: 'Find pet', id: 2 },
+  { to: '/friends', text: 'Friends', id: 3 }
 ];
 
 const BottomBlock = ({ styleProp, isOpen }) => {
-
   const variant = {
     visible: (i) => ({
       opacity: 1,
@@ -31,7 +29,7 @@ const BottomBlock = ({ styleProp, isOpen }) => {
     <div className={styleProp.styleNavigation.navigationLinkWrapperMenuBurger}>
       {link.map((el, i) => (
         <motion.div
-          key={Math.random()}
+          key={el.id}
           className={
             location.pathname === el.to
               ? `${styleProp.styleNavigation.active} ${styleProp.styleNavigation.navigationLinkMenuBurger}`
